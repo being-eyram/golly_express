@@ -114,4 +114,4 @@ final productCategories = [
 
 var sampleNotificationTitle = "Title Goes Here";
 var sampleNotificationSubtitle =
-    "Lorem ipsum dolor sit amet consectetur. Eget justo morbi vitae diam. Aliquet arcu mattis pellentesque tellus turpis adipiscing non ...";
+    "Lorem ipsum dolor sit amet consectetur. Aliquet arcu mattis pellentesque tellus turpis adipiscing non ...";
