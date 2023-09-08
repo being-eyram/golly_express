@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -23,7 +22,8 @@ class SignUpScreen extends ConsumerWidget {
         children: [
           const Divider(color: Color(0xFFEDEFEE)),
           Padding(
-            padding: const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 24.0),
+            padding: const EdgeInsets.only(
+                left: 16, right: 16, top: 16, bottom: 24.0),
             child: FilledButton(
               style: FilledButton.styleFrom(
                 minimumSize: const Size(double.infinity, 54),
@@ -101,7 +101,8 @@ class SignUpPasswordScreen extends ConsumerWidget {
         children: [
           const Divider(color: Color(0xFFEDEFEE)),
           Padding(
-            padding: const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 24.0),
+            padding: const EdgeInsets.only(
+                left: 16, right: 16, top: 16, bottom: 24.0),
             child: FilledButton(
               style: FilledButton.styleFrom(
                 minimumSize: const Size(double.infinity, 54),
@@ -144,7 +145,9 @@ class SignUpPasswordScreen extends ConsumerWidget {
                 isPasswordInput: true,
                 obscureText: ref.watch(showPasswordProvider),
                 onTapObscureText: () {
-                  ref.read(showPasswordProvider.notifier).update((state) => !state);
+                  ref
+                      .read(showPasswordProvider.notifier)
+                      .update((state) => !state);
                 },
               ),
             ),
@@ -155,7 +158,9 @@ class SignUpPasswordScreen extends ConsumerWidget {
                 isPasswordInput: true,
                 obscureText: ref.watch(showPasswordProvider),
                 onTapObscureText: () {
-                  ref.read(showPasswordProvider.notifier).update((state) => !state);
+                  ref
+                      .read(showPasswordProvider.notifier)
+                      .update((state) => !state);
                 },
               ),
             ),

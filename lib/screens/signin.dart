@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -64,7 +63,9 @@ class SigninScreen extends ConsumerWidget {
                     isPasswordInput: true,
                     obscureText: ref.watch(showPasswordProvider),
                     onTapObscureText: () {
-                      ref.read(showPasswordProvider.notifier).update((state) => !state);
+                      ref
+                          .read(showPasswordProvider.notifier)
+                          .update((state) => !state);
                     },
                   ),
                 ),
@@ -161,7 +162,8 @@ class SigninScreen extends ConsumerWidget {
                       children: <TextSpan>[
                         TextSpan(
                             text: 'Terms of Use',
-                            style: const TextStyle(decoration: TextDecoration.underline),
+                            style: const TextStyle(
+                                decoration: TextDecoration.underline),
                             recognizer: TapGestureRecognizer()
                               ..onTap = () {
                                 print('Terms of Use"');
@@ -169,7 +171,8 @@ class SigninScreen extends ConsumerWidget {
                         const TextSpan(text: ' and '),
                         TextSpan(
                           text: 'Privacy Policy',
-                          style: const TextStyle(decoration: TextDecoration.underline),
+                          style: const TextStyle(
+                              decoration: TextDecoration.underline),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
                               print('Privacy Policy');
