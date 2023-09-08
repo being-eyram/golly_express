@@ -17,31 +17,33 @@ class TrackPackageCard extends StatelessWidget {
       ),
       child: const Padding(
         padding: EdgeInsets.symmetric(vertical: 24.0, horizontal: 16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Track your package",
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w800,
+        child: Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Track your package",
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w800,
+                ),
               ),
-            ),
-            SizedBox(
-              height: 8,
-            ),
-            Text(
-              "Enter tracking number and find your order",
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w400,
+              SizedBox(
+                height: 8,
               ),
-            ),
-            SizedBox(
-              height: 24,
-            ),
-            TrackingNumberSearchField()
-          ],
+              Text(
+                "Enter tracking number and find your order",
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              SizedBox(
+                height: 24,
+              ),
+              TrackingNumberSearchField()
+            ],
+          ),
         ),
       ),
     );

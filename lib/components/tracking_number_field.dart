@@ -30,7 +30,7 @@ class TrackingNumberSearchField extends StatelessWidget {
             focusedBorder: OutlineInputBorder(
               borderSide: const BorderSide(
                 color: Colors.white,
-                width: 2,
+                width: 1,
               ),
               borderRadius: BorderRadius.circular(12.0),
             ),
