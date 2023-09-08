@@ -27,30 +27,32 @@ class VerifyIDCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             userID,
-            const SizedBox(width: 16),
-            const Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Verify your ID",
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w800,
+            const SizedBox(width: 8),
+            const Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Verify your ID",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w800,
+                    ),
                   ),
-                ),
-                SizedBox(height: 4),
-                Text(
-                  "A valid Ghana card is required to verify\n your account",
-                  style: TextStyle(
-                    color: Color(0xFFA3ADAA),
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                  ),
-                )
-              ],
+                  SizedBox(height: 4),
+                  Text(
+                    "A valid Ghana card is required to verify your account",
+                    style: TextStyle(
+                      color: Color(0xFFA3ADAA),
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  )
+                ],
+              ),
             ),
-            const SizedBox(width: 50),
+            const SizedBox(width: 8),
             IconButton(
               onPressed: () {},
               icon: const Icon(Icons.arrow_forward_ios),
