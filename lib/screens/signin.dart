@@ -1,8 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:golly_express/constants.dart';
 import 'package:golly_express/providers/providers.dart';
 
 import '../components/input_field.dart';
@@ -12,20 +12,6 @@ class SigninScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final appLogo = Image.asset(
-      'assets/images/golly_express.jpeg',
-      width: 98,
-      height: 91,
-    );
-    final googleSvg = SvgPicture.asset(
-      'assets/images/ic_google.svg',
-      semanticsLabel: 'Google Logo',
-    );
-    final appleSvg = SvgPicture.asset(
-      'assets/images/ic_apple.svg',
-      semanticsLabel: 'Apple Logo',
-    );
-
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
@@ -35,7 +21,7 @@ class SigninScreen extends ConsumerWidget {
           children: [
             Column(
               children: [
-                appLogo,
+                gollyExpressLogo,
                 const Padding(
                   padding: EdgeInsets.only(bottom: 8),
                   child: Text(
@@ -114,7 +100,7 @@ class SigninScreen extends ConsumerWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        googleSvg,
+                        googleLogo,
                         const SizedBox(width: 8),
                         const Text(
                           "Continue with Google",
@@ -139,7 +125,7 @@ class SigninScreen extends ConsumerWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        appleSvg,
+                        appleLogo,
                         const SizedBox(width: 8),
                         const Text(
                           "Sign in with Apple",

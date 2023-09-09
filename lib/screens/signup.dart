@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:golly_express/constants.dart';
 
 import '../components/input_field.dart';
 import '../providers/providers.dart';
@@ -87,12 +88,6 @@ class SignUpPasswordScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final appLogo = Image.asset(
-      'assets/images/golly_express.jpeg',
-      width: 98,
-      height: 91,
-    );
-
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: Colors.white,
@@ -121,7 +116,7 @@ class SignUpPasswordScreen extends ConsumerWidget {
         padding: const EdgeInsets.only(top: 64, right: 16, left: 16),
         child: Column(
           children: [
-            appLogo,
+            gollyExpressLogo,
             const Padding(
               padding: EdgeInsets.only(bottom: 8),
               child: Text(
