@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:golly_express/constants.dart';
 
 class VerifyIDCard extends StatelessWidget {
   const VerifyIDCard({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final userID = Image.asset(
-      "assets/images/user_id.png",
-      width: 45,
-      height: 45,
-    );
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
@@ -21,12 +17,12 @@ class VerifyIDCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(
           vertical: 12.0,
-          horizontal: 16,
+          horizontal: 16.0,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            userID,
+            userIDIcon,
             const SizedBox(width: 8),
             const Expanded(
               child: Column(
