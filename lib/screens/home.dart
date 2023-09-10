@@ -66,7 +66,7 @@ class HomeScreen extends ConsumerWidget {
                       child: IconWithTextCard(
                         cardTitle: "Calculate Estimate",
                         cardColor: const Color(0xFFFFFBEE),
-                        cardIcon: calculatorSVG,
+                        cardIcon: calculatorIcon,
                         iconContainerColor: const Color(0xFFFFC727),
                       ),
                     ),
@@ -77,7 +77,7 @@ class HomeScreen extends ConsumerWidget {
                       child: IconWithTextCard(
                         cardTitle: "Create Shipment",
                         cardColor: const Color(0xFFFFE6E2),
-                        cardIcon: cargoShipSVG,
+                        cardIcon: cargoShipIcon,
                         iconContainerColor: const Color(0xFFB35042),
                       ),
                     ),
@@ -103,7 +103,7 @@ class PackageTrackingHistory extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text(
-          "Tracking History",
+          "Tracking ",
           style: TextStyle(
             fontSize: 17,
             fontWeight: FontWeight.w700,
@@ -113,7 +113,7 @@ class PackageTrackingHistory extends StatelessWidget {
         Center(
           child: Column(
             children: [
-              packageSVG,
+              trackingHistoryPackage,
               const Text(
                 "There are no tracking history",
                 style: TextStyle(
