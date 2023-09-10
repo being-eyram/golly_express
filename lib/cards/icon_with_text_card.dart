@@ -17,8 +17,8 @@ class IconWithTextCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       // ...
-      height: 86,
-      width: 167,
+      // height: 86,
+      // width: 167,
       padding: const EdgeInsets.symmetric(vertical: 14.0, horizontal: 16.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
