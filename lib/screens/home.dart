@@ -48,39 +48,43 @@ class HomeScreen extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  "Good Morning, Ben-Aaron",
+                  "Good Morning, Kisa",
                   style: TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
                 const SizedBox(height: 16),
-                VerifyIDCard(),
+                const VerifyIDCard(),
                 const SizedBox(height: 16),
-                TrackPackageCard(),
+                const TrackPackageCard(),
                 const SizedBox(height: 16),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    IconWithTextCard(
-                      cardTitle: "Calculate Estimate",
-                      cardColor: const Color(0xFFFFFBEE),
-                      cardIcon: calculatorSVG,
-                      iconContainerColor: const Color(0xFFFFC727),
+                    Expanded(
+                      child: IconWithTextCard(
+                        cardTitle: "Calculate Estimate",
+                        cardColor: const Color(0xFFFFFBEE),
+                        cardIcon: calculatorSVG,
+                        iconContainerColor: const Color(0xFFFFC727),
+                      ),
                     ),
                     const SizedBox(
                       width: 10,
                     ),
-                    IconWithTextCard(
-                      cardTitle: "Create Shipment",
-                      cardColor: const Color(0xFFFFE6E2),
-                      cardIcon: cargoShipSVG,
-                      iconContainerColor: const Color(0xFFB35042),
+                    Expanded(
+                      child: IconWithTextCard(
+                        cardTitle: "Create Shipment",
+                        cardColor: const Color(0xFFFFE6E2),
+                        cardIcon: cargoShipSVG,
+                        iconContainerColor: const Color(0xFFB35042),
+                      ),
                     ),
                   ],
                 ),
                 const SizedBox(height: 24),
-                PackageTrackingHistory(),
+                const PackageTrackingHistory(),
               ],
             ),
           ),
@@ -124,13 +128,3 @@ class PackageTrackingHistory extends StatelessWidget {
     );
   }
 }
-
-// old stuff
-// Container(
-//         width: double.infinity,
-//         color: const Color(0xFfE6EAED),
-//         child: GridView.count(
-//           crossAxisCount: 3,
-//           children: List.generate(6, (index) => Text("$index")),
-//         ),
-//       ),
