@@ -15,13 +15,26 @@ final appleLogo = SvgPicture.asset(
   semanticsLabel: 'Apple Logo',
 );
 
-final calculatorSVG = SvgPicture.asset(
+final calculatorIcon = SvgPicture.asset(
   'assets/images/ic_calculator.svg',
   semanticsLabel: 'Calculator',
 );
-final cargoShipSVG = SvgPicture.asset(
+final cargoShipIcon = SvgPicture.asset(
   'assets/images/ic_cargo_ship.svg',
-  semanticsLabel: 'Calculator',
+  semanticsLabel: 'Cargo Ship',
+);
+
+final trackingHistoryPackage = SvgPicture.asset(
+  'assets/images/vec_package2.png',
+  semanticsLabel: 'Package',
+  height: 200,
+  width: 200,
+);
+
+final packageVector = Image.asset(
+  'assets/images/vec_package1.png',
+  height: 200,
+  width: 200,
 );
 
 final userIDIcon = Image.asset(
