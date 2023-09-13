@@ -159,6 +159,12 @@ class PackageCard extends StatelessWidget {
           width: 1,
         ),
       ),
+      child: Row(
+        children: [
+          Text("Product Name Goes Here"),
+          Text("#1234455"),
+        ],
+      ),
     );
   }
 }
