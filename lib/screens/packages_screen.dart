@@ -17,7 +17,6 @@ class PackageScreen extends StatelessWidget {
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            // mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Center(
                 child: Text(
@@ -46,8 +45,8 @@ class PackageScreen extends StatelessWidget {
                     width: double.infinity,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
-                      // color: Color(0xFFFAFBFB),
-                      color: Colors.grey,
+                      color: Color(0xFFFAFBFB),
+                      // color: Colors.grey,
                     ),
                     padding: EdgeInsets.all(16.0),
                     child: Column(
@@ -127,9 +126,10 @@ class TrackingHistory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Tracking History",
+          "Tracking Package",
           style: TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w700,
@@ -147,6 +147,18 @@ class PackageCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      padding: EdgeInsets.symmetric(
+        horizontal: 15,
+        vertical: 20,
+      ),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(15),
+        border: Border.all(
+          color: Colors.grey,
+          width: 1,
+        ),
+      ),
+    );
   }
 }
