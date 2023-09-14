@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:golly_express/shared_prefs/shared_prefs.dart';
 
-import '../components/PageIndicator.dart';
+import '../components/page_indicator..dart';
 import '../providers/providers.dart';
 import 'navigation/router.dart';
 
@@ -133,7 +133,8 @@ class OnboardingCutOut extends StatelessWidget {
                   borderRadius: BorderRadius.all(Radius.circular(8)),
                 )),
                 onPressed: onGetStartedClick,
-                child: const Text("Get Started", style: TextStyle(fontSize: 14)),
+                child:
+                    const Text("Get Started", style: TextStyle(fontSize: 14)),
               ),
             ),
           ),
