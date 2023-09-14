@@ -103,7 +103,7 @@ class PackageTrackingHistory extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text(
-          "Tracking ",
+          "Tracking",
           style: TextStyle(
             fontSize: 17,
             fontWeight: FontWeight.w700,
