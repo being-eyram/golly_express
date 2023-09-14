@@ -182,6 +182,18 @@ class TrackingHistory extends StatelessWidget {
           packageID: "#1234455",
           packageIcon: genericPackageIcon,
         ),
+        const SizedBox(height: 16),
+        PackageCard(
+          packageName: "Product Name Goes Here!",
+          packageID: "#1234455",
+          packageIcon: genericPackageIcon,
+        ),
+        const SizedBox(height: 16),
+        PackageCard(
+          packageName: "Product Name Goes Here!",
+          packageID: "#1234455",
+          packageIcon: genericPackageIcon,
+        ),
       ],
     );
   }
