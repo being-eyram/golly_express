@@ -41,7 +41,7 @@ class HomeScreen extends ConsumerWidget {
           reverse: true,
           child: Padding(
             padding: const EdgeInsets.symmetric(
-              vertical: 32,
+              vertical: 32.0,
               horizontal: 16.0,
             ),
             child: Column(
