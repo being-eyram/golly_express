@@ -7,12 +7,14 @@ import 'package:golly_express/screens/onboarding.dart';
 import 'package:golly_express/screens/signup.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'components/PageIndicator.dart';
+import 'components/page_indicator..dart';
 
 void main() {
-  runApp(ProviderScope(
-    child: const MyApp(),
-  ));
+  runApp(
+    ProviderScope(
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -24,6 +26,7 @@ class MyApp extends StatelessWidget {
     final baseTextTheme = Theme.of(context).textTheme;
 
     return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF557A46)),
