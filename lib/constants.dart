@@ -19,9 +19,15 @@ final calculatorIcon = SvgPicture.asset(
   'assets/images/ic_calculator.svg',
   semanticsLabel: 'Calculator',
 );
+
 final cargoShipIcon = SvgPicture.asset(
   'assets/images/ic_cargo_ship.svg',
   semanticsLabel: 'Cargo Ship',
+);
+
+final genericPackageIcon = SvgPicture.asset(
+  'assets/images/ic_generic_package.svg',
+  semanticsLabel: 'Generic Package',
 );
 
 final trackingHistoryPackage = SvgPicture.asset(
