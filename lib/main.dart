@@ -7,7 +7,7 @@ import 'package:golly_express/screens/onboarding.dart';
 import 'package:golly_express/screens/signup.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'components/page_indicator..dart';
+import 'components/page_indicator.dart';
 
 void main() {
   runApp(
