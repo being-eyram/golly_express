@@ -97,7 +97,10 @@ class CurrentShipmentScreen extends StatelessWidget {
             SizedBox(height: 24),
             Text(
               "Tracking Package",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w700,
+              ),
             )
           ],
         ),
