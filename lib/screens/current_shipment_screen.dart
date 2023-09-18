@@ -101,16 +101,57 @@ class CurrentShipmentScreen extends StatelessWidget {
               ],
             ),
             SizedBox(height: 24),
-            Text(
-              "Tracking Package",
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w700,
-              ),
-            )
+            PackageTrackingDetails(),
           ],
         ),
       ),
+    );
+  }
+}
+
+class PackageTrackingDetails extends StatelessWidget {
+  const PackageTrackingDetails({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "Tracking Package",
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        SizedBox(height: 16),
+        Container(
+            width: double.infinity,
+            padding: EdgeInsets.symmetric(
+              horizontal: 16,
+              vertical: 20,
+            ),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              border: Border.all(
+                color: Color(0xFFEDEFEE),
+                width: 1,
+              ),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // implement uisng vertical stepper
+                Text(
+                  "August 4, 2023",
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w500,
+                  ),
+                )
+              ],
+            )),
+      ],
     );
   }
 }
