@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:golly_express/constants.dart';
 
-import '../components/tracking_history.dart';
+import '../components/package_tracking_history.dart';
 
 class PackageScreen extends StatelessWidget {
   const PackageScreen({super.key});
@@ -116,7 +116,7 @@ class PackageScreen extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 24),
-                TrackingHistory()
+                PackageTrackingHistory()
               ],
             ),
           ),
