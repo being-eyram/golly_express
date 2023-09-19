@@ -6,10 +6,17 @@ final gollyExpressLogo = Image.asset(
   width: 98,
   height: 91,
 );
+
+final userProfile = SvgPicture.asset(
+  'assets/images/ic_user_profile.svg',
+  semanticsLabel: 'User Profile',
+);
+
 final googleLogo = SvgPicture.asset(
   'assets/images/ic_google.svg',
   semanticsLabel: 'Google Logo',
 );
+
 final appleLogo = SvgPicture.asset(
   'assets/images/ic_apple.svg',
   semanticsLabel: 'Apple Logo',
