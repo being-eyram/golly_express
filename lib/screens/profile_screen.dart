@@ -32,6 +32,46 @@ class ProfileScreen extends StatelessWidget {
                 SizedBox(height: 37),
                 Row(
                   children: [
+                    Row(
+                  children: [
+                    userProfile,
+                    SizedBox(width: 20),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Ben-Aaron Mills-Pappoe",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 14,
+                          ),
+                        ),
+                        SizedBox(height: 6),
+                        Text(
+                          "+233 57 159 2866",
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    FilledButton(
+                      style: FilledButton.styleFrom(
+                          padding: EdgeInsets.symmetric(horizontal: 10)),
+                      onPressed: () {},
+                      child: Text(
+                        "Edit",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
                     userProfile,
                     SizedBox(width: 20),
                     Column(
