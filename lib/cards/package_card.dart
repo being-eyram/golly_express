@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../model/package.dart';
+
 class PackageCard extends StatelessWidget {
   const PackageCard({
     super.key,
-    required this.packageName,
-    required this.packageID,
-    required this.packageIcon,
+    required this.package,
   });
-  final String packageName;
-  final String packageID;
-  final SvgPicture packageIcon;
+
+  final Package package;
 
   @override
   Widget build(BuildContext context) {
@@ -36,14 +35,14 @@ class PackageCard extends StatelessWidget {
               color: Color(0xFFF0F9FF),
             ),
             // borderRadius: BorderRadius.circular(50),
-            child: packageIcon,
+            child: package.icon,
           ),
           const SizedBox(width: 16),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                packageName,
+                package.name!,
                 style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w400,
@@ -51,7 +50,7 @@ class PackageCard extends StatelessWidget {
               ),
               const SizedBox(height: 7),
               Text(
-                packageID,
+                package.id!,
                 style: TextStyle(
                   color: Color(0xFFA3ADAA),
                   fontSize: 14,
