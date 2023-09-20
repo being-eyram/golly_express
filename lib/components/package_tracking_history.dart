@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:golly_express/cards/package_card.dart';
-import 'package:golly_express/constants.dart';
+import 'package:golly_express/model/package.dart';
 
 class PackageTrackingHistory extends StatelessWidget {
   const PackageTrackingHistory({super.key});
@@ -20,59 +20,9 @@ class PackageTrackingHistory extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 16),
-        PackageCard(
-          packageName: "Eyram's MacBook Pro",
-          packageID: "#1234455",
-          packageIcon: genericPackageIcon,
-        ),
-        const SizedBox(height: 16),
-        PackageCard(
-          packageName: "Product Name Goes Here",
-          packageID: "#1234455",
-          packageIcon: genericPackageIcon,
-        ),
-        const SizedBox(height: 16),
-        PackageCard(
-          packageName: "Joe's Petite",
-          packageID: "#1234455",
-          packageIcon: genericPackageIcon,
-        ),
-        const SizedBox(height: 16),
-        PackageCard(
-          packageName: "Product Name Goes Here",
-          packageID: "#1234455",
-          packageIcon: genericPackageIcon,
-        ),
-        const SizedBox(height: 16),
-        PackageCard(
-          packageName: "Product Name Goes Here",
-          packageID: "#1234455",
-          packageIcon: genericPackageIcon,
-        ),
-        const SizedBox(height: 16),
-        PackageCard(
-          packageName: "Product Name Goes Here",
-          packageID: "#1234455",
-          packageIcon: genericPackageIcon,
-        ),
-        const SizedBox(height: 16),
-        PackageCard(
-          packageName: "Product Name Goes Here",
-          packageID: "#1234455",
-          packageIcon: genericPackageIcon,
-        ),
-        const SizedBox(height: 16),
-        PackageCard(
-          packageName: "Product Name Goes Here",
-          packageID: "#1234455",
-          packageIcon: genericPackageIcon,
-        ),
-        const SizedBox(height: 16),
-        PackageCard(
-          packageName: "Product Name Goes Here",
-          packageID: "#1234455",
-          packageIcon: genericPackageIcon,
-        ),
+
+        // wooowwwww
+        ...recentPackages.map((package) => PackageCard(package: package))
       ],
     );
   }
