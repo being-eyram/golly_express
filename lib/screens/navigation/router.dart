@@ -12,7 +12,7 @@ import '../signup.dart';
 final GoRouter appRouter = GoRouter(routes: <RouteBase>[
   GoRoute(
     path: '/',
-    builder: (context, state) => const PackageScreen(),
+    builder: (context, state) => const ProfileScreen(),
     // redirect: (context, state) async {
     //   var didOnboard = await getUserOnboardStatus() ?? false;
     //   return didOnboard ? '/signin' : null;
