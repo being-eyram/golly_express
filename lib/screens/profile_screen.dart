@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:golly_express/constants.dart';
 
@@ -10,7 +12,10 @@ class ProfileScreen extends StatelessWidget {
       body: Column(
         children: [
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 32),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 16,
+              vertical: 32,
+            ),
             width: double.infinity,
             decoration: BoxDecoration(
               color: Color(0xFFE6EDB7),
@@ -21,6 +26,7 @@ class ProfileScreen extends StatelessWidget {
             ),
             child: Column(
               children: [
+                const SizedBox(height: 30),
                 Text(
                   "My Profile",
                   textAlign: TextAlign.center,
@@ -29,12 +35,11 @@ class ProfileScreen extends StatelessWidget {
                     fontWeight: FontWeight.w800,
                   ),
                 ),
-                SizedBox(height: 37),
+                const SizedBox(height: 37),
                 Row(
                   children: [
-                    
                     userProfile,
-                    SizedBox(width: 20),
+                    const SizedBox(width: 20),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -45,19 +50,17 @@ class ProfileScreen extends StatelessWidget {
                             fontSize: 14,
                           ),
                         ),
-                        SizedBox(height: 6),
+                        const SizedBox(height: 6),
                         Text(
                           "+233 57 159 2866",
                           style: TextStyle(
-                            fontSize: 12,
+                            fontSize: 13,
                             fontWeight: FontWeight.w400,
                           ),
                         ),
                       ],
                     ),
-                    SizedBox(
-                      width: 20,
-                    ),
+                    const Spacer(),
                     FilledButton(
                       style: FilledButton.styleFrom(
                           padding: EdgeInsets.symmetric(horizontal: 10)),
@@ -74,6 +77,47 @@ class ProfileScreen extends StatelessWidget {
               ],
             ),
           ),
+          const SizedBox(height: 16),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Row(
+              children: [
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      width: 1,
+                      color: Color(0xFFEDEFEE),
+                    ),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Text(
+                        "32",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      const Text(
+                        "To Receieve",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );
