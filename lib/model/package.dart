@@ -14,7 +14,7 @@ class Package {
   SvgPicture? icon;
 }
 
-// recent/ tracking packages
+// recent/ tracking packages (sample data)
 var recentPackages = [
   Package(
     name: "Eyram's MacBook Pro",
