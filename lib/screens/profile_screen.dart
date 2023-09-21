@@ -185,37 +185,7 @@ class ProfileScreen extends StatelessWidget {
                 ),
 
                 // new side
-                SizedBox(width: 16),
-                Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      width: 1,
-                      color: Color(0xFFEDEFEE),
-                    ),
-                  ),
-                  child: Column(
-                    children: [
-                      const Text(
-                        "32",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                      const SizedBox(height: 8),
-                      const Text(
-                        "Received",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(width: 16),
+                
               ],
             ),
           )
