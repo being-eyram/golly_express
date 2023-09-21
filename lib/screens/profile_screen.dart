@@ -187,14 +187,11 @@ class ProfileScreen extends StatelessWidget {
                 // new side
                 SizedBox(width: 16),
                 Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
                   decoration: BoxDecoration(
                     border: Border.all(
                       width: 1,
                       color: Color(0xFFEDEFEE),
                     ),
-                    borderRadius: BorderRadius.circular(10),
                   ),
                   child: Column(
                     children: [
@@ -218,6 +215,7 @@ class ProfileScreen extends StatelessWidget {
                     ],
                   ),
                 ),
+                SizedBox(width: 16),
               ],
             ),
           )
