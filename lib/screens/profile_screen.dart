@@ -94,7 +94,7 @@ class ProfileScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Column(
-                    mainAxisSize: MainAxisSize.min,
+                    // mainAxisSize: MainAxisSize.min,
                     children: [
                       const Text(
                         "32",
@@ -128,7 +128,7 @@ class ProfileScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Column(
-                    mainAxisSize: MainAxisSize.min,
+                    // mainAxisSize: MainAxisSize.min,
                     children: [
                       const Text(
                         "32",
@@ -162,7 +162,6 @@ class ProfileScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Column(
-                    mainAxisSize: MainAxisSize.min,
                     children: [
                       const Text(
                         "32",
