@@ -51,14 +51,14 @@ class ProfileScreen extends StatelessWidget {
                               "Ben-Aaron Mills-Pappoe",
                               style: TextStyle(
                                 fontWeight: FontWeight.w700,
-                                fontSize: 14,
+                                fontSize: 16,
                               ),
                             ),
                             SizedBox(height: 6),
                             Text(
                               "+233 57 159 2866",
                               style: TextStyle(
-                                fontSize: 13,
+                                fontSize: 14,
                                 fontWeight: FontWeight.w400,
                               ),
                             ),
@@ -297,7 +297,7 @@ class TransactionSummary extends StatelessWidget {
                     "To Receieve",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 12,
+                      // fontSize: 12,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
@@ -333,7 +333,7 @@ class TransactionSummary extends StatelessWidget {
                     "Total Orders",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 12,
+                      // fontSize: 12,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
@@ -368,7 +368,7 @@ class TransactionSummary extends StatelessWidget {
                     "Received",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 12,
+                      // fontSize: 12,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
