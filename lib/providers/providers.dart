@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final onboardingCaptionProvider = Provider<List<String>>(
@@ -18,4 +17,4 @@ final onboardingDescriptionProvider = Provider<List<String>>(
 );
 
 final showPasswordProvider = StateProvider<bool>((_) => false);
-final onboardingPageIndexProvider = StateProvider<int>((_) => 0 );
+final onboardingPageIndexProvider = StateProvider<int>((_) => 0);
