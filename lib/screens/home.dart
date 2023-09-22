@@ -5,8 +5,6 @@ import 'package:golly_express/cards/track_package_card.dart';
 import 'package:golly_express/cards/verify_id_card.dart';
 import 'package:golly_express/constants.dart';
 
-import '../components/input_field.dart';
-
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
