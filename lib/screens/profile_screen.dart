@@ -42,7 +42,7 @@ class ProfileScreen extends StatelessWidget {
                     const SizedBox(width: 20),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
+                      children: const [
                         Text(
                           "Ben-Aaron Mills-Pappoe",
                           style: TextStyle(
@@ -50,7 +50,7 @@ class ProfileScreen extends StatelessWidget {
                             fontSize: 14,
                           ),
                         ),
-                        const SizedBox(height: 6),
+                        SizedBox(height: 6),
                         Text(
                           "+233 57 159 2866",
                           style: TextStyle(
@@ -95,8 +95,8 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   child: Column(
                     // mainAxisSize: MainAxisSize.min,
-                    children: [
-                      const Text(
+                    children: const [
+                      Text(
                         "32",
                         textAlign: TextAlign.center,
                         style: TextStyle(
@@ -104,8 +104,8 @@ class ProfileScreen extends StatelessWidget {
                           fontWeight: FontWeight.w700,
                         ),
                       ),
-                      const SizedBox(height: 8),
-                      const Text(
+                      SizedBox(height: 8),
+                      Text(
                         "To Receieve",
                         textAlign: TextAlign.center,
                         style: TextStyle(
@@ -129,8 +129,8 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   child: Column(
                     // mainAxisSize: MainAxisSize.min,
-                    children: [
-                      const Text(
+                    children: const [
+                      Text(
                         "32",
                         textAlign: TextAlign.center,
                         style: TextStyle(
@@ -138,8 +138,8 @@ class ProfileScreen extends StatelessWidget {
                           fontWeight: FontWeight.w700,
                         ),
                       ),
-                      const SizedBox(height: 8),
-                      const Text(
+                      SizedBox(height: 8),
+                      Text(
                         "Total Orders",
                         textAlign: TextAlign.center,
                         style: TextStyle(
@@ -162,8 +162,8 @@ class ProfileScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Column(
-                    children: [
-                      const Text(
+                    children: const [
+                      Text(
                         "32",
                         textAlign: TextAlign.center,
                         style: TextStyle(
@@ -171,8 +171,8 @@ class ProfileScreen extends StatelessWidget {
                           fontWeight: FontWeight.w700,
                         ),
                       ),
-                      const SizedBox(height: 8),
-                      const Text(
+                      SizedBox(height: 8),
+                      Text(
                         "Received",
                         textAlign: TextAlign.center,
                         style: TextStyle(
@@ -185,7 +185,6 @@ class ProfileScreen extends StatelessWidget {
                 ),
 
                 // new side
-                
               ],
             ),
           )
