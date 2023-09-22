@@ -33,21 +33,21 @@ class CurrentShipmentScreen extends StatelessWidget {
                   width: double.infinity,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
-                    color: Color(0xFFFAFBFB),
+                    color: const Color(0xFFFAFBFB),
                     // color: Colors.grey,
                   ),
-                  padding: EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(16.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         "Product Name Goes Here",
                         style: TextStyle(
                           fontWeight: FontWeight.w700,
                         ),
                       ),
                       const SizedBox(height: 7),
-                      Text(
+                      const Text(
                         "#1234455",
                         style: TextStyle(
                           fontSize: 13,
@@ -55,32 +55,32 @@ class CurrentShipmentScreen extends StatelessWidget {
                           color: Color(0xFFA3ADAA),
                         ),
                       ),
-                      SizedBox(height: 40.0),
+                      const SizedBox(height: 40.0),
                       FilledButton(
                         style: FilledButton.styleFrom(
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                             horizontal: 12.0,
                             vertical: 8.0,
                           ),
-                          foregroundColor: Color(0xFF398B79),
-                          backgroundColor: Color(0xFFE3F2EF),
+                          foregroundColor: const Color(0xFF398B79),
+                          backgroundColor: const Color(0xFFE3F2EF),
                         ),
                         onPressed: () {},
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            Text("Received in Office"),
-                            SizedBox(width: 10),
+                            const Text("Received in Office"),
+                            const SizedBox(width: 10),
                             Container(
                               alignment: Alignment.center,
                               // height: 16,
                               // width: 16,
-                              padding: EdgeInsets.all(3),
-                              decoration: BoxDecoration(
+                              padding: const EdgeInsets.all(3),
+                              decoration: const BoxDecoration(
                                 shape: BoxShape.circle,
                                 color: Colors.white,
                               ),
-                              child: Icon(
+                              child: const Icon(
                                 Icons.arrow_forward_ios,
                                 size: 10,
                               ),
@@ -100,8 +100,8 @@ class CurrentShipmentScreen extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 24),
-            PackageTrackingDetails(),
+            const SizedBox(height: 24),
+            const PackageTrackingDetails(),
           ],
         ),
       ),
@@ -117,28 +117,28 @@ class PackageTrackingDetails extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        const Text(
           "Tracking Package",
           style: TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w700,
           ),
         ),
-        SizedBox(height: 16),
+        const SizedBox(height: 16),
         Container(
             width: double.infinity,
-            padding: EdgeInsets.symmetric(
+            padding: const EdgeInsets.symmetric(
               horizontal: 16,
               vertical: 20,
             ),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               border: Border.all(
-                color: Color(0xFFEDEFEE),
+                color: const Color(0xFFEDEFEE),
                 width: 1,
               ),
             ),
-            child: Column(
+            child: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // implement uisng vertical stepper
