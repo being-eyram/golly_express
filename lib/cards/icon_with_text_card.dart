@@ -41,7 +41,7 @@ class IconWithTextCard extends StatelessWidget {
           const SizedBox(height: 8),
           Text(
             cardTitle,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w700,
             ),
