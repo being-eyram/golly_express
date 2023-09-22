@@ -74,7 +74,7 @@ class SigninScreen extends ConsumerWidget {
                   child: Stack(
                     alignment: Alignment.center,
                     children: [
-                      Divider(color: Color(0xFFEDEFEE)),
+                      const Divider(color: Color(0xFFEDEFEE)),
                       Container(
                         color: Colors.white,
                         child: const Padding(
