@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../model/package.dart';
 
@@ -14,24 +13,24 @@ class PackageCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 16),
-      padding: EdgeInsets.symmetric(
+      margin: const EdgeInsets.only(bottom: 16),
+      padding: const EdgeInsets.symmetric(
         horizontal: 16,
         vertical: 20,
       ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
         border: Border.all(
-          color: Color(0xFFEDEFEE),
+          color: const Color(0xFFEDEFEE),
           width: 1,
         ),
       ),
       child: Row(
         children: [
           Container(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             alignment: Alignment.center,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               shape: BoxShape.circle,
               color: Color(0xFFF0F9FF),
             ),
@@ -44,7 +43,7 @@ class PackageCard extends StatelessWidget {
             children: [
               Text(
                 package.name!,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w400,
                 ),
@@ -52,7 +51,7 @@ class PackageCard extends StatelessWidget {
               const SizedBox(height: 7),
               Text(
                 package.id!,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Color(0xFFA3ADAA),
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
