@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:golly_express/constants.dart';
+import 'package:golly_express/model/transaction_summary.dart';
 import 'package:material_symbols_icons/symbols.dart';
 // import 'material_symbols_icons/symbols.dart';
 
