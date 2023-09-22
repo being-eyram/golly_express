@@ -86,7 +86,7 @@ class ProfileScreen extends StatelessWidget {
               TransactionSummary(),
               const SizedBox(height: 24),
               ListTile(
-                minVerticalPadding: 25,
+                minVerticalPadding: 20,
                 contentPadding: EdgeInsets.symmetric(horizontal: 32),
                 leading: gollyExpressLogoMini,
                 title: Text(
@@ -99,7 +99,7 @@ class ProfileScreen extends StatelessWidget {
                 trailing: Icon(Icons.arrow_forward_ios),
               ),
               ListTile(
-                minVerticalPadding: 25,
+                minVerticalPadding: 20,
                 contentPadding: EdgeInsets.symmetric(horizontal: 32),
                 leading: Icon(Icons.location_on_outlined),
                 title: Text(
