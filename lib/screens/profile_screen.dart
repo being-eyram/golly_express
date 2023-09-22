@@ -104,6 +104,8 @@ class ProfileScreen extends StatelessWidget {
             ),
             trailing: Icon(Icons.arrow_forward_ios),
           ),
+
+          // id verification list tile
           Container(
             decoration: BoxDecoration(
               border: Border.symmetric(
@@ -132,6 +134,60 @@ class ProfileScreen extends StatelessWidget {
                   fontSize: 13,
                   fontWeight: FontWeight.w400,
                   color: Color(0xFFF3AA60),
+                ),
+              ),
+              trailing: Icon(Icons.arrow_forward_ios),
+            ),
+          ),
+
+          // change password list tile
+          Container(
+            decoration: BoxDecoration(
+              border: Border(
+                bottom: BorderSide(
+                  width: 2,
+                  color: Color(0xFFF6F7F6),
+                ),
+              ),
+            ),
+            child: ListTile(
+              contentPadding: EdgeInsets.symmetric(horizontal: 32),
+              leading: Icon(Icons.lock_outline),
+              title: Padding(
+                padding: const EdgeInsets.only(bottom: 8.0),
+                child: Text(
+                  "Change Password",
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ),
+              trailing: Icon(Icons.arrow_forward_ios),
+            ),
+          ),
+
+          // privacy policy list tile
+          Container(
+            decoration: BoxDecoration(
+              border: Border(
+                bottom: BorderSide(
+                  width: 2,
+                  color: Color(0xFFF6F7F6),
+                ),
+              ),
+            ),
+            child: ListTile(
+              contentPadding: EdgeInsets.symmetric(horizontal: 32),
+              leading: Icon(Icons.shield_outlined),
+              title: Padding(
+                padding: const EdgeInsets.only(bottom: 8.0),
+                child: Text(
+                  "Change Password",
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
               ),
               trailing: Icon(Icons.arrow_forward_ios),
