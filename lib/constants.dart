@@ -8,8 +8,6 @@ final gollyExpressLogo = Image.asset(
 );
 
 final userProfile = SvgPicture.asset(
-  height: 10,
-  width: 10,
   'assets/images/ic_user_profile.svg',
   semanticsLabel: 'User Profile',
 );
