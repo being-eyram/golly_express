@@ -55,7 +55,7 @@ class GollyEpxressAddressScreen extends StatelessWidget {
                     fontWeight: FontWeight.w700,
                   ),
                 ),
-                SizedBox(height: 16.0),
+                SizedBox(height: 24.0),
                 AddressLineContainer(
                   title: "Address Line 1",
                   subtitle: "2507 Investors Row, STE 100 Unit D5",
