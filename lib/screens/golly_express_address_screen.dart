@@ -35,6 +35,21 @@ class GollyEpxressAddressScreen extends StatelessWidget {
               title: "Address Line 2",
               subtitle: "1904",
             ),
+            SizedBox(height: 16),
+            AddressLineContainer(
+              title: "City",
+              subtitle: "Orlando",
+            ),
+            SizedBox(height: 16),
+            AddressLineContainer(
+              title: "Zip Code",
+              subtitle: "32837",
+            ),
+            SizedBox(height: 16),
+            AddressLineContainer(
+              title: "Phone",
+              subtitle: "+1(689) 209-8652",
+            ),
           ],
         ),
       ),
