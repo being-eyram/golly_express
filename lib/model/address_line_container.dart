@@ -46,11 +46,20 @@ class AddressLineContainer extends StatelessWidget {
                 ),
               ),
               const Spacer(),
-              IconButton(
-                // add copy to clipboard on pressed
-                onPressed: () {},
-                icon: const Icon(Icons.copy),
-              )
+              GestureDetector(
+                // copy text to clipboard
+                onTap: () {},
+                child: const Icon(Icons.copy),
+              ),
+
+              //  icon button gives unnecessary padding
+              // IconButton(
+              //   constraints: const BoxConstraints(),
+              //   padding: const EdgeInsets.all(2),
+              //   // add copy to clipboard on pressed
+              //   onPressed: () {},
+              //   icon: const Icon(Icons.copy),
+              // ),
             ],
           ),
         ],
