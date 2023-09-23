@@ -28,7 +28,7 @@ class GollyEpxressAddressScreen extends StatelessWidget {
               ),
               onPressed: () {},
               child: const Text(
-                "Submit",
+                "Save Changes",
                 style: TextStyle(fontSize: 14),
               ),
             ),
