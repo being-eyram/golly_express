@@ -51,16 +51,6 @@ class AddressLineContainer extends StatelessWidget {
                 onTap: () {},
                 child: const Icon(Icons.copy),
               ),
-
-              //  icon button gives unnecessary padding
-
-              // IconButton(
-              //   constraints: const BoxConstraints(),
-              //   padding: const EdgeInsets.all(2),
-              //   // add copy to clipboard on pressed
-              //   onPressed: () {},
-              //   icon: const Icon(Icons.copy),
-              // ),
             ],
           ),
         ],
