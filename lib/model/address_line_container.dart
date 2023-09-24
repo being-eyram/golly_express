@@ -46,7 +46,8 @@ class AddressLineContainer extends StatelessWidget {
                 ),
               ),
               const Spacer(),
-              GestureDetector(
+              // GestureDetector(
+              InkWell(
                 // copy text to clipboard
                 onTap: () {},
                 child: const Icon(Icons.copy),
