@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:golly_express/constants.dart';
 import 'package:golly_express/model/transaction_summary.dart';
+import 'package:golly_express/screens/golly_express_address_screen.dart';
 import 'package:material_symbols_icons/symbols.dart';
 // import 'material_symbols_icons/symbols.dart';
 
@@ -85,6 +86,7 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(height: 16),
               TransactionSummary(),
               const SizedBox(height: 24),
+
               ListTile(
                 minVerticalPadding: 20,
                 contentPadding: EdgeInsets.symmetric(horizontal: 32),
@@ -97,7 +99,14 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 ),
                 trailing: Icon(Icons.arrow_forward_ios),
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => GollyEpxressAddressScreen(),
+                  ),
+                ),
               ),
+
               ListTile(
                 minVerticalPadding: 20,
                 contentPadding: EdgeInsets.symmetric(horizontal: 32),
