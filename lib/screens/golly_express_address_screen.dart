@@ -37,7 +37,9 @@ class GollyEpxressAddressScreen extends StatelessWidget {
       ),
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
           icon: const Icon(Icons.arrow_back_ios_new),
         ),
       ),
