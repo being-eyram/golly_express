@@ -54,7 +54,7 @@ class GollyEpxressAddressScreen extends StatelessWidget {
                   "Your Golly Express Address",
                   style: TextStyle(
                     fontSize: 20,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w800,
                   ),
                 ),
                 SizedBox(height: 24.0),
