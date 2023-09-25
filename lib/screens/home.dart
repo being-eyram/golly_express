@@ -14,21 +14,25 @@ class HomeScreen extends ConsumerWidget {
         type: BottomNavigationBarType.fixed,
         showSelectedLabels: false,
         showUnselectedLabels: false,
-        items: const [
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            // icon: Icon(Icons.home),
+            icon: navHome,
             label: "Home",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.inventory_2_outlined),
+            // icon: Icon(Icons.inventory_2_outlined),
+            icon: navPackages,
             label: "packages",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline),
+            // icon: Icon(Icons.person_outline),
+            icon: navProfile,
             label: "profile",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.notifications_none),
+            // icon: Icon(Icons.notifications_none),
+            icon: navNotifications,
             label: "notifications",
           ),
         ],
@@ -101,7 +105,7 @@ class PackageTrackingHistory extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text(
-          "Tracking",
+          "Tracking History",
           style: TextStyle(
             fontSize: 17,
             fontWeight: FontWeight.w700,
