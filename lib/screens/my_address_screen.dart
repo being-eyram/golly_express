@@ -70,7 +70,7 @@ class MyAddressScreen extends StatelessWidget {
                   icon: Icon(Icons.home_outlined),
                   addressTitle: "Home",
                   addressLine:
-                      "Kpa-Aps Technologies, 6th Adote Obour st, Accra , Ghana",
+                      "Kpa-Aps Technologies, 6th Adote Obour st, Accra, Ghana",
                 ),
 
                 SizedBox(height: 16),
@@ -79,7 +79,7 @@ class MyAddressScreen extends StatelessWidget {
                   icon: Icon(Icons.work_outline),
                   addressTitle: "Work",
                   addressLine:
-                      "Kpa-Aps Technologies, 6th Adote Obour st, Accra , Ghana",
+                      "Kpa-Aps Technologies, 6th Adote Obour st, Accra, Ghana",
                 ),
 
                 SizedBox(height: 16),
@@ -88,7 +88,7 @@ class MyAddressScreen extends StatelessWidget {
                   icon: Icon(Icons.location_on_outlined),
                   addressTitle: "Others",
                   addressLine:
-                      "Kpa-Aps Technologies, 6th Adote Obour st, Accra , Ghana",
+                      "Kpa-Aps Technologies, 6th Adote Obour st, Accra, Ghana",
                 ),
               ],
             ),
