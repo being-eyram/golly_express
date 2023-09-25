@@ -1,4 +1,7 @@
 import 'package:go_router/go_router.dart';
+import 'package:golly_express/screens/golly_express_address_screen.dart';
+import 'package:golly_express/screens/my_address_screen.dart';
+import 'package:golly_express/screens/packages_screen.dart';
 import 'package:golly_express/screens/profile_screen.dart';
 import 'package:golly_express/screens/signin.dart';
 
@@ -21,6 +24,22 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/signup',
       builder: (context, state) => const SignUpScreen(),
+    ),
+    GoRoute(
+      path: '/profile',
+      builder: (context, state) => const ProfileScreen(),
+    ),
+    GoRoute(
+      path: '/packages',
+      builder: (context, state) => const PackageScreen(),
+    ),
+    GoRoute(
+      path: '/gollyExpressAddress',
+      builder: (context, state) => const GollyExpressAddressScreen(),
+    ),
+    GoRoute(
+      path: '/myAddress',
+      builder: (context, state) => const MyAddressScreen(),
     ),
   ],
 );
