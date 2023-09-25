@@ -1,10 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:golly_express/constants.dart';
 import 'package:golly_express/model/transaction_summary.dart';
-import 'package:golly_express/screens/golly_express_address_screen.dart';
-import 'package:golly_express/screens/my_address_screen.dart';
 import 'package:material_symbols_icons/symbols.dart';
 // import 'material_symbols_icons/symbols.dart';
 
@@ -100,12 +99,7 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 ),
                 trailing: Icon(Icons.arrow_forward_ios),
-                onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => GollyEpxressAddressScreen(),
-                  ),
-                ),
+                onTap: () => context.go("/gollyExpressAddress"),
               ),
 
               ListTile(
@@ -120,12 +114,7 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 ),
                 trailing: Icon(Icons.arrow_forward_ios),
-                onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => MyAddressScreen(),
-                  ),
-                ),
+                onTap: () => context.go("/myAddress"),
               ),
 
               // id verification list tile
