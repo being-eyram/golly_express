@@ -49,7 +49,7 @@ class HomeScreen extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  "Good Morning, Kisa",
+                  "Good Morning, kisa",
                   style: TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.w700,
@@ -57,7 +57,8 @@ class HomeScreen extends ConsumerWidget {
                 ),
                 const SizedBox(height: 16),
 
-                // const VerifyIDCard(),
+// your golly express container / dropbox goes here
+
                 const SizedBox(height: 16),
                 const TrackPackageCard(),
                 const SizedBox(height: 16),
