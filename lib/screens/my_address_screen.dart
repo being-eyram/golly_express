@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:golly_express/model/my_address_container.dart';
 
 class MyAddressScreen extends StatelessWidget {
@@ -43,9 +44,11 @@ class MyAddressScreen extends StatelessWidget {
       ),
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
+          // onPressed: () {
+          //   Navigator.pop(context);
+          // },
+          onPressed: () => context.go("/"),
+
           icon: const Icon(Icons.arrow_back_ios_new),
         ),
       ),
