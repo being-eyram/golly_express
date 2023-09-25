@@ -80,28 +80,37 @@ class MyAddressScreen extends StatelessWidget {
 
                     // address lines
                     children: [
-                      Text(
-                        "Home",
-                        style: TextStyle(
-                          color: Color(0xFFA3ADAA),
-                          fontSize: 13,
-                          fontWeight: FontWeight.w700,
-                        ),
+                      Row(
+                        children: [
+                          Icon(Icons.home_outlined),
+                          SizedBox(width: 8),
+                          Text(
+                            "Home",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ],
                       ),
                       SizedBox(height: 8),
                       Row(
                         children: [
                           Expanded(
                             child: Text(
-                              "Kpa-Aps Technologies, 6th Adote Obour st, Accra , Ghana",
+                              "Kpa-Aps Technologies, 6th Adote Obour st, Accra, Ghana",
                               style: TextStyle(
                                 fontSize: 15,
                                 fontWeight: FontWeight.w400,
                               ),
                             ),
                           ),
-                          Spacer(),
-                          Icon(Icons.arrow_forward_ios)
+                          // Spacer(),
+                          SizedBox(height: 16),
+                          Icon(
+                            Icons.arrow_forward_ios,
+                            size: 18,
+                          )
                         ],
                       ),
                     ],
