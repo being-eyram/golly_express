@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:golly_express/model/my_address_container.dart';
 
 class MyAddressScreen extends StatelessWidget {
   const MyAddressScreen({super.key});
@@ -48,74 +49,47 @@ class MyAddressScreen extends StatelessWidget {
           icon: const Icon(Icons.arrow_back_ios_new),
         ),
       ),
-      body: SafeArea(
+      body: const SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(16),
+            padding: EdgeInsets.all(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
+                Text(
                   "My Address",
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w800,
                   ),
                 ),
-                const SizedBox(height: 24.0),
+                SizedBox(height: 24.0),
 
                 // address container
-                Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    border: Border.all(
-                      width: 1.5,
-                      color: const Color(0xFFEDEFEE),
-                    ),
-                  ),
-                  child: const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                MyAddressContainer(
+                  icon: Icon(Icons.home_outlined),
+                  addressTitle: "Home",
+                  addressLine:
+                      "Kpa-Aps Technologies, 6th Adote Obour st, Accra , Ghana",
+                ),
 
-                    // address lines
-                    children: [
-                      Row(
-                        children: [
-                          Icon(Icons.home_outlined),
-                          SizedBox(width: 8),
-                          Text(
-                            "Home",
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 8),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: Text(
-                              "Kpa-Aps Technologies, 6th Adote Obour st, Accra, Ghana",
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                          ),
-                          // Spacer(),
-                          SizedBox(height: 16),
-                          Icon(
-                            Icons.arrow_forward_ios,
-                            size: 18,
-                          )
-                        ],
-                      ),
-                    ],
-                  ),
-                )
+                SizedBox(height: 16),
+
+                MyAddressContainer(
+                  icon: Icon(Icons.work_outline),
+                  addressTitle: "Work",
+                  addressLine:
+                      "Kpa-Aps Technologies, 6th Adote Obour st, Accra , Ghana",
+                ),
+
+                SizedBox(height: 16),
+
+                MyAddressContainer(
+                  icon: Icon(Icons.location_on_outlined),
+                  addressTitle: "Others",
+                  addressLine:
+                      "Kpa-Aps Technologies, 6th Adote Obour st, Accra , Ghana",
+                ),
               ],
             ),
           ),
