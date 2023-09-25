@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:golly_express/cards/icon_with_text_card.dart';
 import 'package:golly_express/cards/track_package_card.dart';
-import 'package:golly_express/cards/verify_id_card.dart';
 import 'package:golly_express/constants.dart';
 
 class HomeScreen extends ConsumerWidget {
@@ -17,7 +16,7 @@ class HomeScreen extends ConsumerWidget {
         showUnselectedLabels: false,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined),
+            icon: Icon(Icons.home),
             label: "Home",
           ),
           BottomNavigationBarItem(
@@ -53,7 +52,8 @@ class HomeScreen extends ConsumerWidget {
                   ),
                 ),
                 const SizedBox(height: 16),
-                const VerifyIDCard(),
+
+                // const VerifyIDCard(),
                 const SizedBox(height: 16),
                 const TrackPackageCard(),
                 const SizedBox(height: 16),
