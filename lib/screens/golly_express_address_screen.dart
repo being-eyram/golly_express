@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:golly_express/model/address_line_container.dart';
 
-class GollyEpxressAddressScreen extends StatelessWidget {
-  const GollyEpxressAddressScreen({super.key});
+class GollyExpressAddressScreen extends StatelessWidget {
+  const GollyExpressAddressScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,9 +38,10 @@ class GollyEpxressAddressScreen extends StatelessWidget {
       ),
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
+          // onPressed: () {
+          //   Navigator.pop(context);
+          // },
+          onPressed: () => context.go("/"),
           icon: const Icon(Icons.arrow_back_ios_new),
         ),
       ),
