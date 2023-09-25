@@ -1,6 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:golly_express/screens/golly_express_address_screen.dart';
 import 'package:golly_express/screens/home.dart';
+import 'package:golly_express/screens/home_verify_id.dart';
 import 'package:golly_express/screens/my_address_screen.dart';
 import 'package:golly_express/screens/packages_screen.dart';
 import 'package:golly_express/screens/profile_screen.dart';
@@ -48,6 +49,11 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/home',
       builder: (context, state) => const HomeScreen(),
+    ),
+
+    GoRoute(
+      path: '/verifyIDHome',
+      builder: (context, state) => const VerifyIDHomeScreen(),
     ),
   ],
 );
