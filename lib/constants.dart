@@ -22,9 +22,9 @@ final navHome = SvgPicture.asset("assets/images/nav_bar_icons/ic_home.svg");
 final navPackages =
     SvgPicture.asset("assets/images/nav_bar_icons/ic_package_outlined.svg");
 final navProfile =
-    SvgPicture.asset("assets/images/nav_bar_icons/ic_account.svg");
-final navNotifications =
-    SvgPicture.asset("assets/images/nav_bar_icons/ic_notifications.svg");
+    SvgPicture.asset("assets/images/nav_bar_icons/ic_account_outlined.svg");
+final navNotifications = SvgPicture.asset(
+    "assets/images/nav_bar_icons/ic_notifications_outlined.svg");
 
 final googleLogo = SvgPicture.asset(
   'assets/images/ic_google.svg',
