@@ -20,7 +20,7 @@ final userProfile = SvgPicture.asset(
 
 final navHome = SvgPicture.asset("assets/images/nav_bar_icons/ic_home.svg");
 final navPackages =
-    SvgPicture.asset("assets/images/nav_bar_icons/ic_package.svg");
+    SvgPicture.asset("assets/images/nav_bar_icons/ic_package_outlined.svg");
 final navProfile =
     SvgPicture.asset("assets/images/nav_bar_icons/ic_account.svg");
 final navNotifications =
