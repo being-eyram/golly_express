@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:golly_express/cards/icon_with_text_card.dart';
 import 'package:golly_express/cards/track_package_card.dart';
+import 'package:golly_express/components/custom_navigation_bar.dart';
 import 'package:golly_express/constants.dart';
 
 class HomeScreen extends ConsumerWidget {
@@ -21,38 +22,40 @@ class HomeScreen extends ConsumerWidget {
     // }
 
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 3,
-        type: BottomNavigationBarType.fixed,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        items: [
-          BottomNavigationBarItem(
-            // icon: Icon(Icons.home),
-            icon: navHome,
-            activeIcon: navHomeActive,
-            label: "Home",
-          ),
-          BottomNavigationBarItem(
-            // icon: Icon(Icons.inventory_2_outlined),
-            icon: navPackages,
-            activeIcon: navPackagesActive,
-            label: "packages",
-          ),
-          BottomNavigationBarItem(
-            // icon: Icon(Icons.person_outline),
-            icon: navProfile,
-            activeIcon: navProfileActive,
-            label: "profile",
-          ),
-          BottomNavigationBarItem(
-            // icon: Icon(Icons.notifications_none),
-            icon: navNotifications,
-            activeIcon: navNotificationsActive,
-            label: "notifications",
-          ),
-        ],
-      ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   currentIndex: 3,
+      //   type: BottomNavigationBarType.fixed,
+      //   showSelectedLabels: false,
+      //   showUnselectedLabels: false,
+      //   items: [
+      //     BottomNavigationBarItem(
+      //       // icon: Icon(Icons.home),
+      //       icon: navHome,
+      //       activeIcon: navHomeActive,
+      //       label: "Home",
+      //     ),
+      //     BottomNavigationBarItem(
+      //       // icon: Icon(Icons.inventory_2_outlined),
+      //       icon: navPackages,
+      //       activeIcon: navPackagesActive,
+      //       label: "packages",
+      //     ),
+      //     BottomNavigationBarItem(
+      //       // icon: Icon(Icons.person_outline),
+      //       icon: navProfile,
+      //       activeIcon: navProfileActive,
+      //       label: "profile",
+      //     ),
+      //     BottomNavigationBarItem(
+      //       // icon: Icon(Icons.notifications_none),
+      //       icon: navNotifications,
+      //       activeIcon: navNotificationsActive,
+      //       label: "notifications",
+      //     ),
+      //   ],
+      // ),
+
+      bottomNavigationBar: const CustomNavigationBar(),
       body: SafeArea(
         child: SingleChildScrollView(
           reverse: true,
