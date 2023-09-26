@@ -1,26 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:golly_express/cards/icon_with_text_card.dart';
 import 'package:golly_express/cards/track_package_card.dart';
 import 'package:golly_express/components/custom_navigation_bar.dart';
 import 'package:golly_express/constants.dart';
 
-class HomeScreen extends ConsumerWidget {
+// class HomeScreen extends ConsumerWidget {
+//   const HomeScreen({super.key});
+
+//   @override
+//   Widget build(BuildContext context, WidgetRef ref) {
+
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
-  // int _selectedIndex = 0;
-  // void
-
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    // int selectedIndex = 0;
+  State<HomeScreen> createState() => _HomeScreenState();
+}
 
-    // void _navigateBottomBar(int index) {
-    //   setState(() {
-    //     selectedIndex = index;
-    //   });
-    // }
-
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       // bottomNavigationBar: BottomNavigationBar(
       //   currentIndex: 3,
