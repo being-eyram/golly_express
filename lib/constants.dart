@@ -18,13 +18,29 @@ final userProfile = SvgPicture.asset(
   semanticsLabel: 'User Profile',
 );
 
-final navHome = SvgPicture.asset("assets/images/nav_bar_icons/ic_home.svg");
+final navHome =
+    SvgPicture.asset("assets/images/nav_bar_icons/ic_home_outlined.svg");
+
+final navHomeActive =
+    SvgPicture.asset("assets/images/nav_bar_icons/ic_home_filled.svg");
+
 final navPackages =
     SvgPicture.asset("assets/images/nav_bar_icons/ic_package_outlined.svg");
+
+final navPackagesActive =
+    SvgPicture.asset("assets/images/nav_bar_icons/ic_package_filled.svg");
+
 final navProfile =
     SvgPicture.asset("assets/images/nav_bar_icons/ic_account_outlined.svg");
+
+final navProfileActive =
+    SvgPicture.asset("assets/images/nav_bar_icons/ic_account_filled.svg");
+
 final navNotifications = SvgPicture.asset(
     "assets/images/nav_bar_icons/ic_notifications_outlined.svg");
+
+final navNotificationsActive =
+    SvgPicture.asset("assets/images/nav_bar_icons/ic_notifications_filled.svg");
 
 final googleLogo = SvgPicture.asset(
   'assets/images/ic_google.svg',
