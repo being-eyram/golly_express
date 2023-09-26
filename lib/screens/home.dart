@@ -4,25 +4,6 @@ import 'package:golly_express/cards/icon_with_text_card.dart';
 import 'package:golly_express/cards/track_package_card.dart';
 import 'package:golly_express/constants.dart';
 
-class Example extends StatefulWidget {
-  const Example({super.key});
-
-  @override
-  _ExampleState createState() => _ExampleState();
-}
-
-class _ExampleState extends State<Example> {
-  @override
-  Widget build(BuildContext context) {
-    return Consumer(
-      builder: (context, ref, child) {
-        final value = ref.watch(helloWorldProvider);
-        return Text(value); // Hello world
-      },
-    );
-  }
-}
-
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
@@ -31,13 +12,13 @@ class HomeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    int selectedIndex = 0;
+    // int selectedIndex = 0;
 
-    void _navigateBottomBar(int index) {
-      setState(() {
-        selectedIndex = index;
-      });
-    }
+    // void _navigateBottomBar(int index) {
+    //   setState(() {
+    //     selectedIndex = index;
+    //   });
+    // }
 
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
