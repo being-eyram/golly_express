@@ -11,16 +11,16 @@ class CustomNavigationBar extends StatefulWidget {
 }
 
 class _CustomNavigationBarState extends State<CustomNavigationBar> {
+  int position = 1;
+
+  void _onTap(int index) {
+    setState(() {
+      position = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    int position = 0;
-
-    void _onTap(int index) {
-      setState(() {
-        position = index;
-      });
-    }
-
     return BottomNavigationBar(
       currentIndex: position,
       onTap: _onTap,
