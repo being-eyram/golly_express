@@ -7,10 +7,14 @@ import 'package:golly_express/constants.dart';
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
+  // int _selectedIndex = 0;
+  // void
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 3,
         type: BottomNavigationBarType.fixed,
         showSelectedLabels: false,
         showUnselectedLabels: false,
@@ -18,21 +22,25 @@ class HomeScreen extends ConsumerWidget {
           BottomNavigationBarItem(
             // icon: Icon(Icons.home),
             icon: navHome,
+            activeIcon: navHomeActive,
             label: "Home",
           ),
           BottomNavigationBarItem(
             // icon: Icon(Icons.inventory_2_outlined),
             icon: navPackages,
+            activeIcon: navPackagesActive,
             label: "packages",
           ),
           BottomNavigationBarItem(
             // icon: Icon(Icons.person_outline),
             icon: navProfile,
+            activeIcon: navProfileActive,
             label: "profile",
           ),
           BottomNavigationBarItem(
             // icon: Icon(Icons.notifications_none),
             icon: navNotifications,
+            activeIcon: navNotificationsActive,
             label: "notifications",
           ),
         ],
