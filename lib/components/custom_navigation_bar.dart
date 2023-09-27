@@ -2,6 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:golly_express/constants.dart';
+import 'package:golly_express/screens/home.dart';
+import 'package:golly_express/screens/notifications_screen.dart';
+import 'package:golly_express/screens/packages_screen.dart';
+import 'package:golly_express/screens/profile_screen.dart';
 
 class CustomNavigationBar extends StatefulWidget {
   const CustomNavigationBar({super.key});
@@ -18,6 +22,13 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
       position = index;
     });
   }
+
+  final screens = [
+    const HomeScreen(),
+    const PackageScreen(),
+    const ProfileScreen(),
+    const NotificationsScreen()
+  ];
 
   @override
   Widget build(BuildContext context) {
