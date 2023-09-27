@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:golly_express/components/main_container.dart';
 import 'package:golly_express/screens/golly_express_address_screen.dart';
 import 'package:golly_express/screens/home.dart';
 import 'package:golly_express/screens/home_verify_id.dart';
@@ -11,7 +12,7 @@ import 'package:golly_express/screens/signin.dart';
 import '../signup.dart';
 
 final GoRouter appRouter = GoRouter(
-  initialLocation: "/notifications",
+  initialLocation: "/mainContainer",
   routes: <RouteBase>[
     GoRoute(
       path: '/',
@@ -46,6 +47,11 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/notifications',
       builder: (context, state) => const NotificationsScreen(),
+    ),
+
+    GoRoute(
+      path: '/mainContainer',
+      builder: (context, state) => const MainContainer(),
     ),
 
     GoRoute(
