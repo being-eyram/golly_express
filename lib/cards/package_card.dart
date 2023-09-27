@@ -36,6 +36,7 @@ class PackageCard extends StatelessWidget {
             ),
             // borderRadius: BorderRadius.circular(50),
             child: package.icon,
+            // child: const Icon(Icons.card_giftcard),
           ),
           const SizedBox(width: 16),
           Column(

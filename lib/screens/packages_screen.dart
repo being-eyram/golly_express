@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:golly_express/cards/package_card.dart';
 import 'package:golly_express/constants.dart';
-
-import '../components/package_tracking_history.dart';
+import 'package:golly_express/model/package.dart';
 
 class PackageScreen extends StatelessWidget {
   const PackageScreen({super.key});
@@ -116,7 +116,24 @@ class PackageScreen extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 24),
-                PackageTrackingHistory()
+                // PackageTrackingHistory()
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Tracking History",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+
+                    // wooowwwww
+                    ...recentPackages
+                        .map((package) => PackageCard(package: package))
+                  ],
+                ),
               ],
             ),
           ),
