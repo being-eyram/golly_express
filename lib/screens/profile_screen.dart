@@ -99,7 +99,8 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 ),
                 trailing: Icon(Icons.arrow_forward_ios),
-                onTap: () => context.go("/gollyExpressAddress"),
+                // onTap: () => context.go("/gollyExpressAddress"),
+                onTap: () => context.push("/gollyExpressAddress"),
               ),
 
               ListTile(
@@ -114,7 +115,7 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 ),
                 trailing: Icon(Icons.arrow_forward_ios),
-                onTap: () => context.go("/myAddress"),
+                onTap: () => context.push("/myAddress"),
               ),
 
               // id verification list tile
