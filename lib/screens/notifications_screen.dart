@@ -24,10 +24,16 @@ class NotificationsScreen extends StatelessWidget {
       ),
       body: const Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 24),
-        child: Column(
-          children: [
-            NotificationCard(),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              NotificationCard(),
+              SizedBox(height: 16),
+              NotificationCard(),
+              SizedBox(height: 16),
+              NotificationCard(),
+            ],
+          ),
         ),
       ),
     );
