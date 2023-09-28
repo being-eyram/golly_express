@@ -23,43 +23,42 @@ class MyAddressContainer extends StatelessWidget {
           color: const Color(0xFFEDEFEE),
         ),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-
-        // address lines
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Row(
-            children: [
-              icon,
-              const SizedBox(width: 8),
-              Text(
-                addressTitle,
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+
+              // address lines
+              children: [
+                Row(
+                  children: [
+                    icon,
+                    const SizedBox(width: 8),
+                    Text(
+                      addressTitle,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 8),
-          Row(
-            children: [
-              Expanded(
-                child: Text(
+                const SizedBox(height: 8),
+                Text(
                   addressLine,
                   style: const TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-              ),
-              // Spacer(),
-              const SizedBox(height: 16),
-              const Icon(
-                Icons.arrow_forward_ios,
-                size: 18,
-              ),
-            ],
+              ],
+            ),
+          ),
+          const Icon(
+            Icons.arrow_forward_ios,
+            size: 18,
           ),
         ],
       ),
