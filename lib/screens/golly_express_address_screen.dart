@@ -41,7 +41,8 @@ class GollyExpressAddressScreen extends StatelessWidget {
           // onPressed: () {
           //   Navigator.pop(context);
           // },
-          onPressed: () => context.go("/"),
+          // onPressed: () => context.go("/"),
+          onPressed: () => context.pop(),
           icon: const Icon(Icons.arrow_back_ios_new),
         ),
       ),
