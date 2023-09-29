@@ -55,7 +55,10 @@ class AddressLineContainer extends StatelessWidget {
               ],
             ),
             // const Spacer(),
-            const Icon(Icons.copy),
+            const Icon(
+              Icons.copy,
+              size: 20,
+            ),
           ],
         ),
       ),
