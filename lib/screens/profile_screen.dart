@@ -98,7 +98,10 @@ class ProfileScreen extends StatelessWidget {
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                trailing: Icon(Icons.arrow_forward_ios),
+                trailing: Icon(
+                  Icons.arrow_forward_ios,
+                  size: 18,
+                ),
                 // onTap: () => context.go("/gollyExpressAddress"),
                 onTap: () => context.push("/gollyExpressAddress"),
               ),
@@ -114,7 +117,10 @@ class ProfileScreen extends StatelessWidget {
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                trailing: Icon(Icons.arrow_forward_ios),
+                trailing: Icon(
+                  Icons.arrow_forward_ios,
+                  size: 18,
+                ),
                 onTap: () => context.push("/myAddress"),
               ),
 
@@ -150,7 +156,10 @@ class ProfileScreen extends StatelessWidget {
                       color: Color(0xFFF3AA60),
                     ),
                   ),
-                  trailing: Icon(Icons.arrow_forward_ios),
+                  trailing: Icon(
+                    Icons.arrow_forward_ios,
+                    size: 18,
+                  ),
                 ),
               ),
 
@@ -175,7 +184,10 @@ class ProfileScreen extends StatelessWidget {
                       fontWeight: FontWeight.w400,
                     ),
                   ),
-                  trailing: Icon(Icons.arrow_forward_ios),
+                  trailing: Icon(
+                    Icons.arrow_forward_ios,
+                    size: 18,
+                  ),
                 ),
               ),
 
@@ -203,7 +215,10 @@ class ProfileScreen extends StatelessWidget {
                       fontWeight: FontWeight.w400,
                     ),
                   ),
-                  trailing: Icon(Icons.arrow_forward_ios),
+                  trailing: Icon(
+                    Icons.arrow_forward_ios,
+                    size: 18,
+                  ),
                 ),
               ),
 
@@ -228,7 +243,10 @@ class ProfileScreen extends StatelessWidget {
                       fontWeight: FontWeight.w400,
                     ),
                   ),
-                  trailing: Icon(Icons.arrow_forward_ios),
+                  trailing: Icon(
+                    Icons.arrow_forward_ios,
+                    size: 18,
+                  ),
                 ),
               ),
 
@@ -253,7 +271,10 @@ class ProfileScreen extends StatelessWidget {
                         fontWeight: FontWeight.w400,
                         color: Color(0xFFFA0101)),
                   ),
-                  trailing: Icon(Icons.arrow_forward_ios),
+                  trailing: Icon(
+                    Icons.arrow_forward_ios,
+                    size: 18,
+                  ),
                   iconColor: Color(0xFFFA0101),
                 ),
               ),
