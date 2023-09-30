@@ -87,6 +87,7 @@ class MyAddressScreen extends StatelessWidget {
                       context: context,
                       builder: (BuildContext context) {
                         return Container(
+                          // color: Colors.white,
                           width: double.infinity,
                           padding: const EdgeInsets.symmetric(
                             horizontal: 32,
@@ -143,10 +144,11 @@ class MyAddressScreen extends StatelessWidget {
                               ),
                               const SizedBox(height: 16),
                               const ListTile(
+                                contentPadding: EdgeInsets.all(0),
                                 leading: Icon(Icons.location_on_outlined),
                                 title: Text(
                                   "Edit Address",
-                                  style: TextStyle(),
+                                  style: TextStyle(fontSize: 16),
                                 ),
                               ),
                               const SizedBox(height: 16),
@@ -158,12 +160,13 @@ class MyAddressScreen extends StatelessWidget {
                               ),
                               const SizedBox(height: 16),
                               const ListTile(
+                                contentPadding: EdgeInsets.all(0),
                                 iconColor: Colors.red,
                                 textColor: Colors.red,
                                 leading: Icon(Icons.delete_outlined),
                                 title: Text(
                                   "Delete Address",
-                                  style: TextStyle(),
+                                  style: TextStyle(fontSize: 16),
                                 ),
                               ),
                             ],
