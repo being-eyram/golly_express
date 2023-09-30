@@ -72,13 +72,39 @@ class MyAddressScreen extends StatelessWidget {
                 const SizedBox(height: 24.0),
 
                 // address container
-                Inkwell(
+                InkWell(
+                  borderRadius: BorderRadius.circular(8),
                   child: const MyAddressContainer(
                     icon: Icon(Icons.home_outlined),
                     addressTitle: "Home",
                     addressLine:
                         "Kpa-Aps Technologies, 6th Adote Obour st, Accra, Ghana",
                   ),
+                  onTap: () {
+                    showModalBottomSheet(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return Container(
+                          width: double.infinity,
+                          padding: const EdgeInsets.all(16),
+                          height: 330,
+                          child: Column(
+                            children: [
+                              Container(
+                                alignment: Alignment.center,
+                                height: 5,
+                                width: 69,
+                                decoration: BoxDecoration(
+                                  color: const Color(0xFFB5BDBB),
+                                  borderRadius: BorderRadius.circular(100),
+                                ),
+                              )
+                            ],
+                          ),
+                        );
+                      },
+                    );
+                  },
                 ),
 
                 const SizedBox(height: 16),
