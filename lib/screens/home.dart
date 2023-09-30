@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  "Good Morning, kpakpa",
+                  "Good Morning,  kisa",
                   style: TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.w700,
