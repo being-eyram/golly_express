@@ -89,6 +89,7 @@ class MyAddressScreen extends StatelessWidget {
                           padding: const EdgeInsets.all(16),
                           height: 330,
                           child: Column(
+                            // crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
                                 alignment: Alignment.center,
@@ -98,7 +99,32 @@ class MyAddressScreen extends StatelessWidget {
                                   color: const Color(0xFFB5BDBB),
                                   borderRadius: BorderRadius.circular(100),
                                 ),
-                              )
+                              ),
+                              const SizedBox(height: 20),
+                              Align(
+                                alignment: Alignment.centerRight,
+                                child: TextButton(
+                                  onPressed: () {
+                                    context.pop();
+                                  },
+                                  child: const Text(
+                                    "Close",
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(height: 26),
+                              const Text(
+                                "Home",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
                             ],
                           ),
                         );
