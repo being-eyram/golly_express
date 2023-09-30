@@ -11,7 +11,9 @@ class MyAddressScreen extends StatelessWidget {
       bottomNavigationBar: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Divider(color: Color(0xFFEDEFEE)),
+          const Divider(
+            color: Color(0xFFEDEFEE),
+          ),
           Padding(
             padding: const EdgeInsets.only(
               left: 16,
@@ -86,18 +88,24 @@ class MyAddressScreen extends StatelessWidget {
                       builder: (BuildContext context) {
                         return Container(
                           width: double.infinity,
-                          padding: const EdgeInsets.all(16),
-                          height: 330,
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 32,
+                            vertical: 16,
+                          ),
+                          // height: 350,
                           child: Column(
-                            // crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Container(
+                              Align(
                                 alignment: Alignment.center,
-                                height: 5,
-                                width: 69,
-                                decoration: BoxDecoration(
-                                  color: const Color(0xFFB5BDBB),
-                                  borderRadius: BorderRadius.circular(100),
+                                child: Container(
+                                  height: 5,
+                                  width: 69,
+                                  decoration: BoxDecoration(
+                                    color: const Color(0xFFB5BDBB),
+                                    borderRadius: BorderRadius.circular(100),
+                                  ),
                                 ),
                               ),
                               const SizedBox(height: 20),
@@ -117,12 +125,45 @@ class MyAddressScreen extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              const SizedBox(height: 26),
+                              const SizedBox(height: 16),
                               const Text(
                                 "Home",
                                 style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                              const SizedBox(height: 16),
+                              const Text(
+                                "Kpa-Aps Technologies, 6th Adote Obour st, Accra, Ghana",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                              const SizedBox(height: 16),
+                              const ListTile(
+                                leading: Icon(Icons.location_on_outlined),
+                                title: Text(
+                                  "Edit Address",
+                                  style: TextStyle(),
+                                ),
+                              ),
+                              const SizedBox(height: 16),
+                              Divider(
+                                thickness: 1.5,
+                                height: 0,
+                                // color: Color(0xFFEDEFEE),
+                                color: Colors.grey[300],
+                              ),
+                              const SizedBox(height: 16),
+                              const ListTile(
+                                iconColor: Colors.red,
+                                textColor: Colors.red,
+                                leading: Icon(Icons.delete_outlined),
+                                title: Text(
+                                  "Delete Address",
+                                  style: TextStyle(),
                                 ),
                               ),
                             ],
