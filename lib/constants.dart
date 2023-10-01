@@ -90,3 +90,9 @@ String homeAddress = "Kpa-Aps Technologies, 6th Adote Obour st, Accra, Ghana";
 String workAddress = "Kpa-Aps Technologies, 6th Adote Obour st, Accra, Ghana";
 
 String otherAddress = "Kpa-Aps Technologies, 6th Adote Obour st, Accra, Ghana";
+
+String homeAddress = " 6th Adote Obour st, Accra, Ghana";
+
+String workAddress = "6th Adote Obour st, Accra, Ghana";
+
+String otherAddress = "6th Adote Obour st, Accra, Ghana";
