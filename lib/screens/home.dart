@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:golly_express/cards/icon_with_text_card.dart';
 import 'package:golly_express/cards/track_package_card.dart';
 import 'package:golly_express/cards/verify_id_card.dart';
+import 'package:golly_express/components/package_tracking_history.dart';
 import 'package:golly_express/constants.dart';
+import 'package:golly_express/model/package.dart';
 
 // class HomeScreen extends ConsumerWidget {
 //   const HomeScreen({super.key});
@@ -26,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
       // bottomNavigationBar: const MainContainer(),
       body: SafeArea(
         child: SingleChildScrollView(
-          reverse: true,
+          // reverse: true,
           child: Padding(
             padding: const EdgeInsets.symmetric(
               vertical: 32.0,
@@ -36,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  "Good Morning, kisa",
+                  "Good Morning, Ben-Aaron",
                   style: TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.w700,
@@ -77,47 +79,16 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
                 const SizedBox(height: 24),
-                const EmptyTrackingHistory(),
+
+                recentPackages.isEmpty
+                    ? const EmptyTrackingHistory()
+                    : const PackageTrackingHistory()
+                // const EmptyTrackingHistory(),
               ],
             ),
           ),
         ),
       ),
-    );
-  }
-}
-
-class EmptyTrackingHistory extends StatelessWidget {
-  const EmptyTrackingHistory({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text(
-          "Tracking History",
-          style: TextStyle(
-            fontSize: 17,
-            fontWeight: FontWeight.w700,
-          ),
-        ),
-        const SizedBox(height: 24),
-        Center(
-          child: Column(
-            children: [
-              trackingHistoryPackage,
-              const Text(
-                "There are no tracking history",
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ],
     );
   }
 }
