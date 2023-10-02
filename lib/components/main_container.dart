@@ -1,7 +1,6 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
 import 'package:flutter/material.dart';
-import 'package:golly_express/cards/verify_id_card.dart';
 import 'package:golly_express/constants.dart';
 import 'package:golly_express/screens/home.dart';
 import 'package:golly_express/screens/notifications_screen.dart';
@@ -16,8 +15,6 @@ class MainContainer extends StatefulWidget {
 }
 
 class _MainContainerState extends State<MainContainer> {
-  final _userIsVerified = false;
-
   int position = 0;
 
   void _onTap(int index) {
@@ -27,7 +24,7 @@ class _MainContainerState extends State<MainContainer> {
   }
 
   final _screens = [
-    _userIsVerified ? const HomeScreen() : const VerifyIDCard(),
+    const HomeScreen(),
     const PackageScreen(),
     const ProfileScreen(),
     const NotificationsScreen()
