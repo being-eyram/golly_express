@@ -15,38 +15,40 @@ class IconWithTextCard extends StatelessWidget {
   final Color iconContainerColor;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // ...
-      // height: 86,
-      // width: 167,
-      padding: const EdgeInsets.symmetric(vertical: 14.0, horizontal: 16.0),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        // color: const Color(0xFFFFFBEE),
-        // color: Colors.green,
-        color: cardColor,
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            padding: const EdgeInsets.all(4),
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              // color: Color(0xFFFFC727),
-              color: iconContainerColor,
+    return Expanded(
+      child: Container(
+        // ...
+        // height: 86,
+        // width: 167,
+        padding: const EdgeInsets.symmetric(vertical: 14.0, horizontal: 16.0),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          // color: const Color(0xFFFFFBEE),
+          // color: Colors.green,
+          color: cardColor,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              padding: const EdgeInsets.all(4),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                // color: Color(0xFFFFC727),
+                color: iconContainerColor,
+              ),
+              child: cardIcon,
             ),
-            child: cardIcon,
-          ),
-          const SizedBox(height: 8),
-          Text(
-            cardTitle,
-            style: const TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w700,
-            ),
-          )
-        ],
+            const SizedBox(height: 8),
+            Text(
+              cardTitle,
+              style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w700,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
