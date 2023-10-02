@@ -84,7 +84,12 @@ class MyAddressScreen extends StatelessWidget {
                     addressLine: homeAddress,
                   ),
                   onTap: () {
-                    _displayBottomSheet(context);
+                    showModalBottomSheet(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return const BottomSheetContainer();
+                      },
+                    );
                   },
                 ),
 
@@ -108,15 +113,6 @@ class MyAddressScreen extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-
-  Future<dynamic> _displayBottomSheet(BuildContext context) {
-    return showModalBottomSheet(
-      context: context,
-      builder: (BuildContext context) {
-        return const BottomSheetContainer();
-      },
     );
   }
 }
