@@ -67,7 +67,7 @@ final genericPackageIcon = SvgPicture.asset(
   semanticsLabel: 'Generic Package',
 );
 
-final trackingHistoryPackage = Image.asset(
+final trackingHistoryPackageIcon = Image.asset(
   'assets/images/vec_package2.png',
   height: 200,
   width: 200,
