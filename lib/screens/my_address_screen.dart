@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:golly_express/components/bottom_sheet_container.dart';
+import 'package:golly_express/components/myaddress_bottom_sheet.dart';
 import 'package:golly_express/model/address.dart';
 import 'package:golly_express/model/my_address_container.dart';
 
@@ -85,7 +85,7 @@ class MyAddressScreen extends StatelessWidget {
                     showModalBottomSheet(
                       context: context,
                       builder: (BuildContext context) {
-                        return BottomSheetContainer(
+                        return AddressBottomSheet(
                           address: homeAddress,
                         );
                       },
@@ -101,7 +101,7 @@ class MyAddressScreen extends StatelessWidget {
                     showModalBottomSheet(
                       context: context,
                       builder: (BuildContext context) {
-                        return BottomSheetContainer(
+                        return AddressBottomSheet(
                           address: workAddress,
                         );
                       },
@@ -117,7 +117,7 @@ class MyAddressScreen extends StatelessWidget {
                     showModalBottomSheet(
                       context: context,
                       builder: (BuildContext context) {
-                        return BottomSheetContainer(
+                        return AddressBottomSheet(
                           address: otherAddress,
                         );
                       },
