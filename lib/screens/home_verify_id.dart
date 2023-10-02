@@ -88,7 +88,7 @@ class PackageTrackingHistory extends StatelessWidget {
         Center(
           child: Column(
             children: [
-              trackingHistoryPackage,
+              trackingHistoryPackageIcon,
               const Text(
                 "There are no tracking history",
                 style: TextStyle(
