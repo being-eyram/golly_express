@@ -40,24 +40,4 @@ var recentPackages = [
     id: "#1234455",
     icon: genericPackageIcon,
   ),
-  Package(
-    name: "Product Name Goes Here",
-    id: "#1234455",
-    icon: genericPackageIcon,
-  ),
-  Package(
-    name: "Product Name Goes Here",
-    id: "#1234455",
-    icon: genericPackageIcon,
-  ),
-  Package(
-    name: "Product Name Goes Here",
-    id: "#1234455",
-    icon: genericPackageIcon,
-  ),
-  Package(
-    name: "Product Name Goes Here",
-    id: "#1234455",
-    icon: genericPackageIcon,
-  ),
 ];
