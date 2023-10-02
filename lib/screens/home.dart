@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:golly_express/cards/icon_with_text_card.dart';
 import 'package:golly_express/cards/track_package_card.dart';
+import 'package:golly_express/cards/verify_id_card.dart';
 import 'package:golly_express/constants.dart';
 
 // class HomeScreen extends ConsumerWidget {
@@ -17,6 +18,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final _userIsVerified = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +44,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 const SizedBox(height: 16),
 
-                // your golly express container / dropbox goes here
+                // display your golly express dropdown if verified else verify id card
+                _userIsVerified == true
+                    ? const SizedBox(height: 50)
+                    : const VerifyIDCard(),
 
                 const SizedBox(height: 16),
                 const TrackPackageCard(),
