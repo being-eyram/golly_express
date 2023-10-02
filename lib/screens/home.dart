@@ -57,24 +57,20 @@ class _HomeScreenState extends State<HomeScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Expanded(
-                      child: IconWithTextCard(
-                        cardTitle: "Calculate Estimate",
-                        cardColor: const Color(0xFFFFFBEE),
-                        cardIcon: calculatorIcon,
-                        iconContainerColor: const Color(0xFFFFC727),
-                      ),
+                    IconWithTextCard(
+                      cardTitle: "Calculate Estimate",
+                      cardColor: const Color(0xFFFFFBEE),
+                      cardIcon: calculatorIcon,
+                      iconContainerColor: const Color(0xFFFFC727),
                     ),
                     const SizedBox(
                       width: 10,
                     ),
-                    Expanded(
-                      child: IconWithTextCard(
-                        cardTitle: "Create Shipment",
-                        cardColor: const Color(0xFFFFE6E2),
-                        cardIcon: cargoShipIcon,
-                        iconContainerColor: const Color(0xFFB35042),
-                      ),
+                    IconWithTextCard(
+                      cardTitle: "Create Shipment",
+                      cardColor: const Color(0xFFFFE6E2),
+                      cardIcon: cargoShipIcon,
+                      iconContainerColor: const Color(0xFFB35042),
                     ),
                   ],
                 ),
