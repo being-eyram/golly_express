@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:golly_express/components/bottom_sheet_container.dart';
-import 'package:golly_express/constants.dart';
+import 'package:golly_express/model/address.dart';
 import 'package:golly_express/model/my_address_container.dart';
 
 class MyAddressScreen extends StatelessWidget {
@@ -76,18 +76,18 @@ class MyAddressScreen extends StatelessWidget {
                 const SizedBox(height: 24.0),
 
                 // address container
-                InkWell(
-                  borderRadius: BorderRadius.circular(8),
-                  child: MyAddressContainer(
-                    icon: const Icon(Icons.home_outlined),
-                    addressTitle: "Home",
-                    addressLine: homeAddress,
-                  ),
+                MyAddressContainer(
+                  // icon: const Icon(Icons.home_outlined),
+                  // addressTitle: "Home",
+                  // addressLine: homeAddress,
+                  address: homeAddress,
                   onTap: () {
                     showModalBottomSheet(
                       context: context,
                       builder: (BuildContext context) {
-                        return const BottomSheetContainer();
+                        return BottomSheetContainer(
+                          address: homeAddress,
+                        );
                       },
                     );
                   },
@@ -96,17 +96,33 @@ class MyAddressScreen extends StatelessWidget {
                 const SizedBox(height: 16),
 
                 MyAddressContainer(
-                  icon: const Icon(Icons.work_outline),
-                  addressTitle: "Work",
-                  addressLine: workAddress,
+                  address: workAddress,
+                  onTap: () {
+                    showModalBottomSheet(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return BottomSheetContainer(
+                          address: workAddress,
+                        );
+                      },
+                    );
+                  },
                 ),
 
                 const SizedBox(height: 16),
 
                 MyAddressContainer(
-                  icon: const Icon(Icons.location_on_outlined),
-                  addressTitle: "Others",
-                  addressLine: otherAddress,
+                  address: otherAddress,
+                  onTap: () {
+                    showModalBottomSheet(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return BottomSheetContainer(
+                          address: otherAddress,
+                        );
+                      },
+                    );
+                  },
                 ),
               ],
             ),
