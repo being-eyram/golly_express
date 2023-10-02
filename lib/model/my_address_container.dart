@@ -36,7 +36,7 @@ class MyAddressContainer extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      address.icon,
+                      address.icon!,
                       const SizedBox(width: 8),
                       Text(
                         address.addressTitle!,
