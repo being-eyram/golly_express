@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:golly_express/model/address.dart';
 
 class BottomSheetContainer extends StatelessWidget {
-  const BottomSheetContainer({super.key});
+  const BottomSheetContainer({
+    super.key,
+    required this.address,
+  });
 
+  final Address address;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -47,17 +52,17 @@ class BottomSheetContainer extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 16),
-          const Text(
-            "Home",
-            style: TextStyle(
+          Text(
+            address.addressTitle!,
+            style: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w700,
             ),
           ),
           const SizedBox(height: 16),
-          const Text(
-            "Kpa-Aps Technologies, 6th Adote Obour st, Accra, Ghana",
-            style: TextStyle(
+          Text(
+            address.addressLine!,
+            style: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w400,
             ),
