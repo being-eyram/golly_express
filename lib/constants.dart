@@ -85,14 +85,14 @@ final userIDIcon = Image.asset(
   height: 45,
 );
 
-String homeAddress = "Kpa-Aps Technologies, 6th Adote Obour st, Accra, Ghana";
+// String homeAddress = "Kpa-Aps Technologies, 6th Adote Obour st, Accra, Ghana";
 
-String workAddress = "Kpa-Aps Technologies, 6th Adote Obour st, Accra, Ghana";
+// String workAddress = "Kpa-Aps Technologies, 6th Adote Obour st, Accra, Ghana";
 
-String otherAddress = "Kpa-Aps Technologies, 6th Adote Obour st, Accra, Ghana";
+// String otherAddress = "Kpa-Aps Technologies, 6th Adote Obour st, Accra, Ghana";
 
-String houseAddress = " 6th Adote Obour st, Accra, Ghana";
+// String houseAddress = " 6th Adote Obour st, Accra, Ghana";
 
-String mailAddress = "6th Adote Obour st, Accra, Ghana";
+// String mailAddress = "6th Adote Obour st, Accra, Ghana";
 
-String shipAddress = "6th Adote Obour st, Accra, Ghana";
+// String shipAddress = "6th Adote Obour st, Accra, Ghana";
