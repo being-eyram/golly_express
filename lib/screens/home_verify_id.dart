@@ -11,29 +11,6 @@ class VerifyIDHomeScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined),
-            label: "Home",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.inventory_2_outlined),
-            label: "packages",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline),
-            label: "profile",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications_none),
-            label: "notifications",
-          ),
-        ],
-      ),
       body: SafeArea(
         child: SingleChildScrollView(
           reverse: true,
