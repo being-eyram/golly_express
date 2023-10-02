@@ -77,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
                 const SizedBox(height: 24),
-                const PackageTrackingHistory(),
+                const EmptyTrackingHistory(),
               ],
             ),
           ),
@@ -87,8 +87,8 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-class PackageTrackingHistory extends StatelessWidget {
-  const PackageTrackingHistory({super.key});
+class EmptyTrackingHistory extends StatelessWidget {
+  const EmptyTrackingHistory({super.key});
 
   @override
   Widget build(BuildContext context) {

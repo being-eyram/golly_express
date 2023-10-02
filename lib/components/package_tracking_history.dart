@@ -20,8 +20,6 @@ class PackageTrackingHistory extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 16),
-
-        // wooowwwww
         ...recentPackages.map((package) => PackageCard(package: package))
       ],
     );
