@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:golly_express/cards/icon_with_text_card.dart';
 import 'package:golly_express/cards/track_package_card.dart';
 import 'package:golly_express/cards/verify_id_card.dart';
@@ -62,6 +63,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       cardColor: const Color(0xFFFFFBEE),
                       cardIcon: calculatorIcon,
                       iconContainerColor: const Color(0xFFFFC727),
+                      onTap: () {},
+                      // onTap: () => context.go("/calculateEstimate"),
                     ),
                     const SizedBox(
                       width: 10,
@@ -71,6 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       cardColor: const Color(0xFFFFE6E2),
                       cardIcon: cargoShipIcon,
                       iconContainerColor: const Color(0xFFB35042),
+                      onTap: () => context.go("/createShipment"),
                     ),
                   ],
                 ),
