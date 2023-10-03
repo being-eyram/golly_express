@@ -43,6 +43,7 @@ class VerifyIDHomeScreen extends ConsumerWidget {
                         cardColor: const Color(0xFFFFFBEE),
                         cardIcon: calculatorIcon,
                         iconContainerColor: const Color(0xFFFFC727),
+                        onTap: () {},
                       ),
                     ),
                     const SizedBox(
@@ -54,6 +55,7 @@ class VerifyIDHomeScreen extends ConsumerWidget {
                         cardColor: const Color(0xFFFFE6E2),
                         cardIcon: cargoShipIcon,
                         iconContainerColor: const Color(0xFFB35042),
+                        onTap: () {},
                       ),
                     ),
                   ],
