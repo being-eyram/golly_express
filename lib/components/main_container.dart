@@ -66,7 +66,11 @@ class _MainContainerState extends State<MainContainer> {
           ),
         ],
       ),
-      body: _screens.elementAt(position),
+      // body: _screens.elementAt(position),
+      body: IndexedStack(
+        index: position,
+        children: _screens,
+      ),
     );
   }
 }
