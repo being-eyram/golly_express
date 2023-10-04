@@ -47,7 +47,7 @@ class InputTextField extends StatelessWidget {
               : null,
           enabledBorder: outlineBorderPropGenerator(const Color(0xFFEDEFEE)),
           focusedBorder: outlineBorderPropGenerator(const Color(0xFF557A46)),
-          contentPadding: const EdgeInsets.symmetric(vertical: 14, horizontal: 16),
+          contentPadding: const EdgeInsets.all(16),
           hintText: hintText,
           hintStyle: const TextStyle(color: Color(0xFFA3ADAA))),
     );
@@ -57,6 +57,6 @@ class InputTextField extends StatelessWidget {
 outlineBorderPropGenerator(Color color) {
   return OutlineInputBorder(
     borderRadius: const BorderRadius.all(Radius.circular(8)),
-    borderSide: BorderSide(width: 2, color: color),
+    borderSide: BorderSide(width: 1.5, color: color),
   );
 }
