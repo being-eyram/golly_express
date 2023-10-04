@@ -29,3 +29,9 @@ Address otherAddress = Address(
   addressLine: "Kpa-Aps Technologies, 6th Adote Obour st, Accra, Ghana",
   icon: const Icon(Icons.location_on_outlined),
 );
+
+Address shippingAddress = Address(
+  addressTitle: "Others",
+  addressLine: "Kpa-Aps Technologies, 6th Adote Obour st, Accra, Ghana",
+  icon: const Icon(Icons.location_on_outlined),
+);
