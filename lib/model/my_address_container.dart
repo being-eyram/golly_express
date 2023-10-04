@@ -17,6 +17,7 @@ class MyAddressContainer extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: double.infinity,
+        margin: const EdgeInsets.only(bottom: 16),
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
