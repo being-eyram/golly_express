@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:golly_express/components/input_field.dart';
+import 'package:golly_express/components/select_address_bottomsheet.dart';
 
 class CreateShipmentScreen extends StatelessWidget {
   const CreateShipmentScreen({super.key});
@@ -78,7 +79,14 @@ class CreateShipmentScreen extends StatelessWidget {
                   //   hintText: "Select address",
                   // ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      showModalBottomSheet(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return const SelectAddressBottomSheet();
+                        },
+                      );
+                    },
                     borderRadius: BorderRadius.circular(8),
                     child: Container(
                       width: double.infinity,
