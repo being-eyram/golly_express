@@ -74,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       cardColor: const Color(0xFFFFE6E2),
                       cardIcon: cargoShipIcon,
                       iconContainerColor: const Color(0xFFB35042),
-                      onTap: () => context.go("/createShipment"),
+                      onTap: () => context.push("/createShipment"),
                     ),
                   ],
                 ),
