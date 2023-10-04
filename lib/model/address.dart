@@ -35,3 +35,9 @@ Address shippingAddress = Address(
   addressLine: "Kpa-Aps Technologies, 6th Adote Obour st, Accra, Ghana",
   icon: const Icon(Icons.location_on_outlined),
 );
+
+var userAddresses = [
+  homeAddress,
+  workAddress,
+  otherAddress,
+];
