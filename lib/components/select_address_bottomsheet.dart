@@ -52,13 +52,13 @@ class SelectAddressBottomSheet extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           const Text(
-            'Select product category',
+            'Select address',
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w700,
             ),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 30),
           ...userAddresses
               .map((address) => MyAddressContainer(address: address))
         ],
