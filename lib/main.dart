@@ -23,11 +23,18 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Golly Express',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF557A46),
+        bottomSheetTheme: const BottomSheetThemeData(
+          backgroundColor: Colors.white,
+          modalBackgroundColor: Colors.white,
         ),
+        appBarTheme: const AppBarTheme(color: Colors.white),
         textTheme: GoogleFonts.dmSansTextTheme(baseTextTheme),
         useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFF557A46),
+        ).copyWith(
+          background: Colors.white,
+        ),
       ),
       routerConfig: appRouter,
     );
