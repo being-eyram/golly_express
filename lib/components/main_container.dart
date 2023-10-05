@@ -1,7 +1,7 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
 import 'package:flutter/material.dart';
-import 'package:golly_express/components/select_address_bottomsheet.dart';
+import 'package:golly_express/components/plusbutton_bottomsheet.dart';
 import 'package:golly_express/constants.dart';
 import 'package:golly_express/screens/home.dart';
 import 'package:golly_express/screens/notifications_screen.dart';
@@ -25,7 +25,7 @@ class _MainContainerState extends State<MainContainer> {
       showModalBottomSheet(
           context: context,
           builder: (BuildContext context) {
-            return const SelectAddressBottomSheet();
+            return const PlusBottomSheet();
           });
       return;
     }
