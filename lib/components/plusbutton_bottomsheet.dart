@@ -51,6 +51,7 @@ class PlusBottomSheet extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           ListTile(
+            onTap: () {},
             minLeadingWidth: 50,
             contentPadding: const EdgeInsets.all(0),
             leading: Container(
