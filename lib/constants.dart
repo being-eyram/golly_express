@@ -57,8 +57,27 @@ final calculatorIcon = SvgPicture.asset(
   semanticsLabel: 'Calculator',
 );
 
+final greenCalculatorIcon = SvgPicture.asset(
+  'assets/images/ic_calculator.svg',
+  colorFilter: const ColorFilter.mode(
+    Color(0xFF557A46),
+    BlendMode.srcIn,
+  ),
+  semanticsLabel: 'Calculator',
+);
+
 final cargoShipIcon = SvgPicture.asset(
   'assets/images/ic_cargo_ship.svg',
+  semanticsLabel: 'Cargo Ship',
+);
+
+final greenCargoShipIcon = SvgPicture.asset(
+  'assets/images/ic_cargo_ship.svg',
+  // color: const Color(0xFF557A46),
+  colorFilter: const ColorFilter.mode(
+    Color(0xFF557A46),
+    BlendMode.srcIn,
+  ),
   semanticsLabel: 'Cargo Ship',
 );
 
