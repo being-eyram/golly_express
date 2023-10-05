@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:golly_express/components/custom_button.dart';
 import 'package:golly_express/model/address_line_container.dart';
 
 class GollyExpressAddressScreen extends StatelessWidget {
@@ -12,33 +13,38 @@ class GollyExpressAddressScreen extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           const Divider(color: Color(0xFFEDEFEE)),
-          Padding(
-            padding: const EdgeInsets.only(
-              left: 16,
-              right: 16,
-              top: 16,
-              bottom: 24.0,
-            ),
-            child: FilledButton(
-              style: FilledButton.styleFrom(
-                minimumSize: const Size(double.infinity, 54),
-                maximumSize: const Size(double.infinity, 54),
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(8)),
-                ),
-              ),
-              onPressed: () {},
-              child: const Text(
-                "Save Changes",
-                style: TextStyle(fontSize: 14),
-              ),
-            ),
-          ),
+          // Padding(
+          //   padding: const EdgeInsets.only(
+          //     left: 16,
+          //     right: 16,
+          //     top: 16,
+          //     bottom: 24.0,
+          //   ),
+          //   child: FilledButton(
+          //     style: FilledButton.styleFrom(
+          //       minimumSize: const Size(double.infinity, 54),
+          //       maximumSize: const Size(double.infinity, 54),
+          //       shape: const RoundedRectangleBorder(
+          //         borderRadius: BorderRadius.all(Radius.circular(8)),
+          //       ),
+          //     ),
+          //     onPressed: () {},
+          //     child: const Text(
+          //       "Save Changes",
+          //       style: TextStyle(fontSize: 14),
+          //     ),
+          //   ),
+          // ),
+          CustomButton(
+            buttonText: "Save Changes",
+            isEnabled: true,
+            onPressed: () {},
+          )
         ],
       ),
       appBar: AppBar(
         leading: IconButton(
-          // onPressed: () {
+          // (){}: () {
           //   Navigator.pop(context);
           // },
           // onPressed: () => context.go("/"),
