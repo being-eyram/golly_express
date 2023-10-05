@@ -82,6 +82,7 @@ class _MainContainerState extends State<MainContainer> {
               child: const Icon(Icons.add_outlined),
             ),
             activeIcon: Container(
+              alignment: Alignment.center,
               padding: const EdgeInsets.all(9),
               decoration: const BoxDecoration(
                 color: Colors.white,
@@ -95,7 +96,10 @@ class _MainContainerState extends State<MainContainer> {
                   ),
                 ],
               ),
-              child: const Icon(Icons.add),
+              child: const Icon(
+                Icons.add,
+                size: double.infinity,
+              ),
             ),
             label: "plus",
           ),
