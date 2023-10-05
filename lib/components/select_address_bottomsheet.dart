@@ -18,9 +18,9 @@ class SelectAddressBottomSheet extends StatelessWidget {
         vertical: 16,
       ),
       // height: 350,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: Wrap(
+        // mainAxisSize: MainAxisSize.min,
+        // crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Align(
             alignment: Alignment.center,
@@ -58,7 +58,7 @@ class SelectAddressBottomSheet extends StatelessWidget {
               fontWeight: FontWeight.w700,
             ),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 20),
           ...userAddresses
               .map((address) => MyAddressContainer(address: address))
         ],
