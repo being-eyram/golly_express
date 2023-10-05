@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CustomDisabledButton extends StatelessWidget {
-  const CustomDisabledButton({
+class CustomButton extends StatelessWidget {
+  const CustomButton({
     super.key,
     required this.buttonText,
     this.isEnabled = false,
