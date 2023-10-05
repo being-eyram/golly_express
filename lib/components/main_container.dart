@@ -1,6 +1,7 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
 import 'package:flutter/material.dart';
+import 'package:golly_express/components/select_address_bottomsheet.dart';
 import 'package:golly_express/constants.dart';
 import 'package:golly_express/screens/home.dart';
 import 'package:golly_express/screens/notifications_screen.dart';
@@ -19,6 +20,16 @@ class _MainContainerState extends State<MainContainer> {
   int position = 0;
 
   void _onTap(int index) {
+    // Jude dier GOAT !
+    if (index == 2) {
+      showModalBottomSheet(
+          context: context,
+          builder: (BuildContext context) {
+            return const SelectAddressBottomSheet();
+          });
+      return;
+    }
+
     setState(() {
       position = index;
     });
