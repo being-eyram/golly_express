@@ -34,7 +34,7 @@ class TrackPackageCard extends StatelessWidget {
               Text(
                 "Enter tracking number and find your order",
                 style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 15,
                   fontWeight: FontWeight.w400,
                 ),
               ),
