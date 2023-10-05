@@ -17,7 +17,7 @@ class CreateShipmentScreen extends StatelessWidget {
             padding: const EdgeInsets.only(
               left: 16,
               right: 16,
-              top: 16,
+              top: 14,
               bottom: 24.0,
             ),
             child: FilledButton(
@@ -81,6 +81,7 @@ class CreateShipmentScreen extends StatelessWidget {
                   InkWell(
                     onTap: () {
                       showModalBottomSheet(
+                        isScrollControlled: true,
                         context: context,
                         builder: (BuildContext context) {
                           return const SelectAddressBottomSheet();
