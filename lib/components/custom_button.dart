@@ -5,9 +5,11 @@ class CustomButton extends StatelessWidget {
     super.key,
     required this.buttonText,
     this.isEnabled = false,
+    required this.onPressed,
   });
   final bool isEnabled;
   final String buttonText;
+  final Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +21,7 @@ class CustomButton extends StatelessWidget {
         bottom: 24.0,
       ),
       child: FilledButton(
+        onPressed: onPressed,
         style: FilledButton.styleFrom(
           backgroundColor:
               isEnabled ? const Color(0xFF557A46) : const Color(0xFFE8E9E8),
@@ -30,7 +33,6 @@ class CustomButton extends StatelessWidget {
             ),
           ),
         ),
-        onPressed: () {},
         child: Text(
           buttonText,
           style: TextStyle(
