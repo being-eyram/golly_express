@@ -59,8 +59,7 @@ class _CreateShipmentScreenState extends State<CreateShipmentScreen> {
                   hintText: "Tracking number",
                 ),
                 const SizedBox(height: 24.0),
-                InkWell(
-                    borderRadius: BorderRadius.circular(8),
+                GestureDetector(
                     onTap: () {
                       showModalBottomSheet(
                         isScrollControlled: true,
@@ -78,6 +77,7 @@ class _CreateShipmentScreenState extends State<CreateShipmentScreen> {
                       );
                     },
                     child: MyAddressContainer(
+                      showExpandMore: true,
                       address: selectedAddress,
                     )),
                 const SizedBox(height: 24.0),
