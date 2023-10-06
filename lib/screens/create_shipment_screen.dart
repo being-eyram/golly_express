@@ -59,11 +59,8 @@ class _CreateShipmentScreenState extends State<CreateShipmentScreen> {
                   hintText: "Tracking number",
                 ),
                 const SizedBox(height: 24.0),
-                // InputTextField(
-                //   suffixIcon: Icon(Icons.expand_more),
-                //   hintText: "Select address",
-                // ),
                 InkWell(
+                    borderRadius: BorderRadius.circular(8),
                     onTap: () {
                       showModalBottomSheet(
                         isScrollControlled: true,
@@ -80,7 +77,6 @@ class _CreateShipmentScreenState extends State<CreateShipmentScreen> {
                         },
                       );
                     },
-                    borderRadius: BorderRadius.circular(8),
                     child: MyAddressContainer(
                       address: selectedAddress,
                     )),
