@@ -51,7 +51,7 @@ class PlusBottomSheet extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           ListTile(
-            onTap: () {},
+            onTap: () => context.push("/createShipment"),
             minLeadingWidth: 50,
             contentPadding: const EdgeInsets.all(0),
             leading: Container(
@@ -76,7 +76,7 @@ class PlusBottomSheet extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           ListTile(
-            onTap: () => context.push("/createShipment"),
+            onTap: () {},
             minLeadingWidth: 50,
             contentPadding: const EdgeInsets.all(0),
             leading: Container(
