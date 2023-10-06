@@ -6,8 +6,10 @@ import 'package:golly_express/model/my_address_container.dart';
 class SelectAddressBottomSheet extends StatelessWidget {
   const SelectAddressBottomSheet({
     super.key,
+    required this.onAddressSelect,
   });
 
+  final Function(Address address) onAddressSelect;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -59,8 +61,12 @@ class SelectAddressBottomSheet extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 30),
-          ...userAddresses
-              .map((address) => MyAddressContainer(address: address))
+          ...userAddresses.map((address) => MyAddressContainer(
+                address: address,
+                onTap: () {
+                  onAddressSelect(address);
+                },
+              ))
         ],
       ),
     );
