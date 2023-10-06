@@ -1,3 +1,4 @@
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:golly_express/model/address.dart';
@@ -61,12 +62,51 @@ class SelectAddressBottomSheet extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 30),
-          ...userAddresses.map((address) => MyAddressContainer(
-                address: address,
-                onTap: () {
-                  onAddressSelect(address);
-                },
-              ))
+          ...userAddresses.map(
+            (address) => MyAddressContainer(
+              address: address,
+              onTap: () {
+                onAddressSelect(address);
+              },
+            ),
+          ),
+          DottedBorder(
+            // strokeCap: StrokeCap.round,
+            borderType: BorderType.RRect,
+            radius: const Radius.circular(15),
+            dashPattern: const [10],
+            strokeWidth: 2,
+            color: const Color(0xFF557A46),
+            child: Container(
+              width: double.maxFinite,
+              padding: const EdgeInsets.symmetric(vertical: 24),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                // border: Border.all(
+                //   width: 1.5,
+                //   color: const Color(0xFF557A46),
+                // ),
+              ),
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.add_circle,
+                    color: Color(0xFF557A46),
+                  ),
+                  SizedBox(width: 8),
+                  Text(
+                    "Add New Address",
+                    style: TextStyle(
+                      color: Color(0xFF557A46),
+                      fontWeight: FontWeight.w700,
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(height: 100),
         ],
       ),
     );
