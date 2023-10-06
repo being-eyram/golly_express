@@ -56,6 +56,7 @@ class MyAddressContainer extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(16),
                 child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Expanded(
@@ -80,9 +81,9 @@ class MyAddressContainer extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              showExpandMore
-                                  ? const Icon(Icons.expand_more)
-                                  : const SizedBox.shrink()
+                              // showExpandMore
+                              //     ? const Icon(Icons.expand_more)
+                              //     : const SizedBox.shrink()
                             ],
                           ),
                           const SizedBox(height: 8),
@@ -97,8 +98,16 @@ class MyAddressContainer extends StatelessWidget {
                       ),
                     ),
                     !showExpandMore
-                        ? const Icon(Icons.arrow_forward_ios, size: 18)
-                        : const SizedBox.shrink()
+                        ? const Align(
+                            alignment: Alignment.bottomCenter,
+                            child: Icon(Icons.arrow_forward_ios, size: 18),
+                          )
+                        // : const SizedBox.shrink()
+                        : const Icon(Icons.expand_more)
+
+                    // : SizedBox.fromSize(
+                    //     size: const Size.square(20),
+                    //   )
                   ],
                 ),
               ),
