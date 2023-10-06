@@ -77,9 +77,6 @@ class MyAddressScreen extends StatelessWidget {
 
                 // address container
                 MyAddressContainer(
-                  // icon: const Icon(Icons.home_outlined),
-                  // addressTitle: "Home",
-                  // addressLine: homeAddress,
                   address: homeAddress,
                   onTap: () {
                     showModalBottomSheet(
