@@ -3,10 +3,18 @@ import 'package:go_router/go_router.dart';
 import 'package:golly_express/components/custom_button.dart';
 import 'package:golly_express/components/input_field.dart';
 import 'package:golly_express/components/select_address_bottomsheet.dart';
+import 'package:golly_express/model/address.dart';
+import 'package:golly_express/model/my_address_container.dart';
 
-class CreateShipmentScreen extends StatelessWidget {
+class CreateShipmentScreen extends StatefulWidget {
   const CreateShipmentScreen({super.key});
 
+  @override
+  State<CreateShipmentScreen> createState() => _CreateShipmentScreenState();
+}
+
+class _CreateShipmentScreenState extends State<CreateShipmentScreen> {
+  Address? selectedAddress;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,40 +64,26 @@ class CreateShipmentScreen extends StatelessWidget {
                 //   hintText: "Select address",
                 // ),
                 InkWell(
-                  onTap: () {
-                    showModalBottomSheet(
-                      isScrollControlled: true,
-                      context: context,
-                      builder: (BuildContext context) {
-                        return const SelectAddressBottomSheet();
-                      },
-                    );
-                  },
-                  borderRadius: BorderRadius.circular(8),
-                  child: Container(
-                    width: double.infinity,
-                    padding: const EdgeInsets.all(16),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      border: Border.all(
-                        color: const Color(0xFFEDEFEE),
-                      ),
-                    ),
-                    child: const Row(
-                      children: [
-                        Text(
-                          "Select address",
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Color(0xFFA3ADAA),
-                          ),
-                        ),
-                        Spacer(),
-                        Icon(Icons.expand_more)
-                      ],
-                    ),
-                  ),
-                ),
+                    onTap: () {
+                      showModalBottomSheet(
+                        isScrollControlled: true,
+                        context: context,
+                        builder: (BuildContext context) {
+                          return SelectAddressBottomSheet(
+                            onAddressSelect: (address) {
+                              setState(() {
+                                selectedAddress = address;
+                              });
+                              context.pop();
+                            },
+                          );
+                        },
+                      );
+                    },
+                    borderRadius: BorderRadius.circular(8),
+                    child: MyAddressContainer(
+                      address: selectedAddress,
+                    )),
                 const SizedBox(height: 24.0),
                 const InputTextField(
                   hintText: "Describe product",
