@@ -44,7 +44,7 @@ class MyAddressContainer extends StatelessWidget {
             width: double.infinity,
             margin: const EdgeInsets.only(bottom: 16),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(15),
               border: Border.all(
                 width: 1.5,
                 color: const Color(0xFFEDEFEE),
