@@ -53,7 +53,7 @@ class AddressBottomSheet extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           Text(
-            address.addressTitle!,
+            address.addressTitle,
             style: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w700,
@@ -61,7 +61,7 @@ class AddressBottomSheet extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           Text(
-            address.addressLine!,
+            address.addressLine,
             style: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w400,
