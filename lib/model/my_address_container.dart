@@ -56,7 +56,7 @@ class MyAddressContainer extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(16),
                 child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  // crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Expanded(
@@ -98,10 +98,7 @@ class MyAddressContainer extends StatelessWidget {
                       ),
                     ),
                     !showExpandMore
-                        ? const Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Icon(Icons.arrow_forward_ios, size: 18),
-                          )
+                        ? const Icon(Icons.arrow_forward_ios, size: 18)
                         // : const SizedBox.shrink()
                         : const Icon(Icons.expand_more)
 
