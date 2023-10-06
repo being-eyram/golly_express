@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 class Address {
   Address({
-    this.addressTitle,
-    this.addressLine,
-    this.icon,
+    required this.addressTitle,
+    required this.addressLine,
+    required this.icon,
   });
 
-  String? addressTitle;
-  String? addressLine;
-  Icon? icon;
+  String addressTitle;
+  String addressLine;
+  Icon icon;
 }
 
 Address homeAddress = Address(
