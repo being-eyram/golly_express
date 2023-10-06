@@ -24,17 +24,19 @@ class MyAddressContainer extends StatelessWidget {
                 color: const Color(0xFFEDEFEE),
               ),
             ),
-            child: const Row(
+            child: Row(
               children: [
-                Text(
+                const Text(
                   "Select address",
                   style: TextStyle(
                     fontSize: 16,
                     color: Color(0xFFA3ADAA),
                   ),
                 ),
-                Spacer(),
-                Icon(Icons.expand_more)
+                const Spacer(),
+                showExpandMore
+                    ? const Icon(Icons.expand_more)
+                    : const SizedBox.shrink()
               ],
             ),
           )
