@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:golly_express/components/custom_button.dart';
 import 'package:golly_express/components/product_category_bottomsheet.dart';
-import 'package:golly_express/model/my_address_container.dart';
 
 class CalculateEstimateScreen extends StatelessWidget {
   const CalculateEstimateScreen({super.key});
@@ -66,7 +65,7 @@ class CalculateEstimateScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
                 const Text(
-                  "Get Estimate ",
+                  "Get Estimate",
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w800,
@@ -83,8 +82,63 @@ class CalculateEstimateScreen extends StatelessWidget {
                       },
                     );
                   },
-                  child: const MyAddressContainer(
-                    showExpandMore: true,
+                  child: Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(
+                        color: const Color(0xFFEDEFEE),
+                      ),
+                    ),
+                    child: const Row(
+                      children: [
+                        Text(
+                          "select product category",
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Color(0xFFA3ADAA),
+                          ),
+                        ),
+                        Spacer(),
+                        Icon(Icons.expand_more)
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                GestureDetector(
+                  onTap: () {
+                    showModalBottomSheet(
+                      isScrollControlled: true,
+                      context: context,
+                      builder: (BuildContext context) {
+                        return const ProductCategoryBottomSheet();
+                      },
+                    );
+                  },
+                  child: Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(
+                        color: const Color(0xFFEDEFEE),
+                      ),
+                    ),
+                    child: const Row(
+                      children: [
+                        Text(
+                          "select product category",
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Color(0xFFA3ADAA),
+                          ),
+                        ),
+                        Spacer(),
+                        Icon(Icons.expand_more)
+                      ],
+                    ),
                   ),
                 ),
                 const SizedBox(height: 16),
