@@ -63,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       cardColor: const Color(0xFFFFFBEE),
                       cardIcon: calculatorIcon,
                       iconContainerColor: const Color(0xFFFFC727),
-                      onTap: () {},
+                      onTap: () => context.push("/calculateEstimate"),
                       // onTap: () => context.go("/calculateEstimate"),
                     ),
                     const SizedBox(
