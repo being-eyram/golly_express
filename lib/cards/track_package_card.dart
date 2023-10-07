@@ -28,9 +28,7 @@ class TrackPackageCard extends StatelessWidget {
                   fontWeight: FontWeight.w800,
                 ),
               ),
-              SizedBox(
-                height: 8,
-              ),
+              SizedBox(height: 8),
               Text(
                 "Enter tracking number and find your order",
                 style: TextStyle(
@@ -38,9 +36,7 @@ class TrackPackageCard extends StatelessWidget {
                   fontWeight: FontWeight.w400,
                 ),
               ),
-              SizedBox(
-                height: 24,
-              ),
+              SizedBox(height: 24),
               TrackingNumberSearchField()
             ],
           ),
