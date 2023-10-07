@@ -76,7 +76,7 @@ class PlusBottomSheet extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           ListTile(
-            onTap: () {},
+            onTap: () => context.push("/calculateEstimate"),
             minLeadingWidth: 50,
             contentPadding: const EdgeInsets.all(0),
             leading: Container(
