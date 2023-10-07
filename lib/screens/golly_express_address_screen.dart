@@ -9,16 +9,19 @@ class GollyExpressAddressScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const Divider(color: Color(0xFFEDEFEE)),
-          CustomButton(
-            buttonText: "Save Changes",
-            isEnabled: true,
-            onPressed: () {},
-          )
-        ],
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Divider(color: Color(0xFFEDEFEE)),
+            CustomButton(
+              buttonText: "Save Changes",
+              isEnabled: true,
+              onPressed: () {},
+            )
+          ],
+        ),
       ),
       appBar: AppBar(
         leading: IconButton(
