@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:golly_express/components/main_container.dart';
+import 'package:golly_express/screens/calculate_estimate_screen.dart';
 import 'package:golly_express/screens/create_shipment_screen.dart';
 import 'package:golly_express/screens/golly_express_address_screen.dart';
 import 'package:golly_express/screens/home.dart';
@@ -38,10 +39,10 @@ final GoRouter appRouter = GoRouter(
       builder: (context, state) => const HomeScreen(),
     ),
 
-    // GoRoute(
-    //   path: '/calculateEstimate',
-    //   builder: (context, state) => const CalculateEstimateScreen(),
-    // ),
+    GoRoute(
+      path: '/calculateEstimate',
+      builder: (context, state) => const CalculateEstimateScreen(),
+    ),
 
     GoRoute(
       path: '/createShipment',
