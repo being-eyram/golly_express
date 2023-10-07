@@ -60,26 +60,27 @@ class _CreateShipmentScreenState extends State<CreateShipmentScreen> {
                 ),
                 const SizedBox(height: 24.0),
                 GestureDetector(
-                    onTap: () {
-                      showModalBottomSheet(
-                        isScrollControlled: true,
-                        context: context,
-                        builder: (BuildContext context) {
-                          return SelectAddressBottomSheet(
-                            onAddressSelect: (address) {
-                              setState(() {
-                                selectedAddress = address;
-                              });
-                              context.pop();
-                            },
-                          );
-                        },
-                      );
-                    },
-                    child: MyAddressContainer(
-                      showExpandMore: true,
-                      address: selectedAddress,
-                    )),
+                  onTap: () {
+                    showModalBottomSheet(
+                      isScrollControlled: true,
+                      context: context,
+                      builder: (BuildContext context) {
+                        return SelectAddressBottomSheet(
+                          onAddressSelect: (address) {
+                            setState(() {
+                              selectedAddress = address;
+                            });
+                            context.pop();
+                          },
+                        );
+                      },
+                    );
+                  },
+                  child: MyAddressContainer(
+                    showExpandMore: true,
+                    address: selectedAddress,
+                  ),
+                ),
                 const SizedBox(height: 24.0),
                 const InputTextField(
                   hintText: "Describe product",
