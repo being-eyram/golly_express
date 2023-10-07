@@ -19,7 +19,12 @@ class _CreateShipmentScreenState extends State<CreateShipmentScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        padding: const EdgeInsets.only(
+          left: 16,
+          right: 16,
+          top: 14,
+          bottom: 24.0,
+        ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
