@@ -4,9 +4,9 @@ import 'package:flutter_svg/svg.dart';
 
 class InputTextField extends StatelessWidget {
   final String hintText;
-  final bool obscureText;
+  final bool isObscured;
   final bool isPasswordInput;
-  final void Function()? onTapObscureText;
+  final void Function()? suffixIconOnTap;
   final String? prefixText;
   final TextStyle? prefixStyle;
   final Icon? prefixIcon;
@@ -18,10 +18,10 @@ class InputTextField extends StatelessWidget {
 
   const InputTextField({
     super.key,
-    this.obscureText = false,
+    this.isObscured = true,
     this.isPasswordInput = false,
     required this.hintText,
-    this.onTapObscureText,
+    this.suffixIconOnTap,
     this.suffixIcon,
     this.controller,
     this.initialValue,
@@ -55,18 +55,18 @@ class InputTextField extends StatelessWidget {
       initialValue: initialValue,
       controller: controller,
       style: const TextStyle(fontSize: 16),
-      obscureText: obscureText == true,
+      obscureText: isPasswordInput ? isObscured : false,
       decoration: InputDecoration(
           prefixText: prefixText,
           prefixStyle: prefixStyle,
           prefixIcon: prefixIcon,
           suffixIcon: isPasswordInput
               ? InkWell(
-                  onTap: onTapObscureText,
+                  onTap: suffixIconOnTap,
                   child: AnimatedContainer(
                     curve: Curves.easeOutSine,
                     duration: const Duration(milliseconds: 200),
-                    child: obscureText ? showPasswordSvg : hidePasswordSvg,
+                    child: isObscured ? showPasswordSvg : hidePasswordSvg,
                   ),
                 )
               : suffixIcon,
