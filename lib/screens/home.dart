@@ -48,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(height: 16),
 
                 // display your golly express dropdown if verified else verify id card
-                _userIsVerified == true
+                _userIsVerified
                     ? const SizedBox(height: 50)
                     : const VerifyIDCard(),
 
