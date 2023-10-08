@@ -111,3 +111,14 @@ final productCategories = [
   "Smartwatch",
   "General Package",
 ];
+
+final sampleNotificationTitle = "Notification Title";
+
+final sampleNotificationSubtitle = "Lorem Ibsum ...";
+
+
+
+
+
+
+
