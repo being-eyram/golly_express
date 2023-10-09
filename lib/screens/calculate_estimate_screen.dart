@@ -3,9 +3,16 @@ import 'package:go_router/go_router.dart';
 import 'package:golly_express/components/custom_button.dart';
 import 'package:golly_express/components/product_category_bottomsheet.dart';
 
-class CalculateEstimateScreen extends StatelessWidget {
+class CalculateEstimateScreen extends StatefulWidget {
   const CalculateEstimateScreen({super.key});
 
+  @override
+  State<CalculateEstimateScreen> createState() =>
+      _CalculateEstimateScreenState();
+}
+
+class _CalculateEstimateScreenState extends State<CalculateEstimateScreen> {
+  var displayText = "select product category";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,7 +85,13 @@ class CalculateEstimateScreen extends StatelessWidget {
                       isScrollControlled: true,
                       context: context,
                       builder: (BuildContext context) {
-                        return const ProductCategoryBottomSheet();
+                        return  ProductCategoryBottomSheet(
+                          onProductSelect: (product) {
+                            setState(() {
+                              displayText = product;
+                            });
+                          },
+                        );
                       },
                     );
                   },
@@ -91,17 +104,17 @@ class CalculateEstimateScreen extends StatelessWidget {
                         color: const Color(0xFFEDEFEE),
                       ),
                     ),
-                    child: const Row(
+                    child: Row(
                       children: [
                         Text(
-                          "select product category",
-                          style: TextStyle(
+                          displayText,
+                          style: const TextStyle(
                             fontSize: 16,
                             color: Color(0xFFA3ADAA),
                           ),
                         ),
-                        Spacer(),
-                        Icon(Icons.expand_more)
+                        const Spacer(),
+                        const Icon(Icons.expand_more)
                       ],
                     ),
                   ),
@@ -113,7 +126,7 @@ class CalculateEstimateScreen extends StatelessWidget {
                       isScrollControlled: true,
                       context: context,
                       builder: (BuildContext context) {
-                        return const ProductCategoryBottomSheet();
+                        return const ProductCategoryBottomSheet(onProductSelect: ,);
                       },
                     );
                   },
