@@ -115,11 +115,3 @@ final productCategories = [
 var sampleNotificationTitle = "Title Goes Here";
 var sampleNotificationSubtitle =
     "Lorem ipsum dolor sit amet consectetur. Eget justo morbi vitae diam. Aliquet arcu mattis pellentesque tellus turpis adipiscing non ...";
-
-var sampleNotificationTitle2 = "Title Goes Here";
-var sampleNotificationSubtitle2 =
-    "Lorem ipsum dolor sit amet consectetur. Eget justo morbi vitae diam. Aliquet arcu mattis pellentesque tellus turpis adipiscing non ...";
-
-var sampleNotificationTitle3 = "Title Goes Here";
-var sampleNotificationSubtitle3 =
-    "Lorem ipsum dolor sit amet consectetur. Eget justo morbi vitae diam. Aliquet arcu mattis pellentesque tellus turpis adipiscing non ...";
