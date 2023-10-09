@@ -123,13 +123,13 @@ class _CalculateEstimateScreenState extends State<CalculateEstimateScreen> {
                 const SizedBox(height: 16),
                 GestureDetector(
                   onTap: () {
-                    // showModalBottomSheet(
-                    //   isScrollControlled: true,
-                    //   context: context,
-                    //   builder: (BuildContext context) {
-                    //     return const ProductCategoryBottomSheet(onProductSelect: ,);
-                    //   },
-                    // );
+                    showModalBottomSheet(
+                      isScrollControlled: true,
+                      context: context,
+                      builder: (BuildContext context) {
+                        return Container();
+                      },
+                    );
                   },
                   child: Container(
                     width: double.infinity,
