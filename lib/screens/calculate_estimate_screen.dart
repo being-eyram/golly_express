@@ -85,11 +85,12 @@ class _CalculateEstimateScreenState extends State<CalculateEstimateScreen> {
                       isScrollControlled: true,
                       context: context,
                       builder: (BuildContext context) {
-                        return  ProductCategoryBottomSheet(
+                        return ProductCategoryBottomSheet(
                           onProductSelect: (product) {
                             setState(() {
                               displayText = product;
                             });
+                            context.pop();
                           },
                         );
                       },
@@ -122,13 +123,13 @@ class _CalculateEstimateScreenState extends State<CalculateEstimateScreen> {
                 const SizedBox(height: 16),
                 GestureDetector(
                   onTap: () {
-                    showModalBottomSheet(
-                      isScrollControlled: true,
-                      context: context,
-                      builder: (BuildContext context) {
-                        return const ProductCategoryBottomSheet(onProductSelect: ,);
-                      },
-                    );
+                    // showModalBottomSheet(
+                    //   isScrollControlled: true,
+                    //   context: context,
+                    //   builder: (BuildContext context) {
+                    //     return const ProductCategoryBottomSheet(onProductSelect: ,);
+                    //   },
+                    // );
                   },
                   child: Container(
                     width: double.infinity,
