@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:golly_express/model/notification.dart';
 
 import '../cards/notification_card.dart';
 
@@ -22,18 +23,15 @@ class NotificationsScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 24),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              NotificationCard(),
-              SizedBox(height: 16),
-              NotificationCard(),
-              SizedBox(height: 16),
-              NotificationCard(),
-            ],
-          ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24),
+        child: ListView.builder(
+          itemCount: recentNotifications.length,
+          itemBuilder: (BuildContext context, int index) {
+            return NotificationCard(
+              notification: recentNotifications[index],
+            );
+          },
         ),
       ),
     );
