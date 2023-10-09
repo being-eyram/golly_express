@@ -143,7 +143,7 @@ class _CalculateEstimateScreenState extends State<CalculateEstimateScreen> {
                     child: const Row(
                       children: [
                         Text(
-                          "select product category",
+                          "select smartphone type",
                           style: TextStyle(
                             fontSize: 16,
                             color: Color(0xFFA3ADAA),
