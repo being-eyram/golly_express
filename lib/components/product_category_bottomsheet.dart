@@ -4,9 +4,10 @@ import 'package:golly_express/constants.dart';
 
 class ProductCategoryBottomSheet extends StatelessWidget {
   const ProductCategoryBottomSheet({
+    required this.onProductSelect,
     super.key,
   });
-
+  final Function(String product) onProductSelect;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -70,7 +71,9 @@ class ProductCategoryBottomSheet extends StatelessWidget {
                 itemCount: productCategories.length,
                 itemBuilder: ((context, index) {
                   return ListTile(
-                    // onTap: () {},
+                    onTap: () {
+                      onProductSelect(productCategories[index]);
+                    },
                     contentPadding:
                         const EdgeInsets.only(left: 0.0, right: 0.0),
                     title: Text(
