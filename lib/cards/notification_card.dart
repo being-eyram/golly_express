@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:golly_express/model/notification.dart';
 
 class NotificationCard extends StatelessWidget {
-  const NotificationCard({super.key});
+  const NotificationCard({
+    super.key,
+    required this.notification,
+  });
+  final Notifications notification;
 
   @override
   Widget build(BuildContext context) {
@@ -25,22 +30,22 @@ class NotificationCard extends StatelessWidget {
               bottomRight: Radius.circular(15),
             ),
           ),
-          child: const Padding(
-            padding: EdgeInsets.all(16.0),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Title Goes Here",
-                  style: TextStyle(
+                  notification.notificationTitle!,
+                  style: const TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.w800,
                   ),
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 Text(
-                  "Lorem ipsum dolor sit amet consectetur. Eget justo morbi vitae diam. Aliquet arcu mattis pellentesque tellus turpis adipiscing non ...",
-                  style: TextStyle(
+                  notification.notificationSubitle!,
+                  style: const TextStyle(
                     color: Color(0xFFA3ADAA),
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
