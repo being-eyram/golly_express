@@ -54,7 +54,7 @@ class _CalculateEstimateScreenState extends State<CalculateEstimateScreen> {
                       Text(
                         "GHS 0.00",
                         style: TextStyle(
-                          fontSize: 25,
+                          fontSize: 30,
                           fontWeight: FontWeight.w800,
                           color: Color(0xFFA3ADAA),
                         ),
