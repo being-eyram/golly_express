@@ -25,14 +25,24 @@ class NotificationsScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24),
-        child: ListView.builder(
-          itemCount: recentNotifications.length,
-          itemBuilder: (BuildContext context, int index) {
-            return NotificationCard(
-              notification: recentNotifications[index],
-            );
-          },
-        ),
+        child: recentNotifications.isNotEmpty
+            ? ListView.builder(
+                itemCount: recentNotifications.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return NotificationCard(
+                    notification: recentNotifications[index],
+                  );
+                },
+              )
+            : const Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    
+                    Text("There are no notifications"),
+                  ],
+                ),
+              ),
       ),
     );
   }
