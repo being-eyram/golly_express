@@ -29,6 +29,9 @@ class _CreateShipmentScreenState extends State<CreateShipmentScreen> {
           mainAxisSize: MainAxisSize.min,
           children: [
             const Divider(color: Color(0xFFEDEFEE)),
+            const SizedBox(
+              height: 6,
+            ),
             CustomButton(
               buttonText: "Create Shipment",
               isEnabled: true,
