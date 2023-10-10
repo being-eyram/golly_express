@@ -29,8 +29,8 @@ Notifications notification4 = Notifications(
   notificationSubitle: sampleNotificationSubtitle,
 );
 var recentNotifications = [
-  notification1,
-  notification2,
-  notification3,
-  notification4,
+  // notification1,
+  // notification2,
+  // notification3,
+  // notification4,
 ];
