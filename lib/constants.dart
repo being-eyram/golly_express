@@ -88,8 +88,8 @@ final genericPackageIcon = SvgPicture.asset(
 
 final trackingHistoryPackageIcon = Image.asset(
   'assets/images/vec_package2.png',
-  height: 200,
-  width: 200,
+  // height: 500,
+  // width: 500,
 );
 
 final packageVector = Image.asset(
