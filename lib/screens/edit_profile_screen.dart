@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:golly_express/components/custom_button.dart';
 import 'package:golly_express/components/input_field.dart';
 
 class EditProfileScreen extends StatelessWidget {
@@ -15,6 +16,28 @@ class EditProfileScreen extends StatelessWidget {
             Icons.arrow_back_ios_new,
             size: 20,
           ),
+        ),
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(
+          left: 16,
+          right: 16,
+          top: 14,
+          bottom: 24.0,
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Divider(color: Color(0xFFEDEFEE)),
+            const SizedBox(
+              height: 6,
+            ),
+            CustomButton(
+              buttonText: "Save Changes",
+              isEnabled: true,
+              onPressed: () {},
+            )
+          ],
         ),
       ),
       body: const SafeArea(
@@ -43,8 +66,14 @@ class EditProfileScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 24.0),
                 InputTextField(
+                  prefixText: "+233  ",
+                  prefixStyle: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w800,
+                  ),
                   initialValue: "57 159 2866",
                   hintText: "Phone Number",
+                  keyboardType: TextInputType.phone,
                 ),
               ],
             ),
