@@ -74,30 +74,13 @@ class ProfileScreen extends StatelessWidget {
                               vertical: 4,
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            context.push("/editProfile");
+                          },
                           child: Text(
                             "Edit",
                             style: TextStyle(
                               fontSize: 14,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        FilledButton(
-                          style: FilledButton.styleFrom(
-                            maximumSize: Size(45, 25),
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 10,
-                              vertical: 4,
-                            ),
-                          ),
-                          onPressed: () {},
-                          child: Text(
-                            "Edit",
-                            style: TextStyle(
                               fontWeight: FontWeight.w700,
                             ),
                           ),
