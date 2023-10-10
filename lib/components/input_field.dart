@@ -8,6 +8,7 @@ class InputTextField extends StatelessWidget {
   final void Function()? onTapObscureText;
   final Icon? suffixIcon;
   final TextEditingController? controller;
+  final String? initialValue;
 
   const InputTextField({
     super.key,
@@ -17,6 +18,7 @@ class InputTextField extends StatelessWidget {
     this.onTapObscureText,
     this.suffixIcon,
     this.controller,
+    this.initialValue,
   });
 
   @override
@@ -37,6 +39,7 @@ class InputTextField extends StatelessWidget {
     );
 
     return TextFormField(
+      initialValue: initialValue,
       controller: controller,
       style: const TextStyle(fontSize: 16),
       obscureText: obscureText == true,
