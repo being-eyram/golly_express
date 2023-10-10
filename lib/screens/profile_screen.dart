@@ -49,6 +49,7 @@ class ProfileScreen extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: const [
+                            // TODO: set name and phone number from edit screen
                             Text(
                               "Ben-Aaron Mills-Pappoe",
                               style: TextStyle(
