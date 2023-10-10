@@ -67,9 +67,33 @@ class ProfileScreen extends StatelessWidget {
                           ],
                         ),
                         const Spacer(),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 10,
+                              vertical: 4,
+                            ),
+                          ),
+                          onPressed: () {},
+                          child: Text(
+                            "Edit",
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
                         FilledButton(
                           style: FilledButton.styleFrom(
-                              padding: EdgeInsets.symmetric(horizontal: 10)),
+                            maximumSize: Size(45, 25),
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 10,
+                              vertical: 4,
+                            ),
+                          ),
                           onPressed: () {},
                           child: Text(
                             "Edit",
@@ -77,7 +101,7 @@ class ProfileScreen extends StatelessWidget {
                               fontWeight: FontWeight.w700,
                             ),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ],
