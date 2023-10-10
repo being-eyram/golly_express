@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 
 class InputTextField extends StatelessWidget {
@@ -6,9 +7,13 @@ class InputTextField extends StatelessWidget {
   final bool obscureText;
   final bool isPasswordInput;
   final void Function()? onTapObscureText;
+  final String? prefixText;
+  final TextStyle? prefixStyle;
+  final Icon? prefixIcon;
   final Icon? suffixIcon;
   final TextEditingController? controller;
   final String? initialValue;
+  final List<TextInputFormatter>? inputFormatters;
 
   const InputTextField({
     super.key,
@@ -19,6 +24,10 @@ class InputTextField extends StatelessWidget {
     this.suffixIcon,
     this.controller,
     this.initialValue,
+    this.prefixText,
+    this.prefixIcon,
+    this.prefixStyle,
+    this.inputFormatters,
   });
 
   @override
@@ -39,11 +48,15 @@ class InputTextField extends StatelessWidget {
     );
 
     return TextFormField(
+      inputFormatters: inputFormatters,
       initialValue: initialValue,
       controller: controller,
       style: const TextStyle(fontSize: 16),
       obscureText: obscureText == true,
       decoration: InputDecoration(
+          prefixText: prefixText,
+          prefixStyle: prefixStyle,
+          prefixIcon: prefixIcon,
           suffixIcon: isPasswordInput
               ? InkWell(
                   onTap: onTapObscureText,
