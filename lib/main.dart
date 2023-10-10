@@ -29,6 +29,12 @@ class MyApp extends StatelessWidget {
         ),
         appBarTheme: const AppBarTheme(color: Colors.white),
         textTheme: GoogleFonts.dmSansTextTheme(baseTextTheme),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: const Color(0xFF557A46),
+            foregroundColor: Colors.white,
+          ),
+        ),
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
           seedColor: const Color(0xFF557A46),
