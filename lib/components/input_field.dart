@@ -13,6 +13,7 @@ class InputTextField extends StatelessWidget {
   final Icon? suffixIcon;
   final TextEditingController? controller;
   final String? initialValue;
+  final TextInputType? keyboardType;
   final List<TextInputFormatter>? inputFormatters;
 
   const InputTextField({
@@ -28,6 +29,7 @@ class InputTextField extends StatelessWidget {
     this.prefixIcon,
     this.prefixStyle,
     this.inputFormatters,
+    this.keyboardType,
   });
 
   @override
@@ -48,6 +50,7 @@ class InputTextField extends StatelessWidget {
     );
 
     return TextFormField(
+      keyboardType: keyboardType,
       inputFormatters: inputFormatters,
       initialValue: initialValue,
       controller: controller,
