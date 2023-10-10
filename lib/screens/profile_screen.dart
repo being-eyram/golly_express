@@ -182,6 +182,7 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 ),
                 child: ListTile(
+                  onTap: () => context.push("/changePassword"),
                   minVerticalPadding: 25,
                   contentPadding: EdgeInsets.symmetric(horizontal: 32),
                   leading: Icon(Icons.lock_outline),
