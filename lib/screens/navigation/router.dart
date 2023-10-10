@@ -1,6 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:golly_express/components/main_container.dart';
 import 'package:golly_express/screens/calculate_estimate_screen.dart';
+import 'package:golly_express/screens/change_password_screen.dart';
 import 'package:golly_express/screens/create_shipment_screen.dart';
 import 'package:golly_express/screens/edit_profile_screen.dart';
 import 'package:golly_express/screens/golly_express_address_screen.dart';
@@ -58,6 +59,11 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/editProfile',
       builder: (context, state) => const EditProfileScreen(),
+    ),
+
+    GoRoute(
+      path: '/changePassword',
+      builder: (context, state) => const ChangePasswordScreen(),
     ),
 
     GoRoute(
