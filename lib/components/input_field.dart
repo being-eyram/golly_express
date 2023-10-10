@@ -7,6 +7,7 @@ class InputTextField extends StatelessWidget {
   final bool isPasswordInput;
   final void Function()? onTapObscureText;
   final Icon? suffixIcon;
+  final TextEditingController? controller;
 
   const InputTextField({
     super.key,
@@ -15,6 +16,7 @@ class InputTextField extends StatelessWidget {
     required this.hintText,
     this.onTapObscureText,
     this.suffixIcon,
+    this.controller,
   });
 
   @override
@@ -35,6 +37,7 @@ class InputTextField extends StatelessWidget {
     );
 
     return TextFormField(
+      controller: controller,
       style: const TextStyle(fontSize: 16),
       obscureText: obscureText == true,
       decoration: InputDecoration(
