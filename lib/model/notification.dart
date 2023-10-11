@@ -28,9 +28,10 @@ Notifications notification4 = Notifications(
   notificationTitle: sampleNotificationTitle,
   notificationSubitle: sampleNotificationSubtitle,
 );
-var recentNotifications = [
-  // notification1,
-  // notification2,
-  // notification3,
-  // notification4,
+
+List<Notifications> recentNotifications = [
+  notification1,
+  notification2,
+  notification3,
+  notification4,
 ];
