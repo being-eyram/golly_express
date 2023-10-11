@@ -13,7 +13,7 @@ class PackageCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 16),
+      // margin: const EdgeInsets.only(bottom: 16),
       padding: const EdgeInsets.symmetric(
         horizontal: 16,
         vertical: 20,
