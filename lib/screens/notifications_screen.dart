@@ -38,7 +38,7 @@ class NotificationsScreen extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("There are no notifications"),
+                    Text("You have no notifications"),
                   ],
                 ),
               ),
