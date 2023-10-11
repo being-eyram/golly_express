@@ -47,8 +47,8 @@ class SigninScreen extends ConsumerWidget {
                   child: InputTextField(
                     hintText: "Enter Password",
                     isPasswordInput: true,
-                    obscureText: ref.watch(showPasswordProvider),
-                    onTapObscureText: () {
+                    isObscured: ref.watch(showPasswordProvider),
+                    suffixIconOnTap: () {
                       ref
                           .read(showPasswordProvider.notifier)
                           .update((state) => !state);
