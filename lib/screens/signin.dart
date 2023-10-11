@@ -48,11 +48,11 @@ class SigninScreen extends ConsumerWidget {
                     hintText: "Enter Password",
                     isPasswordInput: true,
                     obscureText: ref.watch(showPasswordProvider),
-                    onTapObscureText: () {
-                      ref
-                          .read(showPasswordProvider.notifier)
-                          .update((state) => !state);
-                    },
+                    // onTapObscureText: () {
+                    //   ref
+                    //       .read(showPasswordProvider.notifier)
+                    //       .update((state) => !state);
+                    // },
                   ),
                 ),
                 Padding(
