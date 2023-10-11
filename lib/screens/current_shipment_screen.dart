@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:golly_express/constants.dart';
 
 class CurrentShipmentScreen extends StatelessWidget {
@@ -9,7 +10,7 @@ class CurrentShipmentScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () => context.pop(),
           icon: const Icon(Icons.arrow_back_ios_new),
         ),
       ),
