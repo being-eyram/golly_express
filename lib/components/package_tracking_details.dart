@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:timelines/timelines.dart';
 
 class PackageTrackingDetails extends StatelessWidget {
   const PackageTrackingDetails({super.key});
@@ -31,14 +30,14 @@ class PackageTrackingDetails extends StatelessWidget {
             ),
           ),
           // child: TrackingTimeline(),
-          child: Column(
+          child: const Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TimelineNode.simple(),
-              TimelineNode.simple(),
-              TimelineNode.simple(),
-              TimelineTile(node: )
-              TimelineNode.simple(),
+              // TimelineNode.simple(),
+              // TimelineNode.simple(),
+              // TimelineNode.simple(),
+              // TimelineTile(node: )
+              // TimelineNode.simple(),
             ],
           ),
         ),
