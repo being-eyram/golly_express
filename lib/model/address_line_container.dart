@@ -55,10 +55,13 @@ class AddressLineContainer extends StatelessWidget {
           // const Spacer(),
           InkWell(
             onTap: () {
-              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                content: Text("Copied to Clipboard"),
-                duration: Duration(milliseconds: 200),
-              ));
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  backgroundColor: Colors.grey[400],
+                  content: const Text("Copied to Clipboard"),
+                  duration: const Duration(milliseconds: 200),
+                ),
+              );
             },
             child: const Icon(
               Icons.copy,
