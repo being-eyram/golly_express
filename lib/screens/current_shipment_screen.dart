@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:golly_express/components/package_tracking_details.dart';
 import 'package:golly_express/constants.dart';
-
-import '../components/package_tracking_details.dart';
 
 class CurrentShipmentScreen extends StatelessWidget {
   const CurrentShipmentScreen({super.key});
