@@ -7,7 +7,7 @@ import 'package:golly_express/screens/current_shipment_screen.dart';
 import 'package:golly_express/screens/edit_profile_screen.dart';
 import 'package:golly_express/screens/golly_express_address_screen.dart';
 import 'package:golly_express/screens/home.dart';
-import 'package:golly_express/screens/home_verify_id.dart';
+import 'package:golly_express/screens/id_verification_screen.dart';
 import 'package:golly_express/screens/my_address_screen.dart';
 import 'package:golly_express/screens/notifications_screen.dart';
 import 'package:golly_express/screens/packages_screen.dart';
@@ -100,9 +100,9 @@ final GoRouter appRouter = GoRouter(
       path: '/verifyID',
       builder: (context, state) => const IDVerificationScreen(),
     ),
-    GoRoute(
-      path: '/verifyIDHome',
-      builder: (context, state) => const VerifyIDHomeScreen(),
-    ),
+    // GoRoute(
+    //   path: '/verifyIDHome',
+    //   builder: (context, state) => const VerifyIDHomeScreen(),
+    // ),
   ],
 );
