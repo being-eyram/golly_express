@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class IDVerification extends StatelessWidget {
-  const IDVerification({super.key});
+class IDVerificationScreen extends StatelessWidget {
+  const IDVerificationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
