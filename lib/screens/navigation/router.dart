@@ -97,6 +97,10 @@ final GoRouter appRouter = GoRouter(
     ),
 
     GoRoute(
+      path: '/verifyID',
+      builder: (context, state) => const IDVerificationScreen(),
+    ),
+    GoRoute(
       path: '/verifyIDHome',
       builder: (context, state) => const VerifyIDHomeScreen(),
     ),
