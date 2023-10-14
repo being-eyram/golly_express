@@ -60,13 +60,22 @@ class IDVerificationScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
+                  textAlign: TextAlign.center,
                   "ID Verification",
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w800,
                   ),
                 ),
-                SizedBox(height: 24.0),
+                SizedBox(height: 16.0),
+                Text(
+                  textAlign: TextAlign.center,
+                  "We need to verify your identity",
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
               ],
             ),
           ),
