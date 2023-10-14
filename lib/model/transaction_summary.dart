@@ -36,7 +36,7 @@ class TransactionSummary extends StatelessWidget {
                   ),
                   SizedBox(height: 8),
                   Text(
-                    "To Receieve",
+                    "To Receive",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       // fontSize: 12,
