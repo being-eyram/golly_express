@@ -143,6 +143,7 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 ),
                 child: ListTile(
+                  onTap: () => context.push("/verifyIDHome"),
                   minVerticalPadding: 25,
                   contentPadding: EdgeInsets.symmetric(horizontal: 32),
                   leading: Icon(Icons.badge_outlined),
