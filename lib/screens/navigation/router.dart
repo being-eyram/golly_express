@@ -1,17 +1,20 @@
 import 'package:go_router/go_router.dart';
 import 'package:golly_express/components/main_container.dart';
 import 'package:golly_express/screens/calculate_estimate_screen.dart';
-import 'package:golly_express/screens/change_password_screen.dart';
 import 'package:golly_express/screens/create_shipment_screen.dart';
 import 'package:golly_express/screens/current_shipment_screen.dart';
 import 'package:golly_express/screens/edit_profile_screen.dart';
-import 'package:golly_express/screens/golly_express_address_screen.dart';
 import 'package:golly_express/screens/home.dart';
-import 'package:golly_express/screens/id_verification_screen.dart';
-import 'package:golly_express/screens/my_address_screen.dart';
-import 'package:golly_express/screens/notifications_screen.dart';
 import 'package:golly_express/screens/packages_screen.dart';
-import 'package:golly_express/screens/profile_screen.dart';
+import 'package:golly_express/screens/profile%20screen/change_password_screen.dart';
+import 'package:golly_express/screens/profile%20screen/golly_express_address_screen.dart';
+import 'package:golly_express/screens/profile%20screen/id%20verification/check_your_photo.dart';
+import 'package:golly_express/screens/profile%20screen/id%20verification/id_back.dart';
+import 'package:golly_express/screens/profile%20screen/id%20verification/id_front.dart';
+import 'package:golly_express/screens/profile%20screen/id%20verification/id_verification_screen.dart';
+import 'package:golly_express/screens/profile%20screen/my_address_screen.dart';
+import 'package:golly_express/screens/profile%20screen/notifications_screen.dart';
+import 'package:golly_express/screens/profile%20screen/profile_screen.dart';
 import 'package:golly_express/screens/signin.dart';
 
 import '../signup.dart';
@@ -99,6 +102,21 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/verifyID',
       builder: (context, state) => const IDVerificationScreen(),
+    ),
+
+    GoRoute(
+      path: '/frontID',
+      builder: (context, state) => const FrontIDScreen(),
+    ),
+
+    GoRoute(
+      path: '/backID',
+      builder: (context, state) => const BackIDScreen(),
+    ),
+
+    GoRoute(
+      path: '/checkPhoto',
+      builder: (context, state) => const CheckPhotoScreen(),
     ),
   ],
 );

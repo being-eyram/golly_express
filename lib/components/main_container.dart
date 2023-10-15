@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:golly_express/components/plusbutton_bottomsheet.dart';
 import 'package:golly_express/constants.dart';
 import 'package:golly_express/screens/home.dart';
-import 'package:golly_express/screens/notifications_screen.dart';
 import 'package:golly_express/screens/packages_screen.dart';
 import 'package:golly_express/screens/plus_screen.dart';
-import 'package:golly_express/screens/profile_screen.dart';
+import 'package:golly_express/screens/profile%20screen/notifications_screen.dart';
+import 'package:golly_express/screens/profile%20screen/profile_screen.dart';
 
 class MainContainer extends StatefulWidget {
   const MainContainer({super.key});
