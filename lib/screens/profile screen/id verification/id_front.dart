@@ -26,7 +26,7 @@ class FrontIDScreen extends StatelessWidget {
             CustomButton(
               buttonText: "Open Camera",
               isEnabled: true,
-              onPressed: () {},
+              onPressed: () => context.push("/checkPhoto"),
             )
           ],
         ),
