@@ -108,6 +108,14 @@ final userIDCard = SvgPicture.asset(
   "assets/images/ic_user_id.svg",
 );
 
+final frontID = SvgPicture.asset(
+  "assets/images/id_front.svg",
+);
+
+final backID = SvgPicture.asset(
+  "assets/images/id_back.svg",
+);
+
 final productCategories = [
   "Smartphone",
   "Laptop",
