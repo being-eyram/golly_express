@@ -104,6 +104,10 @@ final userIDIcon = Image.asset(
   height: 45,
 );
 
+final userIDCard = SvgPicture.asset(
+  "assets/images/ic_user_id.svg",
+);
+
 final productCategories = [
   "Smartphone",
   "Laptop",
