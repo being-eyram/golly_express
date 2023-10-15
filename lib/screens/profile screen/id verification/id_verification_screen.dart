@@ -26,7 +26,7 @@ class IDVerificationScreen extends StatelessWidget {
             CustomButton(
               buttonText: "Verify ID",
               isEnabled: true,
-              onPressed: () {},
+              onPressed: () => context.push("/frontID"),
             )
           ],
         ),
