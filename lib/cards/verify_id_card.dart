@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:golly_express/constants.dart';
 
 class VerifyIDCard extends StatelessWidget {
-  const VerifyIDCard({super.key});
+  const VerifyIDCard({
+    super.key,
+    this.onTap,
+  });
 
+  final Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -50,7 +54,7 @@ class VerifyIDCard extends StatelessWidget {
             ),
             const SizedBox(width: 8),
             IconButton(
-              onPressed: () {},
+              onPressed: onTap,
               icon: const Icon(Icons.arrow_forward_ios),
             )
           ],
