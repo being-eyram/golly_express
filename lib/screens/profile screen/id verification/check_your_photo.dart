@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:golly_express/components/custom_button.dart';
+import 'package:golly_express/constants.dart';
 
 class CheckPhotoScreen extends StatelessWidget {
   const CheckPhotoScreen({super.key});
@@ -24,7 +25,12 @@ class CheckPhotoScreen extends StatelessWidget {
             ),
             TextButton(
               onPressed: () {},
-              child: const Text("Retake"),
+              child: const Text(
+                "Retake",
+                style: TextStyle(
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
             ),
             const SizedBox(height: 8),
             CustomButton(
@@ -44,14 +50,14 @@ class CheckPhotoScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: const SafeArea(
+      body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 30),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 25),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   textAlign: TextAlign.center,
                   "Check your photo",
                   style: TextStyle(
@@ -59,6 +65,23 @@ class CheckPhotoScreen extends StatelessWidget {
                     fontWeight: FontWeight.w800,
                   ),
                 ),
+                const SizedBox(height: 40),
+                Container(
+                  height: 250,
+                  padding: const EdgeInsets.symmetric(vertical: 50),
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade400,
+                    borderRadius: BorderRadius.circular(15),
+                    image: DecorationImage(
+                      fit: BoxFit.contain,
+                      image: sampleIDFront.image,
+                    ),
+                  ),
+                ),
+                // child: sampleIDFront,
+                // child: Image.network(
+                //     "https://myrepubliconline.com/wp-content/uploads/2021/10/Ghana-Card-1.jpg"),
               ],
             ),
           ),
