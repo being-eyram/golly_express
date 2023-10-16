@@ -82,6 +82,38 @@ class CheckPhotoScreen extends StatelessWidget {
                 // child: sampleIDFront,
                 // child: Image.network(
                 //     "https://myrepubliconline.com/wp-content/uploads/2021/10/Ghana-Card-1.jpg"),
+                const SizedBox(height: 22),
+                const Row(
+                  children: [
+                    Icon(
+                      Icons.done,
+                      color: Color(0xFF557A46),
+                    ),
+                    SizedBox(width: 16),
+                    Text(
+                      "Is the whle document in the frame?",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                      ),
+                    )
+                  ],
+                ),
+                const SizedBox(height: 24),
+                const Row(
+                  children: [
+                    Icon(
+                      Icons.done,
+                      color: Color(0xFF557A46),
+                    ),
+                    SizedBox(width: 16),
+                    Text(
+                      "Is the picture clear and not blurry?",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                      ),
+                    )
+                  ],
+                )
               ],
             ),
           ),
