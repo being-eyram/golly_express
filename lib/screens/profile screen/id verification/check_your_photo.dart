@@ -36,7 +36,7 @@ class CheckPhotoScreen extends StatelessWidget {
             CustomButton(
               buttonText: "Use Photo",
               isEnabled: true,
-              onPressed: () {},
+              onPressed: () => context.push("/verifiedSuccess"),
             )
           ],
         ),
