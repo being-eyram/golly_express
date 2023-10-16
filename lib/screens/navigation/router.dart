@@ -12,6 +12,7 @@ import 'package:golly_express/screens/profile%20screen/id%20verification/check_y
 import 'package:golly_express/screens/profile%20screen/id%20verification/id_back.dart';
 import 'package:golly_express/screens/profile%20screen/id%20verification/id_front.dart';
 import 'package:golly_express/screens/profile%20screen/id%20verification/id_verification_screen.dart';
+import 'package:golly_express/screens/profile%20screen/id%20verification/verified_successfully_screen.dart';
 import 'package:golly_express/screens/profile%20screen/my_address_screen.dart';
 import 'package:golly_express/screens/profile%20screen/notifications_screen.dart';
 import 'package:golly_express/screens/profile%20screen/profile_screen.dart';
@@ -117,6 +118,11 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/checkPhoto',
       builder: (context, state) => const CheckPhotoScreen(),
+    ),
+
+    GoRoute(
+      path: '/verifiedSuccess',
+      builder: (context, state) => const VerifiedSuccessfully(),
     ),
   ],
 );
