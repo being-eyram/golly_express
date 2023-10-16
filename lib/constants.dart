@@ -115,11 +115,17 @@ final frontID = SvgPicture.asset(
 final backID = SvgPicture.asset(
   "assets/images/id_back.svg",
 );
+
 final sampleIDFront = Image.asset(
   "assets/images/ghana_card_front.png",
 );
+
 final sampleIDBack = Image.asset(
   "assets/images/ghana_card_back.png",
+);
+
+final verifiedAccount = Image.asset(
+  "assets/images/vec_verified.png",
 );
 
 final productCategories = [
