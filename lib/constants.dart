@@ -9,8 +9,8 @@ final gollyExpressLogo = Image.asset(
 
 final gollyExpressLogoMini = Image.asset(
   'assets/images/golly_express.jpeg',
-  width: 50,
-  height: 50,
+  width: 24,
+  height: 24,
 );
 
 final userProfile = SvgPicture.asset(
