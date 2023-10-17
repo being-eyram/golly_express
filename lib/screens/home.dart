@@ -22,7 +22,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final _userIsVerified = false;
+  final _userIsVerified = true;
 
   @override
   Widget build(BuildContext context) {
