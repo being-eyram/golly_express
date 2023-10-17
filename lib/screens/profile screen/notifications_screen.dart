@@ -27,7 +27,9 @@ class NotificationsScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24),
         child: recentNotifications.isNotEmpty
             ? ListView.separated(
-                seperatorBuilder: const SizedBox(height: 16),
+                separatorBuilder: (context, index) =>
+                    const SizedBox(height: 16),
+                // seperatorBuilder: const SizedBox(height: 16),
                 itemCount: recentNotifications.length,
                 itemBuilder: (BuildContext context, int index) {
                   return NotificationCard(
