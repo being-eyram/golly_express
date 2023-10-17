@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:golly_express/cards/icon_with_text_card.dart';
 import 'package:golly_express/cards/track_package_card.dart';
 import 'package:golly_express/cards/verify_id_card.dart';
+import 'package:golly_express/components/address_dropdown.dart';
 import 'package:golly_express/components/package_tracking_history.dart';
 import 'package:golly_express/constants.dart';
 import 'package:golly_express/model/package.dart';
@@ -49,7 +50,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
                 // display your golly express dropdown if verified else verify id card
                 _userIsVerified
-                    ? const SizedBox(height: 50)
+                    // ? const SizedBox(height: 50)
+                    ? const AddressDropdown()
                     : VerifyIDCard(
                         onTap: () => context.push("/verifyID"),
                       ),
