@@ -71,6 +71,11 @@ final cargoShipIcon = SvgPicture.asset(
   semanticsLabel: 'Cargo Ship',
 );
 
+final cargoShipIcon2 = SvgPicture.asset(
+  'assets/images/ic_cargo_ship.svg',
+  semanticsLabel: 'Cargo Ship',
+);
+
 final greenCargoShipIcon = SvgPicture.asset(
   'assets/images/ic_cargo_ship.svg',
   // color: const Color(0xFF557A46),
