@@ -5,6 +5,7 @@ import 'package:golly_express/screens/create_shipment_screen.dart';
 import 'package:golly_express/screens/current_shipment_screen.dart';
 import 'package:golly_express/screens/edit_profile_screen.dart';
 import 'package:golly_express/screens/home.dart';
+import 'package:golly_express/screens/onboarding.dart';
 import 'package:golly_express/screens/packages_screen.dart';
 import 'package:golly_express/screens/profile%20screen/change_password_screen.dart';
 import 'package:golly_express/screens/profile%20screen/golly_express_address_screen.dart';
@@ -21,7 +22,8 @@ import 'package:golly_express/screens/signin.dart';
 import '../signup.dart';
 
 final GoRouter appRouter = GoRouter(
-  initialLocation: "/mainContainer",
+  // initialLocation: "/mainContainer",
+  initialLocation: "/onboard",
   routes: <RouteBase>[
     GoRoute(
       path: '/',
@@ -31,6 +33,12 @@ final GoRouter appRouter = GoRouter(
       //   return didOnboard ? '/signin' : null;
       // },
     ),
+
+    GoRoute(
+      path: '/onboard',
+      builder: (context, state) => const OnboardingScreen(),
+    ),
+
     GoRoute(
       path: '/signin',
       builder: (context, state) => const SigninScreen(),
