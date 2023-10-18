@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:golly_express/constants.dart';
 
 import '../components/input_field.dart';
@@ -33,7 +34,7 @@ class SignUpScreen extends ConsumerWidget {
                   borderRadius: BorderRadius.circular(8),
                 ),
               ),
-              onPressed: () {},
+              onPressed: () => context.go("/signin"),
               child: const Text("Submit", style: TextStyle(fontSize: 14)),
             ),
           ),
