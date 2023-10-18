@@ -112,54 +112,56 @@ class SignUpPasswordScreen extends ConsumerWidget {
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 64, right: 16, left: 16),
-        child: Column(
-          children: [
-            gollyExpressLogo,
-            const Padding(
-              padding: EdgeInsets.only(bottom: 8),
-              child: Text(
-                "Enter Password",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.w800),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 64, right: 16, left: 16),
+          child: Column(
+            children: [
+              gollyExpressLogo,
+              const Padding(
+                padding: EdgeInsets.only(bottom: 8),
+                child: Text(
+                  "Enter Password",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w800),
+                ),
               ),
-            ),
-            const Padding(
-              padding: EdgeInsets.only(bottom: 40),
-              child: Text(
-                "Choose a password to secure account",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+              const Padding(
+                padding: EdgeInsets.only(bottom: 40),
+                child: Text(
+                  "Choose a password to secure account",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 8.0),
-              child: InputTextField(
-                hintText: "Enter Password",
-                isPasswordInput: true,
-                isObscured: ref.watch(showPasswordProvider),
-                suffixIconOnTap: () {
-                  ref
-                      .read(showPasswordProvider.notifier)
-                      .update((state) => !state);
-                },
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: InputTextField(
+                  hintText: "Enter Password",
+                  isPasswordInput: true,
+                  isObscured: ref.watch(showPasswordProvider),
+                  suffixIconOnTap: () {
+                    ref
+                        .read(showPasswordProvider.notifier)
+                        .update((state) => !state);
+                  },
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 8.0),
-              child: InputTextField(
-                hintText: "Confirm Password",
-                isPasswordInput: true,
-                isObscured: ref.watch(showPasswordProvider),
-                suffixIconOnTap: () {
-                  ref
-                      .read(showPasswordProvider.notifier)
-                      .update((state) => !state);
-                },
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: InputTextField(
+                  hintText: "Confirm Password",
+                  isPasswordInput: true,
+                  isObscured: ref.watch(showPasswordProvider),
+                  suffixIconOnTap: () {
+                    ref
+                        .read(showPasswordProvider.notifier)
+                        .update((state) => !state);
+                  },
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
