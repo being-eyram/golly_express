@@ -39,44 +39,46 @@ class SignUpScreen extends ConsumerWidget {
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 64, right: 16, left: 16),
-        child: Column(
-          children: [
-            appLogo,
-            const Padding(
-              padding: EdgeInsets.only(bottom: 8),
-              child: Text(
-                "Register to start",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.w800),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 64, right: 16, left: 16),
+          child: Column(
+            children: [
+              appLogo,
+              const Padding(
+                padding: EdgeInsets.only(bottom: 8),
+                child: Text(
+                  "Register to start",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w800),
+                ),
               ),
-            ),
-            const Padding(
-              padding: EdgeInsets.only(bottom: 40),
-              child: Text(
-                "Enter your informtion below",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+              const Padding(
+                padding: EdgeInsets.only(bottom: 40),
+                child: Text(
+                  "Enter your informtion below",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+                ),
               ),
-            ),
-            const Padding(
-              padding: EdgeInsets.only(bottom: 16.0),
-              child: InputTextField(hintText: "Enter Email"),
-            ),
-            const Padding(
-              padding: EdgeInsets.only(bottom: 16.0),
-              child: InputTextField(hintText: "Full Name"),
-            ),
-            const Padding(
-              padding: EdgeInsets.only(bottom: 16.0),
-              child: InputTextField(hintText: "Phone Number"),
-            ),
-            const Padding(
-              padding: EdgeInsets.only(bottom: 16.0),
-              child: InputTextField(hintText: "Address"),
-            ),
-          ],
+              const Padding(
+                padding: EdgeInsets.only(bottom: 16.0),
+                child: InputTextField(hintText: "Enter Email"),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(bottom: 16.0),
+                child: InputTextField(hintText: "Full Name"),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(bottom: 16.0),
+                child: InputTextField(hintText: "Phone Number"),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(bottom: 16.0),
+                child: InputTextField(hintText: "Address"),
+              ),
+            ],
+          ),
         ),
       ),
     );
