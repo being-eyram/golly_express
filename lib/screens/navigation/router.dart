@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:golly_express/components/main_container.dart';
+import 'package:golly_express/screens/another_onboarding_screen.dart';
 import 'package:golly_express/screens/calculate_estimate_screen.dart';
 import 'package:golly_express/screens/create_shipment_screen.dart';
 import 'package:golly_express/screens/current_shipment_screen.dart';
@@ -21,8 +22,9 @@ import 'package:golly_express/screens/profile%20screen/notifications_screen.dart
 import 'package:golly_express/screens/profile%20screen/profile_screen.dart';
 
 final GoRouter appRouter = GoRouter(
-  // initialLocation: "/mainContainer",
-  initialLocation: "/onboard",
+  initialLocation: "/mainContainer",
+  // initialLocation: "/onboard",
+  // initialLocation: "/onboarding",
   routes: <RouteBase>[
     GoRoute(
       path: '/',
@@ -33,6 +35,10 @@ final GoRouter appRouter = GoRouter(
       // },
     ),
 
+    GoRoute(
+      path: '/onboarding',
+      builder: (context, state) => const AnotherOnboardingScreen(),
+    ),
     GoRoute(
       path: '/onboard',
       builder: (context, state) => const OnboardingScreen(),
