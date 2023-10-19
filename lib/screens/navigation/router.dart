@@ -5,7 +5,7 @@ import 'package:golly_express/screens/create_shipment_screen.dart';
 import 'package:golly_express/screens/current_shipment_screen.dart';
 import 'package:golly_express/screens/edit_profile_screen.dart';
 import 'package:golly_express/screens/home.dart';
-import 'package:golly_express/screens/onboarding/onboarding.dart';
+import 'package:golly_express/screens/onboarding/onboarding_screen.dart';
 import 'package:golly_express/screens/onboarding/signin.dart';
 import 'package:golly_express/screens/onboarding/signup.dart';
 import 'package:golly_express/screens/packages_screen.dart';
