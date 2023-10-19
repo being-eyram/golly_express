@@ -5,7 +5,9 @@ import 'package:golly_express/screens/create_shipment_screen.dart';
 import 'package:golly_express/screens/current_shipment_screen.dart';
 import 'package:golly_express/screens/edit_profile_screen.dart';
 import 'package:golly_express/screens/home.dart';
-import 'package:golly_express/screens/onboarding.dart';
+import 'package:golly_express/screens/onboarding/onboarding.dart';
+import 'package:golly_express/screens/onboarding/signin.dart';
+import 'package:golly_express/screens/onboarding/signup.dart';
 import 'package:golly_express/screens/packages_screen.dart';
 import 'package:golly_express/screens/profile%20screen/change_password_screen.dart';
 import 'package:golly_express/screens/profile%20screen/golly_express_address_screen.dart';
@@ -17,9 +19,6 @@ import 'package:golly_express/screens/profile%20screen/id%20verification/verifie
 import 'package:golly_express/screens/profile%20screen/my_address_screen.dart';
 import 'package:golly_express/screens/profile%20screen/notifications_screen.dart';
 import 'package:golly_express/screens/profile%20screen/profile_screen.dart';
-import 'package:golly_express/screens/signin.dart';
-
-import '../signup.dart';
 
 final GoRouter appRouter = GoRouter(
   // initialLocation: "/mainContainer",
