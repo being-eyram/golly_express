@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 class Onboarding {
   Onboarding({
     required this.title,
-    required this.subtitle,
+    required this.description,
     required this.backgroundColor,
     required this.backgroundImage,
   });
 
   String title;
-  String subtitle;
+  String description;
   Colors backgroundColor;
   Image backgroundImage;
 }
