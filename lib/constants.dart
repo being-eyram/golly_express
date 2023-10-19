@@ -18,6 +18,7 @@ final userProfile = SvgPicture.asset(
   semanticsLabel: 'User Profile',
 );
 
+// Bottom Navigation Bar Icons
 final navHome =
     SvgPicture.asset("assets/images/nav_bar_icons/ic_home_outlined.svg");
 
@@ -42,6 +43,7 @@ final navNotifications = SvgPicture.asset(
 final navNotificationsActive =
     SvgPicture.asset("assets/images/nav_bar_icons/ic_notifications_filled.svg");
 
+//  Sign Up Logos
 final googleLogo = SvgPicture.asset(
   'assets/images/ic_google.svg',
   semanticsLabel: 'Google Logo',
@@ -52,6 +54,20 @@ final appleLogo = SvgPicture.asset(
   semanticsLabel: 'Apple Logo',
 );
 
+// Onbaording Images
+final onboardingImage1 = Image.asset(
+  "assets/images/onboarding/onboarding_image1.png",
+);
+
+final onboardingImage2 = Image.asset(
+  "assets/images/onboarding/onboarding_image2.png",
+);
+
+final onboardingImage3 = Image.asset(
+  "assets/images/onboarding/onboarding_image3.png",
+);
+
+// Menu Tab Icons
 final calculatorIcon = SvgPicture.asset(
   'assets/images/ic_calculator.svg',
   semanticsLabel: 'Calculator',
@@ -86,6 +102,7 @@ final greenCargoShipIcon = SvgPicture.asset(
   semanticsLabel: 'Cargo Ship',
 );
 
+// Package Icons
 final genericPackageIcon = SvgPicture.asset(
   'assets/images/ic_generic_package.svg',
   semanticsLabel: 'Generic Package',
