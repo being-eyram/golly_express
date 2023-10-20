@@ -17,6 +17,8 @@ class AddressDropdown extends StatelessWidget {
         ),
       ),
       child: ExpansionTile(
+        childrenPadding: const EdgeInsets.symmetric(vertical: 2),
+        shape: Border.all(color: Colors.transparent),
         leading: SizedBox(
           child: gollyExpressLogoMini,
         ),
@@ -27,27 +29,41 @@ class AddressDropdown extends StatelessWidget {
           ),
         ),
         children: const [
+          // ListView.separated(
+          //   itemBuilder: (context, index) => Address,
+          //   separatorBuilder: (context, index) => const SizedBox(height: 16),
+          //   itemCount: 5,
+          // )
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: Divider(
+              height: 1,
+              thickness: 1.5,
+              color: Color(0xFFF6F7F6),
+            ),
+          ),
           AddressLineContainer(
+            showBorder: false,
             title: "Address Line 1",
             subtitle: "2507 Investors Row, STE 100 Unit D5",
           ),
-          SizedBox(height: 16),
           AddressLineContainer(
+            showBorder: false,
             title: "Address Line 2",
             subtitle: "1904",
           ),
-          SizedBox(height: 16),
           AddressLineContainer(
+            showBorder: false,
             title: "City",
             subtitle: "Orlando",
           ),
-          SizedBox(height: 16),
           AddressLineContainer(
+            showBorder: false,
             title: "Zip Code",
             subtitle: "32837",
           ),
-          SizedBox(height: 16),
           AddressLineContainer(
+            showBorder: false,
             title: "Phone",
             subtitle: "+1(689) 209-8652",
           ),
