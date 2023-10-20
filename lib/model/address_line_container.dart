@@ -5,10 +5,12 @@ class AddressLineContainer extends StatelessWidget {
     super.key,
     required this.title,
     required this.subtitle,
+    this.showBorder = true,
   });
 
   final String title;
   final String subtitle;
+  final bool showBorder;
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +19,16 @@ class AddressLineContainer extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(
-          width: 1.5,
-          color: const Color(0xFFEDEFEE),
-        ),
+        border: showBorder
+            ? Border.all(
+                width: 1.5,
+                color: const Color(0xFFEDEFEE),
+              )
+            // : Border.all(
+            //     width: 0,
+            //     color: Colors.transparent,
+            //   ),
+            : const Border(),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
