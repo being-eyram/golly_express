@@ -1,11 +1,8 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:golly_express/constants.dart';
 import 'package:golly_express/model/transaction_summary.dart';
 import 'package:material_symbols_icons/symbols.dart';
-// import 'material_symbols_icons/symbols.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -23,7 +20,7 @@ class ProfileScreen extends StatelessWidget {
                   vertical: 32,
                 ),
                 width: double.infinity,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color(0xFFE6EDB7),
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(20),
@@ -33,7 +30,7 @@ class ProfileScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     // const SizedBox(height: 30),
-                    Text(
+                    const Text(
                       "My Profile",
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -46,9 +43,9 @@ class ProfileScreen extends StatelessWidget {
                       children: [
                         userProfile,
                         const SizedBox(width: 20),
-                        Column(
+                        const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
+                          children: [
                             // TODO: change name and phone number from edit screen
                             Text(
                               "Ben-Aaron Mills-Pappoe",
@@ -70,7 +67,7 @@ class ProfileScreen extends StatelessWidget {
                         const Spacer(),
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            padding: EdgeInsets.symmetric(
+                            padding: const EdgeInsets.symmetric(
                               horizontal: 10,
                               vertical: 4,
                             ),
@@ -78,7 +75,7 @@ class ProfileScreen extends StatelessWidget {
                           onPressed: () {
                             context.push("/editProfile");
                           },
-                          child: Text(
+                          child: const Text(
                             "Edit",
                             style: TextStyle(
                               fontSize: 14,
@@ -92,21 +89,21 @@ class ProfileScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
-              TransactionSummary(),
+              const TransactionSummary(),
               const SizedBox(height: 24),
 
               ListTile(
                 minVerticalPadding: 20,
-                contentPadding: EdgeInsets.symmetric(horizontal: 32),
+                contentPadding: const EdgeInsets.symmetric(horizontal: 32),
                 leading: gollyExpressLogoMini,
-                title: Text(
+                title: const Text(
                   "Your Golly Express Address",
                   style: TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                trailing: Icon(
+                trailing: const Icon(
                   Icons.arrow_forward_ios,
                   size: 18,
                 ),
@@ -116,16 +113,16 @@ class ProfileScreen extends StatelessWidget {
 
               ListTile(
                 minVerticalPadding: 20,
-                contentPadding: EdgeInsets.symmetric(horizontal: 32),
-                leading: Icon(Icons.location_on_outlined),
-                title: Text(
+                contentPadding: const EdgeInsets.symmetric(horizontal: 32),
+                leading: const Icon(Icons.location_on_outlined),
+                title: const Text(
                   "My Address",
                   style: TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                trailing: Icon(
+                trailing: const Icon(
                   Icons.arrow_forward_ios,
                   size: 18,
                 ),
@@ -134,7 +131,7 @@ class ProfileScreen extends StatelessWidget {
 
               // id verification list tile
               Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   border: Border.symmetric(
                     horizontal: BorderSide(
                       width: 2,
@@ -145,10 +142,10 @@ class ProfileScreen extends StatelessWidget {
                 child: ListTile(
                   onTap: () => context.push("/verifyID"),
                   minVerticalPadding: 25,
-                  contentPadding: EdgeInsets.symmetric(horizontal: 32),
-                  leading: Icon(Icons.badge_outlined),
-                  title: Padding(
-                    padding: const EdgeInsets.only(bottom: 8.0),
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 32),
+                  leading: const Icon(Icons.badge_outlined),
+                  title: const Padding(
+                    padding: EdgeInsets.only(bottom: 8.0),
                     child: Text(
                       "ID Verification",
                       style: TextStyle(
@@ -157,7 +154,7 @@ class ProfileScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  subtitle: Text(
+                  subtitle: const Text(
                     "A valid Ghana card is required to verify your account",
                     style: TextStyle(
                       fontSize: 13,
@@ -165,7 +162,7 @@ class ProfileScreen extends StatelessWidget {
                       color: Color(0xFFF3AA60),
                     ),
                   ),
-                  trailing: Icon(
+                  trailing: const Icon(
                     Icons.arrow_forward_ios,
                     size: 18,
                   ),
@@ -174,7 +171,7 @@ class ProfileScreen extends StatelessWidget {
 
               // change password list tile
               Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   border: Border(
                     bottom: BorderSide(
                       width: 2,
@@ -185,16 +182,16 @@ class ProfileScreen extends StatelessWidget {
                 child: ListTile(
                   onTap: () => context.push("/changePassword"),
                   minVerticalPadding: 25,
-                  contentPadding: EdgeInsets.symmetric(horizontal: 32),
-                  leading: Icon(Icons.lock_outline),
-                  title: Text(
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 32),
+                  leading: const Icon(Icons.lock_outline),
+                  title: const Text(
                     "Change Password",
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
-                  trailing: Icon(
+                  trailing: const Icon(
                     Icons.arrow_forward_ios,
                     size: 18,
                   ),
@@ -203,7 +200,7 @@ class ProfileScreen extends StatelessWidget {
 
               // privacy policy list tile
               Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   border: Border(
                     bottom: BorderSide(
                       width: 2,
@@ -211,7 +208,7 @@ class ProfileScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                child: ListTile(
+                child: const ListTile(
                   minVerticalPadding: 25,
 
                   contentPadding: EdgeInsets.symmetric(horizontal: 32),
@@ -234,7 +231,7 @@ class ProfileScreen extends StatelessWidget {
 
               // terms and conditions
               Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   border: Border(
                     bottom: BorderSide(
                       width: 2,
@@ -242,7 +239,7 @@ class ProfileScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                child: ListTile(
+                child: const ListTile(
                   minVerticalPadding: 25,
                   contentPadding: EdgeInsets.symmetric(horizontal: 32),
                   leading: Icon(Icons.library_books_outlined),
@@ -262,7 +259,7 @@ class ProfileScreen extends StatelessWidget {
 
               // logout list tile
               Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   border: Border(
                     bottom: BorderSide(
                       width: 2,
@@ -270,7 +267,7 @@ class ProfileScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                child: ListTile(
+                child: const ListTile(
                   minVerticalPadding: 25,
                   contentPadding: EdgeInsets.symmetric(horizontal: 32),
                   leading: Icon(Icons.logout),
