@@ -29,11 +29,6 @@ class AddressDropdown extends StatelessWidget {
           ),
         ),
         children: const [
-          // ListView.separated(
-          //   itemBuilder: (context, index) => Address,
-          //   separatorBuilder: (context, index) => const SizedBox(height: 16),
-          //   itemCount: 5,
-          // )
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 16),
             child: Divider(
