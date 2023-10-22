@@ -27,7 +27,7 @@ class VerifiedSuccessfully extends StatelessWidget {
             CustomButton(
               buttonText: "Done",
               isEnabled: true,
-              onPressed: () => context.go("/profile"),
+              onPressed: () => context.go("/mainContainer"),
             )
           ],
         ),
