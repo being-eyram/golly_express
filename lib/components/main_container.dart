@@ -27,7 +27,7 @@ class _MainContainerState extends State<MainContainer> {
           builder: (BuildContext context) {
             return const PlusBottomSheet();
           });
-      return;
+      return; // if true, do not go to next line
     }
 
     setState(() {
