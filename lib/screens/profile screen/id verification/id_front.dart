@@ -22,9 +22,9 @@ class _FrontIDScreenState extends State<FrontIDScreen> {
       final image = await ImagePicker().pickImage(
         source: source,
         // reduce image size
-        // maxHeight: 640,
-        // maxWidth: 480,
-        // imageQuality: 70,
+        maxHeight: 640,
+        maxWidth: 480,
+        imageQuality: 70,
       );
       if (image == null) return;
 
