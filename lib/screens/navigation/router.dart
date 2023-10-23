@@ -129,8 +129,10 @@ final GoRouter appRouter = GoRouter(
     ),
 
     GoRoute(
-      path: '/checkPhoto',
-      builder: (context, state) => const CheckPhotoScreen(),
+      path: '/checkPhoto/:image',
+      builder: (context, state) => CheckPhotoScreen(
+        image: state.pathParameters["image"],
+      ),
     ),
 
     GoRoute(
