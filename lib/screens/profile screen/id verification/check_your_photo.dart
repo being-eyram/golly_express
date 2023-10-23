@@ -6,9 +6,7 @@ import 'package:golly_express/constants.dart';
 class CheckPhotoScreen extends StatelessWidget {
   const CheckPhotoScreen({
     super.key,
-    required this.image,
   });
-  final String image;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
