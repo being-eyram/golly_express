@@ -1,10 +1,41 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:golly_express/components/custom_button.dart';
 import 'package:golly_express/constants.dart';
+import 'package:image_picker/image_picker.dart';
 
-class FrontIDScreen extends StatelessWidget {
+class FrontIDScreen extends StatefulWidget {
   const FrontIDScreen({super.key});
+
+  @override
+  State<FrontIDScreen> createState() => _FrontIDScreenState();
+}
+
+class _FrontIDScreenState extends State<FrontIDScreen> {
+  File? selectedImage;
+
+  Future pickImage(ImageSource source) async {
+    try {
+      final image = await ImagePicker().pickImage(
+        source: source,
+        // reduce image size
+        // maxHeight: 640,
+        // maxWidth: 480,
+        // imageQuality: 70,
+      );
+      if (image == null) return;
+
+      final tempImage = File(image.path);
+      setState(() {
+        selectedImage = tempImage;
+      });
+    } on PlatformException catch (e) {
+      print("failed to select image: $e");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +57,10 @@ class FrontIDScreen extends StatelessWidget {
             CustomButton(
               buttonText: "Open Camera",
               isEnabled: true,
-              onPressed: () => context.push("/checkPhoto"),
+              onPressed: () {
+                pickImage(ImageSource.gallery);
+                // context.push("/checkPhoto");
+              },
             )
           ],
         ),
@@ -66,7 +100,9 @@ class FrontIDScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 70.0),
                 Center(
-                  child: frontID,
+                  child: selectedImage == null
+                      ? frontID
+                      : Image.file(selectedImage!),
                 ),
               ],
             ),
