@@ -69,7 +69,6 @@ class IDVerificationScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 32),
-                  // selectedImage,
                   userIDCard,
                   const SizedBox(height: 32),
                   const Text(
