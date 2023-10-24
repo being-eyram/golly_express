@@ -156,6 +156,8 @@ final productCategories = [
   "Game Console",
   "Smartwatch",
   "General Package",
+  "Monitor",
+  "Keyboard"
 ];
 
 var sampleNotificationTitle = "Title Goes Here";
