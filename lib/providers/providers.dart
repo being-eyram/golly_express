@@ -18,3 +18,4 @@ final onboardingDescriptionProvider = Provider<List<String>>(
 
 final showPasswordProvider = StateProvider<bool>((_) => false);
 final onboardingPageIndexProvider = StateProvider<int>((_) => 0);
+final usernameProvider = StateProvider<String>((_) => "Ben-Aaron");
