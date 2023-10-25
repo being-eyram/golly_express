@@ -10,6 +10,15 @@ class Onboarding {
 
   String title;
   String description;
-  Colors backgroundColor;
+  Color backgroundColor;
   Image backgroundImage;
 }
+
+// var onboardingScreens = [
+  // Onboarding(
+  //   title: titleLarge,
+  //   description: description,
+  //   backgroundColor: colorScheme.background,
+  //   backgroundImage: backgroundImage,
+  // ),
+// ];
