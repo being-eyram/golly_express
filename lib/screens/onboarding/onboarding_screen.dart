@@ -3,32 +3,40 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:golly_express/components/custom_button.dart';
 import 'package:golly_express/components/page_indicator.dart';
-import 'package:golly_express/constants.dart';
-import 'package:golly_express/providers/providers.dart';
+import 'package:golly_express/providers/onboarding_providers.dart';
 
 class OnboardingScreen extends ConsumerWidget {
   const OnboardingScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final captions = ref.watch(onboardingCaptionProvider);
-    final descriptions = ref.watch(onboardingDescriptionProvider);
     final currentPageIndex = ref.watch(onboardingPageIndexProvider);
+    final onboardingItems = ref.watch(onboardingItemsProvider);
 
     updatePageIndex(int index) {
       ref.read(onboardingPageIndexProvider.notifier).state = index;
     }
 
+    final pageController = PageController();
     return Scaffold(
       body: Stack(
         children: [
           PageView.builder(
+            controller: pageController,
             itemCount: 3,
             onPageChanged: updatePageIndex,
-            itemBuilder: (_, __) => Container(
-              color: const Color(0xFFE6EDB7),
-              child: onboardingImage1,
-            ),
+            // itemBuilder: (BuildContext context, int position) => Container(
+            //   color: const Color(0xFFE6EDB7),
+            //   child: onboardingImage1,
+            // ),
+            itemBuilder: (context, position) {
+              return Container(
+                color: onboardingItems[position].backgroundColor,
+                child: Center(
+                  child: onboardingItems[position].backgroundImage,
+                ),
+              );
+            },
           ),
           Align(
             alignment: Alignment.bottomCenter,
@@ -36,16 +44,21 @@ class OnboardingScreen extends ConsumerWidget {
               widthFactor: 1,
               heightFactor: .374,
               child: OnboardingCutOut(
-                title: captions[currentPageIndex % 3],
-                description: descriptions[currentPageIndex % 3],
+                title: onboardingItems[currentPageIndex].title,
+                description: onboardingItems[currentPageIndex].description,
                 onGetStartedClick: () {
                   // context.go('/signup');
                   // setUserOnboardStatus(true);
-                  updatePageIndex;
+                  // updatePageIndex;
+                  pageController.nextPage(
+                    curve: Curves.easeInOut,
+                    duration: const Duration(milliseconds: 200),
+                  );
                 },
                 pageIndicator: PageIndicator(
-                  numberOfIndicators: captions.length,
-                  currentIndex: currentPageIndex % 3,
+                  numberOfIndicators: onboardingItems.length,
+                  // currentIndex: currentPageIndex % 3,    //infinite scroll glitch
+                  currentIndex: currentPageIndex,
                 ),
               ),
             ),
@@ -140,24 +153,11 @@ class OnboardingCutOut extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(bottom: 16.0),
-            child: SizedBox(
-              width: double.infinity,
-              height: 54,
-              child: CustomButton(
-                borderRadius: 8,
-                isEnabled: true,
-                onPressed: onGetStartedClick,
-                buttonText: "Get Started",
-              ),
-              // child: FilledButton(
-              //   style: FilledButton.styleFrom(
-              //       shape: const RoundedRectangleBorder(
-              //     borderRadius: BorderRadius.all(Radius.circular(8)),
-              //   )),
-              //   onPressed: onGetStartedClick,
-              //   child:
-              //       const Text("Get Started", style: TextStyle(fontSize: 14)),
-              // ),
+            child: CustomButton(
+              borderRadius: 8,
+              isEnabled: true,
+              onPressed: onGetStartedClick,
+              buttonText: "Get Started",
             ),
           ),
         ],
