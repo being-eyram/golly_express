@@ -34,7 +34,7 @@ class OnboardingScreen extends ConsumerWidget {
                 title: captions[currentPageIndex % 3],
                 description: descriptions[currentPageIndex % 3],
                 onGetStartedClick: () {
-                  context.go('/signin');
+                  context.go('/signup');
                   setUserOnboardStatus(true);
                 },
                 pageIndicator: PageIndicator(
