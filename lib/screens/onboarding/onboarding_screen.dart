@@ -50,10 +50,12 @@ class OnboardingScreen extends ConsumerWidget {
                   // context.go('/signup');
                   // setUserOnboardStatus(true);
                   // updatePageIndex;
-                  pageController.nextPage(
-                    curve: Curves.easeInOut,
-                    duration: const Duration(milliseconds: 200),
-                  );
+                  currentPageIndex == 2
+                      ? context.go("/signup")
+                      : pageController.nextPage(
+                          curve: Curves.easeInOut,
+                          duration: const Duration(milliseconds: 200),
+                        );
                 },
                 pageIndicator: PageIndicator(
                   numberOfIndicators: onboardingItems.length,
