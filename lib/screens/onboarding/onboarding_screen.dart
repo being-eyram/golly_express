@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:golly_express/components/custom_button.dart';
 import 'package:golly_express/components/page_indicator.dart';
+import 'package:golly_express/constants.dart';
 import 'package:golly_express/providers/providers.dart';
-import 'package:golly_express/shared_prefs/shared_prefs.dart';
 
 class OnboardingScreen extends ConsumerWidget {
   const OnboardingScreen({super.key});
@@ -22,8 +23,12 @@ class OnboardingScreen extends ConsumerWidget {
       body: Stack(
         children: [
           PageView.builder(
+            itemCount: 3,
             onPageChanged: updatePageIndex,
-            itemBuilder: (_, __) => Container(color: const Color(0xFFE6EDB7)),
+            itemBuilder: (_, __) => Container(
+              color: const Color(0xFFE6EDB7),
+              child: onboardingImage1,
+            ),
           ),
           Align(
             alignment: Alignment.bottomCenter,
@@ -34,8 +39,9 @@ class OnboardingScreen extends ConsumerWidget {
                 title: captions[currentPageIndex % 3],
                 description: descriptions[currentPageIndex % 3],
                 onGetStartedClick: () {
-                  context.go('/signup');
-                  setUserOnboardStatus(true);
+                  // context.go('/signup');
+                  // setUserOnboardStatus(true);
+                  updatePageIndex;
                 },
                 pageIndicator: PageIndicator(
                   numberOfIndicators: captions.length,
@@ -48,7 +54,7 @@ class OnboardingScreen extends ConsumerWidget {
             top: 40,
             right: 20,
             child: TextButton(
-              onPressed: () {},
+              onPressed: () => context.go("/signup"),
               child: const Text(
                 "Skip",
                 style: TextStyle(
@@ -137,15 +143,21 @@ class OnboardingCutOut extends StatelessWidget {
             child: SizedBox(
               width: double.infinity,
               height: 54,
-              child: FilledButton(
-                style: FilledButton.styleFrom(
-                    shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(8)),
-                )),
+              child: CustomButton(
+                borderRadius: 8,
+                isEnabled: true,
                 onPressed: onGetStartedClick,
-                child:
-                    const Text("Get Started", style: TextStyle(fontSize: 14)),
+                buttonText: "Get Started",
               ),
+              // child: FilledButton(
+              //   style: FilledButton.styleFrom(
+              //       shape: const RoundedRectangleBorder(
+              //     borderRadius: BorderRadius.all(Radius.circular(8)),
+              //   )),
+              //   onPressed: onGetStartedClick,
+              //   child:
+              //       const Text("Get Started", style: TextStyle(fontSize: 14)),
+              // ),
             ),
           ),
         ],
