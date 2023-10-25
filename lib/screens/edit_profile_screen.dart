@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:golly_express/components/custom_button.dart';
 import 'package:golly_express/components/input_field.dart';
+import 'package:golly_express/providers/providers.dart';
 
-class EditProfileScreen extends StatelessWidget {
+class EditProfileScreen extends ConsumerWidget {
   const EditProfileScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -40,32 +42,32 @@ class EditProfileScreen extends StatelessWidget {
           ],
         ),
       ),
-      body: const SafeArea(
+      body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   "Edit Profile",
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w800,
                   ),
                 ),
-                SizedBox(height: 24.0),
+                const SizedBox(height: 24.0),
                 InputTextField(
-                  initialValue: "Ben-Aaron Mills-Pappoe",
+                  initialValue: ref.watch(usernameProvider),
                   hintText: "Name",
                 ),
-                SizedBox(height: 24.0),
-                InputTextField(
+                const SizedBox(height: 24.0),
+                const InputTextField(
                   initialValue: "benaaron866@gmail.com",
                   hintText: "Email Address",
                 ),
-                SizedBox(height: 24.0),
-                InputTextField(
+                const SizedBox(height: 24.0),
+                const InputTextField(
                   prefixText: "+233  ",
                   prefixStyle: TextStyle(
                     fontSize: 16,
