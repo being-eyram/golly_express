@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:golly_express/cards/icon_with_text_card.dart';
 import 'package:golly_express/cards/track_package_card.dart';
@@ -7,6 +8,7 @@ import 'package:golly_express/components/address_dropdown.dart';
 import 'package:golly_express/components/package_tracking_history.dart';
 import 'package:golly_express/constants.dart';
 import 'package:golly_express/model/package.dart';
+import 'package:golly_express/providers/providers.dart';
 
 // class HomeScreen extends ConsumerWidget {
 //   const HomeScreen({super.key});
@@ -14,18 +16,14 @@ import 'package:golly_express/model/package.dart';
 //   @override
 //   Widget build(BuildContext context, WidgetRef ref) {
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
   final _userIsVerified = true;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final username = ref.watch(usernameProvider);
     return Scaffold(
       // bottomNavigationBar: const MainContainer(),
       body: SafeArea(
@@ -39,9 +37,9 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  "Good Morning, Ben-Aaron",
-                  style: TextStyle(
+                Text(
+                  "Good Morning, ${username.split(" ")[0]}",
+                  style: const TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.w700,
                   ),
