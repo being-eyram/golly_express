@@ -10,11 +10,9 @@ class TransactionSummary extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 32.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Expanded(
             child: Container(
-              // width: 103.67,
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
               decoration: BoxDecoration(
                 border: Border.all(
@@ -50,7 +48,6 @@ class TransactionSummary extends StatelessWidget {
           const SizedBox(width: 16),
           Expanded(
             child: Container(
-              // width: 103.67,
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
               decoration: BoxDecoration(
                 border: Border.all(
@@ -86,7 +83,6 @@ class TransactionSummary extends StatelessWidget {
           const SizedBox(width: 16),
           Expanded(
             child: Container(
-              // width: 103.67,
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
               decoration: BoxDecoration(
                 border: Border.all(
