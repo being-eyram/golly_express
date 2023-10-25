@@ -6,9 +6,11 @@ class CustomButton extends StatelessWidget {
     required this.buttonText,
     this.isEnabled = false,
     required this.onPressed,
+    this.borderRadius = 16,
   });
   final bool isEnabled;
   final String buttonText;
+  final double borderRadius;
   final Function()? onPressed;
 
   @override
@@ -20,16 +22,16 @@ class CustomButton extends StatelessWidget {
             isEnabled ? const Color(0xFF557A46) : const Color(0xFFE8E9E8),
         minimumSize: const Size(double.infinity, 54),
         maximumSize: const Size(double.infinity, 54),
-        shape: const RoundedRectangleBorder(
+        shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(
-            Radius.circular(16),
+            Radius.circular(borderRadius),
           ),
         ),
       ),
       child: Text(
         buttonText,
         style: TextStyle(
-            fontSize: 15,
+            fontSize: 14,
             color: isEnabled ? Colors.white : const Color(0xFFA3ADAA),
             fontWeight: FontWeight.w800),
       ),
