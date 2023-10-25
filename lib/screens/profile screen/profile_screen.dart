@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:golly_express/constants.dart';
 import 'package:golly_express/model/transaction_summary.dart';
+import 'package:golly_express/providers/providers.dart';
 import 'package:material_symbols_icons/symbols.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends ConsumerWidget {
   const ProfileScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -43,19 +45,20 @@ class ProfileScreen extends StatelessWidget {
                       children: [
                         userProfile,
                         const SizedBox(width: 20),
-                        const Column(
+                        Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            // TODO: change name and phone number from edit screen
                             Text(
-                              "Ben-Aaron Mills-Pappoe",
-                              style: TextStyle(
+                              // "Ben-Aaron Mills-Pappoe",
+                              // context.read(usernameProvider),
+                              ref.watch(usernameProvider),
+                              style: const TextStyle(
                                 fontWeight: FontWeight.w700,
                                 fontSize: 16,
                               ),
                             ),
-                            SizedBox(height: 6),
-                            Text(
+                            const SizedBox(height: 6),
+                            const Text(
                               "+233 57 159 2866",
                               style: TextStyle(
                                 fontSize: 14,
