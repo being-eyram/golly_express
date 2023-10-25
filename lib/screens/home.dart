@@ -24,6 +24,7 @@ class HomeScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final username = ref.watch(usernameProvider);
+
     return Scaffold(
       // bottomNavigationBar: const MainContainer(),
       body: SafeArea(
