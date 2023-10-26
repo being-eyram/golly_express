@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:golly_express/components/custom_button.dart';
 import 'package:golly_express/components/input_field.dart';
 import 'package:golly_express/constants.dart';
@@ -27,8 +28,7 @@ class RegisterPasswordScreen extends ConsumerWidget {
               borderRadius: 8,
               isEnabled: true,
               buttonText: "Next",
-              onPressed: () {},
-              // onPressed: () => context.go("/registerPassword"),
+              onPressed: () => context.go("/addAddress"),
             ),
           ),
         ],
