@@ -3,6 +3,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:golly_express/constants.dart';
 import 'package:golly_express/model/onboarding.dart';
 
+final showPasswordProvider = StateProvider<bool>((_) => true);
+
+final onboardingPageIndexProvider = StateProvider<int>((_) => 0);
+
+// final isValidEmailProvider = StateProvider<bool>((_) =>
+//
+// );
+
 final onboardingCaptionProvider = Provider<List<String>>(
   (_) => [
     "Get your package with our shipping address",
@@ -18,8 +26,6 @@ final onboardingDescriptionProvider = Provider<List<String>>(
     "Track your shipment and receive your package in Ghana without stress."
   ],
 );
-
-final onboardingPageIndexProvider = StateProvider<int>((_) => 0);
 
 final onboardingItemsProvider = Provider<List<Onboarding>>(
   (_) => [
