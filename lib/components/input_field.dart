@@ -9,8 +9,8 @@ class InputTextField extends StatelessWidget {
   final void Function()? suffixIconOnTap;
   final String? prefixText;
   final TextStyle? prefixStyle;
-  final Icon? prefixIcon;
-  final Icon? suffixIcon;
+  final Widget? prefixIcon;
+  final Widget? suffixIcon;
   final TextEditingController? controller;
   final String? initialValue;
   final TextInputType? keyboardType;
@@ -49,6 +49,7 @@ class InputTextField extends StatelessWidget {
       fit: BoxFit.scaleDown,
     );
 
+    // TODO: add show divider option
     return TextFormField(
       keyboardType: keyboardType,
       inputFormatters: inputFormatters,
