@@ -16,7 +16,7 @@ class RegisterPasswordScreen extends ConsumerWidget {
     final passwordController = TextEditingController();
     final confirmPasswordController = TextEditingController();
 
-    String confirmPassword;
+    var confirmPassword = "";
 
     // String? validatePassword(String value) {
     //   RegExp regex = RegExp(
@@ -45,6 +45,11 @@ class RegisterPasswordScreen extends ConsumerWidget {
       // Password should have at least one lowercase letter
       if (!value.contains(RegExp(r'[a-z]'))) {
         return 'Password must contain at least one lowercase letter';
+      }
+
+      // Password should have at least one special character
+      if (!value.contains(RegExp(r'[!@#\$&*~]'))) {
+        return 'Password must contain at least one special character';
       }
 
       // Password should have at least one digit
@@ -129,6 +134,9 @@ class RegisterPasswordScreen extends ConsumerWidget {
                       return "Passwords do not match";
                     }
 
+                    if (value.isEmpty) {
+                      return 'Password cannot be empty';
+                    }
                     return null;
                   },
                   hintText: "Confirm Password",
