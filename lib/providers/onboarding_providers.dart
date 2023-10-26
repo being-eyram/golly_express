@@ -7,8 +7,8 @@ final showPasswordProvider = StateProvider<bool>((_) => true);
 
 final onboardingPageIndexProvider = StateProvider<int>((_) => 0);
 
-// final isValidEmailProvider = StateProvider<bool>((_) =>
-//
+// final formKeyProvider = Provider<GlobalKey<FormState>>(
+//   (_) => GlobalKey<FormState>(),
 // );
 
 final onboardingCaptionProvider = Provider<List<String>>(
