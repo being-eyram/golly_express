@@ -3,13 +3,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:golly_express/components/custom_button.dart';
 import 'package:golly_express/components/input_field.dart';
+import 'package:golly_express/providers/onboarding_providers.dart';
 
 class RegisterScreen extends ConsumerWidget {
   const RegisterScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final formKey = GlobalKey<FormState>();
+    // final formKey = GlobalKey<FormState>();
+    final formKey = ref.watch(formKeyProvider);
 
     final emailController = TextEditingController();
     final fullNameController = TextEditingController();
@@ -130,18 +132,6 @@ class RegisterScreen extends ConsumerWidget {
                   keyboardType: TextInputType.phone,
                 ),
                 const SizedBox(height: 16),
-
-                // address
-                InputTextField(
-                  hintText: "Address",
-                  controller: addressController,
-                  validator: (input) {
-                    if (input.isEmpty) {
-                      return "Enter your address";
-                    }
-                    return null;
-                  },
-                ),
               ],
             ),
           ),
