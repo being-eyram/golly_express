@@ -3,26 +3,32 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:golly_express/components/custom_button.dart';
 import 'package:golly_express/components/input_field.dart';
-import 'package:golly_express/providers/onboarding_providers.dart';
+import 'package:golly_express/constants.dart';
 
 class RegisterScreen extends ConsumerWidget {
   const RegisterScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // final formKey = GlobalKey<FormState>();
-    final formKey = ref.watch(formKeyProvider);
+    final formKey = GlobalKey<FormState>();
 
     final emailController = TextEditingController();
     final fullNameController = TextEditingController();
     final phoneNumberController = TextEditingController();
-    final addressController = TextEditingController();
 
-    final appLogo = Image.asset(
-      'assets/images/golly_express.jpeg',
-      width: 98,
-      height: 91,
-    );
+    String? validateEmail(String value) {
+      RegExp regex = RegExp(
+          r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
+      if (value.isEmpty) {
+        return 'Enter Email';
+      } else {
+        if (!regex.hasMatch(value)) {
+          return 'Enter valid Email';
+        } else {
+          return null;
+        }
+      }
+    }
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -58,7 +64,7 @@ class RegisterScreen extends ConsumerWidget {
             key: formKey,
             child: Column(
               children: [
-                appLogo,
+                gollyExpressLogo,
                 const Text(
                   "Register to start",
                   textAlign: TextAlign.center,
@@ -70,7 +76,7 @@ class RegisterScreen extends ConsumerWidget {
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 40),
 
                 // email address
                 InputTextField(
@@ -79,20 +85,10 @@ class RegisterScreen extends ConsumerWidget {
                   controller: emailController,
                   hintText: "Enter Email",
                   validator: (input) {
-                    // input.isValidEmail() ? null : "Check your email";
-                    if (input.isEmpty) {
-                      return "Enter Email";
-                    }
-                    bool isEmailValid = RegExp(
-                            r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
-                        .hasMatch(input);
-                    if (!isEmailValid) {
-                      return "Enter a valid email address";
-                    }
-                    return null;
+                    return validateEmail(input);
                   },
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 20),
 
                 // full name
                 InputTextField(
@@ -106,7 +102,7 @@ class RegisterScreen extends ConsumerWidget {
                     return null;
                   },
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 20),
 
                 // phone number
                 InputTextField(
