@@ -85,8 +85,8 @@ class InputTextField extends StatelessWidget {
         ),
         enabledBorder: outlineBorderPropGenerator(const Color(0xFFEDEFEE)),
         focusedBorder: outlineBorderPropGenerator(const Color(0xFF557A46)),
-        focusedErrorBorder: outlineBorderPropGenerator(Colors.red, width: 1.8),
-        errorBorder: outlineBorderPropGenerator(Colors.red, width: 1.5),
+        focusedErrorBorder: outlineBorderPropGenerator(Colors.red, width: 1.5),
+        errorBorder: outlineBorderPropGenerator(Colors.red, width: 1.0),
         contentPadding: const EdgeInsets.all(16),
         hintText: hintText,
         hintStyle: const TextStyle(
