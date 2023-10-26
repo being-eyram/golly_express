@@ -25,11 +25,7 @@ class OnboardingScreen extends ConsumerWidget {
             controller: pageController,
             itemCount: 3,
             onPageChanged: updatePageIndex,
-            // itemBuilder: (BuildContext context, int position) => Container(
-            //   color: const Color(0xFFE6EDB7),
-            //   child: onboardingImage1,
-            // ),
-            itemBuilder: (context, position) {
+            itemBuilder: (BuildContext context, int position) {
               return Container(
                 color: onboardingItems[position].backgroundColor,
                 child: Center(
@@ -69,7 +65,8 @@ class OnboardingScreen extends ConsumerWidget {
             top: 40,
             right: 20,
             child: TextButton(
-              onPressed: () => context.go("/register"),
+              // onPressed: () => context.go("/register"),
+              onPressed: () => context.go("/registerPassword"),
               child: const Text(
                 "Skip",
                 style: TextStyle(
