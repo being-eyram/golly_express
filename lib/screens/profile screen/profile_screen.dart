@@ -11,7 +11,7 @@ class ProfileScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    AsyncValue<String> username = ref.watch(profileNameProvider);
+    final username = ref.watch(usernameProvider);
 
     return Scaffold(
       body: SafeArea(
@@ -50,18 +50,12 @@ class ProfileScreen extends ConsumerWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            username.when(
-                              data: (username) => Text(
-                                // context.read(usernameProvider),
-                                username,
-                                style: const TextStyle(
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 16,
-                                ),
+                            Text(
+                              username,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.w700,
+                                fontSize: 16,
                               ),
-                              error: (error, stackTrace) =>
-                                  const Text("error!!"),
-                              loading: () => const Text("loading!!"),
                             ),
                             const SizedBox(height: 6),
                             const Text(
