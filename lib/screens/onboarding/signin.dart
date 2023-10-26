@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:golly_express/components/input_field.dart';
 import 'package:golly_express/constants.dart';
-import 'package:golly_express/providers/providers.dart';
+import 'package:golly_express/providers/onboarding_providers.dart';
 
 class SigninScreen extends ConsumerWidget {
   const SigninScreen({super.key});
