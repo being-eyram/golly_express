@@ -58,24 +58,28 @@ class InputTextField extends StatelessWidget {
       style: const TextStyle(fontSize: 16),
       obscureText: isPasswordInput ? isObscured : false,
       decoration: InputDecoration(
-          prefixText: prefixText,
-          prefixStyle: prefixStyle,
-          prefixIcon: prefixIcon,
-          suffixIcon: isPasswordInput
-              ? InkWell(
-                  onTap: suffixIconOnTap,
-                  child: AnimatedContainer(
-                    curve: Curves.easeOutSine,
-                    duration: const Duration(milliseconds: 200),
-                    child: isObscured ? showPasswordSvg : hidePasswordSvg,
-                  ),
-                )
-              : suffixIcon,
-          enabledBorder: outlineBorderPropGenerator(const Color(0xFFEDEFEE)),
-          focusedBorder: outlineBorderPropGenerator(const Color(0xFF557A46)),
-          contentPadding: const EdgeInsets.all(16),
-          hintText: hintText,
-          hintStyle: const TextStyle(color: Color(0xFFA3ADAA))),
+        prefixText: prefixText,
+        prefixStyle: prefixStyle,
+        prefixIcon: prefixIcon,
+        suffixIcon: isPasswordInput
+            ? InkWell(
+                onTap: suffixIconOnTap,
+                child: AnimatedContainer(
+                  curve: Curves.easeOutSine,
+                  duration: const Duration(milliseconds: 200),
+                  child: isObscured ? showPasswordSvg : hidePasswordSvg,
+                ),
+              )
+            : suffixIcon,
+        enabledBorder: outlineBorderPropGenerator(const Color(0xFFEDEFEE)),
+        focusedBorder: outlineBorderPropGenerator(const Color(0xFF557A46)),
+        contentPadding: const EdgeInsets.all(16),
+        hintText: hintText,
+        hintStyle: const TextStyle(
+          color: Color(0xFFA3ADAA),
+          fontSize: 14,
+        ),
+      ),
     );
   }
 }
