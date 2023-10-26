@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
+import 'package:golly_express/components/custom_button.dart';
 import 'package:golly_express/components/input_field.dart';
 import 'package:golly_express/constants.dart';
 import 'package:golly_express/providers/providers.dart';
 
-class SignUpScreen extends ConsumerWidget {
-  const SignUpScreen({super.key});
+class RegisterScreen extends ConsumerWidget {
+  const RegisterScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -21,20 +21,19 @@ class SignUpScreen extends ConsumerWidget {
       bottomNavigationBar: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Divider(color: Color(0xFFEDEFEE)),
+          const Divider(
+            color: Color(0xFFEDEFEE),
+            height: 0,
+          ),
           Padding(
             padding: const EdgeInsets.only(
-                left: 16, right: 16, top: 16, bottom: 24.0),
-            child: FilledButton(
-              style: FilledButton.styleFrom(
-                minimumSize: const Size(double.infinity, 54),
-                maximumSize: const Size(double.infinity, 54),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-              ),
-              onPressed: () => context.go("/signin"),
-              child: const Text("Submit", style: TextStyle(fontSize: 14)),
+                left: 16, right: 16, top: 14, bottom: 24.0),
+            child: CustomButton(
+              borderRadius: 8,
+              isEnabled: true,
+              buttonText: "Next",
+              //   onPressed: () => context.go("/signin"),
+              onPressed: () {},
             ),
           ),
         ],
@@ -45,38 +44,39 @@ class SignUpScreen extends ConsumerWidget {
           child: Column(
             children: [
               appLogo,
-              const Padding(
-                padding: EdgeInsets.only(bottom: 8),
-                child: Text(
-                  "Register to start",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w800),
+              const Text(
+                "Register to start",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.w800),
+              ),
+              const SizedBox(height: 16),
+              const Text(
+                "Enter your information below",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+              ),
+              const SizedBox(height: 16),
+              const InputTextField(hintText: "Enter Email"),
+              const SizedBox(height: 16),
+              const InputTextField(hintText: "Full Name"),
+              const SizedBox(height: 16),
+              const InputTextField(
+                hintText: "Phone Number",
+                prefixIcon: Padding(
+                  padding:
+                      EdgeInsets.only(top: 15, bottom: 15, left: 15, right: 10),
+                  child: Text(
+                    "+233 ",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
                 ),
+                keyboardType: TextInputType.phone,
               ),
-              const Padding(
-                padding: EdgeInsets.only(bottom: 40),
-                child: Text(
-                  "Enter your informtion below",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(bottom: 16.0),
-                child: InputTextField(hintText: "Enter Email"),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(bottom: 16.0),
-                child: InputTextField(hintText: "Full Name"),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(bottom: 16.0),
-                child: InputTextField(hintText: "Phone Number"),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(bottom: 16.0),
-                child: InputTextField(hintText: "Address"),
-              ),
+              const SizedBox(height: 16),
+              const InputTextField(hintText: "Address"),
             ],
           ),
         ),
@@ -85,8 +85,8 @@ class SignUpScreen extends ConsumerWidget {
   }
 }
 
-class SignUpPasswordScreen extends ConsumerWidget {
-  const SignUpPasswordScreen({super.key});
+class RegisterPasswordScreen extends ConsumerWidget {
+  const RegisterPasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -109,7 +109,7 @@ class SignUpPasswordScreen extends ConsumerWidget {
                 ),
               ),
               onPressed: () {},
-              child: const Text("Submit", style: TextStyle(fontSize: 14)),
+              child: const Text("Next", style: TextStyle(fontSize: 14)),
             ),
           ),
         ],
