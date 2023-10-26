@@ -5,8 +5,6 @@ final authProvider =
     StateNotifierProvider<AuthenticationService, AuthenticationState>(
         (ref) => AuthenticationService());
 
-final showPasswordProvider = StateProvider<bool>((_) => true);
-
 final usernameProvider = Provider<String>(
   (_) => "Ben-Aaron Mills-Pappoe",
 );
