@@ -6,9 +6,11 @@ import 'package:golly_express/screens/create_shipment_screen.dart';
 import 'package:golly_express/screens/current_shipment_screen.dart';
 import 'package:golly_express/screens/edit_profile_screen.dart';
 import 'package:golly_express/screens/home.dart';
+import 'package:golly_express/screens/onboarding/add_address.dart';
 import 'package:golly_express/screens/onboarding/onboarding_screen.dart';
+import 'package:golly_express/screens/onboarding/register_password_screen.dart';
+import 'package:golly_express/screens/onboarding/register_screen.dart';
 import 'package:golly_express/screens/onboarding/signin.dart';
-import 'package:golly_express/screens/onboarding/signup.dart';
 import 'package:golly_express/screens/packages_screen.dart';
 import 'package:golly_express/screens/profile%20screen/change_password_screen.dart';
 import 'package:golly_express/screens/profile%20screen/golly_express_address_screen.dart';
@@ -22,8 +24,8 @@ import 'package:golly_express/screens/profile%20screen/notifications_screen.dart
 import 'package:golly_express/screens/profile%20screen/profile_screen.dart';
 
 final GoRouter appRouter = GoRouter(
-  // initialLocation: "/mainContainer",
   initialLocation: "/onboard",
+  // initialLocation: "/mainContainer",
   // initialLocation: "/onboarding",
   routes: <RouteBase>[
     GoRoute(
@@ -35,10 +37,12 @@ final GoRouter appRouter = GoRouter(
       // },
     ),
 
+    // Onboarding Routes
     GoRoute(
       path: '/onboarding',
       builder: (context, state) => const AnotherOnboardingScreen(),
     ),
+
     GoRoute(
       path: '/onboard',
       builder: (context, state) => const OnboardingScreen(),
@@ -48,9 +52,20 @@ final GoRouter appRouter = GoRouter(
       path: '/signin',
       builder: (context, state) => const SigninScreen(),
     ),
+
     GoRoute(
-      path: '/signup',
-      builder: (context, state) => const SignUpScreen(),
+      path: '/register',
+      builder: (context, state) => const RegisterScreen(),
+    ),
+
+    GoRoute(
+      path: '/registerPassword',
+      builder: (context, state) => const RegisterPasswordScreen(),
+    ),
+
+    GoRoute(
+      path: '/addAddress',
+      builder: (context, state) => const AddAddressScreen(),
     ),
 
     // nav bar routes
