@@ -45,7 +45,7 @@ class HomeScreen extends ConsumerWidget {
                     fontWeight: FontWeight.w700,
                   ),
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 24),
 
                 // display your golly express dropdown if verified else verify id card
                 _userIsVerified
