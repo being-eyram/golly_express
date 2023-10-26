@@ -15,6 +15,8 @@ class InputTextField extends StatelessWidget {
   final String? initialValue;
   final TextInputType? keyboardType;
   final List<TextInputFormatter>? inputFormatters;
+  final FormFieldValidator? validator;
+  final AutovalidateMode? autovalidateMode;
 
   const InputTextField({
     super.key,
@@ -30,6 +32,8 @@ class InputTextField extends StatelessWidget {
     this.prefixStyle,
     this.inputFormatters,
     this.keyboardType,
+    this.validator,
+    this.autovalidateMode,
   });
 
   @override
@@ -51,6 +55,8 @@ class InputTextField extends StatelessWidget {
 
     // TODO: add show divider option
     return TextFormField(
+      validator: validator,
+      autovalidateMode: autovalidateMode,
       keyboardType: keyboardType,
       inputFormatters: inputFormatters,
       initialValue: initialValue,
@@ -71,8 +77,16 @@ class InputTextField extends StatelessWidget {
                 ),
               )
             : suffixIcon,
+        border: const OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+          borderSide: BorderSide(
+            width: 1.5,
+          ),
+        ),
         enabledBorder: outlineBorderPropGenerator(const Color(0xFFEDEFEE)),
         focusedBorder: outlineBorderPropGenerator(const Color(0xFF557A46)),
+        focusedErrorBorder: outlineBorderPropGenerator(Colors.red, width: 1.8),
+        errorBorder: outlineBorderPropGenerator(Colors.red, width: 1.5),
         contentPadding: const EdgeInsets.all(16),
         hintText: hintText,
         hintStyle: const TextStyle(
@@ -84,9 +98,9 @@ class InputTextField extends StatelessWidget {
   }
 }
 
-outlineBorderPropGenerator(Color color) {
+outlineBorderPropGenerator(Color color, {double width = 1.5}) {
   return OutlineInputBorder(
     borderRadius: const BorderRadius.all(Radius.circular(8)),
-    borderSide: BorderSide(width: 1.5, color: color),
+    borderSide: BorderSide(width: width, color: color),
   );
 }
