@@ -11,8 +11,8 @@ class LoginRequestModel implements Serializable {
   @override
   Map<String, dynamic> toMap() {
     return {
-      "email": email,
-      "password": password,
+      "email": email.trim(),
+      "password": password.trim(),
     };
   }
 }
