@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 
 class InputTextField extends StatelessWidget {
   final String hintText;
+  final String? labelText;
   final bool isObscured;
   final bool isPasswordInput;
   final void Function()? suffixIconOnTap;
@@ -23,6 +24,7 @@ class InputTextField extends StatelessWidget {
     this.isObscured = true,
     this.isPasswordInput = false,
     required this.hintText,
+    this.labelText,
     this.suffixIconOnTap,
     this.suffixIcon,
     this.controller,
@@ -88,6 +90,7 @@ class InputTextField extends StatelessWidget {
         focusedErrorBorder: outlineBorderPropGenerator(Colors.red, width: 1.5),
         errorBorder: outlineBorderPropGenerator(Colors.red, width: 1.0),
         contentPadding: const EdgeInsets.all(16),
+        labelText: labelText,
         hintText: hintText,
         hintStyle: const TextStyle(
           color: Color(0xFFA3ADAA),
