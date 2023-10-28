@@ -91,6 +91,10 @@ class InputTextField extends StatelessWidget {
         errorBorder: outlineBorderPropGenerator(Colors.red, width: 1.0),
         contentPadding: const EdgeInsets.all(16),
         labelText: labelText,
+        // labelStyle: const TextStyle(
+        //   color: Color(0xFFA3ADAA),
+        //   fontSize: 14,
+        // ),
         hintText: hintText,
         hintStyle: const TextStyle(
           color: Color(0xFFA3ADAA),
