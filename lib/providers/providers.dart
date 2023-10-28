@@ -1,9 +1,4 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:golly_express/api/services/authentication_service.dart';
-
-final authProvider =
-    StateNotifierProvider<AuthenticationService, AuthenticationState>(
-        (ref) => AuthenticationService());
 
 final usernameProvider = Provider<String>(
   (_) => "Ben-Aaron Mills-Pappoe",

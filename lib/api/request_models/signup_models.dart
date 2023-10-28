@@ -23,20 +23,3 @@ class SignUpRequestModel implements Serializable {
     };
   }
 }
-
-class LoginRequestModel implements Serializable {
-  LoginRequestModel({
-    required this.email,
-    required this.password,
-  });
-
-  final String email;
-  final String password;
-  @override
-  Map<String, dynamic> toMap() {
-    return {
-      "email": email,
-      "password": password,
-    };
-  }
-}
