@@ -17,6 +17,50 @@ class LoginScreen extends ConsumerWidget {
     final emailController = TextEditingController();
     final passwordController = TextEditingController();
 
+    String? validateEmail(String value) {
+      RegExp regex = RegExp(
+          r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
+      if (value.isEmpty) {
+        return 'Email cannot be empty';
+      } else {
+        if (!regex.hasMatch(value)) {
+          return 'Enter valid Email';
+        } else {
+          return null;
+        }
+      }
+    }
+
+    String? validatePassword(String value) {
+      // Password should have at least 6 characters
+      if (value.length < 6) {
+        return 'Password must contain at least 6 characters';
+      }
+
+      // Password should have at least one uppercase letter
+      if (!value.contains(RegExp(r'[A-Z]'))) {
+        return 'Password must contain at least one uppercase letter';
+      }
+
+      // Password should have at least one lowercase letter
+      if (!value.contains(RegExp(r'[a-z]'))) {
+        return 'Password must contain at least one lowercase letter';
+      }
+
+      // Password should have at least one special character
+      if (!value.contains(RegExp(r'[!@#\$&*~]'))) {
+        return 'Password must contain at least one special character';
+      }
+
+      // Password should have at least one digit
+      if (!value.contains(RegExp(r'[0-9]'))) {
+        return 'Password must contain at least one digit';
+      }
+
+      // Password is valid
+      return null;
+    }
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -53,20 +97,18 @@ class LoginScreen extends ConsumerWidget {
                       ),
                     ),
                     const SizedBox(height: 16),
-                    const InputTextField(
+                    InputTextField(
+                      validator: (value) {
+                        return validateEmail(value);
+                      },
                       hintText: "Enter Email",
                       labelText: "Email",
                     ),
                     const SizedBox(height: 16),
-                    // TextFormField(
-                    //   decoration: const InputDecoration(
-                    //     hintText: "Enter Name",
-                    //     labelText: "Name",
-                    //     // labelStyle: TextStyle(color: Colors.green),
-                    //   ),
-                    // ),
-                    const SizedBox(height: 16),
                     InputTextField(
+                      validator: (value) {
+                        return validatePassword(value);
+                      },
                       labelText: "Password",
                       hintText: "Enter Password",
                       isPasswordInput: true,
@@ -83,9 +125,9 @@ class LoginScreen extends ConsumerWidget {
                       isEnabled: true,
                       buttonText: "Submit",
                       onPressed: () {
-                        // if (formKey.currentState!.validate()) {
-                        //   context.go("/addAddress");
-                        // }
+                        if (formKey.currentState!.validate()) {
+                          context.go("/mainContainer");
+                        }
                       },
                     ),
                     const SizedBox(height: 24),
@@ -198,7 +240,7 @@ class LoginScreen extends ConsumerWidget {
                     ),
                   ),
                   onPressed: () {
-                    context.push('/signup');
+                    context.push('/register');
                   },
                   child: const Text(
                     "Sign Up",
