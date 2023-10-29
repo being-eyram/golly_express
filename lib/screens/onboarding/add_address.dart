@@ -26,7 +26,7 @@ class AddAddressScreen extends ConsumerWidget {
               borderRadius: 8,
               isEnabled: true,
               buttonText: "Complete",
-              onPressed: () => context.go("/mainContainer"),
+              onPressed: () => context.go("/login"),
             ),
           ),
         ],
