@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:golly_express/screens/navigation/router.dart';
+import 'package:golly_express/navigation/router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
