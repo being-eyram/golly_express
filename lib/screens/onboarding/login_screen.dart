@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:golly_express/components/custom_button.dart';
 import 'package:golly_express/components/input_field.dart';
 import 'package:golly_express/constants.dart';
+import 'package:golly_express/providers/auth_service_provider.dart';
 import 'package:golly_express/providers/onboarding_providers.dart';
 
 class LoginScreen extends ConsumerWidget {
@@ -16,6 +17,8 @@ class LoginScreen extends ConsumerWidget {
 
     final emailController = TextEditingController();
     final passwordController = TextEditingController();
+
+    var email = ref.watch(emailProvider);
 
     String? validateEmail(String value) {
       RegExp regex = RegExp(
@@ -102,6 +105,7 @@ class LoginScreen extends ConsumerWidget {
                         return validateEmail(value);
                       },
                       hintText: "Enter Email",
+                      initialValue: email,
                       labelText: "Email",
                     ),
                     const SizedBox(height: 16),
