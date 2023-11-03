@@ -34,10 +34,10 @@ dev_dependencies:
 flutter_native_splash:
   color: "#ffffff"
   image: assets/images/golly_express_logo.png
-  branding: assets/images/golly_express_logo.png
+  # branding: assets/images/golly_express_logo.png
   color_dark: "#121212"
   image_dark: assets/images/golly_express_logo.png
-  branding_dark: assets/images/golly_express_logo.png
+  # branding_dark: assets/images/golly_express_logo.png
 
   android_12:
     image: assets/images/golly_express_logo.png
