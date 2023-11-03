@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:golly_express/components/custom_button.dart';
 import 'package:golly_express/components/input_field.dart';
 import 'package:golly_express/constants.dart';
+import 'package:golly_express/providers/auth_service_provider.dart';
 
 class GetStartedScreen extends ConsumerWidget {
   const GetStartedScreen({super.key});
@@ -58,6 +59,7 @@ class GetStartedScreen extends ConsumerWidget {
                 ),
                 const SizedBox(height: 40),
                 InputTextField(
+                  controller: emailController,
                   validator: (input) {
                     return validateEmail(input);
                   },
@@ -71,6 +73,8 @@ class GetStartedScreen extends ConsumerWidget {
                   buttonText: "Submit",
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
+                      ref.read(emailProvider.notifier).state =
+                          emailController.text;
                       context.go("/signinOption");
                     }
                   },
