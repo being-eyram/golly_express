@@ -9,3 +9,7 @@ final authProvider =
     StateNotifierProvider<AuthenticationService, AuthenticationState>(
   (_) => AuthenticationService(),
 );
+
+final emailProvider = StateProvider<String>(
+  (ref) => "",
+);
