@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:golly_express/components/custom_button.dart';
 import 'package:golly_express/components/input_field.dart';
 import 'package:golly_express/constants.dart';
+import 'package:golly_express/providers/auth_service_provider.dart';
 
 class RegisterScreen extends ConsumerWidget {
   const RegisterScreen({super.key});
@@ -15,6 +16,8 @@ class RegisterScreen extends ConsumerWidget {
     final emailController = TextEditingController();
     final fullNameController = TextEditingController();
     final phoneNumberController = TextEditingController();
+
+    var email = ref.watch(emailProvider);
 
     String? validateEmail(String value) {
       RegExp regex = RegExp(
@@ -82,7 +85,8 @@ class RegisterScreen extends ConsumerWidget {
                 InputTextField(
                   // autovalidateMode: AutovalidateMode.onUserInteraction,
                   keyboardType: TextInputType.emailAddress,
-                  controller: emailController,
+                  initialValue: email,
+                  // controller: emailController,
                   hintText: "Enter Email",
                   validator: (input) {
                     return validateEmail(input);
