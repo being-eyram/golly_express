@@ -8,7 +8,7 @@ class TransactionSummary extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 32.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Row(
         children: [
           Expanded(
@@ -37,7 +37,7 @@ class TransactionSummary extends StatelessWidget {
                     "To Receive",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      // fontSize: 12,
+                      fontSize: 13,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
@@ -72,7 +72,7 @@ class TransactionSummary extends StatelessWidget {
                     "Total Orders",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      // fontSize: 12,
+                      fontSize: 13,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
@@ -106,7 +106,7 @@ class TransactionSummary extends StatelessWidget {
                     "Received",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      // fontSize: 12,
+                      fontSize: 13,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
