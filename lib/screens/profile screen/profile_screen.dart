@@ -102,7 +102,7 @@ class ProfileScreen extends ConsumerWidget {
                 title: const Text(
                   "Your Golly Express Address",
                   style: TextStyle(
-                    fontSize: 15,
+                    fontSize: 14,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
@@ -121,7 +121,7 @@ class ProfileScreen extends ConsumerWidget {
                 title: const Text(
                   "My Address",
                   style: TextStyle(
-                    fontSize: 15,
+                    fontSize: 14,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
@@ -135,6 +135,7 @@ class ProfileScreen extends ConsumerWidget {
               // id verification list tile
               Container(
                 decoration: const BoxDecoration(
+                  // color: Colors.blue,
                   border: Border.symmetric(
                     horizontal: BorderSide(
                       width: 2,
@@ -144,7 +145,7 @@ class ProfileScreen extends ConsumerWidget {
                 ),
                 child: ListTile(
                   onTap: () => context.push("/verifyID"),
-                  minVerticalPadding: 25,
+                  minVerticalPadding: 16,
                   contentPadding: const EdgeInsets.symmetric(horizontal: 32),
                   leading: const Icon(Icons.badge_outlined),
                   title: const Padding(
@@ -152,7 +153,7 @@ class ProfileScreen extends ConsumerWidget {
                     child: Text(
                       "ID Verification",
                       style: TextStyle(
-                        fontSize: 15,
+                        fontSize: 14,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
@@ -160,7 +161,7 @@ class ProfileScreen extends ConsumerWidget {
                   subtitle: const Text(
                     "A valid Ghana card is required to verify your account",
                     style: TextStyle(
-                      fontSize: 13,
+                      fontSize: 12,
                       fontWeight: FontWeight.w400,
                       color: Color(0xFFF3AA60),
                     ),
@@ -190,7 +191,7 @@ class ProfileScreen extends ConsumerWidget {
                   title: const Text(
                     "Change Password",
                     style: TextStyle(
-                      fontSize: 15,
+                      fontSize: 14,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
@@ -213,7 +214,6 @@ class ProfileScreen extends ConsumerWidget {
                 ),
                 child: const ListTile(
                   minVerticalPadding: 25,
-
                   contentPadding: EdgeInsets.symmetric(horizontal: 32),
                   // leading: Icon(Icons.shield_outlined),
                   // leading: Icon(MaterialSymbols.shield_moon_outlined),
@@ -221,7 +221,7 @@ class ProfileScreen extends ConsumerWidget {
                   title: Text(
                     "Privacy Policy",
                     style: TextStyle(
-                      fontSize: 15,
+                      fontSize: 14,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
@@ -249,7 +249,7 @@ class ProfileScreen extends ConsumerWidget {
                   title: Text(
                     "Terms and Condition",
                     style: TextStyle(
-                      fontSize: 15,
+                      fontSize: 14,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
@@ -277,7 +277,7 @@ class ProfileScreen extends ConsumerWidget {
                   title: Text(
                     "Logout",
                     style: TextStyle(
-                        fontSize: 15,
+                        fontSize: 14,
                         fontWeight: FontWeight.w400,
                         color: Color(0xFFFA0101)),
                   ),
