@@ -22,14 +22,12 @@ class IconWithTextCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
         onTap: onTap,
         child: Container(
-          // ...
-          // height: 86,
-          // width: 167,
-          padding: const EdgeInsets.symmetric(vertical: 14.0, horizontal: 16.0),
+          padding: const EdgeInsets.symmetric(
+            vertical: 14.0,
+            horizontal: 16.0,
+          ),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
-            // color: const Color(0xFFFFFBEE),
-            // color: Colors.green,
             color: cardColor,
           ),
           child: Column(
