@@ -63,7 +63,7 @@ String? validateEmail(String value) {
     }
   }
 }
-
-final validateEmailProvider = Provider<Function(String)>(
-  (_) => validateEmail(value),
-);
+ 
+// final validateEmailProvider = Provider<Function(String)>(
+//   (_) => validateEmail(value),
+// );
