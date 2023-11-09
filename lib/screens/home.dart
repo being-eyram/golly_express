@@ -8,7 +8,7 @@ import 'package:golly_express/components/address_dropdown.dart';
 import 'package:golly_express/components/package_tracking_history.dart';
 import 'package:golly_express/constants.dart';
 import 'package:golly_express/model/package.dart';
-import 'package:golly_express/providers/providers.dart';
+import 'package:golly_express/providers/user_data_provider.dart';
 
 // class HomeScreen extends ConsumerWidget {
 //   const HomeScreen({super.key});
@@ -23,7 +23,7 @@ class HomeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final username = ref.watch(usernameProvider);
+    final name = ref.watch(nameProvider);
 
     return Scaffold(
       // bottomNavigationBar: const MainContainer(),
@@ -39,7 +39,7 @@ class HomeScreen extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Good Morning, ${username.split(" ")[0]}",
+                  "Good Morning, ${name.split(" ")[0]}",
                   style: const TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.w700,
