@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:golly_express/constants.dart';
 import 'package:golly_express/model/transaction_summary.dart';
-import 'package:golly_express/providers/providers.dart';
+import 'package:golly_express/providers/user_data_provider.dart';
 import 'package:material_symbols_icons/symbols.dart';
 
 class ProfileScreen extends ConsumerWidget {
@@ -11,7 +11,8 @@ class ProfileScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final username = ref.watch(usernameProvider);
+    final name = ref.watch(nameProvider);
+    final phoneNumber = ref.watch(phoneNumberProvider);
 
     return Scaffold(
       body: SafeArea(
@@ -51,16 +52,16 @@ class ProfileScreen extends ConsumerWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              username,
+                              name,
                               style: const TextStyle(
                                 fontWeight: FontWeight.w700,
                                 fontSize: 16,
                               ),
                             ),
                             const SizedBox(height: 6),
-                            const Text(
-                              "+233 57 159 2866",
-                              style: TextStyle(
+                            Text(
+                              "+233 $phoneNumber ",
+                              style: const TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w400,
                               ),
