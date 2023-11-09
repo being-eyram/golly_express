@@ -45,30 +45,38 @@ class ProfileScreen extends ConsumerWidget {
                     ),
                     const SizedBox(height: 37),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        userProfile,
-                        const SizedBox(width: 20),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        Row(
                           children: [
-                            Text(
-                              name,
-                              style: const TextStyle(
-                                fontWeight: FontWeight.w700,
-                                fontSize: 16,
-                              ),
-                            ),
-                            const SizedBox(height: 6),
-                            Text(
-                              "+233 $phoneNumber ",
-                              style: const TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w400,
-                              ),
+                            userProfile,
+                            const SizedBox(width: 20),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Expanded(
+                                  child: Text(
+                                    name,
+                                    overflow: TextOverflow.ellipsis,
+                                    softWrap: true,
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(height: 6),
+                                Text(
+                                  "+233 $phoneNumber ",
+                                  style: const TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
-                        const Spacer(),
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             padding: const EdgeInsets.symmetric(
@@ -271,22 +279,24 @@ class ProfileScreen extends ConsumerWidget {
                     ),
                   ),
                 ),
-                child: const ListTile(
+                child: ListTile(
+                  onTap: () => context.push("/editProfile"),
                   minVerticalPadding: 25,
-                  contentPadding: EdgeInsets.symmetric(horizontal: 32),
-                  leading: Icon(Icons.logout),
-                  title: Text(
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 32),
+                  leading: const Icon(Icons.logout),
+                  title: const Text(
                     "Logout",
                     style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xFFFA0101)),
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xFFFA0101),
+                    ),
                   ),
-                  trailing: Icon(
+                  trailing: const Icon(
                     Icons.arrow_forward_ios,
                     size: 18,
                   ),
-                  iconColor: Color(0xFFFA0101),
+                  iconColor: const Color(0xFFFA0101),
                 ),
               ),
             ],
