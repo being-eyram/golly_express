@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:golly_express/components/custom_button.dart';
 import 'package:golly_express/components/input_field.dart';
 import 'package:golly_express/constants.dart';
-import 'package:golly_express/providers/auth_service_provider.dart';
+import 'package:golly_express/providers/user_data_provider.dart';
 
 class GetStartedScreen extends ConsumerWidget {
   const GetStartedScreen({super.key});
