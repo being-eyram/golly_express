@@ -15,6 +15,8 @@ class EditProfileScreen extends ConsumerWidget {
     final emailController = TextEditingController();
     final phoneNumberController = TextEditingController();
 
+    final formKey = GlobalKey<FormState>();
+
     return Scaffold(
       body: Scaffold(
         appBar: AppBar(
@@ -44,13 +46,16 @@ class EditProfileScreen extends ConsumerWidget {
                 buttonText: "Save Changes",
                 isEnabled: true,
                 onPressed: () {
-                  ref.read(nameProvider.notifier).state =
-                      nameController.text.toTitleCase();
-                  ref.read(emailProvider.notifier).state = emailController.text;
-                  ref.read(phoneNumberProvider.notifier).state =
-                      phoneNumberController.text;
+                  if (formKey.currentState!.validate()) {
+                    ref.read(nameProvider.notifier).state =
+                        nameController.text.toTitleCase();
+                    ref.read(emailProvider.notifier).state =
+                        emailController.text;
+                    ref.read(phoneNumberProvider.notifier).state =
+                        phoneNumberController.text;
 
-                  context.pop();
+                    context.pop();
+                  }
                 },
               )
             ],
@@ -60,43 +65,53 @@ class EditProfileScreen extends ConsumerWidget {
           child: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.all(16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    "Edit Profile",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w800,
+              child: Form(
+                key: formKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "Edit Profile",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w800,
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 24.0),
-                  InputTextField(
-                    // initialValue: ref.watch(usernameProvider),
-                    controller: nameController..text = ref.watch(nameProvider),
-                    hintText: "Name",
-                  ),
-                  const SizedBox(height: 24.0),
-                  InputTextField(
-                    controller: emailController
-                      ..text = ref.watch(emailProvider),
-                    // initialValue: "benaaron866@gmail.com",
-                    hintText: "Email Address",
-                  ),
-                  const SizedBox(height: 24.0),
-                  InputTextField(
-                    controller: phoneNumberController
-                      ..text = ref.watch(phoneNumberProvider),
-                    prefixText: "+233  ",
-                    prefixStyle: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w800,
+                    const SizedBox(height: 24.0),
+                    InputTextField(
+                      // initialValue: ref.watch(usernameProvider),
+                      controller: nameController
+                        ..text = ref.watch(nameProvider),
+                      hintText: "Name",
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "Name cannot be empty";
+                        }
+                        return null;
+                      },
                     ),
-                    // initialValue: "57 159 2866",
-                    hintText: "Phone Number",
-                    keyboardType: TextInputType.phone,
-                  ),
-                ],
+                    const SizedBox(height: 24.0),
+                    InputTextField(
+                      controller: emailController
+                        ..text = ref.watch(emailProvider),
+                      // initialValue: "benaaron866@gmail.com",
+                      hintText: "Email Address",
+                    ),
+                    const SizedBox(height: 24.0),
+                    InputTextField(
+                      controller: phoneNumberController
+                        ..text = ref.watch(phoneNumberProvider),
+                      prefixText: "+233  ",
+                      prefixStyle: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w800,
+                      ),
+                      // initialValue: "57 159 2866",
+                      hintText: "Phone Number",
+                      keyboardType: TextInputType.phone,
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
