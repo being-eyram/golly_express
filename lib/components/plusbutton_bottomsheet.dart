@@ -67,14 +67,14 @@ class PlusBottomSheet extends StatelessWidget {
               style: TextStyle(fontSize: 16),
             ),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 8),
           Divider(
             thickness: 1.5,
             height: 0,
             // color: Color(0xFFEDEFEE),
             color: Colors.grey[300],
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 8),
           ListTile(
             onTap: () => context.push("/calculateEstimate"),
             minLeadingWidth: 50,
