@@ -10,6 +10,6 @@ final authProvider =
   (_) => AuthenticationService(),
 );
 
-final emailProvider = StateProvider<String>(
-  (ref) => "",
-);
+// final emailProvider = StateProvider<String>(
+//   (ref) => "",
+// );
