@@ -10,13 +10,17 @@ class PlusBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // color: Colors.white,
-      width: double.infinity,
+      // width: double.infinity,
+      // height: 350,
+      margin: const EdgeInsets.all(20),
       padding: const EdgeInsets.symmetric(
         horizontal: 32,
         vertical: 16,
       ),
-      // height: 350,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+      ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         // crossAxisAlignment: CrossAxisAlignment.start,
@@ -24,15 +28,15 @@ class PlusBottomSheet extends StatelessWidget {
           Align(
             alignment: Alignment.center,
             child: Container(
-              height: 5,
-              width: 69,
+              height: 4.5, //-.5
+              width: 59, //-10
               decoration: BoxDecoration(
                 color: const Color(0xFFB5BDBB),
                 borderRadius: BorderRadius.circular(100),
               ),
             ),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 16),
           Align(
             alignment: Alignment.centerRight,
             child: TextButton(
@@ -43,13 +47,13 @@ class PlusBottomSheet extends StatelessWidget {
                 "Close",
                 style: TextStyle(
                   color: Color(0xFFA3ADAA),
-                  fontSize: 15,
+                  fontSize: 14,
                   fontWeight: FontWeight.w700,
                 ),
               ),
             ),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 16),
           ListTile(
             onTap: () => context.push("/createShipment"),
             minLeadingWidth: 50,
@@ -68,11 +72,11 @@ class PlusBottomSheet extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 8),
-          Divider(
+          const Divider(
             thickness: 1.5,
             height: 0,
-            // color: Color(0xFFEDEFEE),
-            color: Colors.grey[300],
+            // color: Color(0xFFF6F7F6),
+            color: Color(0xFFEDEFEE),
           ),
           const SizedBox(height: 8),
           ListTile(
@@ -93,7 +97,7 @@ class PlusBottomSheet extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 50,
+            height: 30,
           )
         ],
       ),
