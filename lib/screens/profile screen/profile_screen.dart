@@ -53,16 +53,15 @@ class ProfileScreen extends ConsumerWidget {
                             const SizedBox(width: 20),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.min,
                               children: [
-                                Expanded(
-                                  child: Text(
-                                    name,
-                                    overflow: TextOverflow.ellipsis,
-                                    softWrap: true,
-                                    style: const TextStyle(
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 16,
-                                    ),
+                                Text(
+                                  name,
+                                  overflow: TextOverflow.ellipsis,
+                                  softWrap: true,
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 16,
                                   ),
                                 ),
                                 const SizedBox(height: 6),
@@ -102,10 +101,10 @@ class ProfileScreen extends ConsumerWidget {
               ),
               const SizedBox(height: 16),
               const TransactionSummary(),
-              const SizedBox(height: 24),
+              const SizedBox(height: 16),
 
               ListTile(
-                minVerticalPadding: 20,
+                minVerticalPadding: 16,
                 contentPadding: const EdgeInsets.symmetric(horizontal: 32),
                 leading: gollyExpressLogoMini,
                 title: const Text(
@@ -117,34 +116,43 @@ class ProfileScreen extends ConsumerWidget {
                 ),
                 trailing: const Icon(
                   Icons.arrow_forward_ios,
-                  size: 18,
+                  size: 15,
                 ),
                 // onTap: () => context.go("/gollyExpressAddress"),
                 onTap: () => context.push("/gollyExpressAddress"),
               ),
 
-              ListTile(
-                minVerticalPadding: 20,
-                contentPadding: const EdgeInsets.symmetric(horizontal: 32),
-                leading: const Icon(Icons.location_on_outlined),
-                title: const Text(
-                  "My Address",
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
+              Container(
+                decoration: const BoxDecoration(
+                  border: Border(
+                    top: BorderSide(
+                      width: 2,
+                      color: Color(0xFFF6F7F6),
+                    ),
                   ),
                 ),
-                trailing: const Icon(
-                  Icons.arrow_forward_ios,
-                  size: 18,
+                child: ListTile(
+                  minVerticalPadding: 16,
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 32),
+                  leading: const Icon(Icons.location_on_outlined),
+                  title: const Text(
+                    "My Address",
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                  trailing: const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 15,
+                  ),
+                  onTap: () => context.push("/myAddress"),
                 ),
-                onTap: () => context.push("/myAddress"),
               ),
 
               // id verification list tile
               Container(
                 decoration: const BoxDecoration(
-                  // color: Colors.blue,
                   border: Border.symmetric(
                     horizontal: BorderSide(
                       width: 2,
@@ -177,7 +185,7 @@ class ProfileScreen extends ConsumerWidget {
                   ),
                   trailing: const Icon(
                     Icons.arrow_forward_ios,
-                    size: 18,
+                    size: 15,
                   ),
                 ),
               ),
@@ -194,7 +202,7 @@ class ProfileScreen extends ConsumerWidget {
                 ),
                 child: ListTile(
                   onTap: () => context.push("/changePassword"),
-                  minVerticalPadding: 25,
+                  minVerticalPadding: 16,
                   contentPadding: const EdgeInsets.symmetric(horizontal: 32),
                   leading: const Icon(Icons.lock_outline),
                   title: const Text(
@@ -206,7 +214,7 @@ class ProfileScreen extends ConsumerWidget {
                   ),
                   trailing: const Icon(
                     Icons.arrow_forward_ios,
-                    size: 18,
+                    size: 15,
                   ),
                 ),
               ),
@@ -222,7 +230,7 @@ class ProfileScreen extends ConsumerWidget {
                   ),
                 ),
                 child: const ListTile(
-                  minVerticalPadding: 25,
+                  minVerticalPadding: 16,
                   contentPadding: EdgeInsets.symmetric(horizontal: 32),
                   // leading: Icon(Icons.shield_outlined),
                   // leading: Icon(MaterialSymbols.shield_moon_outlined),
@@ -236,7 +244,7 @@ class ProfileScreen extends ConsumerWidget {
                   ),
                   trailing: Icon(
                     Icons.arrow_forward_ios,
-                    size: 18,
+                    size: 15,
                   ),
                 ),
               ),
@@ -252,7 +260,7 @@ class ProfileScreen extends ConsumerWidget {
                   ),
                 ),
                 child: const ListTile(
-                  minVerticalPadding: 25,
+                  minVerticalPadding: 16,
                   contentPadding: EdgeInsets.symmetric(horizontal: 32),
                   leading: Icon(Icons.library_books_outlined),
                   title: Text(
@@ -264,7 +272,7 @@ class ProfileScreen extends ConsumerWidget {
                   ),
                   trailing: Icon(
                     Icons.arrow_forward_ios,
-                    size: 18,
+                    size: 15,
                   ),
                 ),
               ),
@@ -281,7 +289,7 @@ class ProfileScreen extends ConsumerWidget {
                 ),
                 child: ListTile(
                   onTap: () => context.push("/editProfile"),
-                  minVerticalPadding: 25,
+                  minVerticalPadding: 16,
                   contentPadding: const EdgeInsets.symmetric(horizontal: 32),
                   leading: const Icon(Icons.logout),
                   title: const Text(
@@ -294,7 +302,7 @@ class ProfileScreen extends ConsumerWidget {
                   ),
                   trailing: const Icon(
                     Icons.arrow_forward_ios,
-                    size: 18,
+                    size: 15,
                   ),
                   iconColor: const Color(0xFFFA0101),
                 ),
