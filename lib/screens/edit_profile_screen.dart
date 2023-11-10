@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:golly_express/components/custom_button.dart';
@@ -83,10 +84,16 @@ class EditProfileScreen extends ConsumerWidget {
                       controller: nameController
                         ..text = ref.watch(nameProvider),
                       hintText: "Name",
+                      // inputFormatters: [
+                      //   FilteringTextInputFormatter.allow(
+                      //     RegExp(r"[a-zA-Z]+|\s"),
+                      //   )
+                      // ],
                       validator: (value) {
-                        if (value == null || value.isEmpty) {
+                        if (value.isEmpty) {
                           return "Name cannot be empty";
                         }
+
                         return null;
                       },
                     ),
@@ -106,8 +113,14 @@ class EditProfileScreen extends ConsumerWidget {
                         fontSize: 16,
                         fontWeight: FontWeight.w800,
                       ),
+
                       // initialValue: "57 159 2866",
                       hintText: "Phone Number",
+                      inputFormatters: [
+                        FilteringTextInputFormatter.allow(
+                          RegExp(r"[0-9]"),
+                        )
+                      ],
                       keyboardType: TextInputType.phone,
                     ),
                   ],
