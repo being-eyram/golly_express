@@ -23,10 +23,15 @@ class _MainContainerState extends State<MainContainer> {
     // Jude dier GOAT !
     if (index == 2) {
       showModalBottomSheet(
-          context: context,
-          builder: (BuildContext context) {
-            return const PlusBottomSheet();
-          });
+        // constraints: BoxConstraints(
+        //   maxWidth: MediaQuery.of(context).size.width - 30,
+        // ), this kinda works but not quite.
+        backgroundColor: Colors.transparent,
+        context: context,
+        builder: (BuildContext context) {
+          return const PlusBottomSheet();
+        },
+      );
       return; // if true, do not go to next line
     }
 
