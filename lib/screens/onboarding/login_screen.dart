@@ -68,9 +68,9 @@ class LoginScreen extends ConsumerWidget {
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       body: Padding(
-        padding: const EdgeInsets.only(top: 64, right: 16, left: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
-          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Form(
               key: formKey,
@@ -118,7 +118,18 @@ class LoginScreen extends ConsumerWidget {
                           .update((state) => !state);
                     },
                   ),
-                  const SizedBox(height: 24),
+                  const SizedBox(height: 8),
+                  TextButton(
+                    onPressed: () => context.push("/forgotPassword"),
+                    child: const Text(
+                      "Forgot Password?",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w200,
+                        color: Color(0xFFF3AA60),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
                   CustomButton(
                     borderRadius: 8,
                     isEnabled: true,
@@ -229,11 +240,13 @@ class LoginScreen extends ConsumerWidget {
             const SizedBox(height: 24),
             TextButton(
               onPressed: () => context.push("/register"),
-              child: const Text("Sign up",
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w800,
-                  )),
+              child: const Text(
+                "Sign up",
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
             )
             // SizedBox(
             //   width: double.infinity,
