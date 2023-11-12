@@ -63,7 +63,12 @@ String? validateEmail(String value) {
     }
   }
 }
- 
+
 // final validateEmailProvider = Provider<Function(String)>(
 //   (_) => validateEmail(value),
 // );
+
+final smsOptionSelectedProvider = StateProvider<bool>((_) => false);
+final emailOptionSelectedProvider = StateProvider<bool>((_) => false);
+
+final otpOptionSelectedProvider = StateProvider<bool>((_) => false);
