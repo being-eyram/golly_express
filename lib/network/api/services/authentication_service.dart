@@ -1,9 +1,10 @@
 import 'dart:convert';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:golly_express/api/request_models/login_models.dart';
-import 'package:golly_express/api/request_models/signup_models.dart';
 import 'package:http/http.dart' as http;
+
+import '../request_models/login_models.dart';
+import '../request_models/signup_models.dart';
 
 abstract class AuthenticationState {}
 

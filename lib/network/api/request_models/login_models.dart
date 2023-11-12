@@ -1,4 +1,4 @@
-import 'package:golly_express/api/helper/serializable.dart';
+import '../helper/serializable.dart';
 
 class LoginRequestModel implements Serializable {
   LoginRequestModel({
