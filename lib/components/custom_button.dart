@@ -3,12 +3,15 @@ import 'package:flutter/material.dart';
 class CustomButton extends StatelessWidget {
   const CustomButton({
     super.key,
+    this.isLoading = false,
     required this.buttonText,
     this.isEnabled = false,
     required this.onPressed,
     this.borderRadius = 16,
   });
+
   final bool isEnabled;
+  final bool isLoading;
   final String buttonText;
   final double borderRadius;
   final Function()? onPressed;
@@ -16,10 +19,9 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FilledButton(
-      onPressed: onPressed,
+      onPressed: isLoading ? () {} : onPressed,
       style: FilledButton.styleFrom(
-        backgroundColor:
-            isEnabled ? const Color(0xFF557A46) : const Color(0xFFE8E9E8),
+        backgroundColor: isEnabled ? const Color(0xFF557A46) : const Color(0xFFE8E9E8),
         minimumSize: const Size(double.infinity, 54),
         maximumSize: const Size(double.infinity, 54),
         shape: RoundedRectangleBorder(
@@ -28,13 +30,15 @@ class CustomButton extends StatelessWidget {
           ),
         ),
       ),
-      child: Text(
-        buttonText,
-        style: TextStyle(
-            fontSize: 14,
-            color: isEnabled ? Colors.white : const Color(0xFFA3ADAA),
-            fontWeight: FontWeight.w800),
-      ),
+      child: isLoading
+          ? const CircularProgressIndicator()
+          : Text(
+              buttonText,
+              style: TextStyle(
+                  fontSize: 14,
+                  color: isEnabled ? Colors.white : const Color(0xFFA3ADAA),
+                  fontWeight: FontWeight.w800),
+            ),
     );
   }
 }

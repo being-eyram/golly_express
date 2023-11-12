@@ -8,7 +8,6 @@ import '../response_models/login_response.dart';
 
 final apiServiceProvider = Provider((ref) => GollyApiService());
 
-// todo : make this a singleton since we want only one instance of this throughout the app.
 class GollyApiService {
   final _client = http.Client();
 

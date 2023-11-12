@@ -7,6 +7,7 @@ import 'package:golly_express/components/input_field.dart';
 import 'package:golly_express/constants.dart';
 import 'package:golly_express/providers/onboarding_providers.dart';
 import 'package:golly_express/providers/user_data_provider.dart';
+import 'package:golly_express/screens/onboarding/login_viewmodel.dart';
 
 class LoginScreen extends ConsumerWidget {
   const LoginScreen({super.key});
@@ -18,7 +19,12 @@ class LoginScreen extends ConsumerWidget {
     final emailController = TextEditingController();
     final passwordController = TextEditingController();
 
-    var email = ref.watch(emailProvider);
+    final loginViewModel = ref.watch(loginViewModelProvider);
+
+    final loginFuture = loginViewModel.loginUser(
+      emailController.text,
+      passwordController.text,
+    );
 
     String? validateEmail(String value) {
       RegExp regex = RegExp(
@@ -100,11 +106,12 @@ class LoginScreen extends ConsumerWidget {
                       return validateEmail(value);
                     },
                     hintText: "Enter Email",
-                    initialValue: email,
+                    controller: emailController..text = ref.watch(emailProvider),
                     labelText: "Email",
                   ),
                   const SizedBox(height: 16),
                   InputTextField(
+                    controller: passwordController,
                     validator: (value) {
                       return validatePassword(value);
                     },
@@ -113,22 +120,48 @@ class LoginScreen extends ConsumerWidget {
                     isPasswordInput: true,
                     isObscured: ref.watch(showPasswordProvider),
                     suffixIconOnTap: () {
-                      ref
-                          .read(showPasswordProvider.notifier)
-                          .update((state) => !state);
+                      ref.read(showPasswordProvider.notifier).update((state) => !state);
                     },
                   ),
                   const SizedBox(height: 24),
-                  CustomButton(
-                    borderRadius: 8,
-                    isEnabled: true,
-                    buttonText: "Submit",
-                    onPressed: () {
-                      if (formKey.currentState!.validate()) {
-                        context.go("/mainContainer");
-                      }
-                    },
-                  ),
+                  // CustomButton(
+                  //   borderRadius: 8,
+                  //   isEnabled: true,
+                  //   buttonText: "Submit",
+                  //   onPressed: () async {
+                  //     if (!formKey.currentState!.validate()) return;
+                  //
+                  //     final loginResponse = await loginViewModel.loginUser(
+                  //       emailController.text,
+                  //       passwordController.text,
+                  //     );
+                  //
+                  //     if (loginResponse.status == 'success' && context.mounted) {
+                  //       context.go('/mainContainer');
+                  //     }
+                  //   },
+                  // ),
+
+                  FilledButton(
+                      onPressed: () {},
+                      style: FilledButton.styleFrom(
+                        backgroundColor: const Color(0xFF557A46),
+                        minimumSize: const Size(double.infinity, 54),
+                        maximumSize: const Size(double.infinity, 54),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(8),
+                          ),
+                        ),
+                      ),
+                      child: FutureBuilder(
+                        future: loginFuture,
+                        builder: (ctx, snapshot) {
+                          if (snapshot.hasData) return Text("Login");
+                          if (snapshot.hasError) return Text("Login");
+                          return CircularProgressIndicator();
+                        },
+                      )),
                   const SizedBox(height: 24),
                   Stack(
                     alignment: Alignment.center,
@@ -204,8 +237,7 @@ class LoginScreen extends ConsumerWidget {
                       children: <TextSpan>[
                         TextSpan(
                             text: 'Terms of Use',
-                            style: const TextStyle(
-                                decoration: TextDecoration.underline),
+                            style: const TextStyle(decoration: TextDecoration.underline),
                             recognizer: TapGestureRecognizer()
                               ..onTap = () {
                                 // print('Terms of Use"');
@@ -213,8 +245,7 @@ class LoginScreen extends ConsumerWidget {
                         const TextSpan(text: ' and '),
                         TextSpan(
                           text: 'Privacy Policy',
-                          style: const TextStyle(
-                              decoration: TextDecoration.underline),
+                          style: const TextStyle(decoration: TextDecoration.underline),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
                               // print('Privacy Policy');
