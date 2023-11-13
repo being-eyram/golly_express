@@ -76,7 +76,7 @@ class GetStartedScreen extends ConsumerWidget {
                   if (formKey.currentState!.validate()) {
                     ref.read(emailProvider.notifier).state =
                         emailController.text;
-                    context.go("/signinOption");
+                    context.go("/login");
                   }
                 },
               ),
