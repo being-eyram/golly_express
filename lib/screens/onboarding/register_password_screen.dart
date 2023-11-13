@@ -84,6 +84,7 @@ class RegisterPasswordScreen extends ConsumerWidget {
                 left: 16, right: 16, top: 14, bottom: 24.0),
             child: CustomButton(
               borderRadius: 8,
+              isLoading: signupState.isLoading,
               isEnabled: true,
               buttonText: "Next",
               onPressed: () async {
