@@ -98,9 +98,12 @@ class _CalculateEstimateScreenState extends State<CalculateEstimateScreen> {
                   },
                   child: Container(
                     width: double.infinity,
-                    padding: const EdgeInsets.all(16),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 14,
+                    ),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(14),
                       border: Border.all(
                         color: const Color(0xFFEDEFEE),
                       ),
@@ -133,11 +136,14 @@ class _CalculateEstimateScreenState extends State<CalculateEstimateScreen> {
                   },
                   child: Container(
                     width: double.infinity,
-                    padding: const EdgeInsets.all(16),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 14,
+                    ),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(14),
                       border: Border.all(
-                        color: const Color(0xFFEDEFEE),
+                        color: const Color(0xFFEDEFEE), 
                       ),
                     ),
                     child: const Row(
