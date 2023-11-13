@@ -10,16 +10,39 @@ import 'package:golly_express/providers/user_data_provider.dart';
 import 'package:golly_express/screens/onboarding/auth_provider.dart';
 
 class LoginScreen extends ConsumerWidget {
-  const LoginScreen({super.key});
+  LoginScreen({super.key});
+
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final formKey = GlobalKey<FormState>();
 
-    final emailController = TextEditingController();
-    final passwordController = TextEditingController();
-
     final loginState = ref.watch(asyncLoginProvider);
+    ref.listen(asyncLoginProvider, (previous, loginState) {
+      loginState.when(
+        data: (_) => context.go('/mainContainer'),
+        error: (errMessage, __) {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) => AlertDialog(
+              title: const Text('Error'),
+              content: Text(errMessage.toString()),
+              actions: <Widget>[
+                IconButton(
+                  icon: const Icon(Icons.close),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                )
+              ],
+            ),
+          );
+        },
+        loading: () {},
+      );
+    });
 
     String? validateEmail(String value) {
       RegExp regex = RegExp(
@@ -133,12 +156,6 @@ class LoginScreen extends ConsumerWidget {
                             emailController.text,
                             passwordController.text,
                           );
-
-                      loginState.value?.status == 'success'
-                          ? context.go('/mainContainer')
-                          : null;
-
-                      print(loginState.value?.status);
                     },
                   ),
                   const SizedBox(height: 24),
