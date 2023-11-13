@@ -4,7 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:golly_express/network/api/response_models/login_response.dart';
 import 'package:golly_express/network/api/response_models/signup_response.dart';
 import 'package:golly_express/network/api/services/api_service.dart';
-import 'package:golly_express/providers/user_data_provider.dart';
 
 typedef AsyncLoginProvider
     = AsyncNotifierProvider<LoginNotifier, LoginResponse?>;
