@@ -47,7 +47,7 @@ class OnboardingScreen extends ConsumerWidget {
                   // setUserOnboardStatus(true);
                   // updatePageIndex;
                   currentPageIndex == 2
-                      ? context.go("/getStarted")
+                      ? context.go("/login")
                       : pageController.nextPage(
                           curve: Curves.easeInOut,
                           duration: const Duration(milliseconds: 200),
@@ -65,7 +65,7 @@ class OnboardingScreen extends ConsumerWidget {
             top: 40,
             right: 20,
             child: TextButton(
-              onPressed: () => context.go("/getStarted"),
+              onPressed: () => context.go("/login"),
               // onPressed: () => context.go("/login"),
               child: const Text(
                 "Skip",

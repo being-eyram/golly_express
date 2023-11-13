@@ -17,7 +17,7 @@ class RegisterScreen extends ConsumerWidget {
     final fullNameController = TextEditingController();
     final phoneNumberController = TextEditingController();
 
-    var email = ref.watch(emailProvider);
+    // var email = ref.watch(emailProvider);
 
     String? validateEmail(String value) {
       RegExp regex = RegExp(
@@ -54,6 +54,12 @@ class RegisterScreen extends ConsumerWidget {
                   if (formKey.currentState!.validate()) {
                     // final email = emailController.text;
                     // print("Valid Email");
+                    ref.read(emailProvider.notifier).state =
+                        emailController.text;
+                    ref.read(phoneNumberProvider.notifier).state =
+                        phoneNumberController.text;
+                    ref.read(fullNameProvider.notifier).state =
+                        fullNameController.text;
                     context.go("/registerPassword");
                   }
                 },
@@ -93,8 +99,7 @@ class RegisterScreen extends ConsumerWidget {
                     InputTextField(
                       // autovalidateMode: AutovalidateMode.onUserInteraction,
                       keyboardType: TextInputType.emailAddress,
-                      initialValue: email,
-                      // controller: emailController,
+                      controller: emailController,
                       hintText: "Enter Email",
                       validator: (input) {
                         return validateEmail(input);

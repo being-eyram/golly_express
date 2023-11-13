@@ -4,4 +4,5 @@ class Endpoint {
 
   static const _baseUrl = 'gollyexpress.com';
   static final login = Uri.https(_baseUrl, '/login');
+  static final signup = Uri.https(_baseUrl, '/signup');
 }

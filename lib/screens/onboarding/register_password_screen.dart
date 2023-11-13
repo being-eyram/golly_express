@@ -5,6 +5,9 @@ import 'package:golly_express/components/custom_button.dart';
 import 'package:golly_express/components/input_field.dart';
 import 'package:golly_express/constants.dart';
 import 'package:golly_express/providers/onboarding_providers.dart';
+import 'package:golly_express/providers/user_data_provider.dart';
+
+import 'auth_provider.dart';
 
 class RegisterPasswordScreen extends ConsumerWidget {
   const RegisterPasswordScreen({super.key});
@@ -16,7 +19,12 @@ class RegisterPasswordScreen extends ConsumerWidget {
     final passwordController = TextEditingController();
     final confirmPasswordController = TextEditingController();
 
+    final email = ref.watch(emailProvider);
+    final phoneNumber = ref.watch(phoneNumberProvider);
+    final fullName = ref.watch(fullNameProvider);
     var confirmPassword = "";
+
+    final signupState = ref.watch(asyncSignupProvider);
 
     // String? validatePassword(String value) {
     //   RegExp regex = RegExp(
@@ -78,10 +86,22 @@ class RegisterPasswordScreen extends ConsumerWidget {
               borderRadius: 8,
               isEnabled: true,
               buttonText: "Next",
-              onPressed: () {
-                if (formKey.currentState!.validate()) {
-                  context.go("/addAddress");
-                }
+              onPressed: () async {
+                if (!formKey.currentState!.validate()) return;
+                ref.read(asyncSignupProvider.notifier).signupUser(
+                      email: email,
+                      fullName: fullName,
+                      phoneNumber: phoneNumber,
+                      password: passwordController.text,
+                    );
+
+                signupState.value?.status == 'success'
+                    ? context.go('/mainContainer')
+                    : null;
+
+                print(signupState.value?.status);
+                print('password is $passwordController.text');
+                // print(passwordController.text);
               },
             ),
           ),

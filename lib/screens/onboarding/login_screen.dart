@@ -7,7 +7,7 @@ import 'package:golly_express/components/input_field.dart';
 import 'package:golly_express/constants.dart';
 import 'package:golly_express/providers/onboarding_providers.dart';
 import 'package:golly_express/providers/user_data_provider.dart';
-import 'package:golly_express/screens/onboarding/login_viewmodel.dart';
+import 'package:golly_express/screens/onboarding/auth_provider.dart';
 
 class LoginScreen extends ConsumerWidget {
   const LoginScreen({super.key});
