@@ -98,10 +98,28 @@ class RegisterPasswordScreen extends ConsumerWidget {
 
                 signupState.value?.status == 'success'
                     ? context.go('/mainContainer')
-                    : null;
+                    // : null;
+                    : showDialog(
+                        context: context,
+                        builder: (BuildContext context) => AlertDialog(
+                          title: const Text('Error'),
+                          content: const Text('Sign up failed or smth'),
+                          actions: <Widget>[
+                            IconButton(
+                              icon: const Icon(Icons.close),
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                            )
+                          ],
+                        ),
+                      );
 
                 print(signupState.value?.status);
                 print('password is $passwordController.text');
+                print('email: $email');
+                print('full name: $fullName');
+                print('phone number: $phoneNumber');
                 // print(passwordController.text);
               },
             ),
