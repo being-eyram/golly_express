@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:golly_express/network/endpoint.dart';
 import 'package:http/http.dart' as http;
@@ -24,6 +25,9 @@ class GollyApiService {
     );
 
     final jsonBody = jsonDecode(response.body);
+    debugPrint('response : ${response.body}');
+    debugPrint('email : $email');
+    debugPrint('password : $password');
     return LoginResponse.fromJson(jsonBody);
   }
 }

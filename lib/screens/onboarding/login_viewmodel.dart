@@ -1,24 +1,29 @@
+import 'dart:async';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:golly_express/network/api/response_models/login_response.dart';
 import 'package:golly_express/network/api/services/api_service.dart';
 
-import '../../network/api/response_models/login_response.dart';
+typedef AsyncLoginProvider
+    = AsyncNotifierProvider<LoginNotifier, LoginResponse?>;
 
-final loginViewModelProvider = Provider<LoginViewModel>(
-  (ref) {
-    final apiService = ref.watch(apiServiceProvider);
-    return LoginViewModel(apiService);
-  },
-);
+final asyncLoginProvider = AsyncLoginProvider(() => LoginNotifier());
 
-class LoginViewModel {
-  final GollyApiService _apiService;
+class LoginNotifier extends AsyncNotifier<LoginResponse?> {
+  @override
+  FutureOr<LoginResponse?> build() {
+    return null;
+  }
 
-  LoginViewModel(this._apiService);
-
-  Future<LoginResponse> loginUser(String email, String password) {
-    return _apiService.loginUser(
-      email: email,
-      password: password,
+  Future<LoginResponse?> loginUser(String email, String password) async {
+    final apiService = ref.read(apiServiceProvider);
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+      () => apiService.loginUser(
+        email: email,
+        password: password,
+      ),
     );
+    return state.value;
   }
 }
