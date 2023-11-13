@@ -57,6 +57,8 @@ class InputTextField extends StatelessWidget {
 
     // TODO: add show divider option
     return TextFormField(
+      // DISMISS KEYBOARD ON OUTSIDE CLICK
+      onTapOutside: (event) => FocusManager.instance.primaryFocus?.unfocus(),
       validator: validator,
       autovalidateMode: autovalidateMode,
       keyboardType: keyboardType,
