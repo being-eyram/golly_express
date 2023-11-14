@@ -3,8 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:golly_express/constants.dart';
 import 'package:golly_express/model/onboarding.dart';
 
-final showPasswordProvider = StateProvider<bool>((_) => true);
-
 final onboardingPageIndexProvider = StateProvider<int>((_) => 0);
 
 // final formKeyProvider = Provider<GlobalKey<FormState>>(
@@ -63,7 +61,7 @@ String? validateEmail(String value) {
     }
   }
 }
- 
+
 // final validateEmailProvider = Provider<Function(String)>(
 //   (_) => validateEmail(value),
 // );
