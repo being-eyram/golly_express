@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:golly_express/providers/onboarding_providers.dart';
 
-class InputTextField extends StatelessWidget {
+final showPasswordProvider = StateProvider<bool>((_) => true);
+
+class InputTextField extends ConsumerWidget {
   final String hintText;
   final String? labelText;
   final bool isObscured;
@@ -39,7 +43,7 @@ class InputTextField extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final showPasswordSvg = SvgPicture.asset(
       'assets/images/ic_show_password.svg',
       semanticsLabel: 'Show Password',
@@ -80,6 +84,14 @@ class InputTextField extends StatelessWidget {
                   child: isObscured ? showPasswordSvg : hidePasswordSvg,
                 ),
               )
+            // ? IconButton(
+            //     icon: showPassState
+            //         ? const Icon(Icons.visibility_off)
+            //         : const Icon(Icons.visibility),
+            //     onPressed: () => ref
+            //         .read(showPasswordProvider.notifier)
+            //         .update((state) => !state),
+            //   )
             : suffixIcon,
         border: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(8)),
