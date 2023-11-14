@@ -151,7 +151,7 @@ class OnboardingCutOut extends StatelessWidget {
             ],
           ),
           Padding(
-            padding: const EdgeInsets.only(bottom: 16.0),
+            padding: const EdgeInsets.only(bottom: 36.0),
             child: CustomButton(
               borderRadius: 8,
               isEnabled: true,
