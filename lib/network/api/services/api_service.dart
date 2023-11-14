@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:golly_express/network/api/request_models/login_models.dart';
 import 'package:golly_express/network/api/request_models/signup_models.dart';
