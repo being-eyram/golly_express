@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:golly_express/network/api/response_models/signup_response.dart';
 import 'package:golly_express/network/endpoint.dart';
 import 'package:http/http.dart' as http;
 
