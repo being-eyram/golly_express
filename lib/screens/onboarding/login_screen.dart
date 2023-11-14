@@ -19,8 +19,8 @@ class LoginScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final formKey = GlobalKey<FormState>();
 
-    final loginState = ref.watch(asyncLoginProvider);
-    ref.listen(asyncLoginProvider, (previous, loginState) {
+    final loginState = ref.watch(asyncAuthProvider);
+    ref.listen(asyncAuthProvider, (previous, loginState) {
       loginState.when(
         data: (_) => context.go('/mainContainer'),
         error: (errMessage, __) {
@@ -124,8 +124,7 @@ class LoginScreen extends ConsumerWidget {
                       return validateEmail(value);
                     },
                     hintText: "Enter Email",
-                    controller: emailController
-                      ..text = ref.watch(emailProvider),
+                    controller: emailController,
                     labelText: "Email",
                   ),
                   const SizedBox(height: 16),
@@ -152,7 +151,7 @@ class LoginScreen extends ConsumerWidget {
                     isLoading: loginState.isLoading,
                     onPressed: () async {
                       if (!formKey.currentState!.validate()) return;
-                      ref.read(asyncLoginProvider.notifier).loginUser(
+                      ref.read(asyncAuthProvider.notifier).loginUser(
                             emailController.text,
                             passwordController.text,
                           );
