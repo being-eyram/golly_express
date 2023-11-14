@@ -2,25 +2,19 @@ import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:golly_express/network/api/response_models/login_response.dart';
-import 'package:golly_express/network/api/response_models/signup_response.dart';
 import 'package:golly_express/network/api/services/api_service.dart';
 
-typedef AsyncLoginProvider
-    = AsyncNotifierProvider<LoginNotifier, LoginResponse?>;
-typedef AsyncSignupProvider
-    = AsyncNotifierProvider<SignupNotifier, SignupResponse?>;
+typedef AsyncLoginProvider = AsyncNotifierProvider<AuthNotifier, AuthResponse?>;
 
-final asyncLoginProvider = AsyncLoginProvider(() => LoginNotifier());
+final asyncAuthProvider = AsyncLoginProvider(() => AuthNotifier());
 
-final asyncSignupProvider = AsyncSignupProvider(() => SignupNotifier());
-
-class LoginNotifier extends AsyncNotifier<LoginResponse?> {
+class AuthNotifier extends AsyncNotifier<AuthResponse?> {
   @override
-  FutureOr<LoginResponse?> build() {
+  FutureOr<AuthResponse?> build() {
     return null;
   }
 
-  Future<LoginResponse?> loginUser(String email, String password) async {
+  Future<AuthResponse?> loginUser(String email, String password) async {
     final apiService = ref.read(apiServiceProvider);
     state = const AsyncLoading();
     state = await AsyncValue.guard(
@@ -31,15 +25,8 @@ class LoginNotifier extends AsyncNotifier<LoginResponse?> {
     );
     return state.value;
   }
-}
 
-class SignupNotifier extends AsyncNotifier<SignupResponse?> {
-  @override
-  FutureOr<SignupResponse?> build() {
-    return null;
-  }
-
-  Future<SignupResponse?> signupUser({
+  Future<AuthResponse?> signupUser({
     required String email,
     required String password,
     required String fullName,
