@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:golly_express/components/custom_button.dart';
 import 'package:golly_express/components/input_field.dart';
 import 'package:golly_express/constants.dart';
-import 'package:golly_express/providers/onboarding_providers.dart';
+import 'package:golly_express/extensions/field_validators.dart';
 import 'package:golly_express/providers/user_data_provider.dart';
 
 import 'auth_provider.dart';
@@ -46,37 +46,16 @@ class RegisterPasswordScreen extends ConsumerWidget {
       );
     });
 
-    String? validatePassword(String value) {
-      // Password should have at least 6 characters
-      if (value.length < 6) {
-        return 'Password must contain at least 6 characters';
-      }
-
-      // Password should have at least one uppercase letter
-      if (!value.contains(RegExp(r'[A-Z]'))) {
-        return 'Password must contain at least one uppercase letter';
-      }
-
-      // Password should have at least one lowercase letter
-      if (!value.contains(RegExp(r'[a-z]'))) {
-        return 'Password must contain at least one lowercase letter';
-      }
-
-      // Password should have at least one special character
-      if (!value.contains(RegExp(r'[!@#\$&*~]'))) {
-        return 'Password must contain at least one special character';
-      }
-
-      // Password should have at least one digit
-      if (!value.contains(RegExp(r'[0-9]'))) {
-        return 'Password must contain at least one digit';
-      }
-
-      // Password is valid
-      return null;
-    }
-
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () => context.pop(),
+          icon: const Icon(
+            Icons.arrow_back_ios_new,
+            size: 20,
+          ),
+        ),
+      ),
       resizeToAvoidBottomInset: true,
       backgroundColor: Colors.white,
       bottomNavigationBar: Column(
@@ -103,25 +82,6 @@ class RegisterPasswordScreen extends ConsumerWidget {
                       // password: passwordController.text,
                       password: confirmPassword,
                     );
-
-                // signupState.value?.status == 'success'
-                //     ? context.go('/mainContainer')
-                //     // : null;
-                //     : showDialog(
-                //         context: context,
-                //         builder: (BuildContext context) => AlertDialog(
-                //           title: const Text('Error'),
-                //           content: const Text('Sign up failed or smth'),
-                //           actions: <Widget>[
-                //             IconButton(
-                //               icon: const Icon(Icons.close),
-                //               onPressed: () {
-                //                 Navigator.pop(context);
-                //               },
-                //             ),
-                //           ],
-                //         ),
-                //       );
 
                 print('password is $confirmPassword');
                 print('email: $email');
@@ -165,6 +125,7 @@ class RegisterPasswordScreen extends ConsumerWidget {
                     return validatePassword(value);
                   },
                   hintText: "Enter Password",
+                  labelText: "Password",
                   isPasswordInput: true,
                   isObscured: ref.watch(showPasswordProvider),
                   suffixIconOnTap: () {
@@ -186,6 +147,7 @@ class RegisterPasswordScreen extends ConsumerWidget {
                     return null;
                   },
                   hintText: "Confirm Password",
+                  // labelText: "Confirm Password",
                   isPasswordInput: true,
                   isObscured: ref.watch(showPasswordProvider),
                   suffixIconOnTap: () {
