@@ -16,29 +16,36 @@ class RegisterPasswordScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final formKey = GlobalKey<FormState>();
 
-    final passwordController = TextEditingController();
-    final confirmPasswordController = TextEditingController();
-
     final email = ref.watch(emailProvider);
     final phoneNumber = ref.watch(phoneNumberProvider);
     final fullName = ref.watch(fullNameProvider);
     var confirmPassword = "";
+    final isLoading = ref.watch(asyncAuthProvider).isLoading;
 
-    final signupState = ref.watch(asyncSignupProvider);
+    ref.listen(asyncAuthProvider, (_, signupState) {
+      signupState.when(
+        data: (_) => context.go('/login'),
+        error: (errMessage, __) {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) => AlertDialog(
+              title: const Text('Error'),
+              content: Text(errMessage.toString()),
+              actions: <Widget>[
+                IconButton(
+                  icon: const Icon(Icons.close),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                )
+              ],
+            ),
+          );
+        },
+        loading: () {},
+      );
+    });
 
-    // String? validatePassword(String value) {
-    //   RegExp regex = RegExp(
-    //       r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
-    //   if (value.isEmpty) {
-    //     return 'Please enter password';
-    //   } else {
-    //     if (!regex.hasMatch(value)) {
-    //       return 'Enter valid password';
-    //     } else {
-    //       return null;
-    //     }
-    //   }
-    // }
     String? validatePassword(String value) {
       // Password should have at least 6 characters
       if (value.length < 6) {
@@ -84,39 +91,39 @@ class RegisterPasswordScreen extends ConsumerWidget {
                 left: 16, right: 16, top: 14, bottom: 24.0),
             child: CustomButton(
               borderRadius: 8,
-              isLoading: signupState.isLoading,
+              isLoading: isLoading,
               isEnabled: true,
               buttonText: "Next",
               onPressed: () async {
                 if (!formKey.currentState!.validate()) return;
-                ref.read(asyncSignupProvider.notifier).signupUser(
+                ref.read(asyncAuthProvider.notifier).signupUser(
                       email: email,
                       fullName: fullName,
                       phoneNumber: phoneNumber,
-                      password: passwordController.text,
+                      // password: passwordController.text,
+                      password: confirmPassword,
                     );
 
-                signupState.value?.status == 'success'
-                    ? context.go('/mainContainer')
-                    // : null;
-                    : showDialog(
-                        context: context,
-                        builder: (BuildContext context) => AlertDialog(
-                          title: const Text('Error'),
-                          content: const Text('Sign up failed or smth'),
-                          actions: <Widget>[
-                            IconButton(
-                              icon: const Icon(Icons.close),
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                            )
-                          ],
-                        ),
-                      );
+                // signupState.value?.status == 'success'
+                //     ? context.go('/mainContainer')
+                //     // : null;
+                //     : showDialog(
+                //         context: context,
+                //         builder: (BuildContext context) => AlertDialog(
+                //           title: const Text('Error'),
+                //           content: const Text('Sign up failed or smth'),
+                //           actions: <Widget>[
+                //             IconButton(
+                //               icon: const Icon(Icons.close),
+                //               onPressed: () {
+                //                 Navigator.pop(context);
+                //               },
+                //             ),
+                //           ],
+                //         ),
+                //       );
 
-                print(signupState.value?.status);
-                print('password is $passwordController.text');
+                print('password is $confirmPassword');
                 print('email: $email');
                 print('full name: $fullName');
                 print('phone number: $phoneNumber');
