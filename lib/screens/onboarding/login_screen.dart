@@ -23,12 +23,13 @@ class LoginScreen extends ConsumerWidget {
     ref.listen(asyncAuthProvider, (previous, loginState) {
       loginState.when(
         data: (_) => context.go('/mainContainer'),
-        error: (errMessage, __) {
+        error: (err, __) {
+          final errMessage = err.toString().split(':')[1].trim();
           showDialog(
             context: context,
             builder: (BuildContext context) => AlertDialog(
               title: const Text('Error'),
-              content: Text(errMessage.toString()),
+              content: Text(errMessage),
               actions: <Widget>[
                 IconButton(
                   icon: const Icon(Icons.close),
