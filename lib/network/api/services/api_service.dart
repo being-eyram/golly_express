@@ -14,6 +14,8 @@ final apiServiceProvider = Provider((ref) => GollyApiService());
 class GollyApiService {
   final _client = http.Client();
 
+  void closeClient() => _client.close();
+
   Future<T> _handleResponse<T>(
     http.Response response,
     T Function(dynamic) fromJson,
