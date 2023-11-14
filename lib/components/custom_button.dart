@@ -21,7 +21,8 @@ class CustomButton extends StatelessWidget {
     return FilledButton(
       onPressed: isLoading ? () {} : onPressed,
       style: FilledButton.styleFrom(
-        backgroundColor: isEnabled ? const Color(0xFF557A46) : const Color(0xFFE8E9E8),
+        backgroundColor:
+            isEnabled ? const Color(0xFF557A46) : const Color(0xFFE8E9E8),
         minimumSize: const Size(double.infinity, 54),
         maximumSize: const Size(double.infinity, 54),
         shape: RoundedRectangleBorder(
@@ -31,7 +32,9 @@ class CustomButton extends StatelessWidget {
         ),
       ),
       child: isLoading
-          ? const CircularProgressIndicator()
+          ? const CircularProgressIndicator(
+              color: Colors.white,
+            )
           : Text(
               buttonText,
               style: TextStyle(
