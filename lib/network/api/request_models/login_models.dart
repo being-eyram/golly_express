@@ -1,35 +1,18 @@
 import '../helper/serializable.dart';
 
-class LoginRequestModel implements Serializable {
-  LoginRequestModel({
+class LoginRequest {
+  LoginRequest({
     required this.email,
     required this.password,
   });
 
   final String email;
   final String password;
-  @override
-  Map<String, dynamic> toMap() {
+
+  Map<String, dynamic> toJson() {
     return {
       "email": email.trim(),
       "password": password.trim(),
     };
-  }
-}
-
-class LoginResponseModel {
-  LoginResponseModel({
-    required this.token,
-    required this.error,
-  });
-
-  final String token;
-  final String error;
-
-  factory LoginResponseModel.fromJson(Map<String, dynamic> json) {
-    return LoginResponseModel(
-      token: json["token"] ?? "",
-      error: json["error"] ?? "",
-    );
   }
 }

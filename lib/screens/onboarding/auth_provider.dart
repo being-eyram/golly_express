@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:golly_express/network/api/request_models/login_models.dart';
+import 'package:golly_express/network/api/request_models/signup_models.dart';
 import 'package:golly_express/network/api/response_models/login_response.dart';
 import 'package:golly_express/network/api/services/api_service.dart';
 
@@ -16,13 +18,12 @@ class AuthNotifier extends AsyncNotifier<AuthResponse?> {
 
   Future<AuthResponse?> loginUser(String email, String password) async {
     final apiService = ref.read(apiServiceProvider);
+    final requestBody = LoginRequest(email: email, password: password);
     state = const AsyncLoading();
     state = await AsyncValue.guard(
-      () => apiService.loginUser(
-        email: email,
-        password: password,
-      ),
+      () => apiService.loginUser(body: requestBody),
     );
+
     return state.value;
   }
 
@@ -33,15 +34,17 @@ class AuthNotifier extends AsyncNotifier<AuthResponse?> {
     required String phoneNumber,
   }) async {
     final apiService = ref.read(apiServiceProvider);
+    final requestBody = SignUpRequest(
+      email: email,
+      password: password,
+      phoneNumber: phoneNumber,
+      fullName: fullName,
+    );
     state = const AsyncLoading();
     state = await AsyncValue.guard(
-      () => apiService.signupUser(
-        email: email,
-        password: password,
-        fullName: fullName,
-        phoneNumber: phoneNumber,
-      ),
+      () => apiService.signupUser(body: requestBody),
     );
+
     return state.value;
   }
 }

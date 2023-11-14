@@ -1,7 +1,7 @@
 import '../helper/serializable.dart';
 
-class SignUpRequestModel implements Serializable {
-  SignUpRequestModel({
+class SignUpRequest {
+  SignUpRequest({
     required this.email,
     required this.password,
     required this.phoneNumber,
@@ -13,8 +13,7 @@ class SignUpRequestModel implements Serializable {
   final String phoneNumber;
   final String fullName;
 
-  @override
-  Map<String, dynamic> toMap() {
+  Map<String, dynamic> toJson() {
     return {
       'email': email,
       'password': password,
