@@ -30,6 +30,7 @@ extension FieldValidator on String {
   }
 
   bool isNotNull() {
-    return this != null;
+    // return this != null;
+    return isNotEmpty;
   }
 }
