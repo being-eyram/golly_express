@@ -13,7 +13,7 @@ final apiServiceProvider = Provider((ref) => GollyApiService());
 class GollyApiService {
   final _client = http.Client();
 
-  Future<LoginResponse> loginUser({
+  Future<AuthResponse> loginUser({
     required String email,
     required String password,
   }) async {
@@ -26,13 +26,10 @@ class GollyApiService {
     );
 
     final jsonBody = jsonDecode(response.body);
-    debugPrint('response : ${response.body}');
-    debugPrint('email : $email');
-    debugPrint('password : $password');
-    return LoginResponse.fromJson(jsonBody);
+    return AuthResponse.fromJson(jsonBody);
   }
 
-  Future<SignupResponse> signupUser({
+  Future<AuthResponse> signupUser({
     required String email,
     required String password,
     required String phoneNumber,
@@ -49,12 +46,6 @@ class GollyApiService {
     );
 
     final jsonBody = jsonDecode(response.body);
-    debugPrint('response : ${response.body}');
-    debugPrint('email : $email');
-    debugPrint('password : $password');
-    debugPrint('full name:  $fullName');
-    debugPrint('phone number:  $phoneNumber');
-
-    return SignupResponse.fromJson(jsonBody);
+    return AuthResponse.fromJson(jsonBody);
   }
 }
