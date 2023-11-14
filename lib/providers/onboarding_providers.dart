@@ -5,10 +5,6 @@ import 'package:golly_express/model/onboarding.dart';
 
 final onboardingPageIndexProvider = StateProvider<int>((_) => 0);
 
-// final formKeyProvider = Provider<GlobalKey<FormState>>(
-//   (_) => GlobalKey<FormState>(),
-// );
-
 final onboardingCaptionProvider = Provider<List<String>>(
   (_) => [
     "Get your package with our shipping address",
@@ -48,19 +44,6 @@ final onboardingItemsProvider = Provider<List<Onboarding>>(
   ],
 );
 
-String? validateEmail(String value) {
-  RegExp regex = RegExp(
-      r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
-  if (value.isEmpty) {
-    return 'Email cannot be empty';
-  } else {
-    if (!regex.hasMatch(value)) {
-      return 'Enter valid Email';
-    } else {
-      return null;
-    }
-  }
-}
 
 // final validateEmailProvider = Provider<Function(String)>(
 //   (_) => validateEmail(value),
