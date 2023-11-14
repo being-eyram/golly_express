@@ -35,6 +35,15 @@ class RegisterScreen extends ConsumerWidget {
 
     return Scaffold(
       body: Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+            onPressed: () => context.pop(),
+            icon: const Icon(
+              Icons.arrow_back_ios_new,
+              size: 20,
+            ),
+          ),
+        ),
         backgroundColor: Colors.white,
         bottomNavigationBar: Column(
           mainAxisSize: MainAxisSize.min,
@@ -52,15 +61,13 @@ class RegisterScreen extends ConsumerWidget {
                 buttonText: "Next",
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
-                    // final email = emailController.text;
-                    // print("Valid Email");
                     ref.read(emailProvider.notifier).state =
                         emailController.text;
                     ref.read(phoneNumberProvider.notifier).state =
                         phoneNumberController.text;
                     ref.read(fullNameProvider.notifier).state =
                         fullNameController.text;
-                    context.go("/registerPassword");
+                    context.push("/registerPassword");
                   }
                 },
               ),
