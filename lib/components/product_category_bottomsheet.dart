@@ -7,7 +7,9 @@ class ProductCategoryBottomSheet extends StatelessWidget {
     required this.onProductSelect,
     super.key,
   });
+
   final Function(String product) onProductSelect;
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -60,35 +62,32 @@ class ProductCategoryBottomSheet extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 30),
-            Expanded(
-              child: ListView.separated(
-                separatorBuilder: (context, index) {
-                  return Divider(
-                    color: Colors.grey.shade300,
-                  );
-                },
-                shrinkWrap: true,
-                itemCount: productCategories.length,
-                itemBuilder: ((context, index) {
-                  return ListTile(
-                    onTap: () {
-                      onProductSelect(productCategories[index]);
-                    },
-                    contentPadding:
-                        const EdgeInsets.only(left: 0.0, right: 0.0),
-                    title: Text(
-                      productCategories[index],
-                      style: const TextStyle(
-                        fontSize: 15,
-                      ),
+            ListView.separated(
+              separatorBuilder: (context, index) {
+                return Divider(
+                  color: Colors.grey.shade300,
+                );
+              },
+              shrinkWrap: true,
+              itemCount: productCategories.length,
+              itemBuilder: ((context, index) {
+                return ListTile(
+                  onTap: () {
+                    onProductSelect(productCategories[index]);
+                  },
+                  contentPadding: const EdgeInsets.only(left: 0.0, right: 0.0),
+                  title: Text(
+                    productCategories[index],
+                    style: const TextStyle(
+                      fontSize: 15,
                     ),
-                    trailing: const Icon(
-                      Icons.arrow_forward_ios,
-                      size: 18,
-                    ),
-                  );
-                }),
-              ),
+                  ),
+                  trailing: const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 18,
+                  ),
+                );
+              }),
             )
           ],
         ),
