@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:golly_express/components/custom_button.dart';
 import 'package:golly_express/components/product_category_bottomsheet.dart';
+import 'package:golly_express/components/smartphone_type_bottomsheet.dart';
 
 class CalculateEstimateScreen extends StatefulWidget {
   const CalculateEstimateScreen({super.key});
@@ -12,7 +13,9 @@ class CalculateEstimateScreen extends StatefulWidget {
 }
 
 class _CalculateEstimateScreenState extends State<CalculateEstimateScreen> {
-  var displayText = "select product category";
+  var categoryDisplayText = "select product category";
+  var smartphoneType = "select smartphone type";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,7 +91,7 @@ class _CalculateEstimateScreenState extends State<CalculateEstimateScreen> {
                         return ProductCategoryBottomSheet(
                           onProductSelect: (product) {
                             setState(() {
-                              displayText = product;
+                              categoryDisplayText = product;
                             });
                             context.pop();
                           },
@@ -108,7 +111,7 @@ class _CalculateEstimateScreenState extends State<CalculateEstimateScreen> {
                     child: Row(
                       children: [
                         Text(
-                          displayText,
+                          categoryDisplayText,
                           style: const TextStyle(
                             fontSize: 16,
                             color: Color(0xFFA3ADAA),
@@ -127,7 +130,14 @@ class _CalculateEstimateScreenState extends State<CalculateEstimateScreen> {
                       isScrollControlled: true,
                       context: context,
                       builder: (BuildContext context) {
-                        return Container();
+                        return SmartphoneTypeBottomSheet(
+                          onProductSelect: (smartphone) {
+                            setState(() {
+                              smartphoneType = smartphone;
+                            });
+                            context.pop();
+                          },
+                        );
                       },
                     );
                   },
@@ -140,17 +150,18 @@ class _CalculateEstimateScreenState extends State<CalculateEstimateScreen> {
                         color: const Color(0xFFEDEFEE),
                       ),
                     ),
-                    child: const Row(
+                    child: Row(
                       children: [
                         Text(
-                          "select smartphone type",
-                          style: TextStyle(
+                          // "select smartphone type",
+                          smartphoneType,
+                          style: const TextStyle(
                             fontSize: 16,
                             color: Color(0xFFA3ADAA),
                           ),
                         ),
-                        Spacer(),
-                        Icon(Icons.expand_more)
+                        const Spacer(),
+                        const Icon(Icons.expand_more)
                       ],
                     ),
                   ),
