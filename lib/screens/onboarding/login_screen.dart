@@ -5,8 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:golly_express/components/custom_button.dart';
 import 'package:golly_express/components/input_field.dart';
 import 'package:golly_express/constants.dart';
-import 'package:golly_express/providers/onboarding_providers.dart';
-import 'package:golly_express/providers/user_data_provider.dart';
+import 'package:golly_express/extensions/field_validation.dart';
 import 'package:golly_express/screens/onboarding/auth_provider.dart';
 
 class LoginScreen extends ConsumerWidget {
@@ -44,50 +43,6 @@ class LoginScreen extends ConsumerWidget {
         loading: () {},
       );
     });
-
-    String? validateEmail(String value) {
-      RegExp regex = RegExp(
-          r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
-      if (value.isEmpty) {
-        return 'Email cannot be empty';
-      } else {
-        if (!regex.hasMatch(value)) {
-          return 'Enter valid Email';
-        } else {
-          return null;
-        }
-      }
-    }
-
-    String? validatePassword(String value) {
-      // Password should have at least 6 characters
-      if (value.length < 6) {
-        return 'Password must contain at least 6 characters';
-      }
-
-      // Password should have at least one uppercase letter
-      if (!value.contains(RegExp(r'[A-Z]'))) {
-        return 'Password must contain at least one uppercase letter';
-      }
-
-      // Password should have at least one lowercase letter
-      if (!value.contains(RegExp(r'[a-z]'))) {
-        return 'Password must contain at least one lowercase letter';
-      }
-
-      // Password should have at least one special character
-      if (!value.contains(RegExp(r'[!@#\$&*~]'))) {
-        return 'Password must contain at least one special character';
-      }
-
-      // Password should have at least one digit
-      if (!value.contains(RegExp(r'[0-9]'))) {
-        return 'Password must contain at least one digit';
-      }
-
-      // Password is valid
-      return null;
-    }
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -264,26 +219,6 @@ class LoginScreen extends ConsumerWidget {
                     fontWeight: FontWeight.w800,
                   )),
             )
-            // SizedBox(
-            //   width: double.infinity,
-            //   height: 54,
-            //   child: TextButton(
-            //     style: TextButton.styleFrom(
-            //       minimumSize: const Size(double.infinity, 54),
-            //       maximumSize: const Size(double.infinity, 54),
-            //       shape: const RoundedRectangleBorder(
-            //         borderRadius: BorderRadius.all(Radius.circular(8)),
-            //       ),
-            //     ),
-            //     onPressed: () {
-            //       context.push('/register');
-            //     },
-            //     child: const Text(
-            //       "Sign Up",
-            //       style: TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
-            //     ),
-            //   ),
-            // )
           ],
         ),
       ),
