@@ -27,7 +27,7 @@ import 'package:golly_express/screens/profile%20screen/notifications_screen.dart
 import 'package:golly_express/screens/profile%20screen/profile_screen.dart';
 
 final GoRouter appRouter = GoRouter(
-  initialLocation: isOnboarded == null ? "/onboard" : "/mainContainer",
+  initialLocation: isOnboarded == null ? "/onboard" : "/login",
   // initialLocation: "/mainContainer",
   // initialLocation: "/onboarding",
   routes: <RouteBase>[
