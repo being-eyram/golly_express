@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:golly_express/components/main_container.dart';
+import 'package:golly_express/main.dart';
 import 'package:golly_express/screens/another_onboarding_screen.dart';
 import 'package:golly_express/screens/calculate_estimate_screen.dart';
 import 'package:golly_express/screens/create_shipment_screen.dart';
@@ -26,7 +27,7 @@ import 'package:golly_express/screens/profile%20screen/notifications_screen.dart
 import 'package:golly_express/screens/profile%20screen/profile_screen.dart';
 
 final GoRouter appRouter = GoRouter(
-  initialLocation: "/onboard",
+  initialLocation: initScreen == null ? "/onboard" : "/mainContainer",
   // initialLocation: "/mainContainer",
   // initialLocation: "/onboarding",
   routes: <RouteBase>[
