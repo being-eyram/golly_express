@@ -160,6 +160,20 @@ final productCategories = [
   "Keyboard"
 ];
 
+final smartphoneTypes = [
+  "Iphone 11",
+  "Iphone 11 Pro",
+  "Iphone 11 Pro Max",
+  "Iphone 12",
+  "Iphone 12 Pro",
+  "Iphone 12 Pro Max",
+  "Samsung Galaxy S22 +5G",
+  "Samsung Galaxy S22 Ultra +5G",
+  "Samsung Galaxy S23 +5G",
+  "Samsung Galaxy S23 Ultra +5G",
+  "Samsung Galaxy Z Flip 3"
+];
+
 var sampleNotificationTitle = "Title Goes Here";
 var sampleNotificationSubtitle =
     "Lorem ipsum dolor sit amet consectetur. Eget justo morbi vitae diam. Aliquet arcu mattis pellentesque tellus turpis adipiscing non ...";
