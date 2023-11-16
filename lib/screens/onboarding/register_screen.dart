@@ -35,6 +35,15 @@ class RegisterScreen extends ConsumerWidget {
 
     return Scaffold(
       body: Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+            onPressed: () => context.pop(),
+            icon: const Icon(
+              Icons.arrow_back_ios_new,
+              size: 20,
+            ),
+          ),
+        ),
         backgroundColor: Colors.white,
         bottomNavigationBar: Column(
           mainAxisSize: MainAxisSize.min,
