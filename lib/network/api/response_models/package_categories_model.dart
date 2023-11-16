@@ -1,27 +1,30 @@
 // To parse this JSON data, do
 //
-//     final catogories = catogoriesFromJson(jsonString);
+//     final packageCategories = packageCategoriesFromJson(jsonString);
 
 import 'dart:convert';
 
-Catogories catogoriesFromJson(String str) =>
-    Catogories.fromJson(json.decode(str));
+PackageCategories packageCategoriesFromJson(String str) =>
+    PackageCategories.fromJson(json.decode(str));
 
-String catogoriesToJson(Catogories data) => json.encode(data.toJson());
+String packageCategoriesToJson(PackageCategories data) =>
+    json.encode(data.toJson());
 
-class Catogories {
-  final List<Datum> data;
+class PackageCategories {
+  final List<Category> data;
   final String message;
   final String status;
 
-  Catogories({
+  PackageCategories({
     required this.data,
     required this.message,
     required this.status,
   });
 
-  factory Catogories.fromJson(Map<String, dynamic> json) => Catogories(
-        data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
+  factory PackageCategories.fromJson(Map<String, dynamic> json) =>
+      PackageCategories(
+        data:
+            List<Category>.from(json["data"].map((x) => Category.fromJson(x))),
         message: json["message"],
         status: json["status"],
       );
@@ -33,18 +36,18 @@ class Catogories {
       };
 }
 
-class Datum {
+class Category {
   final String uuid;
   final String name;
   final List<Item> items;
 
-  Datum({
+  Category({
     required this.uuid,
     required this.name,
     required this.items,
   });
 
-  factory Datum.fromJson(Map<String, dynamic> json) => Datum(
+  factory Category.fromJson(Map<String, dynamic> json) => Category(
         uuid: json["uuid"],
         name: json["name"],
         items: List<Item>.from(json["items"].map((x) => Item.fromJson(x))),
