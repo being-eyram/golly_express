@@ -14,14 +14,14 @@ class NotificationCard extends StatelessWidget {
       alignment: Alignment.bottomCenter,
       children: [
         Container(
-          height: 240,
+          height: 220,
           decoration: BoxDecoration(
             color: const Color(0xFFD9D9D9),
             borderRadius: BorderRadius.circular(15),
           ),
         ),
         Container(
-          height: 120,
+          // height: 120,
           width: double.infinity,
           decoration: const BoxDecoration(
             color: Color(0xFFFAFBFB),
