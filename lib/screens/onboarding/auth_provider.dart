@@ -3,13 +3,14 @@ import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:golly_express/network/api/request_models/login_models.dart';
 import 'package:golly_express/network/api/request_models/signup_models.dart';
-import 'package:golly_express/network/api/response_models/login_response.dart';
+import 'package:golly_express/network/api/response_models/auth_response.dart';
 import 'package:golly_express/network/api/services/api_service.dart';
 
 typedef AsyncLoginProvider = AsyncNotifierProvider<AuthNotifier, AuthResponse?>;
 
 final asyncAuthProvider = AsyncLoginProvider(() => AuthNotifier());
 
+// final apiServiceProvider = Provider((ref) => GollyApiService());
 class AuthNotifier extends AsyncNotifier<AuthResponse?> {
   @override
   FutureOr<AuthResponse?> build() {
