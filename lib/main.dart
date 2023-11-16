@@ -4,20 +4,12 @@ import 'package:golly_express/navigation/router.dart';
 import 'package:golly_express/shared_prefs/shared_prefs.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-// void main() {
-//   runApp(
-//     const ProviderScope(
-//       child: MyApp(),
-//     ),
-//   );
-// }
-
 bool? isOnboarded;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  isOnboarded = await getUserOnboardStatus();
-  setUserOnboardStatus(true);
+  isOnboarded = await getUserOnboardStatus() as bool;
+  await setUserOnboardStatus(true);
 
   runApp(
     const ProviderScope(
