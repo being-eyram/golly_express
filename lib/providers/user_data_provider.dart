@@ -23,3 +23,7 @@ final fullNameProvider = StateProvider<String>(
 final phoneNumberProvider = StateProvider<String>(
   (_) => "",
 );
+
+final bearerTokenProvider = StateProvider<String?>(
+  (_) => "",
+);
