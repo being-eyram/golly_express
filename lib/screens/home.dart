@@ -8,13 +8,8 @@ import 'package:golly_express/components/address_dropdown.dart';
 import 'package:golly_express/components/package_tracking_history.dart';
 import 'package:golly_express/constants.dart';
 import 'package:golly_express/model/package.dart';
+import 'package:golly_express/network/api/services/api_service.dart';
 import 'package:golly_express/providers/user_data_provider.dart';
-
-// class HomeScreen extends ConsumerWidget {
-//   const HomeScreen({super.key});
-
-//   @override
-//   Widget build(BuildContext context, WidgetRef ref) {
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -66,7 +61,13 @@ class HomeScreen extends ConsumerWidget {
                       cardColor: const Color(0xFFFFFBEE),
                       cardIcon: calculatorIcon,
                       iconContainerColor: const Color(0xFFFFC727),
-                      onTap: () => context.push("/calculateEstimate"),
+                      onTap: () {
+                        // return context.push("/calculateEstimate")
+
+                        return GollyApiService()
+                            // .getPackageCategories(token: token!);
+                            .getPackageCategories();
+                      },
                     ),
                     const SizedBox(
                       width: 10,
