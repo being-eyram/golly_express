@@ -21,6 +21,7 @@ class InputTextField extends ConsumerWidget {
   final List<TextInputFormatter>? inputFormatters;
   final FormFieldValidator? validator;
   final AutovalidateMode? autovalidateMode;
+  final FloatingLabelBehavior? floatingLabelBehavior;
 
   const InputTextField({
     super.key,
@@ -39,6 +40,7 @@ class InputTextField extends ConsumerWidget {
     this.keyboardType,
     this.validator,
     this.autovalidateMode,
+    this.floatingLabelBehavior,
   });
 
   @override
@@ -104,10 +106,7 @@ class InputTextField extends ConsumerWidget {
         errorBorder: outlineBorderPropGenerator(Colors.red, width: 1.0),
         contentPadding: const EdgeInsets.all(16),
         labelText: labelText,
-        // labelStyle: const TextStyle(
-        //   color: Color(0xFFA3ADAA),
-        //   fontSize: 14,
-        // ),
+        floatingLabelBehavior: floatingLabelBehavior,
         hintText: hintText,
         hintStyle: const TextStyle(
           color: Color(0xFFA3ADAA),
