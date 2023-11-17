@@ -9,6 +9,9 @@ class TrackingNumberSearchField extends StatelessWidget {
       alignment: Alignment.centerRight,
       children: [
         TextFormField(
+          onTapOutside: (event) =>
+              FocusManager.instance.primaryFocus?.unfocus(),
+
           enabled: true,
           // decoration: InputDecoration(enabled: true, ),
           decoration: InputDecoration(
