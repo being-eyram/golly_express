@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:golly_express/network/api/request_models/login_request_models.dart';
-import 'package:golly_express/network/api/request_models/signup_request_models.dart';
+import 'package:golly_express/network/api/request_models/auth_request_models.dart';
 import 'package:golly_express/network/api/response_models/auth_response.dart';
 import 'package:golly_express/network/api/services/api_service.dart';
+import 'package:golly_express/shared_prefs/shared_prefs.dart';
 
 typedef AsyncLoginProvider = AsyncNotifierProvider<AuthNotifier, AuthResponse?>;
 
@@ -17,29 +17,25 @@ class AuthNotifier extends AsyncNotifier<AuthResponse?> {
     return null;
   }
 
-  Future<AuthResponse?> loginUser(String email, String password) async {
+  Future<AuthResponse?> loginUser({required AuthRequest requestBody}) async {
     final apiService = ref.read(apiServiceProvider);
-    final requestBody = LoginRequest(email: email, password: password);
     state = const AsyncLoading();
     state = await AsyncValue.guard(
-      () => apiService.loginUser(body: requestBody),
+      () => apiService.loginUser(requestBody: requestBody),
     );
+    // ref.read(bearerTokenProvider.notifier).state = state.value?.token.token;
+    await setUserBearerToken(state.value!.token.token);
 
     return state.value;
   }
 
-  Future<AuthResponse?> signupUser({
-    required String email,
-    required String password,
-    required String fullName,
-    required String phoneNumber,
-  }) async {
+  Future<AuthResponse?> signupUser(AuthRequest request) async {
     final apiService = ref.read(apiServiceProvider);
     final requestBody = SignUpRequest(
-      email: email,
-      password: password,
-      phoneNumber: phoneNumber,
-      fullName: fullName,
+      email: request.email,
+      password: request.password,
+      phoneNumber: request.phoneNumber!,
+      fullName: request.fullName!,
     );
     state = const AsyncLoading();
     state = await AsyncValue.guard(
