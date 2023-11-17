@@ -8,7 +8,7 @@ bool? isOnboarded;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  isOnboarded = await getUserOnboardStatus() as bool;
+  isOnboarded = await getUserOnboardStatus();
   await setUserOnboardStatus(true);
 
   runApp(
