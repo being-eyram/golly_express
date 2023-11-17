@@ -58,6 +58,36 @@ String? validateEmail(String value) {
   }
 }
 
+String? validateFullName(value) {
+  if (value.isEmpty) {
+    return "Enter your Full Name";
+  }
+
+  return null;
+}
+
+String? validatePhoneNumber(String value) {
+  if (value.isEmpty) {
+    return "Enter your phone number";
+  }
+  if (value.length != 9) {
+    //excluding 0
+    return "Invalid Phone Number";
+  }
+  return null;
+}
+
+String? validateLoginPassword(value) {
+  // add your custom validation here.
+  if (value.isEmpty) {
+    return 'invalid password';
+  }
+  if (value.length < 6) {
+    return 'Password must contain at least 6 characters';
+  }
+  return null;
+}
+
 String? validatePassword(String value) {
   // Password should have at least 6 characters
   if (value.length < 6) {
