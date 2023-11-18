@@ -42,13 +42,25 @@ class GollyApiService {
         .catchError(_onError);
   }
 
-  Future fetchPackageCategories() async {
+  Future<PackageCategories> fetchPackageCategories() async {
+    final token = await getUserBearerToken();
+    var packageCategories = <Category>[];
     return await _client
-        .get(
-          Endpoints.categories,
-        )
+        .get(Endpoints.categories, headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer $token',
+        })
         .then(_decodeResponse)
-        .then((json) => AuthResponse.fromJson(json))
+        .then((json) {
+          print(json);
+          print('-------------');
+          packageCategories = PackageCategories.fromJson(json).data;
+          for (int i = 0; i < packageCategories.length; i++) {
+            print(packageCategories[i].name);
+          }
+          return PackageCategories.fromJson(json);
+        })
         .catchError(_onError);
   }
 
