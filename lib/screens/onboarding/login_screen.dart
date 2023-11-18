@@ -122,14 +122,33 @@ class LoginScreen extends ConsumerWidget {
                           // print(email);
                           // print(password);
                           print(userCredentials.toJson());
+
                           login;
                         },
                       ),
-                      const SizedBox(height: 24),
+                      const SizedBox(height: 16),
+                      TextButton(
+                        onPressed: () => context.push("/otpScreen"),
+                        style: TextButton.styleFrom(
+                          minimumSize: Size.zero,
+                          padding: EdgeInsets.zero,
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        ),
+                        child: const Text(
+                          "Forgot Password?",
+                          style: TextStyle(
+                            color: Color(0xFFF3AA60),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
                       Stack(
                         alignment: Alignment.center,
                         children: [
-                          const Divider(color: Color(0xFFEDEFEE)),
+                          const Divider(
+                            color: Color(0xFFEDEFEE),
+                            height: 0,
+                          ),
                           Container(
                             color: Colors.white,
                             child: const Padding(
