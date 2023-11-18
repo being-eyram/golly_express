@@ -43,3 +43,6 @@ final onboardingItemsProvider = Provider<List<Onboarding>>(
     ),
   ],
 );
+
+final smsOptionSelected = StateProvider((ref) => false);
+final emailOptionSelected = StateProvider((ref) => false);
