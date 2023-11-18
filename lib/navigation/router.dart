@@ -11,6 +11,7 @@ import 'package:golly_express/screens/onboarding/add_address.dart';
 import 'package:golly_express/screens/onboarding/get_started_screen.dart';
 import 'package:golly_express/screens/onboarding/login_screen.dart';
 import 'package:golly_express/screens/onboarding/onboarding_screen.dart';
+import 'package:golly_express/screens/onboarding/otp_screen.dart';
 import 'package:golly_express/screens/onboarding/register_password_screen.dart';
 import 'package:golly_express/screens/onboarding/register_screen.dart';
 import 'package:golly_express/screens/onboarding/signin_option.dart';
@@ -74,6 +75,11 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/registerPassword',
       builder: (context, state) => const RegisterPasswordScreen(),
+    ),
+
+    GoRoute(
+      path: '/otpScreen',
+      builder: (context, state) => const OtpScreen(),
     ),
 
     GoRoute(
