@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:golly_express/components/custom_button.dart';
+import 'package:golly_express/providers/onboarding_providers.dart';
 
 class OtpScreen extends ConsumerWidget {
   const OtpScreen({super.key});
@@ -17,14 +18,10 @@ class OtpScreen extends ConsumerWidget {
             height: 6,
           ),
           Padding(
-            padding: const EdgeInsets.only(
-              left: 16,
-              right: 16,
-              bottom: 24.0,
-            ),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
             child: CustomButton(
               borderRadius: 8,
-              buttonText: "Verify",
+              buttonText: "Next",
               onPressed: () {},
             ),
           )
@@ -44,10 +41,10 @@ class OtpScreen extends ConsumerWidget {
           padding: const EdgeInsets.all(16),
           child: SizedBox(
             height: MediaQuery.of(context).size.height,
-            child: const Column(
+            child: Column(
               // crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   "Forgot Password",
                   textAlign: TextAlign.center,
                   style: TextStyle(
@@ -55,13 +52,82 @@ class OtpScreen extends ConsumerWidget {
                     fontWeight: FontWeight.w800,
                   ),
                 ),
-                SizedBox(height: 8.0),
-                Text(
-                  "A SMS with the verifcation PIN has been sent to +233 57 159 2866",
+                const SizedBox(height: 8.0),
+                const Text(
+                  "Select which contact details should we use to reset your password",
                   textAlign: TextAlign.center,
                   style: TextStyle(),
                 ),
-                SizedBox(height: 32),
+                const SizedBox(height: 32),
+                InkWell(
+                  onTap: () {},
+                  borderRadius: BorderRadius.circular(8),
+                  child: Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(
+                        color: const Color(0xFFEDEFEE),
+                        width: 1.5,
+                      ),
+                    ),
+                    child: const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Send OTP via SMS",
+                          style: TextStyle(
+                            color: Color(0xFFA3ADAA),
+                          ),
+                        ),
+                        SizedBox(height: 4),
+                        Text(
+                          "+233 57 159 2866",
+                          style: TextStyle(),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                InkWell(
+                  onTap: () {
+                    ref
+                        .read(emailOptionSelected.notifier)
+                        .update((state) => !state);
+                  },
+                  borderRadius: BorderRadius.circular(8),
+                  child: Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(
+                        color: ref.watch(smsOptionSelected)
+                            ? const Color(0xFF557A46)
+                            : const Color(0xFFEDEFEE),
+                        width: 1.5,
+                      ),
+                    ),
+                    child: const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Send OTP via Email",
+                          style: TextStyle(
+                            color: Color(0xFFA3ADAA),
+                          ),
+                        ),
+                        SizedBox(height: 4),
+                        Text(
+                          "benaaron866@gmail.com",
+                          style: TextStyle(),
+                        ),
+                      ],
+                    ),
+                  ),
+                )
               ],
             ),
           ),
