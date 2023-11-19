@@ -30,6 +30,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Golly Express',
       theme: ThemeData(
+        fontFamily: GoogleFonts.dmSans().fontFamily,
         bottomSheetTheme: const BottomSheetThemeData(
           backgroundColor: Colors.white,
           modalBackgroundColor: Colors.white,
