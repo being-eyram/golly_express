@@ -128,7 +128,7 @@ class LoginScreen extends ConsumerWidget {
                       ),
                       const SizedBox(height: 16),
                       TextButton(
-                        onPressed: () => context.push("/otpScreen"),
+                        onPressed: () => context.push("/forgotPassword"),
                         style: TextButton.styleFrom(
                           minimumSize: Size.zero,
                           padding: EdgeInsets.zero,
