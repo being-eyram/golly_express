@@ -8,7 +8,7 @@ import 'package:golly_express/extensions/field_validation.dart';
 import 'package:golly_express/network/api/request_models/auth_request_models.dart';
 import 'package:golly_express/providers/user_data_provider.dart';
 
-import 'auth_provider.dart';
+import '../../providers/auth_provider.dart';
 
 class RegisterPasswordScreen extends ConsumerWidget {
   const RegisterPasswordScreen({super.key});
