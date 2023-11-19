@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:golly_express/constants.dart';
+import 'package:golly_express/providers/package_category_provider.dart';
 
-class ProductCategoryBottomSheet extends StatelessWidget {
+class ProductCategoryBottomSheet extends ConsumerWidget {
   const ProductCategoryBottomSheet({
     required this.onProductSelect,
     super.key,
@@ -11,7 +12,8 @@ class ProductCategoryBottomSheet extends StatelessWidget {
   final Function(String product) onProductSelect;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final categoryData = ref.watch(packageCategoryProvider);
     return SingleChildScrollView(
       child: Container(
         // color: Colors.white,
@@ -62,33 +64,44 @@ class ProductCategoryBottomSheet extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 30),
-            ListView.separated(
-              separatorBuilder: (context, index) {
-                return Divider(
-                  color: Colors.grey.shade300,
+            categoryData.when(
+              data: (data) {
+                var categoryList = data.map((e) => e).toList();
+                return ListView.separated(
+                  separatorBuilder: (context, index) {
+                    return Divider(
+                      color: Colors.grey.shade300,
+                      height: 0,
+                    );
+                  },
+                  shrinkWrap: true,
+                  itemCount: categoryList.length,
+                  itemBuilder: ((context, index) {
+                    return ListTile(
+                      onTap: () {
+                        onProductSelect(categoryList[index].name);
+                      },
+                      contentPadding:
+                          const EdgeInsets.only(left: 0.0, right: 0.0),
+                      title: Text(
+                        categoryList[index].name,
+                        style: const TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                      trailing: const Icon(
+                        Icons.arrow_forward_ios,
+                        size: 18,
+                      ),
+                    );
+                  }),
                 );
               },
-              shrinkWrap: true,
-              itemCount: productCategories.length,
-              itemBuilder: ((context, index) {
-                return ListTile(
-                  onTap: () {
-                    onProductSelect(productCategories[index]);
-                  },
-                  contentPadding: const EdgeInsets.only(left: 0.0, right: 0.0),
-                  title: Text(
-                    productCategories[index],
-                    style: const TextStyle(
-                      fontSize: 15,
-                    ),
-                  ),
-                  trailing: const Icon(
-                    Icons.arrow_forward_ios,
-                    size: 18,
-                  ),
-                );
-              }),
-            )
+              error: ((error, stackTrace) => Text(error.toString())),
+              loading: () => const Center(
+                child: CircularProgressIndicator(),
+              ),
+            ),
           ],
         ),
       ),
