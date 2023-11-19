@@ -7,7 +7,7 @@ import 'package:golly_express/components/input_field.dart';
 import 'package:golly_express/constants.dart';
 import 'package:golly_express/extensions/field_validation.dart';
 import 'package:golly_express/network/api/request_models/auth_request_models.dart';
-import 'package:golly_express/screens/onboarding/auth_provider.dart';
+import 'package:golly_express/providers/auth_provider.dart';
 
 // ignore: must_be_immutable
 class LoginScreen extends ConsumerWidget {
