@@ -18,6 +18,7 @@ class GollyApiService {
 
   void closeClient() => _client.close();
 
+// login request function
   Future<AuthResponse> loginUser({required AuthRequest requestBody}) async {
     return await _client
         .post(
@@ -29,6 +30,7 @@ class GollyApiService {
         .catchError(_onError);
   }
 
+// sign up request function
   Future<AuthResponse> signupUser({
     required SignUpRequest body,
   }) async {
@@ -42,6 +44,54 @@ class GollyApiService {
         .catchError(_onError);
   }
 
+  // get packages request
+  Future<List<Category>> getPackageCategories() async {
+    final token = await getUserBearerToken();
+    try {
+      http.Response response = await _client.get(
+        Endpoints.categories,
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer $token',
+        },
+      );
+
+      if (response.statusCode == 200) {
+        // If the server returns a 200 OK response, parse the response using the PackageCategories model
+
+        // final Map<String, dynamic> data = json.decode(response.body);
+        final List data = json.decode(response.body)['data'];
+        final packageCategories =
+            data.map((e) => Category.fromJson(e)).toList();
+        return packageCategories;
+      } else {
+        // If the server did not return a 200 OK response,
+        // throw an exception with the error message.
+        throw Exception('Failed to load package categories');
+      }
+    } catch (e) {
+      // Handle potential exceptions such as network errors.
+      throw Exception('Error: $e');
+    }
+  }
+
+  // decode response function
+  Future<dynamic> _decodeResponse(http.Response response) async {
+    final json = jsonDecode(response.body);
+    // print(json);
+    // print("your bearer token is: ${json['data']['token']}");
+    if (response.didSucceed) return json;
+
+    throw HttpException(json['message']);
+  }
+
+  _onError(Object err) {
+    if (err is HttpException) throw err;
+    throw Exception('Something Went Wrong');
+  }
+
+  // get package categories: kpakpa wayy
   Future<PackageCategories> fetchPackageCategories() async {
     final token = await getUserBearerToken();
     var packageCategories = <Category>[];
@@ -62,47 +112,5 @@ class GollyApiService {
           return PackageCategories.fromJson(json);
         })
         .catchError(_onError);
-  }
-
-  Future<PackageCategories> getPackageCategories() async {
-    final token = await getUserBearerToken();
-    try {
-      final response = await _client.get(Endpoints.categories, headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Authorization': 'Bearer $token',
-      });
-
-      if (response.statusCode == 200) {
-        // If the server returns a 200 OK response, parse the response using the PackageCategories model
-        final Map<String, dynamic> data = json.decode(response.body);
-        print(data);
-        PackageCategories apiResponse = PackageCategories.fromJson(data);
-        return apiResponse;
-      } else {
-        // If the server did not return a 200 OK response,
-        // throw an exception with the error message.
-        throw Exception('Failed to load package categories');
-      }
-    } catch (e) {
-      // Handle potential exceptions such as network errors.
-      throw Exception('Error: $e');
-    }
-  }
-
-  Future<dynamic> _decodeResponse(
-    http.Response response,
-  ) async {
-    final json = jsonDecode(response.body);
-    // print(json);
-    // print("your bearer token is: ${json['data']['token']}");
-    if (response.didSucceed) return json;
-
-    throw HttpException(json['message']);
-  }
-
-  _onError(Object err) {
-    if (err is HttpException) throw err;
-    throw Exception('Something Went Wrong');
   }
 }
