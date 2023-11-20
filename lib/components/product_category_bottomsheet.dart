@@ -66,7 +66,7 @@ class ProductCategoryBottomSheet extends ConsumerWidget {
             const SizedBox(height: 30),
             categoryData.when(
               data: (data) {
-                var categoryList = data.map((e) => e).toList();
+                var categoryList = data;
                 return ListView.separated(
                   separatorBuilder: (context, index) {
                     return Divider(
