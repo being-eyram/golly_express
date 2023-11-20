@@ -20,11 +20,6 @@ class LoginScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final formKey = GlobalKey<FormState>();
 
-    final userCredentials = AuthRequest(
-      email: emailController.text,
-      password: passwordController.text,
-    );
-
     final loginState = ref.watch(asyncAuthProvider);
     ref.listen(asyncAuthProvider, (previous, loginState) {
       loginState.when(
@@ -116,11 +111,13 @@ class LoginScreen extends ConsumerWidget {
                         isLoading: loginState.isLoading,
                         onPressed: () async {
                           if (!formKey.currentState!.validate()) return;
+                          final userCredentials = AuthRequest(
+                            email: emailController.text,
+                            password: passwordController.text,
+                          );
                           final login = ref
                               .read(asyncAuthProvider.notifier)
                               .loginUser(requestBody: userCredentials);
-                          // print(email);
-                          // print(password);
                           print(userCredentials.toJson());
 
                           login;
