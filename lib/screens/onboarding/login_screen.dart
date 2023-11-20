@@ -118,8 +118,7 @@ class LoginScreen extends ConsumerWidget {
                           final login = ref
                               .read(asyncAuthProvider.notifier)
                               .loginUser(requestBody: userCredentials);
-                          print(userCredentials.toJson());
-
+// TODO: seperate login flow/login from UI
                           login;
                         },
                       ),
@@ -216,22 +215,17 @@ class LoginScreen extends ConsumerWidget {
                           ),
                           children: <TextSpan>[
                             TextSpan(
-                                text: 'Terms of Use',
-                                style: const TextStyle(
-                                    decoration: TextDecoration.underline),
-                                recognizer: TapGestureRecognizer()
-                                  ..onTap = () {
-                                    // print('Terms of Use"');
-                                  }),
+                              text: 'Terms of Use',
+                              style: const TextStyle(
+                                  decoration: TextDecoration.underline),
+                              recognizer: TapGestureRecognizer()..onTap = () {},
+                            ),
                             const TextSpan(text: ' and '),
                             TextSpan(
                               text: 'Privacy Policy',
                               style: const TextStyle(
                                   decoration: TextDecoration.underline),
-                              recognizer: TapGestureRecognizer()
-                                ..onTap = () {
-                                  // print('Privacy Policy');
-                                },
+                              recognizer: TapGestureRecognizer()..onTap = () {},
                             ),
                           ],
                         ),
