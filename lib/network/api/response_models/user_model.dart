@@ -1,26 +1,26 @@
 // To parse this JSON data, do
 //
-//     final user = userFromJson(jsonString);
+//     final userModel = userModelFromJson(jsonString);
 
 import 'dart:convert';
 
-User userFromJson(String str) => User.fromJson(json.decode(str));
+UserModel userModelFromJson(String str) => UserModel.fromJson(json.decode(str));
 
-String userToJson(User data) => json.encode(data.toJson());
+String userModelToJson(UserModel data) => json.encode(data.toJson());
 
-class User {
-  final Data data;
+class UserModel {
+  final UserInfo data;
   final String message;
   final String status;
 
-  User({
+  UserModel({
     required this.data,
     required this.message,
     required this.status,
   });
 
-  factory User.fromJson(Map<String, dynamic> json) => User(
-        data: Data.fromJson(json["data"]),
+  factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
+        data: UserInfo.fromJson(json["data"]),
         message: json["message"],
         status: json["status"],
       );
@@ -32,7 +32,7 @@ class User {
       };
 }
 
-class Data {
+class UserInfo {
   final String uuid;
   final String email;
   final String fullName;
@@ -42,7 +42,7 @@ class Data {
   final List<dynamic> packages;
   final dynamic shipmentNotification;
 
-  Data({
+  UserInfo({
     required this.uuid,
     required this.email,
     required this.fullName,
@@ -53,7 +53,7 @@ class Data {
     required this.shipmentNotification,
   });
 
-  factory Data.fromJson(Map<String, dynamic> json) => Data(
+  factory UserInfo.fromJson(Map<String, dynamic> json) => UserInfo(
         uuid: json["uuid"],
         email: json["Email"],
         fullName: json["FullName"],
