@@ -88,7 +88,7 @@ class GollyApiService {
         // If the server returns a 200 OK response, parse the response using the PackageCategories model
 
         final data = json.decode(response.body);
-        final packageCategories = packageCategoriesFromJson(data).data;
+        final packageCategories = PackageCategories.fromJson(data).data;
         return packageCategories;
       } else {
         // If the server did not return a 200 OK response,
