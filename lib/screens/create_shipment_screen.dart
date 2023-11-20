@@ -18,6 +18,7 @@ class _CreateShipmentScreenState extends State<CreateShipmentScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.only(
           left: 16,
