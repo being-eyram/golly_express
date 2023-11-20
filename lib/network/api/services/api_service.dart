@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:golly_express/extensions/http_response_extension.dart';
 import 'package:golly_express/network/api/request_models/auth_request_models.dart';
 import 'package:golly_express/network/api/response_models/package_categories_model.dart';
+import 'package:golly_express/network/api/response_models/user_model.dart';
 import 'package:golly_express/network/endpoint.dart';
 import 'package:golly_express/shared_prefs/shared_prefs.dart';
 import 'package:http/http.dart' as http;
@@ -44,6 +45,32 @@ class GollyApiService {
         .catchError(_onError);
   }
 
+// get user info
+  Future<UserInfo> getUserInfo() async {
+    final token = await getUserBearerToken();
+
+    try {
+      final response = await _client.get(
+        Endpoints.user,
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer $token',
+        },
+      );
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final UserModel user = UserModel.fromJson(data);
+        final userInfo = user.data;
+        return userInfo;
+      } else {
+        throw Exception('{response.statusCode}');
+      }
+    } catch (e) {
+      throw ('Exception: $e');
+    }
+  }
+
   // get packages request
   Future<List<Category>> getPackageCategories() async {
     final token = await getUserBearerToken();
@@ -60,10 +87,8 @@ class GollyApiService {
       if (response.statusCode == 200) {
         // If the server returns a 200 OK response, parse the response using the PackageCategories model
 
-        // final Map<String, dynamic> data = json.decode(response.body);
-        final List data = json.decode(response.body)['data'];
-        final packageCategories =
-            data.map((e) => Category.fromJson(e)).toList();
+        final data = json.decode(response.body);
+        final packageCategories = packageCategoriesFromJson(data).data;
         return packageCategories;
       } else {
         // If the server did not return a 200 OK response,
