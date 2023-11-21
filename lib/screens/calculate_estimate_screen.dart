@@ -85,7 +85,7 @@ class _CalculateEstimateScreenState extends State<CalculateEstimateScreen> {
                 GestureDetector(
                   onTap: () {
                     showModalBottomSheet(
-                      isScrollControlled: true,
+                      // isScrollControlled: true,
                       context: context,
                       builder: (BuildContext context) {
                         return ProductCategoryBottomSheet(
@@ -130,12 +130,20 @@ class _CalculateEstimateScreenState extends State<CalculateEstimateScreen> {
                       isScrollControlled: true,
                       context: context,
                       builder: (BuildContext context) {
-                        return SmartphoneTypeBottomSheet(
-                          onProductSelect: (smartphone) {
-                            setState(() {
-                              smartphoneType = smartphone;
-                            });
-                            context.pop();
+                        return DraggableScrollableSheet(
+                          initialChildSize: 0.6,
+                          maxChildSize: 0.8,
+                          minChildSize: 0.32,
+                          expand: false,
+                          builder: (context, scrollController) {
+                            return SmartphoneTypeBottomSheet(
+                              onProductSelect: (smartphone) {
+                                setState(() {
+                                  smartphoneType = smartphone;
+                                });
+                                context.pop();
+                              },
+                            );
                           },
                         );
                       },
