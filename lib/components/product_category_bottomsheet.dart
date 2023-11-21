@@ -17,16 +17,15 @@ class ProductCategoryBottomSheet extends ConsumerWidget {
     final categoryData = ref.watch(packageCategoryProvider);
 
     return Container(
-      // color: Colors.white,
       width: double.infinity,
       padding: const EdgeInsets.symmetric(
         horizontal: 32,
-        // vertical: 16,
+        vertical: 16,
       ),
       // height: 350,
-      child: ListView(
-        // mainAxisSize: MainAxisSize.min,
-        // crossAxisAlignment: CrossAxisAlignment.start,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const BottomSheetHandleBar(),
           Align(
@@ -53,38 +52,40 @@ class ProductCategoryBottomSheet extends ConsumerWidget {
               fontWeight: FontWeight.w700,
             ),
           ),
-          // const SizedBox(height: 8),
+          const SizedBox(height: 8),
           categoryData.when(
             data: (data) {
               var categoryList = data;
-              return ListView.separated(
-                separatorBuilder: (context, index) {
-                  return Divider(
-                    color: Colors.grey.shade300,
-                    height: 0,
-                  );
-                },
-                shrinkWrap: true,
-                itemCount: categoryList.length,
-                itemBuilder: ((context, index) {
-                  return ListTile(
-                    onTap: () {
-                      onProductSelect(categoryList[index].name);
-                    },
-                    contentPadding:
-                        const EdgeInsets.only(left: 0.0, right: 0.0),
-                    title: Text(
-                      categoryList[index].name,
-                      style: const TextStyle(
-                        fontSize: 15,
+              return Expanded(
+                child: ListView.separated(
+                  separatorBuilder: (context, index) {
+                    return Divider(
+                      color: Colors.grey.shade300,
+                      height: 0,
+                    );
+                  },
+                  shrinkWrap: true,
+                  itemCount: categoryList.length,
+                  itemBuilder: ((context, index) {
+                    return ListTile(
+                      onTap: () {
+                        onProductSelect(categoryList[index].name);
+                      },
+                      contentPadding:
+                          const EdgeInsets.only(left: 0.0, right: 0.0),
+                      title: Text(
+                        categoryList[index].name,
+                        style: const TextStyle(
+                          fontSize: 14,
+                        ),
                       ),
-                    ),
-                    trailing: const Icon(
-                      Icons.arrow_forward_ios,
-                      size: 18,
-                    ),
-                  );
-                }),
+                      trailing: const Icon(
+                        Icons.arrow_forward_ios,
+                        size: 18,
+                      ),
+                    );
+                  }),
+                ),
               );
             },
             error: ((error, stackTrace) => Text(error.toString())),
