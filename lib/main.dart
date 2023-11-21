@@ -35,6 +35,7 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.white,
           modalBackgroundColor: Colors.white,
         ),
+        // dividerColor: Colors.grey.shade300,
         appBarTheme: const AppBarTheme(color: Colors.white),
         textTheme: GoogleFonts.dmSansTextTheme(baseTextTheme),
         elevatedButtonTheme: ElevatedButtonThemeData(
