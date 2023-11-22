@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:golly_express/extensions/http_response_extension.dart';
 import 'package:golly_express/network/api/request_models/auth_request_models.dart';
+import 'package:golly_express/network/api/response_models/forgot_password_model.dart';
 import 'package:golly_express/network/api/response_models/package_categories_model.dart';
 import 'package:golly_express/network/api/response_models/user_model.dart';
 import 'package:golly_express/network/endpoint.dart';
@@ -45,7 +46,29 @@ class GollyApiService {
         .catchError(_onError);
   }
 
-// get user info
+  Future<String> forgotPassword({required String email}) async {
+    try {
+      final response = await _client.post(
+        Endpoints.forgotPassword(
+          queryParam: {"userEmail": email},
+        ),
+      );
+      if (response.statusCode == 200) {
+        final forgotPasswordResponse =
+            forgotPasswordModelFromJson(response.body);
+        final resetToken = forgotPasswordResponse.data.resetToken;
+        print(resetToken);
+        return resetToken;
+      } else {
+        throw Exception(
+            'Failed to reset password. Status code: {$response.statusCode}');
+      }
+    } catch (e) {
+      throw ('Exception: $e');
+    }
+  }
+
+// get user info request
   Future<UserInfo> getUserInfo() async {
     final token = await getUserBearerToken();
 
@@ -64,14 +87,15 @@ class GollyApiService {
         final userInfo = user.data;
         return userInfo;
       } else {
-        throw Exception('{response.statusCode}');
+        throw Exception(
+            'Failed to load user info. Status Code: {$response.statusCode}');
       }
     } catch (e) {
       throw ('Exception: $e');
     }
   }
 
-  // get packages request
+  // get package categories request
   Future<List<Category>> getPackageCategories() async {
     final token = await getUserBearerToken();
     try {
@@ -85,18 +109,13 @@ class GollyApiService {
       );
 
       if (response.statusCode == 200) {
-        // If the server returns a 200 OK response, parse the response using the PackageCategories model
-
         final data = json.decode(response.body);
         final packageCategories = PackageCategories.fromJson(data).data;
         return packageCategories;
       } else {
-        // If the server did not return a 200 OK response,
-        // throw an exception with the error message.
         throw Exception('Failed to load package categories');
       }
     } catch (e) {
-      // Handle potential exceptions such as network errors.
       throw Exception('Error: $e');
     }
   }
