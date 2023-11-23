@@ -124,8 +124,13 @@ class LoginScreen extends ConsumerWidget {
                       ),
                       const SizedBox(height: 16),
                       TextButton(
-                        onPressed: () => context.push("/forgotPassword"),
+                        onPressed: () {
+                          // if (!formKey.currentState!.validate()) return;
+
+                          context.push("/forgotPassword");
+                        },
                         style: TextButton.styleFrom(
+                          textStyle: const TextStyle(fontSize: 13),
                           minimumSize: Size.zero,
                           padding: EdgeInsets.zero,
                           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
