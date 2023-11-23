@@ -15,6 +15,7 @@ import 'package:golly_express/screens/onboarding/onboarding_screen.dart';
 import 'package:golly_express/screens/onboarding/otp_screen.dart';
 import 'package:golly_express/screens/onboarding/register_password_screen.dart';
 import 'package:golly_express/screens/onboarding/register_screen.dart';
+import 'package:golly_express/screens/onboarding/reset_password_screen.dart';
 import 'package:golly_express/screens/onboarding/signin_option.dart';
 import 'package:golly_express/screens/packages_screen.dart';
 import 'package:golly_express/screens/profile%20screen/change_password_screen.dart';
@@ -86,6 +87,11 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/otpScreen',
       builder: (context, state) => const OtpScreen(),
+    ),
+
+    GoRoute(
+      path: '/resetPassword',
+      builder: (context, state) => const ResetPasswordScreen(),
     ),
 
     GoRoute(
