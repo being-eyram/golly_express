@@ -4,29 +4,38 @@ import 'package:go_router/go_router.dart';
 import 'package:golly_express/components/custom_button.dart';
 import 'package:golly_express/providers/onboarding_providers.dart';
 
+enum OtpOption { sms, email }
+
 class ForgotPasswordScreen extends ConsumerWidget {
   const ForgotPasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final isEnabled = ref.watch(smsOptionSelectedProvider) ||
-        ref.watch(emailOptionSelectedProvider);
+    final isEnabled = ref.watch(selectedOtpOption.notifier).state != null;
 
     return Scaffold(
       bottomNavigationBar: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Divider(color: Color(0xFFEDEFEE)),
+          const Divider(
+            color: Color(0xFFEDEFEE),
+          ),
           const SizedBox(
             height: 6,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+            padding: const EdgeInsets.only(left: 16, right: 16, bottom: 24),
             child: CustomButton(
               borderRadius: 8,
               buttonText: "Next",
               isEnabled: isEnabled,
-              onPressed: isEnabled ? () => context.push("/otpScreen") : null,
+              onPressed: isEnabled
+                  ? () {
+                      // ref.watch(
+                      //     forgotPasswordProvider("kelvinagbenyo@gmail.com"));
+                      return context.push("/otpScreen");
+                    }
+                  : null,
             ),
           )
         ],
@@ -63,11 +72,11 @@ class ForgotPasswordScreen extends ConsumerWidget {
                   style: TextStyle(),
                 ),
                 const SizedBox(height: 32),
+
+                // OTP via SMS
                 InkWell(
                   onTap: () {
-                    ref
-                        .read(smsOptionSelectedProvider.notifier)
-                        .update((state) => !state);
+                    ref.read(selectedOtpOption.notifier).state = OtpOption.sms;
                   },
                   borderRadius: BorderRadius.circular(8),
                   child: Container(
@@ -76,7 +85,7 @@ class ForgotPasswordScreen extends ConsumerWidget {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
                       border: Border.all(
-                        color: ref.watch(smsOptionSelectedProvider)
+                        color: ref.watch(selectedOtpOption) == OtpOption.sms
                             ? const Color(0xFF557A46)
                             : const Color(0xFFEDEFEE),
                         width: 1.5,
@@ -101,11 +110,12 @@ class ForgotPasswordScreen extends ConsumerWidget {
                   ),
                 ),
                 const SizedBox(height: 16),
+
+                // OTP via Email
                 InkWell(
                   onTap: () {
-                    ref
-                        .read(emailOptionSelectedProvider.notifier)
-                        .update((state) => !state);
+                    ref.read(selectedOtpOption.notifier).state =
+                        OtpOption.email;
                   },
                   borderRadius: BorderRadius.circular(8),
                   child: Container(
@@ -114,7 +124,7 @@ class ForgotPasswordScreen extends ConsumerWidget {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
                       border: Border.all(
-                        color: ref.watch(emailOptionSelectedProvider)
+                        color: ref.watch(selectedOtpOption) == OtpOption.email
                             ? const Color(0xFF557A46)
                             : const Color(0xFFEDEFEE),
                         width: 1.5,
