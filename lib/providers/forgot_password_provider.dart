@@ -3,5 +3,14 @@ import 'package:golly_express/network/api/services/api_service.dart';
 
 final forgotPasswordProvider =
     FutureProvider.family.autoDispose((ref, String email) async {
-  return ref.watch(apiServiceProvider).forgotPassword(email: email);
+  final forgotPassword =
+      ref.watch(apiServiceProvider).forgotPassword(email: email);
+  ref.read(resetTokenProvider.notifier).state = await forgotPassword;
+  return forgotPassword;
 });
+
+final resetPasswordEmail = StateProvider((_) => "");
+
+// final resetToken = Provider((ref) => ref.watch(forgotPasswordProvider));
+
+final resetTokenProvider = StateProvider((ref) => "");
