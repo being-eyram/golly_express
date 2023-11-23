@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:golly_express/constants.dart';
 import 'package:golly_express/model/onboarding.dart';
+import 'package:golly_express/screens/onboarding/forgot_password_screen.dart';
 
 final onboardingPageIndexProvider = StateProvider<int>((_) => 0);
 
@@ -44,5 +45,4 @@ final onboardingItemsProvider = Provider<List<Onboarding>>(
   ],
 );
 
-final smsOptionSelectedProvider = StateProvider((ref) => false);
-final emailOptionSelectedProvider = StateProvider((ref) => false);
+final selectedOtpOption = StateProvider<OtpOption?>((ref) => null);
