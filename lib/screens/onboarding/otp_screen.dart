@@ -11,6 +11,10 @@ class OtpScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final formKey = GlobalKey<FormState>();
+
+    final enableButtonProvider = StateProvider((ref) => false);
+
     final defaultPinTheme = PinTheme(
       width: 56,
       height: 56,
@@ -34,7 +38,6 @@ class OtpScreen extends ConsumerWidget {
         color: const Color.fromRGBO(234, 239, 243, 1),
       ),
     );
-    final formKey = GlobalKey<FormState>();
     return Scaffold(
       body: Scaffold(
         bottomNavigationBar: Column(
@@ -51,9 +54,12 @@ class OtpScreen extends ConsumerWidget {
                 bottom: 24.0,
               ),
               child: CustomButton(
+                isEnabled: ref.watch(enableButtonProvider),
                 borderRadius: 8,
                 buttonText: "Verify",
-                onPressed: () {},
+                onPressed: () {
+                  return context.go("/resetPassword");
+                },
               ),
             )
           ],
@@ -70,7 +76,7 @@ class OtpScreen extends ConsumerWidget {
         body: SafeArea(
           child: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 54),
+              padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
               child: Form(
                 key: formKey,
                 child: Column(
@@ -94,7 +100,7 @@ class OtpScreen extends ConsumerWidget {
                         children: const <TextSpan>[
                           TextSpan(
                             text:
-                                'A SMS with the verifcation PIN has been sent to ',
+                                'An Email with the verifcation PIN has been sent to ',
                             style: TextStyle(),
                           ),
                           TextSpan(
@@ -117,16 +123,27 @@ class OtpScreen extends ConsumerWidget {
                     //     OtpField(last: true),
                     //   ],
                     // ),
+
                     Pinput(
-                      onSubmitted: (value) => print(value),
+                      // obscureText: true,
+                      length: 6,
+                      keyboardType: TextInputType.text,
+                      textCapitalization: TextCapitalization.characters,
+                      onSubmitted: (value) {
+                        ref
+                            .read(enableButtonProvider.notifier)
+                            .update((state) => true);
+                        print(value);
+                      },
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       defaultPinTheme: defaultPinTheme,
                       focusedPinTheme: focusedPinTheme,
                       submittedPinTheme: submittedPinTheme,
-                      inputFormatters: [
-                        FilteringTextInputFormatter.digitsOnly,
-                      ],
+                      // inputFormatters: [
+                      //   FilteringTextInputFormatter.digitsOnly,
+                      // ],
                     ),
+                    const SizedBox(height: 24),
                     const SizedBox(height: 24),
                     RichText(
                       textAlign: TextAlign.center,
