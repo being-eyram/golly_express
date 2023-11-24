@@ -29,64 +29,66 @@ class HomeScreen extends ConsumerWidget {
               vertical: 32.0,
               horizontal: 16.0,
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                userInfo.when(
-                  loading: () =>
-                      const CircularProgressIndicator(color: Colors.white),
-                  error: (error, stack) =>
-                      const Text('Oops, something unexpected happened'),
-                  data: (user) => Text(
+            child: userInfo.when(
+              loading: () => const Center(
+                child: CircularProgressIndicator(),
+              ),
+              error: (error, stack) =>
+                  const Text('Oops, something unexpected happened'),
+              data: (user) => Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
                     'Good Morning, ${user.fullName.split(" ")[0]}',
                     style: const TextStyle(
                       fontSize: 20.0,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
-                ),
-                const SizedBox(height: 24),
 
-                // display your golly express dropdown if verified else verify id card
-                _userIsVerified
-                    // ? const SizedBox(height: 50)
-                    ? const AddressDropdown()
-                    : VerifyIDCard(
-                        onTap: () => context.push("/verifyID"),
+                  const SizedBox(height: 24),
+
+                  // display your golly express dropdown if verified else verify id card
+                  _userIsVerified
+                      // ? const SizedBox(height: 50)
+                      ? const AddressDropdown()
+                      : VerifyIDCard(
+                          onTap: () => context.push("/verifyID"),
+                        ),
+
+                  const SizedBox(height: 16),
+                  const TrackPackageCard(),
+                  const SizedBox(height: 16),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      IconWithTextCard(
+                        cardTitle: "Calculate Estimate",
+                        cardColor: const Color(0xFFFFFBEE),
+                        cardIcon: calculatorIcon,
+                        iconContainerColor: const Color(0xFFFFC727),
+                        onTap: () => context.push("/calculateEstimate"),
                       ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      IconWithTextCard(
+                        cardTitle: "Create Shipment",
+                        cardColor: const Color(0xFFFFE6E2),
+                        cardIcon: cargoShipIcon,
+                        iconContainerColor: const Color(0xFFB35042),
+                        onTap: () => context.push("/createShipment"),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 24),
 
-                const SizedBox(height: 16),
-                const TrackPackageCard(),
-                const SizedBox(height: 16),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    IconWithTextCard(
-                      cardTitle: "Calculate Estimate",
-                      cardColor: const Color(0xFFFFFBEE),
-                      cardIcon: calculatorIcon,
-                      iconContainerColor: const Color(0xFFFFC727),
-                      onTap: () => context.push("/calculateEstimate"),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    IconWithTextCard(
-                      cardTitle: "Create Shipment",
-                      cardColor: const Color(0xFFFFE6E2),
-                      cardIcon: cargoShipIcon,
-                      iconContainerColor: const Color(0xFFB35042),
-                      onTap: () => context.push("/createShipment"),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 24),
-
-                recentPackages.isEmpty
-                    ? const EmptyTrackingHistory()
-                    : const PackageTrackingHistory()
-                // const EmptyTrackingHistory(),
-              ],
+                  recentPackages.isEmpty
+                      ? const EmptyTrackingHistory()
+                      : const PackageTrackingHistory()
+                  // const EmptyTrackingHistory(),
+                ],
+              ),
             ),
           ),
         ),
