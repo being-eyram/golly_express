@@ -46,6 +46,7 @@ class GollyApiService {
         .catchError(_onError);
   }
 
+// Forgot password request
   Future<String> forgotPassword({required String email}) async {
     try {
       final response = await _client.post(
@@ -57,12 +58,29 @@ class GollyApiService {
         final forgotPasswordResponse =
             forgotPasswordModelFromJson(response.body);
         final resetToken = forgotPasswordResponse.data.resetToken;
-        print(resetToken);
+        // print(resetToken);
         return resetToken;
       } else {
         throw Exception(
             'Failed to reset password. Status code: {$response.statusCode}');
       }
+    } catch (e) {
+      throw ('Exception: $e');
+    }
+  }
+
+// Verify OTP request
+  Future verifyOtp(String otp, String resetToken) async {
+    try {
+      final response = await _client.post(
+        Endpoints.verifyOtp,
+        body: otp,
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer $resetToken',
+        },
+      );
     } catch (e) {
       throw ('Exception: $e');
     }
