@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:golly_express/components/custom_button.dart';
+import 'package:golly_express/providers/forgot_password_provider.dart';
 import 'package:golly_express/providers/onboarding_providers.dart';
 
 enum OtpOption { sms, email }
@@ -31,8 +32,9 @@ class ForgotPasswordScreen extends ConsumerWidget {
               isEnabled: isEnabled,
               onPressed: isEnabled
                   ? () {
-                      // ref.watch(
-                      //     forgotPasswordProvider("kelvinagbenyo@gmail.com"));
+                      ref.watch(
+                          forgotPasswordProvider("kelvinagbenyo@gmail.com"));
+                      print("reset token: {$ref.watch(resetTokenProvider)}");
                       return context.push("/otpScreen");
                     }
                   : null,
