@@ -27,7 +27,7 @@ class ProfileScreen extends ConsumerWidget {
                   Container(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 16,
-                      vertical: 32,
+                      vertical: 24,
                     ),
                     width: double.infinity,
                     decoration: const BoxDecoration(
@@ -48,7 +48,7 @@ class ProfileScreen extends ConsumerWidget {
                             fontWeight: FontWeight.w800,
                           ),
                         ),
-                        const SizedBox(height: 37),
+                        const SizedBox(height: 32),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -66,7 +66,7 @@ class ProfileScreen extends ConsumerWidget {
                                       softWrap: true,
                                       style: const TextStyle(
                                         fontWeight: FontWeight.w700,
-                                        fontSize: 16,
+                                        fontSize: 15,
                                       ),
                                     ),
                                     const SizedBox(height: 6),
@@ -95,7 +95,7 @@ class ProfileScreen extends ConsumerWidget {
                               child: const Text(
                                 "Edit",
                                 style: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 13,
                                   fontWeight: FontWeight.w700,
                                 ),
                               ),
