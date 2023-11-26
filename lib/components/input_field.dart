@@ -104,7 +104,10 @@ class InputTextField extends ConsumerWidget {
         focusedBorder: outlineBorderPropGenerator(const Color(0xFF557A46)),
         focusedErrorBorder: outlineBorderPropGenerator(Colors.red, width: 1.5),
         errorBorder: outlineBorderPropGenerator(Colors.red, width: 1.0),
-        contentPadding: const EdgeInsets.all(16),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 14,
+        ),
         labelText: labelText,
         floatingLabelBehavior: floatingLabelBehavior,
         hintText: hintText,
