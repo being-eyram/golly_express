@@ -162,9 +162,8 @@ class LoginScreen extends ConsumerWidget {
                       const SizedBox(height: 16),
                       OutlinedButton(
                         style: OutlinedButton.styleFrom(
+                          padding: const EdgeInsets.all(14),
                           side: const BorderSide(color: Color(0xFFEDEFEE)),
-                          minimumSize: const Size(double.infinity, 54),
-                          maximumSize: const Size(double.infinity, 54),
                           shape: const RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(Radius.circular(8)),
                           ),
@@ -178,7 +177,7 @@ class LoginScreen extends ConsumerWidget {
                             const Text(
                               "Continue with Google",
                               style: TextStyle(
-                                fontSize: 14,
+                                fontSize: 13,
                                 color: Colors.black,
                               ),
                             ),
@@ -188,9 +187,8 @@ class LoginScreen extends ConsumerWidget {
                       const SizedBox(height: 16),
                       OutlinedButton(
                         style: OutlinedButton.styleFrom(
+                          padding: const EdgeInsets.all(14),
                           side: const BorderSide(color: Color(0xFFEDEFEE)),
-                          minimumSize: const Size(double.infinity, 54),
-                          maximumSize: const Size(double.infinity, 54),
                           shape: const RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(Radius.circular(8)),
                           ),
@@ -203,8 +201,10 @@ class LoginScreen extends ConsumerWidget {
                             const SizedBox(width: 8),
                             const Text(
                               "Sign in with Apple",
-                              style:
-                                  TextStyle(fontSize: 14, color: Colors.black),
+                              style: TextStyle(
+                                fontSize: 13,
+                                color: Colors.black,
+                              ),
                             ),
                           ],
                         ),
