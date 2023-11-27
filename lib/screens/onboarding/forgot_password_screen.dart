@@ -13,6 +13,9 @@ class ForgotPasswordScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final isEnabled = ref.watch(selectedOtpOption.notifier).state != null;
+    final isLoading = ref.watch(isLoadingProvider);
+    const email = "kelvinagbenyo@gmail.com";
+    final forgotPassword = ref.watch(forgotPasswordProvider(email));
 
     return Scaffold(
       bottomNavigationBar: Column(
@@ -21,21 +24,49 @@ class ForgotPasswordScreen extends ConsumerWidget {
           const Divider(
             color: Color(0xFFEDEFEE),
           ),
-          const SizedBox(
-            height: 6,
-          ),
+          const SizedBox(height: 6),
           Padding(
             padding: const EdgeInsets.only(left: 16, right: 16, bottom: 24),
             child: CustomButton(
+              isLoading: isLoading,
               borderRadius: 8,
               buttonText: "Next",
               isEnabled: isEnabled,
               onPressed: isEnabled
                   ? () {
-                      ref.watch(
-                          forgotPasswordProvider("kelvinagbenyo@gmail.com"));
-                      print("reset token: {$ref.watch(resetTokenProvider)}");
-                      return context.push("/otpScreen");
+                      ref.read(isLoadingProvider.notifier).state = true;
+                      forgotPassword.when(
+                        data: (data) {
+                          ref.read(isLoadingProvider.notifier).state = false;
+                          return context.push("/otpScreen");
+                        },
+                        error: (error, stackTrace) {
+                          ref.read(isLoadingProvider.notifier).state = false;
+
+                          // final errorMessage =
+                          //     error.toString().split(':')[1].trim();
+                          const errorMessage =
+                              "Failed to reset password. Please try again.";
+                          showDialog(
+                            barrierDismissible: false,
+                            context: context,
+                            builder: (BuildContext context) => AlertDialog(
+                              title: const Text('Error'),
+                              content: const Text(errorMessage),
+                              actions: <Widget>[
+                                IconButton(
+                                  icon: const Icon(Icons.close),
+                                  onPressed: () {
+                                    // Navigator.pop(context);
+                                    context.go("/login");
+                                  },
+                                )
+                              ],
+                            ),
+                          );
+                        },
+                        loading: () {},
+                      );
                     }
                   : null,
             ),
