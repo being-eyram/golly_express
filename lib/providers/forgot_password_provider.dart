@@ -11,6 +11,6 @@ final forgotPasswordProvider =
 
 final resetPasswordEmail = StateProvider((_) => "");
 
-// final resetToken = Provider((ref) => ref.watch(forgotPasswordProvider));
+final resetTokenProvider = StateProvider((_) => "");
 
-final resetTokenProvider = StateProvider((ref) => "");
+final isLoadingProvider = StateProvider<bool>((_) => false);
