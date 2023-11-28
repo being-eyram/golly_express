@@ -4,7 +4,9 @@ import 'dart:io';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:golly_express/extensions/http_response_extension.dart';
 import 'package:golly_express/network/api/request_models/auth_request_models.dart';
+import 'package:golly_express/network/api/request_models/otp_request.dart';
 import 'package:golly_express/network/api/response_models/forgot_password_model.dart';
+import 'package:golly_express/network/api/response_models/otp_response.dart';
 import 'package:golly_express/network/api/response_models/package_categories_model.dart';
 import 'package:golly_express/network/api/response_models/user_model.dart';
 import 'package:golly_express/network/endpoint.dart';
@@ -70,17 +72,26 @@ class GollyApiService {
   }
 
 // Verify OTP request
-  Future verifyOtp(String otp, String resetToken) async {
+  Future<OtpResponse> verifyOtp({required OtpRequest requestBody}) async {
     try {
       final response = await _client.post(
         Endpoints.verifyOtp,
-        body: otp,
+        body: requestBody.otp,
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
-          'Authorization': 'Bearer $resetToken',
+          'Authorization': 'Bearer ${requestBody.resetToken}',
         },
       );
+      if (response.statusCode == 200) {
+        final otpResponse = otpResponseFromJson(response.body);
+        print("request status: ${otpResponse.message}");
+
+        return otpResponse;
+      } else {
+        throw Exception(
+            'Failed to verify OTP. Status code: {$response.statusCode}');
+      }
     } catch (e) {
       throw ('Exception: $e');
     }
