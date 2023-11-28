@@ -19,3 +19,8 @@ Future<String?> getUserBearerToken() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   return prefs.getString('bearer_token');
 }
+
+removeUserBearerToken() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  return prefs.remove('bearer_token');
+}
