@@ -76,7 +76,7 @@ final GoRouter appRouter = GoRouter(
 
     GoRoute(
       path: '/registerPassword',
-      builder: (context, state) => const RegisterPasswordScreen(),
+      builder: (context, state) => RegisterPasswordScreen(),
     ),
 
     GoRoute(
