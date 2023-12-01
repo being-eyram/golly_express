@@ -70,7 +70,7 @@ class InputTextField extends ConsumerWidget {
       inputFormatters: inputFormatters,
       initialValue: initialValue,
       controller: controller,
-      style: const TextStyle(fontSize: 16),
+      style: const TextStyle(fontSize: 14.5),
       obscureText: isPasswordInput ? isObscured : false,
       decoration: InputDecoration(
         prefixText: prefixText,
@@ -100,10 +100,11 @@ class InputTextField extends ConsumerWidget {
             width: 1.5,
           ),
         ),
-        enabledBorder: outlineBorderPropGenerator(const Color(0xFFEDEFEE)),
-        focusedBorder: outlineBorderPropGenerator(const Color(0xFF557A46)),
-        focusedErrorBorder: outlineBorderPropGenerator(Colors.red, width: 1.5),
-        errorBorder: outlineBorderPropGenerator(Colors.red, width: 1.0),
+        enabledBorder:
+            outlineBorderGenerator(const Color(0xFFEDEFEE), width: 1),
+        focusedBorder: outlineBorderGenerator(const Color(0xFF557A46)),
+        focusedErrorBorder: outlineBorderGenerator(Colors.red, width: 1.5),
+        errorBorder: outlineBorderGenerator(Colors.red, width: 1.0),
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 16,
           vertical: 14,
@@ -120,7 +121,7 @@ class InputTextField extends ConsumerWidget {
   }
 }
 
-outlineBorderPropGenerator(Color color, {double width = 1.5}) {
+outlineBorderGenerator(Color color, {double width = 1.5}) {
   return OutlineInputBorder(
     borderRadius: const BorderRadius.all(Radius.circular(8)),
     borderSide: BorderSide(width: width, color: color),
