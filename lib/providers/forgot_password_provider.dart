@@ -5,7 +5,7 @@ final forgotPasswordProvider =
     FutureProvider.family.autoDispose((ref, String email) async {
   final forgotPassword =
       ref.watch(apiServiceProvider).forgotPassword(email: email);
-  ref.read(resetTokenProvider.notifier).state = await forgotPassword;
+  // ref.read(resetTokenProvider.notifier).state = await forgotPassword;
   return forgotPassword;
 });
 
