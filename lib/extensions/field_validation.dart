@@ -78,12 +78,21 @@ String? validatePhoneNumber(String value) {
 }
 
 String? validateLoginPassword(value) {
-  // add your custom validation here.
   if (value.isEmpty) {
     return 'invalid password';
   }
   if (value.length < 6) {
     return 'Password must contain at least 6 characters';
+  }
+  return null;
+}
+
+String? validateConfirmPassword(value, confirmPassword) {
+  if (value != confirmPassword) {
+    return "Passwords do not match";
+  }
+  if (value.isEmpty) {
+    return 'Password cannot be empty';
   }
   return null;
 }
