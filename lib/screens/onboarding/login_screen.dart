@@ -79,20 +79,20 @@ class LoginScreen extends ConsumerWidget {
                         ),
                       ),
                       const SizedBox(height: 40),
+
+                      // Email Field
                       InputTextField(
-                        validator: (value) {
-                          return validateEmail(value);
-                        },
+                        validator: (value) => validateEmail(value),
                         hintText: "Enter Email",
                         controller: emailController,
                         labelText: "Email",
                       ),
                       const SizedBox(height: 16),
+
+                      // Password Field
                       InputTextField(
                         controller: passwordController,
-                        validator: (value) {
-                          return validateLoginPassword(value);
-                        },
+                        validator: (value) => validateLoginPassword(value),
                         labelText: "Password",
                         hintText: "Enter Password",
                         isPasswordInput: true,
@@ -104,6 +104,8 @@ class LoginScreen extends ConsumerWidget {
                         },
                       ),
                       const SizedBox(height: 24),
+
+                      // Submit button
                       CustomButton(
                         borderRadius: 8,
                         isEnabled: true,
