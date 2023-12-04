@@ -28,6 +28,7 @@ import 'package:golly_express/screens/profile%20screen/id%20verification/verifie
 import 'package:golly_express/screens/profile%20screen/my_address_screen.dart';
 import 'package:golly_express/screens/profile%20screen/notifications_screen.dart';
 import 'package:golly_express/screens/profile%20screen/profile_screen.dart';
+import 'package:golly_express/shared/app_routes.dart';
 
 final GoRouter appRouter = GoRouter(
   initialLocation: isOnboarded == null ? "/onboard" : "/login",
@@ -43,134 +44,137 @@ final GoRouter appRouter = GoRouter(
       // },
     ),
 
-    // Onboarding Routes
+    // ONBOARDING ROUTES
     GoRoute(
-      path: '/onboarding',
+      path: AppRoutes.onboarding,
       builder: (context, state) => const AnotherOnboardingScreen(),
     ),
 
     GoRoute(
-      path: '/onboard',
+      path: AppRoutes.onboard,
       builder: (context, state) => const OnboardingScreen(),
     ),
 
     GoRoute(
-      path: '/getStarted',
+      path: AppRoutes.getStarted,
       builder: (context, state) => const GetStartedScreen(),
     ),
 
     GoRoute(
-      path: '/signinOption',
+      path: AppRoutes.signinOption,
       builder: (context, state) => const SigninOptionScreen(),
     ),
 
     GoRoute(
-      path: '/login',
+      path: AppRoutes.login,
       builder: (context, state) => LoginScreen(),
     ),
 
     GoRoute(
-      path: '/register',
+      path: AppRoutes.register,
       builder: (context, state) => const RegisterScreen(),
     ),
 
     GoRoute(
-      path: '/registerPassword',
+      path: AppRoutes.registerPassword,
       builder: (context, state) => RegisterPasswordScreen(),
     ),
 
     GoRoute(
-      path: '/forgotPassword',
+      path: AppRoutes.forgotPassword,
       builder: (context, state) => const ForgotPasswordScreen(),
     ),
 
     GoRoute(
-      path: '/otpScreen',
+      path: AppRoutes.otpScreen,
       builder: (context, state) => const OtpScreen(),
     ),
 
     GoRoute(
-      path: '/resetPassword',
+      path: AppRoutes.resetPassword,
       builder: (context, state) => const ResetPasswordScreen(),
     ),
 
     GoRoute(
-      path: '/addAddress',
+      path: AppRoutes.addAddress,
       builder: (context, state) => const AddAddressScreen(),
     ),
 
-    // nav bar routes
+    // BOTTOM NAV NAR ROUTES
     GoRoute(
-      path: '/home',
+      path: AppRoutes.home,
       builder: (context, state) => const HomeScreen(),
     ),
 
     GoRoute(
-      path: '/calculateEstimate',
-      builder: (context, state) => const CalculateEstimateScreen(),
-    ),
-
-    GoRoute(
-      path: '/createShipment',
-      builder: (context, state) => const CreateShipmentScreen(),
-    ),
-
-    GoRoute(
-      path: '/profile',
-      builder: (context, state) => const ProfileScreen(),
-    ),
-
-    GoRoute(
-      path: '/editProfile',
-      builder: (context, state) => const EditProfileScreen(),
-    ),
-
-    GoRoute(
-      path: '/changePassword',
-      builder: (context, state) => const ChangePasswordScreen(),
-    ),
-
-    GoRoute(
-      path: '/packages',
-      builder: (context, state) => const PackageScreen(),
-    ),
-
-    GoRoute(
-      path: '/currentShipment',
-      builder: (context, state) => const CurrentShipmentScreen(),
-    ),
-
-    GoRoute(
-      path: '/notifications',
-      builder: (context, state) => const NotificationsScreen(),
-    ),
-
-    GoRoute(
-      path: '/mainContainer',
+      path: AppRoutes.mainContainer,
       builder: (context, state) => const MainContainer(),
     ),
 
     GoRoute(
-      path: '/gollyExpressAddress',
-      builder: (context, state) => const GollyExpressAddressScreen(),
-    ),
-    GoRoute(
-      path: '/myAddress',
-      builder: (context, state) => const MyAddressScreen(),
+      path: AppRoutes.profile,
+      builder: (context, state) => const ProfileScreen(),
     ),
 
     GoRoute(
-      path: '/verifyID',
+      path: AppRoutes.packages,
+      builder: (context, state) => const PackageScreen(),
+    ),
+
+    GoRoute(
+      path: AppRoutes.notifications,
+      builder: (context, state) => const NotificationsScreen(),
+    ),
+
+    // PLUS BOTTOM SHEET ROUTES
+    GoRoute(
+      path: AppRoutes.calculateEstimate,
+      builder: (context, state) => const CalculateEstimateScreen(),
+    ),
+
+    GoRoute(
+      path: AppRoutes.createShipment,
+      builder: (context, state) => const CreateShipmentScreen(),
+    ),
+
+    // PROFILE SCREEN ROUTES
+    GoRoute(
+      path: AppRoutes.editProfile,
+      builder: (context, state) => const EditProfileScreen(),
+    ),
+
+    GoRoute(
+      path: AppRoutes.changePassword,
+      builder: (context, state) => const ChangePasswordScreen(),
+    ),
+
+    GoRoute(
+      path: AppRoutes.currentShipment,
+      builder: (context, state) => const CurrentShipmentScreen(),
+    ),
+
+    GoRoute(
+      path: AppRoutes.gollyExpressAddress,
+      builder: (context, state) => const GollyExpressAddressScreen(),
+    ),
+    GoRoute(
+      path: AppRoutes.myAddress,
+      builder: (context, state) => const MyAddressScreen(),
+    ),
+
+    // ID VERIFICATION ROUTES
+    GoRoute(
+      path: AppRoutes.verifyID,
       builder: (context, state) => const IDVerificationScreen(),
     ),
 
     GoRoute(
-      path: '/frontID',
+      path: AppRoutes.frontID,
       builder: (context, state) => const FrontIDScreen(),
     ),
 
     GoRoute(
-      path: '/backID',
+      path: AppRoutes.backID,
       builder: (context, state) => const BackIDScreen(),
     ),
 
@@ -180,7 +184,7 @@ final GoRouter appRouter = GoRouter(
     ),
 
     GoRoute(
-      path: '/verifiedSuccess',
+      path: AppRoutes.verifiedSuccess,
       builder: (context, state) => const VerifiedSuccessfully(),
     ),
   ],
