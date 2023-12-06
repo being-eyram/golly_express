@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:golly_express/components/custom_button.dart';
 import 'package:golly_express/components/page_indicator.dart';
 import 'package:golly_express/providers/onboarding_providers.dart';
+import 'package:golly_express/shared/app_routes.dart';
 
 class OnboardingScreen extends ConsumerWidget {
   const OnboardingScreen({super.key});
@@ -28,9 +30,7 @@ class OnboardingScreen extends ConsumerWidget {
             itemBuilder: (BuildContext context, int position) {
               return Container(
                 color: onboardingItems[position].backgroundColor,
-                child: Center(
-                  child: onboardingItems[position].backgroundImage,
-                ),
+                child: onboardingItems[position].backgroundImage,
               );
             },
           ),
@@ -47,7 +47,7 @@ class OnboardingScreen extends ConsumerWidget {
                   // setUserOnboardStatus(true);
                   // updatePageIndex;
                   currentPageIndex == 2
-                      ? context.go("/login")
+                      ? context.go(AppRoutes.login)
                       : pageController.nextPage(
                           curve: Curves.easeInOut,
                           duration: const Duration(milliseconds: 200),
@@ -62,11 +62,10 @@ class OnboardingScreen extends ConsumerWidget {
             ),
           ),
           Positioned(
-            top: 40,
-            right: 20,
+            top: 40.h,
+            right: 20.h,
             child: TextButton(
-              onPressed: () => context.go("/login"),
-              // onPressed: () => context.go("/login"),
+              onPressed: () => context.go(AppRoutes.login),
               child: const Text(
                 "Skip",
                 style: TextStyle(
@@ -101,14 +100,14 @@ class OnboardingCutOut extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadiusDirectional.only(
-          topStart: Radius.circular(20),
-          topEnd: Radius.circular(20),
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(30.r),
+          topRight: Radius.circular(30.r),
         ),
       ),
-      padding: const EdgeInsetsDirectional.symmetric(horizontal: 38),
+      padding: EdgeInsetsDirectional.symmetric(horizontal: 38.w),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -116,7 +115,7 @@ class OnboardingCutOut extends StatelessWidget {
           Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 10),
+                padding: EdgeInsets.only(top: 10.h),
                 child: pageIndicator,
               ),
               AnimatedContainer(
@@ -125,13 +124,13 @@ class OnboardingCutOut extends StatelessWidget {
                 child: Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(top: 25, bottom: 16),
+                      padding: EdgeInsets.only(top: 25.h, bottom: 16.h),
                       child: Text(
                         title,
                         textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          color: Color(0xFF000000),
-                          fontSize: 24,
+                        style: TextStyle(
+                          color: const Color(0xFF000000),
+                          fontSize: 23.sp,
                           fontWeight: FontWeight.w800,
                         ),
                       ),
@@ -139,9 +138,9 @@ class OnboardingCutOut extends StatelessWidget {
                     Text(
                       description,
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        color: Color(0xFFA3ADAA),
-                        fontSize: 14,
+                      style: TextStyle(
+                        color: const Color(0xFFA3ADAA),
+                        fontSize: 12.5.sp,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
@@ -151,9 +150,9 @@ class OnboardingCutOut extends StatelessWidget {
             ],
           ),
           Padding(
-            padding: const EdgeInsets.only(bottom: 36.0),
+            padding: EdgeInsets.only(bottom: 20.h),
             child: CustomButton(
-              borderRadius: 8,
+              borderRadius: 8.r,
               isEnabled: true,
               onPressed: onGetStartedClick,
               buttonText: "Get Started",
