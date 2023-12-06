@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 final showPasswordProvider = StateProvider<bool>((_) => true);
@@ -48,15 +49,15 @@ class InputTextField extends ConsumerWidget {
     final showPasswordSvg = SvgPicture.asset(
       'assets/images/ic_show_password.svg',
       semanticsLabel: 'Show Password',
-      height: 18,
-      width: 18,
+      height: 18.h,
+      width: 18.w,
       fit: BoxFit.scaleDown,
     );
     final hidePasswordSvg = SvgPicture.asset(
       'assets/images/ic_hide_password.svg',
       semanticsLabel: 'Hide Password',
-      height: 18,
-      width: 18,
+      height: 18.h,
+      width: 18.w,
       fit: BoxFit.scaleDown,
     );
 
@@ -70,7 +71,7 @@ class InputTextField extends ConsumerWidget {
       inputFormatters: inputFormatters,
       initialValue: initialValue,
       controller: controller,
-      style: const TextStyle(fontSize: 14.5),
+      style: TextStyle(fontSize: 14.5.sp),
       obscureText: isPasswordInput ? isObscured : false,
       decoration: InputDecoration(
         prefixText: prefixText,
@@ -94,27 +95,27 @@ class InputTextField extends ConsumerWidget {
             //         .update((state) => !state),
             //   )
             : suffixIcon,
-        border: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(8)),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(8.r)),
           borderSide: BorderSide(
-            width: 1.5,
+            width: 1.5.w,
           ),
         ),
         enabledBorder:
-            outlineBorderGenerator(const Color(0xFFEDEFEE), width: 1),
+            outlineBorderGenerator(const Color(0xFFEDEFEE), width: 1.5.w),
         focusedBorder: outlineBorderGenerator(const Color(0xFF557A46)),
-        focusedErrorBorder: outlineBorderGenerator(Colors.red, width: 1.5),
-        errorBorder: outlineBorderGenerator(Colors.red, width: 1.0),
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: 16,
-          vertical: 14,
+        focusedErrorBorder: outlineBorderGenerator(Colors.red, width: 1.5.w),
+        errorBorder: outlineBorderGenerator(Colors.red, width: 1.0.w),
+        contentPadding: EdgeInsets.symmetric(
+          horizontal: 16.w,
+          vertical: 14.h,
         ),
         labelText: labelText,
         floatingLabelBehavior: floatingLabelBehavior,
         hintText: hintText,
-        hintStyle: const TextStyle(
-          color: Color(0xFFA3ADAA),
-          fontSize: 14,
+        hintStyle: TextStyle(
+          color: const Color(0xFFA3ADAA),
+          fontSize: 14.sp,
         ),
       ),
     );
@@ -123,7 +124,7 @@ class InputTextField extends ConsumerWidget {
 
 outlineBorderGenerator(Color color, {double width = 1.5}) {
   return OutlineInputBorder(
-    borderRadius: const BorderRadius.all(Radius.circular(8)),
+    borderRadius: BorderRadius.all(Radius.circular(8.r)),
     borderSide: BorderSide(width: width, color: color),
   );
 }
