@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:golly_express/model/notification.dart';
 
 import '../../cards/notification_card.dart';
@@ -12,24 +13,22 @@ class NotificationsScreen extends StatelessWidget {
       appBar: AppBar(
         // primary: false,
         centerTitle: true,
-        title: const Padding(
-          padding: EdgeInsets.only(top: 30.0),
+        title: Padding(
+          padding: EdgeInsets.only(top: 30.0.h),
           child: Text(
             "Notifications",
             style: TextStyle(
-              fontSize: 24,
+              fontSize: 24.sp,
               fontWeight: FontWeight.w800,
             ),
           ),
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24),
+        padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 24.h),
         child: recentNotifications.isNotEmpty
             ? ListView.separated(
-                separatorBuilder: (context, index) =>
-                    const SizedBox(height: 16),
-                // seperatorBuilder: const SizedBox(height: 16),
+                separatorBuilder: (context, index) => SizedBox(height: 16.h),
                 itemCount: recentNotifications.length,
                 itemBuilder: (BuildContext context, int index) {
                   return NotificationCard(
