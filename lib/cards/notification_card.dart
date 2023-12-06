@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:golly_express/model/notification.dart';
 
 class NotificationCard extends StatelessWidget {
@@ -14,40 +15,40 @@ class NotificationCard extends StatelessWidget {
       alignment: Alignment.bottomCenter,
       children: [
         Container(
-          height: 220,
+          height: 230.h,
           decoration: BoxDecoration(
             color: const Color(0xFFD9D9D9),
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(15.r),
           ),
         ),
         Container(
-          // height: 120,
+          // height: 112.h,
           width: double.infinity,
-          decoration: const BoxDecoration(
-            color: Color(0xFFFAFBFB),
+          decoration: BoxDecoration(
+            color: const Color(0xFFFAFBFB),
             borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(15),
-              bottomRight: Radius.circular(15),
+              bottomLeft: Radius.circular(15.r),
+              bottomRight: Radius.circular(15.r),
             ),
           ),
           child: Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: EdgeInsets.all(16.0.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   notification.notificationTitle!,
-                  style: const TextStyle(
-                    fontSize: 15,
+                  style: TextStyle(
+                    fontSize: 15.sp,
                     fontWeight: FontWeight.w800,
                   ),
                 ),
-                const SizedBox(height: 8),
+                SizedBox(height: 8.h),
                 Text(
                   notification.notificationSubitle!,
-                  style: const TextStyle(
-                    color: Color(0xFFA3ADAA),
-                    fontSize: 14,
+                  style: TextStyle(
+                    color: const Color(0xFFA3ADAA),
+                    fontSize: 14.sp,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
