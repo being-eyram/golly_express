@@ -60,7 +60,7 @@ String? validateEmail(String value) {
 
 String? validateFullName(value) {
   if (value.isEmpty) {
-    return "Enter your Full Name";
+    return "Enter your full name";
   }
 
   return null;
