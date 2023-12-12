@@ -33,7 +33,7 @@ class HomeScreen extends ConsumerWidget {
               loading: () => const Center(
                 child: CircularProgressIndicator(),
               ),
-              error: (error, stack) =>
+              error: (error, stackTrace) =>
                   const Text('Oops, something unexpected happened'),
               data: (user) => Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
