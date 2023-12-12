@@ -11,6 +11,7 @@ import 'package:golly_express/screens/onboarding/add_address.dart';
 import 'package:golly_express/screens/onboarding/forgot_password_screen.dart';
 import 'package:golly_express/screens/onboarding/get_started_screen.dart';
 import 'package:golly_express/screens/onboarding/login_screen.dart';
+import 'package:golly_express/screens/onboarding/login_screenn.dart';
 import 'package:golly_express/screens/onboarding/onboarding_screen.dart';
 import 'package:golly_express/screens/onboarding/otp_screen.dart';
 import 'package:golly_express/screens/onboarding/register_password_screen.dart';
@@ -31,13 +32,13 @@ import 'package:golly_express/screens/profile%20screen/profile_screen.dart';
 import 'package:golly_express/shared/app_routes.dart';
 
 final GoRouter appRouter = GoRouter(
-  initialLocation: isOnboarded == null ? "/onboard" : "/login",
+  initialLocation: isOnboarded == null ? AppRoutes.onboard : AppRoutes.login,
   // initialLocation: "/mainContainer",
   // initialLocation: "/onboarding",
   routes: <RouteBase>[
     GoRoute(
-      path: '/',
-      builder: (context, state) => LoginScreen(),
+      path: AppRoutes.base,
+      builder: (context, state) => const LoginScreen(),
       // redirect: (context, state) async {
       //   var didOnboard = await getUserOnboardStatus() ?? false;
       //   return didOnboard ? '/signin' : null;
@@ -67,7 +68,12 @@ final GoRouter appRouter = GoRouter(
 
     GoRoute(
       path: AppRoutes.login,
-      builder: (context, state) => LoginScreen(),
+      builder: (context, state) => const LoginScreen(),
+    ),
+
+    GoRoute(
+      path: "/loginn",
+      builder: (context, state) => LoginScreenn(),
     ),
 
     GoRoute(
