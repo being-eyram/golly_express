@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:golly_express/extensions/http_response_extension.dart';
 import 'package:golly_express/network/api/request_models/auth_request_models.dart';
 import 'package:golly_express/network/api/request_models/otp_request.dart';
 import 'package:golly_express/network/api/response_models/forgot_password_model.dart';
@@ -10,6 +9,7 @@ import 'package:golly_express/network/api/response_models/otp_response.dart';
 import 'package:golly_express/network/api/response_models/package_categories_model.dart';
 import 'package:golly_express/network/api/response_models/user_model.dart';
 import 'package:golly_express/network/endpoint.dart';
+import 'package:golly_express/shared/extensions/http_response_extension.dart';
 import 'package:golly_express/shared_prefs/shared_prefs.dart';
 import 'package:http/http.dart' as http;
 
@@ -22,7 +22,7 @@ class GollyApiService {
 
   void closeClient() => _client.close();
 
-// login request function
+// LOGIN REQUEST FUNCTION
   Future<AuthResponse> loginUser({required AuthRequest requestBody}) async {
     return await _client
         .post(
@@ -34,7 +34,7 @@ class GollyApiService {
         .catchError(_onError);
   }
 
-// sign up request function
+// REGISTER/SIGN UP REQUEST FUNCTION
   Future<AuthResponse> signupUser({
     required SignUpRequest body,
   }) async {
@@ -48,7 +48,7 @@ class GollyApiService {
         .catchError(_onError);
   }
 
-// Forgot password request
+// FORGOT PASSWORD REQUEST FUNCTION
   Future<String> forgotPassword({required String email}) async {
     try {
       final response = await _client.post(
@@ -71,7 +71,7 @@ class GollyApiService {
     }
   }
 
-// Verify OTP request
+// VERIFY OTP REQUEST FUNCTION
   Future<OtpResponse> verifyOtp({required OtpRequest requestBody}) async {
     try {
       final response = await _client.post(
@@ -97,7 +97,7 @@ class GollyApiService {
     }
   }
 
-// get user info request
+// GET USER DATA REQUEST FUNCTION
   Future<UserInfo> getUserInfo() async {
     final token = await getUserBearerToken();
 
@@ -124,7 +124,7 @@ class GollyApiService {
     }
   }
 
-  // get package categories request
+  // GET PACKAGE CATEGORIES REQUEST FUNCTION
   Future<List<Category>> getPackageCategories() async {
     final token = await getUserBearerToken();
     try {
@@ -149,7 +149,7 @@ class GollyApiService {
     }
   }
 
-  // decode response function
+  // DECODE RESPONSE FUNCTION
   Future<dynamic> _decodeResponse(http.Response response) async {
     final json = jsonDecode(response.body);
     // print(json);
