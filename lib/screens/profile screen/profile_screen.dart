@@ -17,7 +17,8 @@ class ProfileScreen extends ConsumerWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: userData.when(
-            error: ((error, stackTrace) => Text(error.toString())),
+            error: ((error, stackTrace) =>
+                const Text('Oops, something unexpected happened')),
             loading: () => const Center(
               child: CircularProgressIndicator(),
             ),
