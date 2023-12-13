@@ -19,6 +19,8 @@ class InputTextField extends ConsumerWidget {
   final TextEditingController? controller;
   final String? initialValue;
   final TextInputType? keyboardType;
+  final void Function()? onTapOutside;
+
   final List<TextInputFormatter>? inputFormatters;
   final FormFieldValidator? validator;
   final AutovalidateMode? autovalidateMode;
@@ -39,6 +41,7 @@ class InputTextField extends ConsumerWidget {
     this.prefixStyle,
     this.inputFormatters,
     this.keyboardType,
+    this.onTapOutside,
     this.validator,
     this.autovalidateMode,
     this.floatingLabelBehavior,
@@ -64,7 +67,8 @@ class InputTextField extends ConsumerWidget {
     // TODO: add show divider option
     return TextFormField(
       // DISMISS KEYBOARD ON OUTSIDE CLICK
-      onTapOutside: (event) => FocusManager.instance.primaryFocus?.unfocus(),
+      onTapOutside: (event) =>
+          onTapOutside ?? FocusManager.instance.primaryFocus?.unfocus(),
       validator: validator,
       autovalidateMode: autovalidateMode,
       keyboardType: keyboardType,
@@ -111,11 +115,12 @@ class InputTextField extends ConsumerWidget {
           vertical: 14.h,
         ),
         labelText: labelText,
+        labelStyle: TextStyle(fontSize: 13.sp),
         floatingLabelBehavior: floatingLabelBehavior,
         hintText: hintText,
         hintStyle: TextStyle(
           color: const Color(0xFFA3ADAA),
-          fontSize: 14.sp,
+          fontSize: 13.sp,
         ),
       ),
     );
