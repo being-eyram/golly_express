@@ -30,9 +30,8 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,
-      splitScreenMode: true,
-      // Use builder only if you need to use library outside ScreenUtilInit context
-      builder: (_, child) {
+      // splitScreenMode: true,
+      builder: (context, child) {
         return MaterialApp.router(
           debugShowCheckedModeBanner: false,
           title: 'Golly Express',
