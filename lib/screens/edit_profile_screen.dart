@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:golly_express/components/custom_button.dart';
 import 'package:golly_express/components/input_field.dart';
-import 'package:golly_express/extensions/string_extensions.dart';
 import 'package:golly_express/providers/user_data_provider.dart';
+import 'package:golly_express/shared/extensions/field_validation.dart';
+import 'package:golly_express/shared/extensions/string_extensions.dart';
 
 class EditProfileScreen extends ConsumerWidget {
   const EditProfileScreen({super.key});
@@ -23,26 +25,24 @@ class EditProfileScreen extends ConsumerWidget {
         appBar: AppBar(
           leading: IconButton(
             onPressed: () => context.pop(),
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back_ios_new,
-              size: 20,
+              size: 20.h,
             ),
           ),
         ),
         bottomNavigationBar: Padding(
-          padding: const EdgeInsets.only(
-            left: 16,
-            right: 16,
-            top: 14,
-            bottom: 24.0,
+          padding: EdgeInsets.only(
+            left: 16.w,
+            right: 16.w,
+            top: 14.h,
+            bottom: 24.h,
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               const Divider(color: Color(0xFFEDEFEE)),
-              const SizedBox(
-                height: 6,
-              ),
+              SizedBox(height: 6.h),
               CustomButton(
                 buttonText: "Save Changes",
                 isEnabled: true,
@@ -65,55 +65,53 @@ class EditProfileScreen extends ConsumerWidget {
         body: SafeArea(
           child: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.all(16),
+              padding: EdgeInsets.all(16.w),
               child: Form(
                 key: formKey,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                    Text(
                       "Edit Profile",
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 20.sp,
                         fontWeight: FontWeight.w800,
                       ),
                     ),
-                    const SizedBox(height: 24.0),
-                    InputTextField(
-                      // initialValue: ref.watch(usernameProvider),
-                      controller: nameController
-                        ..text = ref.watch(nameProvider),
-                      hintText: "Name",
-                      // inputFormatters: [
-                      //   FilteringTextInputFormatter.allow(
-                      //     RegExp(r"[a-zA-Z]+|\s"),
-                      //   )
-                      // ],
-                      validator: (value) {
-                        if (value.isEmpty) {
-                          return "Name cannot be empty";
-                        }
+                    SizedBox(height: 24.h),
 
-                        return null;
-                      },
-                    ),
-                    const SizedBox(height: 24.0),
+                    // FULL NAME FIELD
+                    InputTextField(
+                        // initialValue: ref.watch(usernameProvider),
+                        controller: nameController
+                          ..text = ref.watch(nameProvider),
+                        hintText: "Name",
+                        // inputFormatters: [
+                        //   FilteringTextInputFormatter.allow(
+                        //     RegExp(r"[a-zA-Z]+|\s"),
+                        //   )
+                        // ],
+                        validator: (value) => validateFullName(value)),
+                    SizedBox(height: 24.h),
+
+                    // EMAIL FIELD
                     InputTextField(
                       controller: emailController
                         ..text = ref.watch(emailProvider),
                       // initialValue: "benaaron866@gmail.com",
                       hintText: "Email Address",
                     ),
-                    const SizedBox(height: 24.0),
+                    SizedBox(height: 24.h),
+
+                    // PHONE NUMBER FIELD
                     InputTextField(
                       controller: phoneNumberController
                         ..text = ref.watch(phoneNumberProvider),
                       prefixText: "+233  ",
-                      prefixStyle: const TextStyle(
-                        fontSize: 16,
+                      prefixStyle: TextStyle(
+                        fontSize: 16.sp,
                         fontWeight: FontWeight.w800,
                       ),
-
                       // initialValue: "57 159 2866",
                       hintText: "Phone Number",
                       inputFormatters: [
