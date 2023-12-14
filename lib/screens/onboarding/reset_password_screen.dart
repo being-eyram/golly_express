@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:golly_express/components/custom_button.dart';
 import 'package:golly_express/components/input_field.dart';
 import 'package:golly_express/constants.dart';
-import 'package:golly_express/extensions/field_validation.dart';
+import 'package:golly_express/shared/extensions/field_validation.dart';
 
 class ResetPasswordScreen extends ConsumerWidget {
   const ResetPasswordScreen({super.key});
