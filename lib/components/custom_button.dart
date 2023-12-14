@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
@@ -7,13 +8,13 @@ class CustomButton extends StatelessWidget {
     required this.buttonText,
     this.isEnabled = false,
     required this.onPressed,
-    this.borderRadius = 16,
+    this.borderRadius,
   });
 
   final bool isEnabled;
   final bool isLoading;
   final String buttonText;
-  final double borderRadius;
+  final double? borderRadius;
   final Function()? onPressed;
 
   @override
@@ -23,12 +24,11 @@ class CustomButton extends StatelessWidget {
       style: FilledButton.styleFrom(
         backgroundColor:
             isEnabled ? const Color(0xFF557A46) : const Color(0xFFE8E9E8),
-        minimumSize: const Size(double.infinity, 54),
-        maximumSize: const Size(double.infinity, 54),
+        minimumSize: Size(double.infinity, 54.h),
+        maximumSize: Size(double.infinity, 54.h),
+        // padding: EdgeInsets.all(16.h),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(borderRadius),
-          ),
+          borderRadius: BorderRadius.circular(borderRadius ?? 16.r),
         ),
       ),
       child: isLoading
@@ -41,7 +41,7 @@ class CustomButton extends StatelessWidget {
           : Text(
               buttonText,
               style: TextStyle(
-                  fontSize: 14,
+                  fontSize: 13.sp,
                   color: isEnabled ? Colors.white : const Color(0xFFA3ADAA),
                   fontWeight: FontWeight.w800),
             ),
