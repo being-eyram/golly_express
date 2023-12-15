@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AddressLineContainer extends StatelessWidget {
   const AddressLineContainer({
@@ -16,9 +17,10 @@ class AddressLineContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.all(16),
+      // padding: EdgeInsets.symmetric(horizontal: 16.w),
+      // margin: EdgeInsets.only(top: 14.h),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(8.r),
         border: showBorder
             ? Border.all(
                 width: 1.5,
@@ -40,19 +42,19 @@ class AddressLineContainer extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: const TextStyle(
-                  color: Color(0xFFA3ADAA),
-                  fontSize: 13,
+                style: TextStyle(
+                  color: const Color(0xFFA3ADAA),
+                  fontSize: 13.sp,
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: 6.h),
               Row(
                 children: [
                   Text(
                     subtitle,
-                    style: const TextStyle(
-                      fontSize: 15,
+                    style: TextStyle(
+                      fontSize: 14.sp,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
@@ -71,9 +73,9 @@ class AddressLineContainer extends StatelessWidget {
                 ),
               );
             },
-            child: const Icon(
+            child: Icon(
               Icons.copy,
-              size: 18,
+              size: 20.h,
             ),
           ),
         ],
