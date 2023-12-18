@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:golly_express/cards/icon_with_text_card.dart';
 import 'package:golly_express/cards/track_package_card.dart';
@@ -9,6 +10,7 @@ import 'package:golly_express/components/package_tracking_history.dart';
 import 'package:golly_express/constants.dart';
 import 'package:golly_express/model/package.dart';
 import 'package:golly_express/providers/user_info_provider.dart';
+import 'package:golly_express/shared/extensions/string_extensions.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -25,9 +27,9 @@ class HomeScreen extends ConsumerWidget {
         child: SingleChildScrollView(
           // reverse: true,
           child: Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: 32.0,
-              horizontal: 16.0,
+            padding: EdgeInsets.symmetric(
+              vertical: 32.h,
+              horizontal: 16.w,
             ),
             child: userInfo.when(
               loading: () => const Center(
@@ -39,14 +41,15 @@ class HomeScreen extends ConsumerWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Good Morning, ${user.fullName.split(" ")[0]}',
-                    style: const TextStyle(
-                      fontSize: 20.0,
+                    // greeting(user.fullName),
+                    user.fullName.greet(),
+                    style: TextStyle(
+                      fontSize: 20.sp,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
 
-                  const SizedBox(height: 24),
+                  SizedBox(height: 24.h),
 
                   // display your golly express dropdown if verified else verify id card
                   _userIsVerified
@@ -56,9 +59,9 @@ class HomeScreen extends ConsumerWidget {
                           onTap: () => context.push("/verifyID"),
                         ),
 
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16.h),
                   const TrackPackageCard(),
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -69,9 +72,7 @@ class HomeScreen extends ConsumerWidget {
                         iconContainerColor: const Color(0xFFFFC727),
                         onTap: () => context.push("/calculateEstimate"),
                       ),
-                      const SizedBox(
-                        width: 10,
-                      ),
+                      SizedBox(width: 10.w),
                       IconWithTextCard(
                         cardTitle: "Create Shipment",
                         cardColor: const Color(0xFFFFE6E2),
@@ -81,7 +82,7 @@ class HomeScreen extends ConsumerWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 24),
+                  SizedBox(height: 24.h),
 
                   recentPackages.isEmpty
                       ? const EmptyTrackingHistory()
