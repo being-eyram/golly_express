@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 extension EmailValidator on String {
   bool isValidEmail() {
     return RegExp(
@@ -18,3 +20,31 @@ extension StringCasingExtension on String {
   String? trimSpaces() => replaceAll(" ", "");
   String removeSpacesAndLower() => replaceAll(' ', '').toLowerCase();
 }
+
+extension Greetings on String {
+  String greet() {
+    final hour = TimeOfDay.now().hour;
+    String timeOfDay = "";
+    if (hour <= 12) {
+      timeOfDay = "Morning";
+    } else if (hour <= 17) {
+      timeOfDay = "Afternoon";
+    } else {
+      timeOfDay = "Evening";
+    }
+    return "Good $timeOfDay, ${split(" ")[0]}";
+  }
+}
+
+  // String greeting(name) {
+  //   final hour = TimeOfDay.now().hour;
+  //   String timeOfDay = "";
+  //   if (hour <= 12) {
+  //     timeOfDay = "Morning";
+  //   } else if (hour <= 17) {
+  //     timeOfDay = "Afternoon";
+  //   } else {
+  //     timeOfDay = "Evening";
+  //   }
+  //   return "Good $timeOfDay, ${name.split(" ")[0]}";
+  // }
