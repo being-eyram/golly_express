@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 final gollyExpressLogo = Image.asset(
   'assets/images/golly_express.jpeg',
-  width: 98,
-  height: 91,
+  width: 98.w,
+  height: 91.h,
 );
 
 final gollyExpressLogoMini = Image.asset(
