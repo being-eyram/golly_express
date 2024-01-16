@@ -6,4 +6,8 @@ class OtpRequest {
     required this.otp,
     required this.resetToken,
   });
+
+  Map<String, dynamic> toJson() => {
+        "otp": otp,
+      };
 }
