@@ -1,6 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:golly_express/components/main_container.dart';
 import 'package:golly_express/main.dart';
+import 'package:golly_express/network/api/request_models/auth_request_models.dart';
 import 'package:golly_express/screens/another_onboarding_screen.dart';
 import 'package:golly_express/screens/calculate_estimate_screen.dart';
 import 'package:golly_express/screens/create_shipment_screen.dart';
@@ -73,7 +74,7 @@ final GoRouter appRouter = GoRouter(
 
     GoRoute(
       path: "/loginn",
-      builder: (context, state) => LoginScreenn(),
+      builder: (context, state) => const LoginScreenn(),
     ),
 
     GoRoute(
@@ -83,7 +84,11 @@ final GoRouter appRouter = GoRouter(
 
     GoRoute(
       path: AppRoutes.registerPassword,
-      builder: (context, state) => RegisterPasswordScreen(),
+      builder: (context, state) {
+        // String args = state.extra as String;
+        AuthRequest args = state.extra as AuthRequest;
+        return RegisterPasswordScreen(res: args);
+      },
     ),
 
     GoRoute(
@@ -93,7 +98,9 @@ final GoRouter appRouter = GoRouter(
 
     GoRoute(
       path: AppRoutes.otpScreen,
-      builder: (context, state) => const OtpScreen(),
+      builder: (context, state) => OtpScreen(
+        resetToken: state.extra.toString(),
+      ),
     ),
 
     GoRoute(
