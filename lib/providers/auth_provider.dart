@@ -25,7 +25,6 @@ class AuthNotifier extends AsyncNotifier<AuthResponse?> {
     );
     // ref.read(bearerTokenProvider.notifier).state = state.value?.token.token;
     await setUserBearerToken(state.value!.token.token);
-
     return state.value;
   }
 
@@ -44,4 +43,14 @@ class AuthNotifier extends AsyncNotifier<AuthResponse?> {
 
     return state.value;
   }
+
+  // Future<AuthResponse?> forgotPassword({required String email}) async {
+  //   final apiService = ref.read(apiServiceProvider);
+  //   state = const AsyncLoading();
+  //   state = await AsyncValue.guard(
+  //     () => apiService.forgotPassword(email: email),
+  //   );
+  //   print(state.value);
+  //   return state.value;
+  // }
 }
