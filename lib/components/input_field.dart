@@ -83,6 +83,7 @@ class InputTextField extends ConsumerWidget {
         prefixIcon: prefixIcon,
         suffixIcon: isPasswordInput
             ? InkWell(
+                splashColor: Colors.transparent,
                 onTap: suffixIconOnTap,
                 child: AnimatedContainer(
                   curve: Curves.easeOutSine,
@@ -90,14 +91,6 @@ class InputTextField extends ConsumerWidget {
                   child: isObscured ? showPasswordSvg : hidePasswordSvg,
                 ),
               )
-            // ? IconButton(
-            //     icon: showPassState
-            //         ? const Icon(Icons.visibility_off)
-            //         : const Icon(Icons.visibility),
-            //     onPressed: () => ref
-            //         .read(showPasswordProvider.notifier)
-            //         .update((state) => !state),
-            //   )
             : suffixIcon,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(8.r)),
