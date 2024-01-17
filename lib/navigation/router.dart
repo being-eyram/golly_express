@@ -105,7 +105,9 @@ final GoRouter appRouter = GoRouter(
 
     GoRoute(
       path: AppRoutes.resetPassword,
-      builder: (context, state) => const ResetPasswordScreen(),
+      builder: (context, state) => ResetPasswordScreen(
+        resetToken: state.extra.toString(),
+      ),
     ),
 
     GoRoute(
