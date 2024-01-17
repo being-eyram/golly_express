@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 class IconWithTextCard extends StatelessWidget {
@@ -19,15 +20,15 @@ class IconWithTextCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: InkWell(
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(15.r),
         onTap: onTap,
         child: Container(
-          padding: const EdgeInsets.symmetric(
-            vertical: 14.0,
-            horizontal: 16.0,
+          padding: EdgeInsets.symmetric(
+            vertical: 14.h,
+            horizontal: 16.w,
           ),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(15.r),
             color: cardColor,
           ),
           child: Column(
@@ -42,14 +43,14 @@ class IconWithTextCard extends StatelessWidget {
                 ),
                 child: cardIcon,
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: 8.h),
               Text(
                 cardTitle,
-                style: const TextStyle(
-                  fontSize: 14,
+                style: TextStyle(
+                  fontSize: 14.sp,
                   fontWeight: FontWeight.w700,
                 ),
-              )
+              ),
             ],
           ),
         ),
