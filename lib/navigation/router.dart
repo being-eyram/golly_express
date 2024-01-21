@@ -86,8 +86,8 @@ final GoRouter appRouter = GoRouter(
       path: AppRoutes.registerPassword,
       builder: (context, state) {
         // String args = state.extra as String;
-        AuthRequest args = state.extra as AuthRequest;
-        return RegisterPasswordScreen(res: args);
+        // AuthRequest args = state.extra as AuthRequest;
+        return RegisterPasswordScreen(userCred: state.extra as AuthRequest);
       },
     ),
 
