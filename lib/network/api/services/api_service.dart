@@ -1,18 +1,21 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:golly_express/network/api/request_models/auth_request_models.dart';
 import 'package:golly_express/network/api/request_models/otp_request.dart';
 import 'package:golly_express/network/api/response_models/forgot_password_model.dart';
 import 'package:golly_express/network/api/response_models/otp_response.dart';
 import 'package:golly_express/network/api/response_models/package_categories_model.dart';
+import 'package:golly_express/network/api/response_models/reset_password_response.dart';
 import 'package:golly_express/network/api/response_models/user_model.dart';
 import 'package:golly_express/network/endpoint.dart';
 import 'package:golly_express/shared/extensions/http_response_extension.dart';
 import 'package:golly_express/shared_prefs/shared_prefs.dart';
 import 'package:http/http.dart' as http;
 
+import '../request_models/reset_password_request.dart';
 import '../response_models/auth_response.dart';
 
 final apiServiceProvider = Provider((ref) => GollyApiService());
@@ -62,7 +65,7 @@ class GollyApiService {
         return forgotPasswordResponse;
       } else {
         throw Exception(
-            'Failed to reset password. Status code: {$response.statusCode}');
+            'Failed to reset password. Status code: ${response.statusCode}');
       }
     } catch (e) {
       throw ('Exception: $e');
@@ -87,6 +90,32 @@ class GollyApiService {
       } else {
         throw Exception(
             'Failed to verify OTP. Status code: ${response.statusCode}');
+      }
+    } catch (e) {
+      throw ('Exception: $e');
+    }
+  }
+
+// RESET PASSWORD REQUEST
+  Future<ResetPasswordResponse> resetPassword({
+    required ResetPasswordRequest requestBody,
+  }) async {
+    try {
+      final response = await _client.post(
+        Endpoints.resetPassword,
+        body: jsonEncode(requestBody.toJson()),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer ${requestBody.resetToken}',
+        },
+      );
+      if (response.statusCode == 200) {
+        final resetResponse = resetPasswordResponseFromJson(response.body);
+        return resetResponse;
+      } else {
+        throw Exception(
+            'Failed to reset password. Status code: {$response.statusCode}');
       }
     } catch (e) {
       throw ('Exception: $e');
@@ -172,11 +201,11 @@ class GollyApiService {
         })
         .then(_decodeResponse)
         .then((json) {
-          print(json);
-          print('-------------');
+          debugPrint(json);
+          debugPrint('-------------');
           packageCategories = PackageCategories.fromJson(json).data;
           for (int i = 0; i < packageCategories.length; i++) {
-            print(packageCategories[i].name);
+            debugPrint(packageCategories[i].name);
           }
           return PackageCategories.fromJson(json);
         })
