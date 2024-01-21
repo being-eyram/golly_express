@@ -29,37 +29,41 @@ class MyApp extends StatelessWidget {
 
     return ScreenUtilInit(
       designSize: const Size(375, 812),
-      minTextAdapt: true,
+      minTextAdapt: false,
+      builder: (_, child) => child!,
+      rebuildFactor: (old, data) => false,
       // splitScreenMode: true,
-      builder: (context, child) {
-        return MaterialApp.router(
-          debugShowCheckedModeBanner: false,
-          title: 'Golly Express',
-          theme: ThemeData(
-            bottomSheetTheme: const BottomSheetThemeData(
-              backgroundColor: Colors.white,
-              modalBackgroundColor: Colors.white,
-            ),
-            // dividerColor: Colors.grey.shade300,
-            fontFamily: GoogleFonts.dmSans().fontFamily,
-            appBarTheme: const AppBarTheme(color: Colors.white),
-            textTheme: GoogleFonts.dmSansTextTheme(baseTextTheme),
-            elevatedButtonTheme: ElevatedButtonThemeData(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF557A46),
-                foregroundColor: Colors.white,
-              ),
-            ),
-            useMaterial3: true,
-            colorScheme: ColorScheme.fromSeed(
-              seedColor: const Color(0xFF557A46),
-            ).copyWith(
-              background: Colors.white,
+      child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        title: 'Golly Express',
+        theme: ThemeData(
+          bottomSheetTheme: const BottomSheetThemeData(
+            shadowColor: Colors.transparent,
+            backgroundColor: Colors.white,
+            modalBackgroundColor: Colors.white,
+          ),
+          // dividerColor: Colors.grey.shade300,
+          fontFamily: GoogleFonts.dmSans().fontFamily,
+          appBarTheme: const AppBarTheme(
+            color: Colors.transparent,
+            surfaceTintColor: Colors.transparent,
+          ),
+          textTheme: GoogleFonts.dmSansTextTheme(baseTextTheme),
+          elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: const Color(0xFF557A46),
+              foregroundColor: Colors.white,
             ),
           ),
-          routerConfig: appRouter,
-        );
-      },
+          useMaterial3: true,
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color(0xFF557A46),
+          ).copyWith(
+            background: Colors.white,
+          ),
+        ),
+        routerConfig: appRouter,
+      ),
     );
   }
 }
