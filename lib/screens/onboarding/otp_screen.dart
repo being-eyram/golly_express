@@ -1,84 +1,96 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:golly_express/components/custom_button.dart';
+import 'package:golly_express/network/api/request_models/otp_request.dart';
+import 'package:golly_express/providers/verify_otp_provider.dart';
+import 'package:golly_express/shared/app_routes.dart';
+import 'package:golly_express/shared/pinput_theme.dart';
+import 'package:golly_express/shared/utils/show_dialog.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pinput/pinput.dart';
 
-class OtpScreen extends ConsumerWidget {
-  const OtpScreen({super.key});
+class OtpScreen extends ConsumerStatefulWidget {
+  const OtpScreen({
+    super.key,
+    required this.resetToken,
+  });
+  final String resetToken;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final formKey = GlobalKey<FormState>();
+  ConsumerState<OtpScreen> createState() => _OtpScreenState();
+}
 
-    final enableButtonProvider = StateProvider((ref) => false);
+class _OtpScreenState extends ConsumerState<OtpScreen> {
+  static final formKey = GlobalKey<FormState>();
 
-    final defaultPinTheme = PinTheme(
-      width: 56,
-      height: 56,
-      textStyle: const TextStyle(
-          fontSize: 20,
-          color: Color.fromRGBO(30, 60, 87, 1),
-          fontWeight: FontWeight.w600),
-      decoration: BoxDecoration(
-        border: Border.all(color: const Color(0x1F000000)),
-        borderRadius: BorderRadius.circular(8),
-      ),
-    );
+  @override
+  Widget build(BuildContext context) {
+    final isEnabled = ref.watch(enableButtonProvider);
 
-    final focusedPinTheme = defaultPinTheme.copyDecorationWith(
-      border: Border.all(color: const Color(0xFF557A46)),
-      borderRadius: BorderRadius.circular(8),
-    );
+    String otp = "";
 
-    final submittedPinTheme = defaultPinTheme.copyWith(
-      decoration: defaultPinTheme.decoration?.copyWith(
-        color: const Color.fromRGBO(234, 239, 243, 1),
-      ),
-    );
+    final verifyOtpState = ref.watch(verifyOtpProvider);
+    ref.listen(verifyOtpProvider, (previous, next) {
+      next.when(
+        loading: () {},
+        data: (data) {
+          debugPrint(data?.message);
+          dialogg(
+            context,
+            barrierDismissible: false,
+            icon: Icons.arrow_forward,
+            title: 'Success',
+            content:
+                "Otp verified successfully. proceed to reset your password.",
+            onPressed: () => context.go(
+              AppRoutes.resetPassword,
+              extra: widget.resetToken,
+            ),
+          );
+        },
+        error: (error, stackTrace) {
+          final errMessage = error.toString().split(':')[1].trim();
+          const errorMessage = "Failed to verify otp. Please try again.";
+          debugPrint(errMessage);
+
+          dialogg(
+            context,
+            barrierDismissible: false,
+            title: 'Error',
+            content: errorMessage,
+            onPressed: () => context.go(AppRoutes.login),
+          );
+        },
+      );
+    });
+
+    // PINPUT THEME CONFIGURATIONS
+    final defaultPinTheme = PinputTheme.defaultPinTheme;
+    final focusedPinTheme = PinputTheme.focusedPinTheme;
+    final submittedPinTheme = PinputTheme.submittedPinTheme;
+
     return Scaffold(
-      body: Scaffold(
-        bottomNavigationBar: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Divider(color: Color(0xFFEDEFEE)),
-            const SizedBox(
-              height: 6,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 16,
-                right: 16,
-                bottom: 24.0,
-              ),
-              child: CustomButton(
-                isEnabled: ref.watch(enableButtonProvider),
-                borderRadius: 8,
-                buttonText: "Verify",
-                onPressed: () {
-                  return context.go("/resetPassword");
-                },
-              ),
-            )
-          ],
-        ),
-        appBar: AppBar(
-          leading: IconButton(
-            onPressed: () => context.pop(),
-            icon: const Icon(
-              Icons.arrow_back_ios_new,
-              size: 20,
-            ),
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () => context.pop(),
+          icon: const Icon(
+            Icons.arrow_back_ios_new,
+            size: 20,
           ),
         ),
-        body: SafeArea(
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
-              child: Form(
-                key: formKey,
+      ),
+      body: SafeArea(
+        child: Form(
+          key: formKey,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 16,
+                  horizontal: 24,
+                ).copyWith(bottom: 0),
                 child: Column(
                   children: [
                     const Text(
@@ -114,36 +126,32 @@ class OtpScreen extends ConsumerWidget {
                       ),
                     ),
                     const SizedBox(height: 32),
-                    // const Row(
-                    //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    //   children: [
-                    //     OtpField(first: true),
-                    //     OtpField(),
-                    //     OtpField(),
-                    //     OtpField(last: true),
-                    //   ],
-                    // ),
 
+                    // Pinput Field
                     Pinput(
                       // obscureText: true,
                       length: 6,
                       keyboardType: TextInputType.text,
                       textCapitalization: TextCapitalization.characters,
-                      onSubmitted: (value) {
+                      pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
+                      onCompleted: (value) {
+                        ref.read(enableButtonProvider.notifier).state = true;
+                        otp = value;
+                        final otpBody = OtpRequest(
+                          otp: otp,
+                          resetToken: widget.resetToken,
+                        );
                         ref
-                            .read(enableButtonProvider.notifier)
-                            .update((state) => true);
-                        print(value);
+                            .read(verifyOtpProvider.notifier)
+                            .verifyOtp(requestBody: otpBody);
                       },
+
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       defaultPinTheme: defaultPinTheme,
                       focusedPinTheme: focusedPinTheme,
                       submittedPinTheme: submittedPinTheme,
-                      // inputFormatters: [
-                      //   FilteringTextInputFormatter.digitsOnly,
-                      // ],
+                      // closeKeyboardWhenCompleted: false,
                     ),
-                    const SizedBox(height: 24),
                     const SizedBox(height: 24),
                     RichText(
                       textAlign: TextAlign.center,
@@ -167,67 +175,46 @@ class OtpScreen extends ConsumerWidget {
                         ],
                       ),
                     ),
-                    const SizedBox(height: 2),
                   ],
                 ),
               ),
-            ),
+
+              // Verify Button
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Divider(color: Color(0xFFEDEFEE)),
+                  const SizedBox(height: 6),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 16,
+                      right: 16,
+                      bottom: 24.0,
+                    ),
+                    child: CustomButton(
+                      isEnabled: isEnabled,
+                      borderRadius: 8,
+                      isLoading: verifyOtpState.isLoading,
+                      buttonText: "Verify",
+                      onPressed: isEnabled
+                          ? () {
+                              OtpRequest otpBody = OtpRequest(
+                                otp: otp,
+                                resetToken: widget.resetToken,
+                              );
+                              ref
+                                  .read(verifyOtpProvider.notifier)
+                                  .verifyOtp(requestBody: otpBody);
+                            }
+                          : null,
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
       ),
     );
   }
-}
-
-class OtpField extends StatelessWidget {
-  const OtpField({
-    super.key,
-    this.first = false,
-    this.last = false,
-  });
-  final bool? first;
-  final bool? last;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      height: MediaQuery.of(context).size.height / 14,
-      width: MediaQuery.of(context).size.width / 8,
-      child: TextFormField(
-        decoration: InputDecoration(
-          hintText: "*",
-          border: InputBorder.none,
-          // enabledBorder: outlineBorderPropGenerator(const Color(0xFFEDEFEE)),
-          enabledBorder: outlineBorderPropGenerator(const Color(0x1F000000)),
-          focusedBorder: outlineBorderPropGenerator(const Color(0xFF557A46)),
-        ),
-        style: const TextStyle(fontSize: 16),
-        textAlign: TextAlign.center,
-        // textInputAction: TextInputAction.previous,
-        keyboardType: TextInputType.number,
-        inputFormatters: [
-          LengthLimitingTextInputFormatter(1),
-          FilteringTextInputFormatter.digitsOnly,
-        ],
-        onChanged: (value) {
-          if (value.length == 1 && last == false) {
-            FocusScope.of(context).nextFocus();
-          }
-          if (value.isEmpty && first == false) {
-            FocusScope.of(context).previousFocus();
-          }
-          // } else {
-          //   FocusScope.of(context).previousFocus();
-          // }
-        },
-      ),
-    );
-  }
-}
-
-outlineBorderPropGenerator(Color color, {double width = 1.5}) {
-  return OutlineInputBorder(
-    borderRadius: const BorderRadius.all(Radius.circular(8)),
-    borderSide: BorderSide(width: width, color: color),
-  );
 }
