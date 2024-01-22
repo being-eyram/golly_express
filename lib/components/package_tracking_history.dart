@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:golly_express/cards/package_card.dart';
 import 'package:golly_express/constants.dart';
@@ -18,11 +19,11 @@ class PackageTrackingHistory extends StatelessWidget {
           Text(
             "Tracking History",
             style: TextStyle(
-              fontSize: 16,
+              fontSize: 15.sp,
               fontWeight: FontWeight.w700,
             ),
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: 16.h),
           // ...recentPackages.map((package) => PackageCard(package: package)),
           ListView.separated(
             physics: NeverScrollableScrollPhysics(),
@@ -37,7 +38,7 @@ class PackageTrackingHistory extends StatelessWidget {
               );
             },
             separatorBuilder: (context, index) {
-              return SizedBox(height: 16);
+              return SizedBox(height: 16.h);
             },
           ),
         ],
@@ -54,22 +55,22 @@ class EmptyTrackingHistory extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           "Tracking History",
           style: TextStyle(
-            fontSize: 17,
+            fontSize: 17.sp,
             fontWeight: FontWeight.w700,
           ),
         ),
-        const SizedBox(height: 24),
+        SizedBox(height: 24.h),
         Center(
           child: Column(
             children: [
               trackingHistoryPackageIcon,
-              const Text(
+              Text(
                 "There are no tracking history",
                 style: TextStyle(
-                  fontSize: 14,
+                  fontSize: 14.sp,
                   fontWeight: FontWeight.w400,
                 ),
               ),
