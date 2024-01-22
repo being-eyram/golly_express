@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AddressLineContainer extends StatelessWidget {
@@ -17,8 +18,13 @@ class AddressLineContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      // padding: EdgeInsets.symmetric(horizontal: 16.w),
-      // margin: EdgeInsets.only(top: 14.h),
+      padding: showBorder
+          ? EdgeInsets.symmetric(
+              vertical: 12.h,
+              horizontal: 16.w,
+            )
+          : null,
+      // margin: showBorder ? EdgeInsets.only(top: 14.h) : null,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8.r),
         border: showBorder
@@ -35,43 +41,48 @@ class AddressLineContainer extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
 
-            // address lines
-            children: [
-              Text(
-                title,
-                style: TextStyle(
-                  color: const Color(0xFFA3ADAA),
-                  fontSize: 13.sp,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-              SizedBox(height: 6.h),
-              Row(
-                children: [
-                  Text(
-                    subtitle,
-                    style: TextStyle(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w400,
-                    ),
+              // address lines
+              children: [
+                Text(
+                  title,
+                  style: TextStyle(
+                    color: const Color(0xFFA3ADAA),
+                    fontSize: 13.sp,
+                    fontWeight: FontWeight.w700,
                   ),
-                ],
-              ),
-            ],
+                ),
+                SizedBox(height: 6.h),
+                Text(
+                  subtitle,
+                  // maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ],
+            ),
           ),
           // const Spacer(),
+          const SizedBox(width: 30),
           InkWell(
-            onTap: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  backgroundColor: Colors.grey[400],
-                  content: const Text("Copied to Clipboard"),
-                  duration: const Duration(milliseconds: 200),
-                ),
-              );
+            //  onTap: () async {
+            // await Clipboard.setData(ClipboardData(text: subtitle)).then((_) {
+            //   ScaffoldMessenger.of(context).showSnackBar(
+            //     SnackBar(
+            //       backgroundColor: Colors.grey[400],
+            //       content: const Text("Copied to Clipboard"),
+            //       duration: const Duration(milliseconds: 200),
+            //     ),
+            //   );
+            // },
+            onTap: () async {
+              await Clipboard.setData(ClipboardData(text: subtitle));
             },
             child: Icon(
               Icons.copy,
