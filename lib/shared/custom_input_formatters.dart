@@ -40,6 +40,23 @@ class PhoneNumberInputFormatter extends TextInputFormatter {
   }
 }
 
+class NameFormatter extends TextInputFormatter {
+  @override
+  TextEditingValue formatEditUpdate(
+      TextEditingValue oldValue, TextEditingValue newValue) {
+    // Capitalize each word in the new text
+    final newText = newValue.text.split(' ').map((word) {
+      if (word.isNotEmpty) {
+        return word[0].toUpperCase() + word.substring(1);
+      } else {
+        return '';
+      }
+    }).join(' ');
+
+    return newValue.copyWith(text: newText);
+  }
+}
+
 class TimeInputFormatter extends TextInputFormatter {
   late RegExp _exp;
   TimeInputFormatter() {
