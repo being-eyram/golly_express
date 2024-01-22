@@ -21,30 +21,33 @@ class HomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final userInfo = ref.watch(userInfoProvider);
 
+    final greeting = ref.watch(greetingProvider);
+
     return Scaffold(
       // bottomNavigationBar: const MainContainer(),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          // reverse: true,
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-              vertical: 32.h,
-              horizontal: 16.w,
-            ),
-            child: userInfo.when(
-              loading: () => const Center(
-                child: CircularProgressIndicator(),
+      body: userInfo.when(
+        loading: () => const Center(
+          child: CircularProgressIndicator(),
+        ),
+        error: (error, stackTrace) =>
+            const Text('Oops, something unexpected happened'),
+        data: (user) => SafeArea(
+          child: SingleChildScrollView(
+            // reverse: true,
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                vertical: 32.h,
+                horizontal: 16.w,
               ),
-              error: (error, stackTrace) =>
-                  const Text('Oops, something unexpected happened'),
-              data: (user) => Column(
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     // greeting(user.fullName),
-                    user.fullName.greet(),
+                    // user.fullName.greetFirstName,
+                    "$greeting, ${user.fullName.first}",
                     style: TextStyle(
-                      fontSize: 20.sp,
+                      fontSize: 18.sp,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
