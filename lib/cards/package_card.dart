@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../model/package.dart';
 
@@ -14,12 +15,12 @@ class PackageCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       // margin: const EdgeInsets.only(bottom: 16),
-      padding: const EdgeInsets.symmetric(
-        horizontal: 16,
-        vertical: 20,
+      padding: EdgeInsets.symmetric(
+        horizontal: 16.w,
+        vertical: 14.h,
       ),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(15.r),
         border: Border.all(
           color: const Color(0xFFEDEFEE),
           width: 1,
@@ -28,7 +29,7 @@ class PackageCard extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            padding: const EdgeInsets.all(16),
+            padding: EdgeInsets.all(14.h),
             alignment: Alignment.center,
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
@@ -38,23 +39,23 @@ class PackageCard extends StatelessWidget {
             child: package.icon,
             // child: const Icon(Icons.card_giftcard),
           ),
-          const SizedBox(width: 16),
+          SizedBox(width: 16.w),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 package.name!,
-                style: const TextStyle(
-                  fontSize: 15,
+                style: TextStyle(
+                  fontSize: 14.sp,
                   fontWeight: FontWeight.w400,
                 ),
               ),
-              const SizedBox(height: 7),
+              SizedBox(height: 6.h),
               Text(
                 package.id!,
-                style: const TextStyle(
-                  color: Color(0xFFA3ADAA),
-                  fontSize: 14,
+                style: TextStyle(
+                  color: const Color(0xFFA3ADAA),
+                  fontSize: 13.sp,
                   fontWeight: FontWeight.w400,
                 ),
               ),
