@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:golly_express/components/tracking_number_field.dart';
 
 class TrackPackageCard extends StatelessWidget {
@@ -13,12 +14,12 @@ class TrackPackageCard extends StatelessWidget {
       // width: double.infinity,
       decoration: BoxDecoration(
         color: const Color(0xFFE6EDB7),
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(15.r),
       ),
-      child: const Padding(
+      child: Padding(
         padding: EdgeInsets.symmetric(
-          vertical: 24.0,
-          horizontal: 16.0,
+          vertical: 20.h,
+          horizontal: 16.w,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -26,20 +27,20 @@ class TrackPackageCard extends StatelessWidget {
             Text(
               "Track your package",
               style: TextStyle(
-                fontSize: 18,
+                fontSize: 16.sp,
                 fontWeight: FontWeight.w800,
               ),
             ),
-            SizedBox(height: 8),
+            SizedBox(height: 8.h),
             Text(
               "Enter tracking number and find your order",
               style: TextStyle(
-                fontSize: 15,
+                fontSize: 14.sp,
                 fontWeight: FontWeight.w400,
               ),
             ),
-            SizedBox(height: 24),
-            TrackingNumberSearchField()
+            SizedBox(height: 20.h),
+            const TrackingNumberSearchField()
           ],
         ),
       ),
