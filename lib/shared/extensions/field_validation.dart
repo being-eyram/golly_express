@@ -70,7 +70,7 @@ String? validatePhoneNumber(String value) {
   if (value.isEmpty) {
     return "Enter your phone number";
   }
-  if (value.length != 9) {
+  if (value.length != 11) {
     //excluding 0
     return "Invalid Phone Number";
   }
