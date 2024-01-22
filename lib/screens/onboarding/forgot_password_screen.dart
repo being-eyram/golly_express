@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:golly_express/components/custom_button.dart';
 import 'package:golly_express/providers/forgot_password_provider.dart';
 import 'package:golly_express/providers/onboarding_providers.dart';
+import 'package:golly_express/shared/app_routes.dart';
+import 'package:golly_express/shared/utils/show_dialog.dart';
 
 enum OtpOption { sms, email }
 
@@ -13,177 +16,176 @@ class ForgotPasswordScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final isEnabled = ref.watch(selectedOtpOption.notifier).state != null;
-    final isLoading = ref.watch(isLoadingProvider);
     const email = "kelvinagbenyo@gmail.com";
-    final forgotPassword = ref.watch(forgotPasswordProvider(email));
+
+    final forgotPasswordState = ref.watch(forgotPasswordProvider);
+    ref.listen(forgotPasswordProvider, (previous, next) {
+      next.when(
+        data: (data) {
+          debugPrint("OTP sent via email");
+          return context.push(
+            AppRoutes.otpScreen,
+            extra: data!.data.resetToken,
+          );
+        },
+        error: (err, __) {
+          final errMessage = err.toString().split(':')[1].trim();
+          dialogg(
+            context,
+            title: 'Error',
+            content: errMessage,
+          );
+        },
+        loading: () {},
+      );
+    });
 
     return Scaffold(
-      bottomNavigationBar: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const Divider(
-            color: Color(0xFFEDEFEE),
-          ),
-          const SizedBox(height: 6),
-          Padding(
-            padding: const EdgeInsets.only(left: 16, right: 16, bottom: 24),
-            child: CustomButton(
-              isLoading: isLoading,
-              borderRadius: 8,
-              buttonText: "Next",
-              isEnabled: isEnabled,
-              onPressed: isEnabled
-                  ? () {
-                      ref.read(isLoadingProvider.notifier).state = true;
-                      forgotPassword.when(
-                        data: (data) {
-                          ref.read(isLoadingProvider.notifier).state = false;
-                          return context.push("/otpScreen");
-                        },
-                        error: (error, stackTrace) {
-                          ref.read(isLoadingProvider.notifier).state = false;
-
-                          // final errorMessage =
-                          //     error.toString().split(':')[1].trim();
-                          const errorMessage =
-                              "Failed to reset password. Please try again.";
-                          showDialog(
-                            barrierDismissible: false,
-                            context: context,
-                            builder: (BuildContext context) => AlertDialog(
-                              title: const Text('Error'),
-                              content: const Text(errorMessage),
-                              actions: <Widget>[
-                                IconButton(
-                                  icon: const Icon(Icons.close),
-                                  onPressed: () {
-                                    // Navigator.pop(context);
-                                    context.go("/login");
-                                  },
-                                )
-                              ],
-                            ),
-                          );
-                        },
-                        loading: () {},
-                      );
-                    }
-                  : null,
-            ),
-          )
-        ],
-      ),
       appBar: AppBar(
         leading: IconButton(
           onPressed: () => context.pop(),
-          icon: const Icon(
+          icon: Icon(
             Icons.arrow_back_ios_new,
-            size: 20,
+            size: 20.w,
           ),
         ),
       ),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: SizedBox(
-            height: MediaQuery.of(context).size.height,
-            child: Column(
-              // crossAxisAlignment: CrossAxisAlignment.start,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Padding(
+              padding: EdgeInsets.all(16.w),
+              child: Column(
+                children: [
+                  Text(
+                    "Forgot Password",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 20.sp,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                  SizedBox(height: 8.h),
+                  const Text(
+                    "Select which contact details should we use to reset your password",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(),
+                  ),
+                  SizedBox(height: 32.h),
+
+                  // OTP via SMS
+                  InkWell(
+                    onTap: () {
+                      ref.read(selectedOtpOption.notifier).state =
+                          OtpOption.sms;
+                    },
+                    borderRadius: BorderRadius.circular(8.r),
+                    child: Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.all(16.h),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8.r),
+                        border: Border.all(
+                          color: ref.watch(selectedOtpOption) == OtpOption.sms
+                              ? const Color(0xFF557A46)
+                              : const Color(0xFFEDEFEE),
+                          width: 1.5,
+                        ),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            "Send OTP via SMS",
+                            style: TextStyle(
+                              color: Color(0xFFA3ADAA),
+                            ),
+                          ),
+                          SizedBox(height: 4.h),
+                          const Text(
+                            "+233 57 159 2866",
+                            style: TextStyle(),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 16.h),
+
+                  // OTP via Email
+                  InkWell(
+                    onTap: () {
+                      ref.read(selectedOtpOption.notifier).state =
+                          OtpOption.email;
+                    },
+                    borderRadius: BorderRadius.circular(8.r),
+                    child: Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.all(16.h),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8.r),
+                        border: Border.all(
+                          color: ref.watch(selectedOtpOption) == OtpOption.email
+                              ? const Color(0xFF557A46)
+                              : const Color(0xFFEDEFEE),
+                          width: 1.5,
+                        ),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            "Send OTP via Email",
+                            style: TextStyle(
+                              color: Color(0xFFA3ADAA),
+                            ),
+                          ),
+                          SizedBox(height: 4.h),
+                          const Text(
+                            "benaaron866@gmail.com",
+                            style: TextStyle(),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+
+            // Verify Button
+            Column(
+              mainAxisSize: MainAxisSize.min,
               children: [
-                const Text(
-                  "Forgot Password",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w800,
+                const Divider(
+                  color: Color(0xFFEDEFEE),
+                  height: 0,
+                ),
+                SizedBox(height: 6.h),
+                Padding(
+                  padding: EdgeInsets.only(
+                    left: 16.w,
+                    right: 16.w,
+                    bottom: 24.h,
                   ),
-                ),
-                const SizedBox(height: 8.0),
-                const Text(
-                  "Select which contact details should we use to reset your password",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(),
-                ),
-                const SizedBox(height: 32),
-
-                // OTP via SMS
-                InkWell(
-                  onTap: () {
-                    ref.read(selectedOtpOption.notifier).state = OtpOption.sms;
-                  },
-                  borderRadius: BorderRadius.circular(8),
-                  child: Container(
-                    width: double.infinity,
-                    padding: const EdgeInsets.all(16),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      border: Border.all(
-                        color: ref.watch(selectedOtpOption) == OtpOption.sms
-                            ? const Color(0xFF557A46)
-                            : const Color(0xFFEDEFEE),
-                        width: 1.5,
-                      ),
-                    ),
-                    child: const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Send OTP via SMS",
-                          style: TextStyle(
-                            color: Color(0xFFA3ADAA),
-                          ),
-                        ),
-                        SizedBox(height: 4),
-                        Text(
-                          "+233 57 159 2866",
-                          style: TextStyle(),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 16),
-
-                // OTP via Email
-                InkWell(
-                  onTap: () {
-                    ref.read(selectedOtpOption.notifier).state =
-                        OtpOption.email;
-                  },
-                  borderRadius: BorderRadius.circular(8),
-                  child: Container(
-                    width: double.infinity,
-                    padding: const EdgeInsets.all(16),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      border: Border.all(
-                        color: ref.watch(selectedOtpOption) == OtpOption.email
-                            ? const Color(0xFF557A46)
-                            : const Color(0xFFEDEFEE),
-                        width: 1.5,
-                      ),
-                    ),
-                    child: const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Send OTP via Email",
-                          style: TextStyle(
-                            color: Color(0xFFA3ADAA),
-                          ),
-                        ),
-                        SizedBox(height: 4),
-                        Text(
-                          "benaaron866@gmail.com",
-                          style: TextStyle(),
-                        ),
-                      ],
-                    ),
+                  child: CustomButton(
+                    isLoading: forgotPasswordState.isLoading,
+                    borderRadius: 8.r,
+                    buttonText: "Next",
+                    isEnabled: isEnabled,
+                    onPressed: isEnabled
+                        ? () async {
+                            await ref
+                                .read(forgotPasswordProvider.notifier)
+                                .forgotPassword(email: email);
+                          }
+                        : () {},
                   ),
                 )
               ],
             ),
-          ),
+          ],
         ),
       ),
     );
