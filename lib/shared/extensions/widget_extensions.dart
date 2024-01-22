@@ -44,6 +44,33 @@ extension InkWellExtension on Widget {
   }
 }
 
+// STRING EXTENSIONS
+extension ImagePath on String {
+  String get png => 'lib/assets/images/$this.png';
+  String get jpg => 'lib/assets/images/$this.jpg';
+  String get gif => 'lib/assets/images/$this.gif';
+}
+
+extension IconPath on String {
+  String get iconPng => 'lib/assets/icons/$this.png';
+  String get iconSvg => 'lib/assets/icons/$this.svg';
+}
+
+extension ImageExtension on String {
+  Image myImage({
+    Color? color,
+    double? height,
+    BoxFit? fit,
+  }) {
+    return Image.asset(
+      this,
+      height: height,
+      fit: fit,
+      color: color,
+    );
+  }
+}
+
 // ALIGNMENT EXTENSIONS
 extension AlignExtension on Widget {
   Align align(Alignment alignment) {
