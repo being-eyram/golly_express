@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:golly_express/navigation/router.dart';
@@ -26,7 +27,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final baseTextTheme = Theme.of(context).textTheme;
-
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+      ),
+    );
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: false,
@@ -58,8 +63,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
           colorScheme: ColorScheme.fromSeed(
             seedColor: const Color(0xFF557A46),
-          ).copyWith(
-            background: Colors.white,
+            // background: Colors.transparent,
           ),
         ),
         routerConfig: appRouter,
