@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:golly_express/components/package_tracking_details.dart';
 import 'package:golly_express/constants.dart';
@@ -20,89 +21,92 @@ class CurrentShipmentScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            Text(
               "Current Shipment",
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 16.sp,
                 fontWeight: FontWeight.w700,
               ),
             ),
-            const SizedBox(height: 16.0),
-            Stack(
-              // alignment: Alignment.topRight,
-              children: [
-                Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    color: const Color(0xFFFAFBFB),
-                    // color: Colors.grey,
-                  ),
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        "Product Name Goes Here",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                      const SizedBox(height: 7),
-                      const Text(
-                        "#1234455",
-                        style: TextStyle(
-                          fontSize: 13,
-                          fontWeight: FontWeight.w700,
-                          color: Color(0xFFA3ADAA),
-                        ),
-                      ),
-                      const SizedBox(height: 40.0),
-                      FilledButton(
-                        style: FilledButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 12.0,
-                            vertical: 8.0,
+            SizedBox(height: 16.h),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(15),
+              child: Stack(
+                // alignment: Alignment.topRight,
+                children: [
+                  Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: const Color(0xFFFAFBFB),
+                      // color: Colors.grey,
+                    ),
+                    padding: EdgeInsets.all(16.h),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          "Product Name Goes Here",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w700,
                           ),
-                          foregroundColor: const Color(0xFF398B79),
-                          backgroundColor: const Color(0xFFE3F2EF),
                         ),
-                        onPressed: () {},
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            const Text("Received in Office"),
-                            const SizedBox(width: 10),
-                            Container(
-                              alignment: Alignment.center,
-                              // height: 16,
-                              // width: 16,
-                              padding: const EdgeInsets.all(3),
-                              decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.white,
-                              ),
-                              child: const Icon(
-                                Icons.arrow_forward_ios,
-                                size: 10,
-                              ),
+                        SizedBox(height: 7.h),
+                        Text(
+                          "#1234455",
+                          style: TextStyle(
+                            fontSize: 13.sp,
+                            fontWeight: FontWeight.w700,
+                            color: const Color(0xFFA3ADAA),
+                          ),
+                        ),
+                        SizedBox(height: 40.h),
+                        FilledButton(
+                          style: FilledButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 12.0,
+                              vertical: 8.0,
                             ),
-                          ],
+                            foregroundColor: const Color(0xFF398B79),
+                            backgroundColor: const Color(0xFFE3F2EF),
+                          ),
+                          onPressed: () {},
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              const Text("Received in Office"),
+                              SizedBox(width: 10.w),
+                              Container(
+                                alignment: Alignment.center,
+                                // height: 16,
+                                // width: 16,
+                                padding: const EdgeInsets.all(3),
+                                decoration: const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.white,
+                                ),
+                                child: const Icon(
+                                  Icons.arrow_forward_ios,
+                                  size: 10,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
 
-                //TODO: properly position the package icon in container and respect border radius
-                Positioned(
-                  bottom: -60,
-                  right: -60,
-                  child: packageVector,
-                ),
-              ],
+                  //TODO: properly position the package icon in container and respect border radius
+                  Positioned(
+                    bottom: -60,
+                    right: -60,
+                    child: packageVector,
+                  ),
+                ],
+              ),
             ),
-            const SizedBox(height: 24),
+            SizedBox(height: 24.h),
             const PackageTrackingDetails(),
           ],
         ),
