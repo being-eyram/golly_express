@@ -43,10 +43,7 @@ Future<dynamic> errorDialogg(
       actions: <Widget>[
         IconButton(
           icon: const Icon(Icons.close),
-          onPressed: onPressed ??
-              () {
-                Navigator.pop(context);
-              },
+          onPressed: onPressed ?? () => Navigator.pop(context),
         )
       ],
     ),
@@ -69,10 +66,7 @@ Future<dynamic> successDialogg(
       actions: <Widget>[
         IconButton(
           icon: const Icon(Icons.arrow_forward),
-          onPressed: onPressed ??
-              () {
-                Navigator.pop(context);
-              },
+          onPressed: onPressed ?? () => Navigator.pop(context),
         )
       ],
     ),
