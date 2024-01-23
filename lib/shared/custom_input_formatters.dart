@@ -38,7 +38,35 @@ class PhoneNumberInputFormatter extends TextInputFormatter {
 
     return newValue;
   }
+
+  static String getUnmaskedValue(String formattedValue) {
+    return formattedValue.replaceAll(RegExp(r'\D'), '');
+  }
 }
+
+// class PhoneNumberFormatter extends TextInputFormatter {
+//   @override
+//   TextEditingValue formatEditUpdate(
+//     TextEditingValue oldValue,
+//     TextEditingValue newValue,
+//   ) {
+//     // Remove any non-digit characters
+//     String newText = newValue.text.replaceAll(RegExp(r'\D'), '');
+
+//     // Add space after every 3 characters
+//     newText = newText.replaceAllMapped(RegExp(r'^(\d{3})(\d{3})(\d{3})$'),
+//         (Match match) => '${match[1]} ${match[2]} ${match[3]}');
+
+//     return newValue.copyWith(
+//       text: newText,
+//       selection: TextSelection.collapsed(offset: newText.length),
+//     );
+//   }
+
+//   String getUnmaskedValue(String maskedValue) {
+//     return maskedValue.replaceAll(RegExp(r'\D'), '');
+//   }
+// }
 
 class NameFormatter extends TextInputFormatter {
   @override
