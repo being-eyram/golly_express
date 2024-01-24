@@ -25,14 +25,15 @@ class HomeScreen extends ConsumerWidget {
 
     return Scaffold(
       // bottomNavigationBar: const MainContainer(),
-      body: userInfo.when(
-        loading: () => const Center(
-          child: CircularProgressIndicator(),
-        ),
-        error: (error, stackTrace) =>
-            const Text('Oops, something unexpected happened'),
-        data: (user) => SafeArea(
-          child: SingleChildScrollView(
+      body: SafeArea(
+        child: userInfo.when(
+          loading: () => const Center(
+            child: CircularProgressIndicator(),
+          ),
+          error: (error, stackTrace) => const Center(
+            child: Text('Oops, something unexpected happened'),
+          ),
+          data: (user) => SingleChildScrollView(
             // reverse: true,
             child: Padding(
               padding: EdgeInsets.symmetric(
