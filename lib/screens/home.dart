@@ -10,6 +10,7 @@ import 'package:golly_express/components/package_tracking_history.dart';
 import 'package:golly_express/constants.dart';
 import 'package:golly_express/model/package.dart';
 import 'package:golly_express/providers/user_info_provider.dart';
+import 'package:golly_express/shared/app_routes.dart';
 import 'package:golly_express/shared/extensions/string_extensions.dart';
 
 class HomeScreen extends ConsumerWidget {
@@ -60,7 +61,7 @@ class HomeScreen extends ConsumerWidget {
                       // ? const SizedBox(height: 50)
                       ? const AddressDropdown()
                       : VerifyIDCard(
-                          onTap: () => context.push("/verifyID"),
+                          onTap: () => context.push(AppRoutes.verifyID),
                         ),
 
                   SizedBox(height: 16.h),
@@ -74,7 +75,7 @@ class HomeScreen extends ConsumerWidget {
                         cardColor: const Color(0xFFFFFBEE),
                         cardIcon: calculatorIcon,
                         iconContainerColor: const Color(0xFFFFC727),
-                        onTap: () => context.push("/calculateEstimate"),
+                        onTap: () => context.push(AppRoutes.calculateEstimate),
                       ),
                       SizedBox(width: 10.w),
                       IconWithTextCard(
@@ -82,7 +83,7 @@ class HomeScreen extends ConsumerWidget {
                         cardColor: const Color(0xFFFFE6E2),
                         cardIcon: cargoShipIcon,
                         iconContainerColor: const Color(0xFFB35042),
-                        onTap: () => context.push("/createShipment"),
+                        onTap: () => context.push(AppRoutes.createShipment),
                       ),
                     ],
                   ),
