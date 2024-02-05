@@ -17,10 +17,7 @@ Future<dynamic> dialogg(
       actions: <Widget>[
         IconButton(
           icon: Icon(icon),
-          onPressed: onPressed ??
-              () {
-                Navigator.pop(context);
-              },
+          onPressed: onPressed ?? () => Navigator.pop(context),
         )
       ],
     ),
