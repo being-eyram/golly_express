@@ -32,8 +32,14 @@ import 'package:golly_express/screens/profile%20screen/notifications_screen.dart
 import 'package:golly_express/screens/profile%20screen/profile_screen.dart';
 import 'package:golly_express/shared/app_routes.dart';
 
+// final userToken = getUserBearerToken();
+
 final GoRouter appRouter = GoRouter(
-  initialLocation: isOnboarded == null ? AppRoutes.onboard : AppRoutes.login,
+  initialLocation: isOnboarded == null
+      ? AppRoutes.onboard
+      : isLoggedIn == null
+          ? AppRoutes.login
+          : AppRoutes.mainContainer,
   // initialLocation: "/mainContainer",
   // initialLocation: "/onboarding",
   routes: <RouteBase>[
