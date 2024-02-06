@@ -7,11 +7,18 @@ import 'package:golly_express/shared_prefs/shared_prefs.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 bool? isOnboarded;
+bool? isLoggedIn;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   isOnboarded = await getUserOnboardStatus();
+  // final bearerToken = await getUserBearerToken();
+  // isLoggedIn = await getLoginStatus();
+  isLoggedIn = await loginStatus();
   await setUserOnboardStatus(true);
+
+  // debugPrint("bearer token: $bearerToken");
+  // debugPrint("login status: $isLoggedIn");
 
   runApp(
     const ProviderScope(
@@ -49,10 +56,10 @@ class MyApp extends StatelessWidget {
           ),
           // dividerColor: Colors.grey.shade300,
           fontFamily: GoogleFonts.dmSans().fontFamily,
-          appBarTheme: const AppBarTheme(
-            color: Colors.transparent,
-            surfaceTintColor: Colors.transparent,
-          ),
+          // appBarTheme: const AppBarTheme(
+          //   color: Colors.transparent,
+          //   surfaceTintColor: Colors.transparent,
+          // ),
           textTheme: GoogleFonts.dmSansTextTheme(baseTextTheme),
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ElevatedButton.styleFrom(
