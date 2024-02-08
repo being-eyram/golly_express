@@ -38,13 +38,11 @@ class GollyApiService {
   }
 
 // REGISTER/SIGN UP REQUEST FUNCTION
-  Future<AuthResponse> signupUser({
-    required SignUpRequest body,
-  }) async {
+  Future<AuthResponse> signupUser({required AuthRequest requestBody}) async {
     return await _client
         .post(
           Endpoints.signup,
-          body: jsonEncode(body.toJson()),
+          body: jsonEncode(requestBody.toJson()),
         )
         .then(_decodeResponse)
         .then((json) => AuthResponse.fromJson(json))
@@ -115,7 +113,7 @@ class GollyApiService {
         return resetResponse;
       } else {
         throw Exception(
-            'Failed to reset password. Status code: {$response.statusCode}');
+            'Failed to reset password. Status code: ${response.statusCode}');
       }
     } catch (e) {
       throw ('Exception: $e');
@@ -142,7 +140,7 @@ class GollyApiService {
         return userInfo;
       } else {
         throw Exception(
-            'Failed to load user info. Status Code: {$response.statusCode}');
+            'Failed to load user info. Status Code: ${response.statusCode}');
       }
     } catch (e) {
       throw ('Exception: $e');
@@ -177,8 +175,6 @@ class GollyApiService {
   // DECODE RESPONSE FUNCTION
   Future<dynamic> _decodeResponse(http.Response response) async {
     final json = jsonDecode(response.body);
-    // print(json);
-    // print("your bearer token is: ${json['data']['token']}");
     if (response.didSucceed) return json;
 
     throw HttpException(json['message']);
