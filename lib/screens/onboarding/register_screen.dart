@@ -44,7 +44,6 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
           ),
         ),
       ),
-      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Container(
           height: context.height,
@@ -130,6 +129,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                         FilteringTextInputFormatter.allow(RegExp(r"[0-9]")),
                         LengthLimitingTextInputFormatter(9),
                         PhoneNumberInputFormatter(),
+                        // PhoneNumberFormatter(),
                       ],
                     ),
                   ],
@@ -141,10 +141,14 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                   isEnabled: true,
                   buttonText: "Next",
                   onPressed: () {
+                    final unmaskedPhoneNumber =
+                        PhoneNumberInputFormatter.getUnmaskedValue(
+                            phoneNumberController.text);
+                    final phoneNumber = "0$unmaskedPhoneNumber";
                     if (formKey.currentState!.validate()) {
                       AuthRequest req = AuthRequest(
                         email: emailController.text,
-                        phoneNumber: phoneNumberController.text,
+                        phoneNumber: phoneNumber,
                         fullName: fullNameController.text,
                         password: "",
                       );
