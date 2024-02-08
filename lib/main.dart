@@ -17,9 +17,6 @@ Future<void> main() async {
   isLoggedIn = await loginStatus();
   await setUserOnboardStatus(true);
 
-  // debugPrint("bearer token: $bearerToken");
-  // debugPrint("login status: $isLoggedIn");
-
   runApp(
     const ProviderScope(
       child: MyApp(),
