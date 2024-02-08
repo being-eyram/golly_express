@@ -6,16 +6,15 @@ import 'package:golly_express/network/api/response_models/auth_response.dart';
 import 'package:golly_express/network/api/services/api_service.dart';
 import 'package:golly_express/shared_prefs/shared_prefs.dart';
 
-typedef AsyncLoginProvider = AsyncNotifierProvider<AuthNotifier, AuthResponse?>;
+typedef AuthNotifier
+    = AutoDisposeAsyncNotifierProvider<AuthController, AuthResponse?>;
 
-final asyncAuthProvider = AsyncLoginProvider(() => AuthNotifier());
+final authControllerProvider = AuthNotifier(() => AuthController());
 
 // final apiServiceProvider = Provider((ref) => GollyApiService());
-class AuthNotifier extends AsyncNotifier<AuthResponse?> {
+class AuthController extends AutoDisposeAsyncNotifier<AuthResponse?> {
   @override
-  FutureOr<AuthResponse?> build() {
-    return null;
-  }
+  FutureOr<AuthResponse?> build() => null;
 
   Future<AuthResponse?> loginUser({required AuthRequest requestBody}) async {
     final apiService = ref.read(apiServiceProvider);
@@ -23,34 +22,18 @@ class AuthNotifier extends AsyncNotifier<AuthResponse?> {
     state = await AsyncValue.guard(
       () => apiService.loginUser(requestBody: requestBody),
     );
-    // ref.read(bearerTokenProvider.notifier).state = state.value?.token.token;
     await setUserBearerToken(state.value!.token.token);
+    await setLoginStatus(true);
     return state.value;
   }
 
-  Future<AuthResponse?> signupUser(AuthRequest request) async {
+  Future<AuthResponse?> signupUser(AuthRequest body) async {
     final apiService = ref.read(apiServiceProvider);
-    final requestBody = SignUpRequest(
-      email: request.email,
-      password: request.password,
-      phoneNumber: request.phoneNumber!,
-      fullName: request.fullName!,
-    );
     state = const AsyncLoading();
     state = await AsyncValue.guard(
-      () => apiService.signupUser(body: requestBody),
+      () => apiService.signupUser(requestBody: body),
     );
 
     return state.value;
   }
-
-  // Future<AuthResponse?> forgotPassword({required String email}) async {
-  //   final apiService = ref.read(apiServiceProvider);
-  //   state = const AsyncLoading();
-  //   state = await AsyncValue.guard(
-  //     () => apiService.forgotPassword(email: email),
-  //   );
-  //   print(state.value);
-  //   return state.value;
-  // }
 }
