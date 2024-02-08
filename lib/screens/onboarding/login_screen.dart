@@ -29,15 +29,18 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   void initState() {
     emailController = TextEditingController();
     passwordController = TextEditingController();
+    // removeUserBearerToken();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    final loginState = ref.watch(asyncAuthProvider);
-    ref.listen(asyncAuthProvider, (previous, loginState) {
+    final loginState = ref.watch(authControllerProvider);
+    ref.listen(authControllerProvider, (previous, loginState) {
       loginState.when(
-        data: (_) => context.go(AppRoutes.mainContainer),
+        data: (_) {
+          context.go(AppRoutes.mainContainer);
+        },
         error: (error, __) {
           final errMessage = error.toString().split(':')[1].trim();
           dialogg(
@@ -137,7 +140,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                               password: passwordController.text,
                             );
                             await ref
-                                .read(asyncAuthProvider.notifier)
+                                .read(authControllerProvider.notifier)
                                 .loginUser(requestBody: userCredentials);
                           },
                         ),
@@ -222,8 +225,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                                   BorderRadius.all(Radius.circular(8.r)),
                             ),
                           ),
-                          onPressed: () =>
-                              context.push(AppRoutes.resetPassword),
+                          onPressed: () => context.go(AppRoutes.login),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
