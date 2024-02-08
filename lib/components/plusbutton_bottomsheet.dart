@@ -14,7 +14,7 @@ class PlusBottomSheet extends StatelessWidget {
       // height: 350,
       margin: const EdgeInsets.all(20),
       padding: const EdgeInsets.symmetric(
-        horizontal: 32,
+        horizontal: 28,
         vertical: 16,
       ),
       decoration: BoxDecoration(
@@ -47,14 +47,15 @@ class PlusBottomSheet extends StatelessWidget {
                 "Close",
                 style: TextStyle(
                   color: Color(0xFFA3ADAA),
-                  fontSize: 14,
-                  fontWeight: FontWeight.w700,
+                  fontSize: 13,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),
           ),
           const SizedBox(height: 16),
           ListTile(
+            dense: true,
             onTap: () => context.push("/createShipment"),
             minLeadingWidth: 50,
             contentPadding: const EdgeInsets.all(0),
@@ -68,18 +69,19 @@ class PlusBottomSheet extends StatelessWidget {
             ),
             title: const Text(
               "Create Shipment",
-              style: TextStyle(fontSize: 16),
+              style: TextStyle(fontSize: 15),
             ),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 12),
           const Divider(
             thickness: 1.5,
             height: 0,
             // color: Color(0xFFF6F7F6),
             color: Color(0xFFEDEFEE),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 12),
           ListTile(
+            dense: true,
             onTap: () => context.push("/calculateEstimate"),
             minLeadingWidth: 50,
             contentPadding: const EdgeInsets.all(0),
@@ -93,7 +95,7 @@ class PlusBottomSheet extends StatelessWidget {
             ),
             title: const Text(
               "Calculate Estimate",
-              style: TextStyle(fontSize: 16),
+              style: TextStyle(fontSize: 15),
             ),
           ),
           const SizedBox(
